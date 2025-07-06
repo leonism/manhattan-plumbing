@@ -10,6 +10,22 @@
 ---
 
 ## 📄 Table of Contents
+<div align="center">
+  <h1>Manhattan Plumbing</h1>
+  <p><strong>A modern, multilingual blog platform built with Astro.js</strong></p>
+
+  [![React](https://img.shields.io/badge/React-18.3.1-FF5D01?style=flat&logo=astro&logoColor=white)](https://react.dev)
+  [![TypeScript](https://img.shields.io/badge/TypeScript-5.0+-3178C6?style=flat&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
+  [![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-3.4.17-38B2AC?style=flat&logo=tailwind-css&logoColor=white)](https://tailwindcss.com)
+  [![License](https://img.shields.io/badge/License-ISC-blue.svg)](LICENSE)
+
+  <!-- Additional new badges below -->
+  [![Cloudflare Pages](https://img.shields.io/badge/Deployed%20on-Cloudflare_Pages-F38020?style=flat&logo=cloudflare&logoColor=white)](https://pages.cloudflare.com/)
+  [![Vercel](https://img.shields.io/badge/Preview-Vercel-000000?style=flat&logo=vercel&logoColor=white)](https://vercel.com/)
+  [![Dark Mode](https://img.shields.io/badge/Dark_Mode-Enabled-000000?style=flat)](#)
+</div>
+
+## Table of Contents
 
 - [About](#about)
 - [Tech Stack](#tech-stack)
