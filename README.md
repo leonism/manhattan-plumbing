@@ -1,131 +1,123 @@
-# Plumbing Work Vue
 
-A modern Vue.js application for plumbing services with news/blog functionality.
+# Manhattan Plumbing 🚰
 
-## Table of Contents
+![Vite](https://img.shields.io/badge/built%20with-Vite-646CFF.svg?style=flat-square&logo=vite&logoColor=white)
+![TypeScript](https://img.shields.io/badge/language-TypeScript-3178C6.svg?style=flat-square&logo=typescript&logoColor=white)
+![React](https://img.shields.io/badge/framework-React-61DAFB.svg?style=flat-square&logo=react&logoColor=white)
 
-- [Prerequisites](#prerequisites)
-- [Installation](#installation)
-- [Development](#development)
-- [Building for Production](#building-for-production)
-- [Deployment](#deployment)
+> A fast, scalable plumbing-website starter built with Vite, React, and TypeScript — optimized for performance, maintainability, and future scalability.
+
+---
+
+## 📄 Table of Contents
+
+- [About](#about)
+- [Tech Stack](#tech-stack)
+- [Features](#features)
+- [Getting Started](#getting-started)
+- [Available Scripts](#available-scripts)
 - [Project Structure](#project-structure)
-- [Environment Variables](#environment-variables)
-- [Testing](#testing)
-- [Troubleshooting](#troubleshooting)
+- [Contributing](#contributing)
+- [License](#license)
 
-## Prerequisites
+---
 
-- Node.js v16+ (recommended v20+)
-- npm v8+ or yarn v1.22+
-- Git
+## 💧 About
 
-## Installation
+**Manhattan Plumbing** is a powerful, Vite-powered React and TypeScript starter template tailored for plumbing services or small business websites. It leverages modern tooling and optimizations for rapid development, SEO performance, and efficient content workflows.
 
-1. Clone the repository:
+---
 
-   ```bash
-   git clone https://github.com/your-repo/plumbing-work-vue.git
-   cd plumbing-work-vue
-   ```
+## 🧩 Tech Stack
 
-2. Install dependencies:
+- **Vite** — lightning-fast dev builds
+- **React 18** + **TypeScript** — typed components & reliability
+- **Tailwind CSS** — atomic utility-first CSS
+- **MDX / Markdown** — flexible content authoring
+- **React Router** — client-side navigation
+- **Image tooling** — `imagemin`, `sharp`, WebP pipeline
+- **SEO & metadata** — `react-helmet-async`, Sitemap & RSS
+- **Quality tooling** — ESLint, Prettier, TypeScript ESLint
 
-   ```bash
-   npm install
-   # or
-   yarn install
-   ```
+---
 
-3. Create a `.env` file in the root directory (see [Environment Variables](#environment-variables))
+## ✨ Features
 
-## Development
+- 🚀 Super-fast development with Vite and HMR
+- 🔒 Fully typed React components via TypeScript
+- 🎨 Tailwind CSS utility classes for responsive design
+- 📄 MDX/Markdown support with front-matter parsing
+- 🗺️ SEO-friendly features: sitemap, RSS, metadata injection
+- 🖼️ Optimized build: compression, minification, WebP image formats
+- 🧹 Linting and formatting out of the box
 
-To start the development server:
+---
+
+## 🚀 Getting Started
+
+### Clone & Install
+
+```bash
+git clone https://github.com/leonism/manhattan-plumbing.git
+cd manhattan-plumbing
+npm install
+````
+
+### Development
 
 ```bash
 npm run dev
-# or
-yarn dev
 ```
 
-The application will be available at `http://localhost:5173`
-
-## Building for Production
-
-To build for production:
-
-```bash
-npm run build
-# or
-yarn build
-```
-
-The built files will be in the `dist/` directory.
-
-## Deployment
-
-### Static Hosting (Vercel, Netlify, GitHub Pages)
-
-1. Configure your static hosting provider to:
-
-   - Build command: `npm run build` or `yarn build`
-   - Publish directory: `dist`
-
-2. Set up any required environment variables
-
-### Docker
-
-1. Build the Docker image:
-
-   ```bash
-   docker build -t plumbing-work-vue .
-   ```
-
-2. Run the container:
-   ```bash
-   docker run -p 8080:80 plumbing-work-vue
-   ```
-
-## Project Structure
+Development server starts at:
 
 ```
-plumbing-work-vue/
-├── src/
-│   ├── components/    # Reusable components
-│   ├── content/       # Markdown content
-│   ├── hooks/         # Custom React hooks
-│   ├── pages/         # Page components
-│   ├── sections/      # Section components
-│   ├── types/         # Type definitions
-│   ├── App.tsx        # Main app component
-│   └── main.tsx       # App entry point
+http://localhost:5173
+```
+
+---
+
+## ⚙️ Available Scripts
+
+| Script                     | Description                                   |
+| -------------------------- | --------------------------------------------- |
+| `npm run dev`              | Start the development server                  |
+| `npm run build`            | Build for production + generate sitemap & RSS |
+| `npm run preview`          | Preview production build                      |
+| `npm run lint`             | Run ESLint checks                             |
+| `npm run generate`         | Generate sitemap and RSS feed                 |
+| `npm run generate:sitemap` | Generate `sitemap.xml`                        |
+| `npm run generate:rss`     | Generate RSS feed files                       |
+
+---
+
+## 🗂 Project Structure
+
+```text
+.
 ├── public/            # Static assets
-├── scripts/           # Build scripts
-└── ...                # Configuration files
+├── src/               # Application source
+│   ├── components/    # UI components
+│   ├── pages/         # Route-based pages
+│   ├── styles/        # Tailwind / global styles
+│   ├── content/       # MDX/Markdown files
+│   ├── utils/         # Utility functions
+│   └── main.tsx       # Entrypoint
+├── scripts/           # Sitemap & RSS generators
+├── package.json
+├── tailwind.config.js
+├── tsconfig.json
+└── vite.config.ts
 ```
 
-## Environment Variables
+---
 
-Create a `.env` file in the root directory with these variables:
+## 🤝 Contributing
 
-```
-VITE_API_URL=https://api.example.com
-VITE_GA_TRACKING_ID=UA-XXXXX-Y
-```
+Contributions welcome! Please submit issues or pull requests for bug fixes, improvements, or ideas. We aim to build a robust, future-proof starter together.
 
-## Testing
+---
 
-To run tests:
+## 📄 License
 
-```bash
-npm run test
-# or
-yarn test
-```
-
-## Troubleshooting
-
-- **Dependency issues**: Try deleting `node_modules` and `package-lock.json` then reinstall
-- **Build errors**: Check Node.js version compatibility
-- **Markdown content not loading**: Verify file paths in content directory
+Distributed under the [MIT License](LICENSE).
