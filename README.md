@@ -108,13 +108,13 @@ The built files will be in the `dist/` directory.
 
 2. Run the container:
    ```bash
-   docker run -p 8080:80 plumbing-work-vue
+   docker run -p 8080:80 manhattan-plumbing
    ```
 
 ## Project Structure
 
 ```
-plumbing-work-vue/
+manhattan-plumbing/
 ├── src/
 │   ├── components/    # Reusable components
 │   ├── content/       # Markdown content
