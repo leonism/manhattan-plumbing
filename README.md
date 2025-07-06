@@ -17,7 +17,7 @@
   </strong>
   </p>
 
-[![Manhattan Plumbing](./public/manhattan-plumber.png 'A fast, scalable plumbing-website starter built with Vite, React, TailwindCSS and TypeScript — optimized for performance, maintainability, and future scalability.')](https://manhattan-plumbing.pages.dev/)
+[![Manhattan Plumbing](manhattan-plumber.png 'A fast, scalable plumbing-website starter built with Vite, React, TailwindCSS and TypeScript — optimized for performance, maintainability, and future scalability.')](https://manhattan-plumbing.pages.dev/)
 
   [![React](https://img.shields.io/badge/React-18.3.1-FF5D01?style=flat&logo=react&logoColor=white)](https://react.dev)
   [![TypeScript](https://img.shields.io/badge/TypeScript-5.0+-3178C6?style=flat&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
@@ -38,45 +38,26 @@
 - [Getting Started](#getting-started)
 - [Available Scripts](#available-scripts)
 - [Project Structure](#project-structure)
-- [Contributing](#contributing)
-- [License](#license)
+- [Environment Variables](#environment-variables)
+- [Testing](#testing)
+- [Troubleshooting](#troubleshooting)
 
----
+## Prerequisites
 
-## 💧 About
+- Node.js v16+ (recommended v20+)
+- npm v8+ or yarn v1.22+
+- Git
 
-**Manhattan Plumbing** is a powerful, Vite-powered React and TypeScript starter template tailored for plumbing services or small business websites. It leverages modern tooling and optimizations for rapid development, SEO performance, and efficient content workflows.
+## Installation
 
----
+1. Clone the repository:
 
-## 🧩 Tech Stack
+   ```bash
+   git clone https://github.com/leonism/manhattan-plumbing.git
+   cd manhattan-plumbing
+   ```
 
-- **Vite** — lightning-fast dev builds
-- **React 18** + **TypeScript** — typed components & reliability
-- **Tailwind CSS** — atomic utility-first CSS
-- **MDX / Markdown** — flexible content authoring
-- **React Router** — client-side navigation
-- **Image tooling** — `imagemin`, `sharp`, WebP pipeline
-- **SEO & metadata** — `react-helmet-async`, Sitemap & RSS
-- **Quality tooling** — ESLint, Prettier, TypeScript ESLint
-
----
-
-## ✨ Features
-
-- 🚀 Super-fast development with Vite and HMR
-- 🔒 Fully typed React components via TypeScript
-- 🎨 Tailwind CSS utility classes for responsive design
-- 📄 MDX/Markdown support with front-matter parsing
-- 🗺️ SEO-friendly features: sitemap, RSS, metadata injection
-- 🖼️ Optimized build: compression, minification, WebP image formats
-- 🧹 Linting and formatting out of the box
-
----
-
-## 🚀 Getting Started
-
-### Clone & Install
+2. Install dependencies:
 
 ```bash
 git clone https://github.com/leonism/manhattan-plumbing.git
@@ -88,34 +69,61 @@ npm install
 
 ```bash
 npm run dev
+# or
+yarn dev
 ```
 
-Development server starts at:
+The application will be available at `http://localhost:5173`
+
+## Building for Production
+
+To build for production:
+
+```bash
+npm run build
+# or
+yarn build
+```
+
+The built files will be in the `dist/` directory.
+
+## Deployment
+
+### Static Hosting (Vercel, Netlify, GitHub Pages)
+
+1. Configure your static hosting provider to:
+
+   - Build command: `npm run build` or `yarn build`
+   - Publish directory: `dist`
+
+2. Set up any required environment variables
+
+### Docker
+
+1. Build the Docker image:
+
+   ```bash
+   docker build -t manhatten-plumbing .
+   ```
+
+2. Run the container:
+   ```bash
+   docker run -p 8080:80 plumbing-work-vue
+   ```
+
+## Project Structure
 
 ```
-http://localhost:5173
-```
-
----
-
-## ⚙️ Available Scripts
-
-| Script                     | Description                                   |
-| -------------------------- | --------------------------------------------- |
-| `npm run dev`              | Start the development server                  |
-| `npm run build`            | Build for production + generate sitemap & RSS |
-| `npm run preview`          | Preview production build                      |
-| `npm run lint`             | Run ESLint checks                             |
-| `npm run generate`         | Generate sitemap and RSS feed                 |
-| `npm run generate:sitemap` | Generate `sitemap.xml`                        |
-| `npm run generate:rss`     | Generate RSS feed files                       |
-
----
-
-## 🗂 Project Structure
-
-```text
-.
+plumbing-work-vue/
+├── src/
+│   ├── components/    # Reusable components
+│   ├── content/       # Markdown content
+│   ├── hooks/         # Custom React hooks
+│   ├── pages/         # Page components
+│   ├── sections/      # Section components
+│   ├── types/         # Type definitions
+│   ├── App.tsx        # Main app component
+│   └── main.tsx       # App entry point
 ├── public/            # Static assets
 ├── src/               # Application source
 │   ├── components/    # UI components
