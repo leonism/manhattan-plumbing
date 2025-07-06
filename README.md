@@ -12,9 +12,14 @@
 ## 📄 Table of Contents
 <div align="center">
   <h1>Manhattan Plumbing</h1>
-  <p><strong>A modern, multilingual blog platform built with Astro.js</strong></p>
+  <p>
+  <strong>A fast, scalable plumbing-website starter built with Vite, React, TailwindCSS and TypeScript — optimized for performance, maintainability, and future scalability.
+  </strong>
+  </p>
 
-  [![React](https://img.shields.io/badge/React-18.3.1-FF5D01?style=flat&logo=astro&logoColor=white)](https://react.dev)
+[![Manhattan Plumbing](./public/manhattan-plumber.png 'A fast, scalable plumbing-website starter built with Vite, React, TailwindCSS and TypeScript — optimized for performance, maintainability, and future scalability.')](https://manhattan-plumbing.pages.dev/)
+
+  [![React](https://img.shields.io/badge/React-18.3.1-FF5D01?style=flat&logo=react&logoColor=white)](https://react.dev)
   [![TypeScript](https://img.shields.io/badge/TypeScript-5.0+-3178C6?style=flat&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
   [![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-3.4.17-38B2AC?style=flat&logo=tailwind-css&logoColor=white)](https://tailwindcss.com)
   [![License](https://img.shields.io/badge/License-ISC-blue.svg)](LICENSE)
