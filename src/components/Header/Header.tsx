@@ -1,7 +1,5 @@
 import React, { useState } from "react";
-// import React, { useState, useEffect } from "react";
 import Logo from "../UI/Logo";
-// import { Menu, X } from "lucide-react";
 import ThemeToggle from "./ThemeToggle";
 import SearchToggle from "./SearchToggle";
 import MenuToggle from "./MenuToggle";
@@ -11,14 +9,12 @@ import { useTheme } from "../../context/ThemeContext";
 import { navItems } from "./navConfig";
 import DesktopNav from "./DesktopNav";
 import MobileNav from "./MobileNav";
-// import SearchModal from "../UI/SearchModal";
 
 const Header: React.FC = () => {
   const { theme } = useTheme();
   const [isOpen, setIsOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
   const scrolled = useScrollHandler();
-  const [isSearchOpen, setIsSearchOpen] = useState(false);
   const toggleMenu = () => setIsOpen(!isOpen);
   const toggleDropdown = (label: string) => {
     setActiveDropdown(activeDropdown === label ? null : label);
@@ -45,7 +41,6 @@ const Header: React.FC = () => {
           />
           <div className="hidden lg:flex items-center gap-1">
             <SearchToggle
-              setIsSearchOpen={setIsSearchOpen}
               theme={theme}
               scrolled={scrolled}
             />{" "}
@@ -59,14 +54,13 @@ const Header: React.FC = () => {
           </div>
 
           {/* Mobile Navigation Button */}
-          <div className="flex lg:hidden items-center space-x-3">
+          <div className="flex lg:hidden items-center space-x-1">
             <ThemeToggle
               theme={theme}
               scrolled={scrolled}
             />{" "}
             {/* Added theme and scrolled props */}
             <SearchToggle
-              setIsSearchOpen={setIsSearchOpen}
               theme={theme}
               scrolled={scrolled}
             />{" "}
@@ -74,6 +68,7 @@ const Header: React.FC = () => {
             <MenuToggle
               isOpen={isOpen}
               toggleMenu={toggleMenu}
+              scrolled={scrolled}
             />
           </div>
         </div>
@@ -87,7 +82,6 @@ const Header: React.FC = () => {
         toggleDropdown={toggleDropdown}
         setIsOpen={setIsOpen}
       />
-      {/* <SearchModal isOpen={isSearchOpen} onClose={() => setIsSearchOpen(false)} /> */}
     </header>
   );
 };
