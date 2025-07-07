@@ -40,6 +40,14 @@ const DropdownButton = ({
   );
 };
 
+const DropdownMenu = ({ children }: { children: React.ReactNode }) => (
+  <ul
+    className="absolute left-0 invisible py-2 mt-2 w-48 bg-white rounded-xl shadow-2xl border border-slate-200 opacity-0 transition-all duration-200 dark:bg-slate-800 group-hover:opacity-100 group-hover:visible"
+    role="menu">
+    {children}
+  </ul>
+);
+
 const MenuItem = ({
   label,
   href,

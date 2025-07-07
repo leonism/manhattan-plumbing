@@ -26,21 +26,21 @@ interface NewsCardProps {
 const NewsCard: React.FC<NewsCardProps> = ({ post }) => {
   return (
     <article className="bg-white dark:bg-slate-800 rounded-lg shadow-lg overflow-hidden transform hover:scale-105 transition-transform duration-300">
-      <Link
-        to={`/news/${post.slug}`}
-        className="block">
-        <div className="relative aspect-video overflow-hidden">
+      <div className="relative aspect-video overflow-hidden">
+        <Link
+          to={`/news/${post.slug}`}
+          className="block">
           <img
             src={post.featuredImage.src}
             alt={post.featuredImage.alt}
             className="object-cover w-full h-full transform hover:scale-105 transition-transform duration-300"
             loading="lazy"
           />
-          <Link to={`/news/category/${slugify(post.category)}`} className="absolute top-4 left-4 bg-blue-600 text-white px-3 py-1 rounded-full text-sm font-semibold dark:bg-blue-400">
-            {post.category}
-          </Link>
-        </div>
-      </Link>
+        </Link>
+        <Link to={`/news/category/${slugify(post.category)}`} className="absolute top-4 left-4 bg-blue-600 text-white px-3 py-1 rounded-full text-sm font-semibold dark:bg-blue-400">
+          {post.category}
+        </Link>
+      </div>
 
       <div className="p-6">
         <div className="flex items-center mb-4 space-x-2 text-sm text-slate-600 dark:text-slate-400">
