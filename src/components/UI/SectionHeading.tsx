@@ -17,7 +17,7 @@ const SectionHeading: React.FC<SectionHeadingProps> = ({
         {title}
       </h2>
       {subtitle && (
-        <p className="text-lg text-slate-600 max-w-3xl mx-auto dark:text-slate-300">
+        <p className={`text-lg text-slate-600 max-w-3xl ${centered ? 'mx-auto' : ''} dark:text-slate-300`}>
           {subtitle}
         </p>
       )}

@@ -25,7 +25,7 @@ interface NewsCardProps {
 
 const NewsCard: React.FC<NewsCardProps> = ({ post }) => {
   return (
-    <article className="bg-white dark:bg-slate-800 rounded-lg shadow-lg overflow-hidden transform hover:scale-105 transition-transform duration-300">
+    <article className="bg-white dark:bg-slate-800 rounded-lg shadow-lg overflow-hidden transform hover:scale-105 transition-transform duration-300 border border-slate-200 dark:border-slate-700">
       <div className="relative aspect-video overflow-hidden">
         <Link
           to={`/news/${post.slug}`}
@@ -43,7 +43,7 @@ const NewsCard: React.FC<NewsCardProps> = ({ post }) => {
       </div>
 
       <div className="p-6">
-        <div className="flex items-center mb-4 space-x-2 text-sm text-slate-600 dark:text-slate-400">
+        <div className="flex items-center mb-4 space-x-2 text-sm text-nowrap text-slate-600 dark:text-slate-400">
           <img
             src={post.author.image}
             alt={post.author.name}
@@ -59,12 +59,10 @@ const NewsCard: React.FC<NewsCardProps> = ({ post }) => {
           <span>{post.readingTime}</span>
         </div>
 
-        <h2 className="text-xl font-semibold mb-3 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+        <h2 className="text-xl dark:text-white/90 font-semibold mb-3 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
           <Link to={`/news/${post.slug}`}>{post.title}</Link>
         </h2>
-
         <p className="text-slate-600 dark:text-slate-400 mb-4 line-clamp-3">{post.excerpt}</p>
-
         <div className="flex flex-wrap gap-2">
           {post.tags.slice(0, 3).map((tag) => (
             <Link

@@ -17,7 +17,7 @@ const Services: React.FC = () => {
       description:
         "Available 24/7 for all plumbing emergencies. Our rapid response team will be at your door quickly to prevent further damage to your home.",
       icon: <Shield size={32} />,
-      href: "/services/emergency",
+      href: "/services/emergency-service",
       id: "emergency",
     },
     {
@@ -25,7 +25,7 @@ const Services: React.FC = () => {
       description:
         "Professional drain cleaning services to unclog and clean drains in kitchens, bathrooms, and more. Say goodbye to slow-draining sinks!",
       icon: <Droplets size={32} />,
-      href: "/services/drains",
+      href: "/services/drain-service",
       id: "drains",
     },
     {
@@ -33,7 +33,7 @@ const Services: React.FC = () => {
       description:
         "Installation, repair, and maintenance of all types of water heaters. Ensure your home has reliable hot water year-round.",
       icon: <Flame size={32} />,
-      href: "/services/water-heaters",
+      href: "/services/water-heater-service",
       id: "water-heaters",
     },
     {
@@ -41,7 +41,7 @@ const Services: React.FC = () => {
       description:
         "Transform your bathroom with our professional remodeling services. From concept to completion, we handle every aspect.",
       icon: <Home size={32} />,
-      href: "/services/remodeling",
+      href: "/services/remodeling-service",
       id: "remodeling",
     },
     {
@@ -49,7 +49,7 @@ const Services: React.FC = () => {
       description:
         "Expert pipe repair and replacement services. We use the latest technology to detect and fix leaks with minimal disruption.",
       icon: <UtilityPole size={32} />,
-      href: "/services/pipes",
+      href: "/services/pipe-service",
       id: "pipes",
     },
     {
@@ -58,7 +58,7 @@ const Services: React.FC = () => {
         "Professional installation of faucets, toilets, showers, and other fixtures. Quality workmanship guaranteed.",
       icon: <Wrench size={32} />,
       href: "/services/fixtures",
-      id: "fixtures",
+      id: "fixture-service",
     },
   ];
 
