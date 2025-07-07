@@ -10,10 +10,9 @@ import SearchResultsPage from "./pages/SearchResultsPage";
 import PrivacyPolicy from "./pages/legal/PrivacyPolicy";
 import TermsOfService from "./pages/legal/TermsOfService";
 import CookiePolicy from "./pages/legal/CookiePolicy";
-
-import CookieConsent from "./components/UI/CookieConsent";
 import ServicesPage from "./pages/ServicesPage";
 import IndividualServicePage from "./pages/IndividualServicePage";
+import CookieConsent from "./components/UI/CookieConsent";
 
 function App() {
   return (
@@ -93,7 +92,7 @@ function App() {
                 </LayoutNewsPage>
               }
             />
-            
+
             <Route
               path="/services"
               element={

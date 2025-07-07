@@ -19,6 +19,7 @@ const NewsSection: React.FC = () => {
           <SectionHeading
             title="Latest News"
             subtitle="Stay updated with our latest articles and insights"
+            centered={false}
           />
           <div className="text-center">
             <p className="text-lg text-slate-600 dark:text-slate-300">
@@ -41,9 +42,10 @@ const NewsSection: React.FC = () => {
       className="py-20 bg-slate-50 dark:bg-slate-800">
       <div className="container px-4 mx-auto md:px-6">
         <SectionHeading
-          title="Latest News"
-          subtitle="Stay updated with our latest articles and insights"
-        />
+            title="Latest News"
+            subtitle="Stay updated with our latest articles and insights"
+            centered={false}
+          />
         <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
           {posts.map((post) => (
             <NewsCard
