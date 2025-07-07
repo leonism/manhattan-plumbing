@@ -64,7 +64,7 @@ const ServicesPage: React.FC = () => {
 
   useEffect(() => {
     if (slug && services.length > 0) {
-      const service = services.find(s => s.path.endsWith(slug));
+      const service = services.find(s => s.path === `/services/${slug}`);
       if (service && service.component) {
         setCurrentServiceComponent(service.component);
       } else {

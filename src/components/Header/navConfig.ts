@@ -10,12 +10,12 @@ export const navItems: NavItem[] = [
     label: "Services",
     href: "#services",
     children: [
-      { label: "Emergency Plumbing", href: "/services/emergency" },
-      { label: "Drain Cleaning", href: "/services/drains" },
-      { label: "Water Heaters", href: "/services/water-heaters" },
-      { label: "Bathroom Remodeling", href: "/services/remodeling" },
-      { label: "Pipe Replacement", href: "/services/pipes" },
-      { label: "Service Fixtures", href: "/services/fixtures" },
+      { label: "Emergency Plumbing", href: "/services/emergency-service" },
+      { label: "Drain Cleaning", href: "/services/drain-service" },
+      { label: "Water Heaters", href: "/services/water-heater-service" },
+      { label: "Bathroom Remodeling", href: "/services/remodeling-service" },
+      { label: "Pipe Replacement", href: "/services/pipe-service" },
+      { label: "Service Fixtures", href: "/services/fixture-service" },
     ],
   },
   {
