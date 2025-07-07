@@ -1,7 +1,7 @@
 import React from "react";
 import CompanyInfo from "../Footer/CompanyInfo";
 import QuickLinks from "../Footer/QuickLinks";
-import LegalInfo from "../Footer/LegalInfo";
+
 import ServicesList from "../Footer/ServicesList";
 import ContactInfo from "../Footer/ContactInfo";
 
