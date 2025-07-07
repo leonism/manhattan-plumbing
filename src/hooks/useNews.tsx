@@ -1,10 +1,28 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
 import type { Post, UseNewsOptions } from "../types/news";
 
 interface MDXModule {
   default: React.ComponentType<any>;
-  frontmatter: Post; // Use Post interface for frontmatter
+  frontmatter: Post;
 }
+
+const fetchAllPosts = () => {
+  const postFiles = import.meta.glob<MDXModule>("../content/news/*.mdx", {
+    eager: true,
+  });
+
+  const allPosts: Post[] = [];
+  for (const path in postFiles) {
+    const module = postFiles[path];
+    const data = module.frontmatter;
+    if (data.status === "published") {
+      allPosts.push({ ...data, body: module.default } as Post);
+    }
+  }
+
+  allPosts.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+  return allPosts;
+};
 
 export const useNews = ({
   category,
@@ -12,77 +30,40 @@ export const useNews = ({
   page = 1,
   limit = 9,
 }: UseNewsOptions = {}) => {
+  const allPosts = useMemo(() => fetchAllPosts(), []);
+
   const [posts, setPosts] = useState<Post[]>([]);
   const [categories, setCategories] = useState<string[]>([]);
   const [totalPages, setTotalPages] = useState(1);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    const fetchPosts = async () => {
-      setIsLoading(true);
-      try {
-        const postFiles = import.meta.glob<MDXModule>("../content/news/*.mdx", {
-          eager: true,
-        });
-        const allPosts: Post[] = [];
-        const allCategories = new Set<string>();
+    setIsLoading(true);
 
-        for (const path in postFiles) {
-          const module = postFiles[path];
-          const data = module.frontmatter as Post; // Access frontmatter directly
+    let filteredPosts = allPosts;
+    if (category) {
+      filteredPosts = allPosts.filter((post) => post.category === category);
+    } else if (tag) {
+      filteredPosts = allPosts.filter((post) => post.tags.includes(tag));
+    }
 
-          // Ensure slug exists in frontmatter and is a string
-          if (!data.slug || typeof data.slug !== "string") {
-            console.warn(
-              `Slug missing or invalid in frontmatter for file: ${path}. Skipping this post.`
-            );
-            continue;
-          }
+    const allCategories = [...new Set(allPosts.map(p => p.category))];
+    const totalPosts = filteredPosts.length;
+    setTotalPages(Math.ceil(totalPosts / limit));
 
-          if (data.status === "published") {
-            allCategories.add(data.category);
-            allPosts.push({ ...data, body: module.default } as Post); // Store MDX component as body
-          }
-        }
+    const start = (page - 1) * limit;
+    const paginatedPosts = filteredPosts.slice(start, start + limit);
 
-        // Sort posts by date
-        allPosts.sort(
-          (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
-        );
-
-        // Filter by category if specified
-        let filteredPosts = allPosts;
-        if (category) {
-          filteredPosts = allPosts.filter((post) => post.category === category);
-        }
-        if (tag) {
-          filteredPosts = allPosts.filter((post) => post.tags.includes(tag));
-        }
-
-        // Calculate pagination
-        const totalPosts = filteredPosts.length;
-        setTotalPages(Math.ceil(totalPosts / limit));
-
-        // Get posts for current page
-        const start = (page - 1) * limit;
-        const paginatedPosts = filteredPosts.slice(start, start + limit);
-
-        setPosts(paginatedPosts);
-        setCategories(Array.from(allCategories));
-      } catch (error) {
-        console.error("Error fetching posts:", error);
-      } finally {
-        setIsLoading(false);
-      }
-    };
-
-    fetchPosts();
-  }, [category, tag, page, limit]);
+    setPosts(paginatedPosts);
+    setCategories(allCategories);
+    setIsLoading(false);
+  }, [category, tag, page, limit, allPosts]);
 
   return {
     posts,
     categories,
     totalPages,
     isLoading,
+    allPosts,
   };
 };

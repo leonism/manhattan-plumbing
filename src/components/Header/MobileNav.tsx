@@ -1,7 +1,7 @@
 import React from "react";
-import { NavItem } from "./navConfig";
+import { Link } from "react-router-dom";
 import { ChevronDown } from "lucide-react";
-import Button from "../UI/Button";
+import { NavItem } from "./navConfig";
 
 interface MobileNavProps {
   navItems: NavItem[];
@@ -18,76 +18,53 @@ const MobileNav: React.FC<MobileNavProps> = ({
   toggleDropdown,
   setIsOpen,
 }) => {
+  if (!isOpen) return null;
+
   return (
-    <nav
-      className={`lg:hidden absolute top-full left-0 w-full bg-white dark:bg-slate-900 shadow-md transition-all duration-300 ${
-        isOpen
-          ? "max-h-screen opacity-100 visible"
-          : "max-h-0 opacity-0 invisible"
-      } overflow-hidden`}
-      aria-label="Mobile navigation">
-      <ul className="container mx-auto px-4 py-4 space-y-4">
-        {navItems.map((item) => (
-          <li key={item.label}>
-            {item.children ? (
-              <>
-                <div className="flex justify-between items-center">
+    <div className="lg:hidden fixed inset-0 bg-slate-900/95 backdrop-blur-sm z-40">
+      <div className="container mx-auto px-4 md:px-6 pt-24 pb-8 h-full overflow-y-auto">
+        <nav className="flex flex-col space-y-4">
+          {navItems.map((item) => (
+            <div key={item.label}>
+              {item.dropdown ? (
+                <div className="text-white">
                   <button
                     onClick={() => toggleDropdown(item.label)}
-                    className="py-2 text-slate-800 dark:text-white font-medium"
-                    aria-expanded={activeDropdown === item.label}
-                    aria-haspopup="true">
-                    {item.label}
+                    className="w-full flex justify-between items-center py-3 text-lg font-semibold hover:text-primary-400 transition-colors">
+                    <span>{item.label}</span>
+                    <ChevronDown
+                      className={`w-5 h-5 transition-transform ${
+                        activeDropdown === item.label ? "rotate-180" : ""
+                      }`}
+                    />
                   </button>
-                  <ChevronDown
-                    size={16}
-                    className={`transition-transform ${
-                      activeDropdown === item.label ? "rotate-180" : ""
-                    }`}
-                  />
+                  {activeDropdown === item.label && (
+                    <div className="pl-4 pt-2 space-y-2">
+                      {item.dropdown.map((subItem) => (
+                        <Link
+                          key={subItem.label}
+                          to={subItem.href}
+                          onClick={() => setIsOpen(false)}
+                          className="block py-2 text-slate-300 hover:text-white transition-colors">
+                          {subItem.label}
+                        </Link>
+                      ))}
+                    </div>
+                  )}
                 </div>
-                <ul
-                  className={`ml-4 pl-2 border-l-2 border-slate-200 dark:border-slate-700 space-y-2 transition-all duration-200 ${
-                    activeDropdown === item.label
-                      ? "max-h-screen py-2 opacity-100 visible"
-                      : "max-h-0 py-0 opacity-0 invisible"
-                  } overflow-hidden`}
-                  role="menu">
-                  {item.children.map((child) => (
-                    <li
-                      key={child.label}
-                      role="none">
-                      <a
-                        href={child.href}
-                        className="block py-1 text-slate-600 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
-                        role="menuitem"
-                        onClick={() => setIsOpen(false)}>
-                        {child.label}
-                      </a>
-                    </li>
-                  ))}
-                </ul>
-              </>
-            ) : (
-              <a
-                href={item.href}
-                className="block py-2 text-slate-800 dark:text-white font-medium"
-                onClick={() => setIsOpen(false)}>
-                {item.label}
-              </a>
-            )}
-          </li>
-        ))}
-        <li className="pt-2 mt-2 border-t border-slate-200 dark:border-slate-700">
-          <Button
-            href="#contact"
-            fullWidth
-            onClick={() => setIsOpen(false)}>
-            Get a Quote
-          </Button>
-        </li>
-      </ul>
-    </nav>
+              ) : (
+                <Link
+                  to={item.href!}
+                  onClick={() => setIsOpen(false)}
+                  className="block py-3 text-lg font-semibold text-white hover:text-primary-400 transition-colors">
+                  {item.label}
+                </Link>
+              )}
+            </div>
+          ))}
+        </nav>
+      </div>
+    </div>
   );
 };
 

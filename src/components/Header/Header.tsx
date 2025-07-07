@@ -54,7 +54,7 @@ const Header: React.FC = () => {
           </div>
 
           {/* Mobile Navigation Button */}
-          <div className="flex lg:hidden items-center space-x-1">
+          <div className="flex lg:hidden items-center space-x-3">
             <ThemeToggle
               theme={theme}
               scrolled={scrolled}

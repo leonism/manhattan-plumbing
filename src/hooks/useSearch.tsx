@@ -1,89 +1,70 @@
 import { useState, useEffect } from "react";
-import matter from "gray-matter";
+import { useNews } from "./useNews";
+
+// Define services data statically with icons
+const services = [
+  { slug: "/services/emergency", title: "Emergency Plumbing", excerpt: "24/7 immediate response for all plumbing emergencies.", icon: "Wrench" },
+  { slug: "/services/drains", title: "Drain Cleaning", excerpt: "Expert cleaning and clearing of all types of drains.", icon: "Wrench" },
+  { slug: "/services/water-heaters", title: "Water Heaters", excerpt: "Installation, repair, and maintenance of water heaters.", icon: "Wrench" },
+  { slug: "/services/remodeling", title: "Remodeling Services", excerpt: "Plumbing for kitchen and bathroom remodeling projects.", icon: "Wrench" },
+  { slug: "/services/pipes", title: "Pipe Repair & Installation", excerpt: "Leak detection, pipe repair, and full re-piping services.", icon: "Wrench" },
+  { slug: "/services/fixtures", title: "Fixture Installation", excerpt: "Installation and repair of faucets, toilets, and other fixtures.", icon: "Wrench" },
+];
 
 interface SearchResult {
   slug: string;
   title: string;
   excerpt: string;
-  category: string;
-  tags: string[];
-  featuredImage: {
-    src: string;
-    alt: string;
-  };
-  author: {
-    name: string;
-    image: string;
-  };
-  date: string;
-  readingTime: string;
+  featuredImage?: { src: string; alt: string };
+  icon?: string;
+}
+
+interface CategorizedResults {
+  news: SearchResult[];
+  services: SearchResult[];
 }
 
 export const useSearch = (query: string) => {
-  const [results, setResults] = useState<SearchResult[]>([]);
+  const { allPosts } = useNews();
+  const [results, setResults] = useState<CategorizedResults>({ news: [], services: [] });
   const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
-    const searchPosts = async () => {
+    const search = () => {
       if (!query.trim()) {
-        setResults([]);
+        setResults({ news: [], services: [] });
         return;
       }
 
       setIsLoading(true);
-      try {
-        const postFiles = await import.meta.glob("../content/news/*.md");
-        const searchResults: SearchResult[] = [];
 
-        for (const path in postFiles) {
-          const file = await postFiles[path]();
-          const slug = path.split("/").pop()?.replace(".md", "");
-          const { data, content } = matter(file.default);
+      // Filter news posts
+      const newsResults = allPosts
+        .filter(post => {
+          const searchableContent = [post.title, post.excerpt, post.category, ...(post.tags || [])].join(" ").toLowerCase();
+          return searchableContent.includes(query.toLowerCase());
+        })
+        .map(post => ({ 
+          slug: `/news/${post.slug}`,
+          title: post.title,
+          excerpt: post.excerpt,
+          featuredImage: post.featuredImage 
+        }));
 
-          // Only include published posts
-          if (data.status !== "published") continue;
+      // Filter services
+      const servicesResults = services
+        .filter(service => {
+          const searchableContent = [service.title, service.excerpt].join(" ").toLowerCase();
+          return searchableContent.includes(query.toLowerCase());
+        });
 
-          const searchableContent = [
-            data.title,
-            data.excerpt,
-            data.category,
-            ...(data.tags || []),
-            content,
-          ]
-            .join(" ")
-            .toLowerCase();
-
-          if (searchableContent.includes(query.toLowerCase())) {
-            searchResults.push({
-              slug,
-              title: data.title,
-              excerpt: data.excerpt,
-              category: data.category,
-              tags: data.tags,
-              featuredImage: data.featuredImage,
-              author: data.author,
-              date: data.date,
-              readingTime: data.readingTime,
-            });
-          }
-        }
-
-        // Sort results by date
-        searchResults.sort(
-          (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
-        );
-        setResults(searchResults);
-      } catch (error) {
-        console.error("Error searching posts:", error);
-        setResults([]);
-      } finally {
-        setIsLoading(false);
-      }
+      setResults({ news: newsResults, services: servicesResults });
+      setIsLoading(false);
     };
 
-    const debounceTimeout = setTimeout(searchPosts, 300);
+    const debounceTimeout = setTimeout(search, 300);
     return () => clearTimeout(debounceTimeout);
-  }, [query]);
+  }, [query, allPosts]);
 
   return { results, isLoading };
 };
