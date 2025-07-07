@@ -274,8 +274,7 @@ const EmergencyServicePage = () => {
           <div className="flex flex-col sm:flex-row justify-center gap-4">
             <Button
               href="tel:+12125551234"
-              variant="danger"
-              className="bg-white text-red-600 hover:bg-red-100 dark:hover:bg-slate-200">
+              variant="danger">
               <div className="flex items-center">
                 <Zap
                   className="mr-3"
