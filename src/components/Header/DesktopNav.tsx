@@ -15,13 +15,15 @@ const DropdownButton = ({
   onClick,
   isActive,
   scrolled,
+  theme,
 }: {
   label: string;
   onClick: () => void;
   isActive: boolean;
   scrolled: boolean;
+  theme: string;
 }) => {
-  const textColorClass = scrolled
+  const textColorClass = (scrolled || theme === 'light')
     ? "text-slate-800 group-hover:text-blue-600 dark:text-white dark:group-hover:text-blue-400"
     : "text-white group-hover:text-blue-600 dark:text-white dark:group-hover:text-blue-400";
 
@@ -72,8 +74,9 @@ const DesktopNav: React.FC<DesktopNavProps> = ({
   activeDropdown,
   toggleDropdown,
   scrolled,
+  theme,
 }) => {
-  const linkColorClass = scrolled
+  const linkColorClass = (scrolled || theme === 'light')
     ? "text-slate-800 hover:text-blue-600 dark:text-white dark:hover:text-blue-400"
     : "text-white hover:text-blue-600 dark:text-white dark:hover:text-blue-400";
 
@@ -93,6 +96,7 @@ const DesktopNav: React.FC<DesktopNavProps> = ({
                   onClick={() => toggleDropdown(item.label)}
                   isActive={activeDropdown === item.label}
                   scrolled={scrolled}
+                  theme={theme}
                 />
                 <DropdownMenu>
                   {item.children.map((child) => (

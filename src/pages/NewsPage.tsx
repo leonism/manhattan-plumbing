@@ -35,6 +35,7 @@ const NewsPage: React.FC = () => {
           <SectionHeading
             title={category ? `${category} News` : tag ? `${tag} Articles` : "Latest News"}
             subtitle="Stay informed about the latest updates and insights"
+            centered={true}
           />
 
           <div className="mt-6 flex flex-wrap gap-3 justify-center">

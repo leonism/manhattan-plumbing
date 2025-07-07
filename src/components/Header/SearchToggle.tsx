@@ -10,7 +10,7 @@ interface SearchToggleProps {
 const SearchToggle: React.FC<SearchToggleProps> = ({ theme, scrolled }) => {
   const [isSearchOpen, setIsSearchOpen] = useState(false);
 
-  const iconColorClass = scrolled
+  const iconColorClass = (scrolled || theme === 'light')
     ? "text-slate-800 hover:bg-slate-200 dark:text-white dark:hover:bg-slate-700"
     : "text-white hover:bg-slate-100 dark:text-white dark:hover:bg-slate-700";
 
