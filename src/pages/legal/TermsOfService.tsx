@@ -253,7 +253,7 @@ const TermsOfService: React.FC = () => {
         />
         <link
           rel="canonical"
-          href="https://manhattanplumbing.com/terms-of-service"
+          href="https://manhattan-plumbing.pages.dev/terms-of-service"
         />
       </Helmet>
 

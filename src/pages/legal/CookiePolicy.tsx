@@ -238,7 +238,7 @@ const CookiePolicy: React.FC = () => {
         />
         <link
           rel="canonical"
-          href="https://manhattanplumbing.com/cookie-policy"
+          href="https://manhattan-plumbing.pages.dev/cookie-policy"
         />
       </Helmet>
 

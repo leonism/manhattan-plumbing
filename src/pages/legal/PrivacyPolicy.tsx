@@ -227,7 +227,7 @@ const PrivacyPolicy: React.FC = () => {
         />
         <link
           rel="canonical"
-          href="https://manhattanplumbing.com/privacy-policy"
+          href="https://manhattan-plumbing.pages.dev/privacy-policy"
         />
       </Helmet>
 
