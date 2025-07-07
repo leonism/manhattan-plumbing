@@ -238,30 +238,29 @@ const DrainsServicePage = () => {
             Plumbing today for fast, reliable service.
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
-            <Button
-              href="tel:+12125551234"
-              variant="secondary"
-              className="bg-white text-blue-600 hover:bg-blue-100 dark:hover:bg-slate-200">
-              <div className="flex items-center">
-                <Zap
-                  className="mr-3 group-hover:animate-pulse"
-                  size={20}
-                />
-                <span>Emergency Call: (212) 555-1234</span>
-              </div>
-            </Button>
-            <Button
-              href="/#contact"
-              variant="outline"
-              className="text-white border-white hover:bg-white/20 dark:hover:bg-white/20">
-              <div className="flex items-center">
-                <Clock
-                  className="mr-3"
-                  size={20}
-                />
-                <span>Schedule Service</span>
-              </div>
-            </Button>
+          <Button
+                href="tel:+12125551234"
+                variant="primary"
+                className="group">
+                <div className="flex items-center">
+                  <Zap
+                    className="mr-3 group-hover:animate-pulse"
+                    size={20}
+                  />
+                  <span>Emergency Call: (212) 555-1234</span>
+                </div>
+              </Button>
+              <Button
+                href="/#contact"
+                variant="secondary">
+                <div className="flex items-center">
+                  <Clock
+                    className="mr-3"
+                    size={20}
+                  />
+                  <span>Schedule Service</span>
+                </div>
+              </Button>
           </div>
         </div>
       </section>

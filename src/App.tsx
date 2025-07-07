@@ -13,6 +13,7 @@ import CookiePolicy from "./pages/legal/CookiePolicy";
 
 import CookieConsent from "./components/UI/CookieConsent";
 import ServicesPage from "./pages/ServicesPage";
+import IndividualServicePage from "./pages/IndividualServicePage";
 
 function App() {
   return (
@@ -104,9 +105,7 @@ function App() {
             <Route
               path="/services/:slug"
               element={
-                <LayoutNewsPage>
-                  <ServicesPage />
-                </LayoutNewsPage>
+                <IndividualServicePage />
               }
             />
           </Routes>
