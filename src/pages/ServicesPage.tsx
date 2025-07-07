@@ -84,26 +84,23 @@ const ServicesPage: React.FC = () => {
   }
 
   return (
-    <LayoutNewsPage>
-      <div className="container mx-auto py-8 mt-20">
-        <SectionHeading
-          title="Our Services"
-          subtitle="Comprehensive plumbing solutions for your home and business."
-        />
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-8">
-          {services.map((service) => (
-            <Link to={service.path} key={service.path}>
-              <ServiceCard
-                title={service.name}
-                description={`Learn more about our ${service.name.toLowerCase()} services.`}
-                icon={service.icon}
-
-              />
-            </Link>
-          ))}
-        </div>
+    <div className="container mx-auto py-8 mt-20">
+      <SectionHeading
+        title="Our Services"
+        subtitle="Comprehensive plumbing solutions for your home and business."
+      />
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-8">
+        {services.map((service) => (
+          <Link to={service.path} key={service.path}>
+            <ServiceCard
+              title={service.name}
+              description={`Learn more about our ${service.name.toLowerCase()} services.`}
+              icon={service.icon}
+            />
+          </Link>
+        ))}
       </div>
-    </LayoutNewsPage>
+    </div>
   );
 };
 
