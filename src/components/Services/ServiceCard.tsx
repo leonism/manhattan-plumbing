@@ -28,8 +28,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
       <Button
         
         variant="primary"
-        size="md"
-        className="hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-300 border-blue-600 dark:border-blue-400 hover:bg-blue-50 dark:hover:bg-blue-900/20">
+        size="md">
         <ArrowRightCircle
           className="mr-2"
           size={18}
