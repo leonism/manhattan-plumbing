@@ -10,7 +10,11 @@ import { navItems } from "./navConfig";
 import DesktopNav from "./DesktopNav";
 import MobileNav from "./MobileNav";
 
-const Header: React.FC = () => {
+interface HeaderProps {
+  isHomePage?: boolean;
+}
+
+const Header: React.FC<HeaderProps> = ({ isHomePage = false }) => {
   const { theme } = useTheme();
   const [isOpen, setIsOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
@@ -23,7 +27,7 @@ const Header: React.FC = () => {
   return (
     <header
       className={`fixed w-full top-0 z-50 transition-all duration-300 ${
-        scrolled
+        scrolled || !isHomePage
           ? "bg-white dark:bg-slate-900 shadow-md py-3"
           : "bg-transparent py-6"
       }`}
@@ -36,20 +40,21 @@ const Header: React.FC = () => {
             navItems={navItems}
             activeDropdown={activeDropdown}
             toggleDropdown={toggleDropdown}
-            theme={theme} // Added theme prop
-            scrolled={scrolled} // Added scrolled prop
+            theme={theme}
+            scrolled={scrolled}
+            isHomePage={isHomePage}
           />
           <div className="hidden lg:flex items-center gap-1">
             <SearchToggle
               theme={theme}
               scrolled={scrolled}
-            />{" "}
-            {/* Added theme and scrolled props */}
+              isHomePage={isHomePage}
+            />
             <ThemeToggle
               theme={theme}
               scrolled={scrolled}
-            />{" "}
-            {/* Added theme and scrolled props, ensure ThemeToggle can accept these */}
+              isHomePage={isHomePage}
+            />
             <GetQuoteButton />
           </div>
 
@@ -58,18 +63,19 @@ const Header: React.FC = () => {
             <ThemeToggle
               theme={theme}
               scrolled={scrolled}
-            />{" "}
-            {/* Added theme and scrolled props */}
+              isHomePage={isHomePage}
+            />
             <SearchToggle
               theme={theme}
               scrolled={scrolled}
-            />{" "}
-            {/* Added theme and scrolled props */}
+              isHomePage={isHomePage}
+            />
             <MenuToggle
               isOpen={isOpen}
               toggleMenu={toggleMenu}
               scrolled={scrolled}
               theme={theme}
+              isHomePage={isHomePage}
             />
           </div>
         </div>

@@ -6,26 +6,29 @@ interface DesktopNavProps {
   navItems: NavItem[];
   activeDropdown: string | null;
   toggleDropdown: (label: string) => void;
-  theme: string; // Added theme prop
-  scrolled: boolean; // Added scrolled prop
+  theme: string;
+  scrolled: boolean;
+  isHomePage?: boolean;
 }
 
 const DropdownButton = ({
   label,
   onClick,
   isActive,
-  scrolled,
   theme,
+  scrolled,
+  isHomePage,
 }: {
   label: string;
   onClick: () => void;
   isActive: boolean;
-  scrolled: boolean;
   theme: string;
+  scrolled: boolean;
+  isHomePage?: boolean;
 }) => {
-  const textColorClass = (scrolled || theme === 'light')
-    ? "text-slate-800 group-hover:text-blue-600 dark:text-white dark:group-hover:text-blue-400"
-    : "text-white group-hover:text-blue-600 dark:text-white dark:group-hover:text-blue-400";
+  const textColorClass = (isHomePage && !scrolled)
+    ? "text-white group-hover:text-blue-600 dark:group-hover:text-blue-400"
+    : (theme === 'light' ? "text-slate-800 group-hover:text-blue-600" : "text-white group-hover:text-blue-600 dark:group-hover:text-blue-400");
 
   return (
     <button
@@ -73,12 +76,13 @@ const DesktopNav: React.FC<DesktopNavProps> = ({
   navItems,
   activeDropdown,
   toggleDropdown,
-  scrolled,
   theme,
+  scrolled,
+  isHomePage,
 }) => {
-  const linkColorClass = (scrolled || theme === 'light')
-    ? "text-slate-800 hover:text-blue-600 dark:text-white dark:hover:text-blue-400"
-    : "text-white hover:text-blue-600 dark:text-white dark:hover:text-blue-400";
+  const linkColorClass = (isHomePage && !scrolled)
+    ? "text-white hover:text-blue-600 dark:hover:text-blue-400"
+    : (theme === 'light' ? "text-slate-800 hover:text-blue-600" : "text-white hover:text-blue-600 dark:hover:text-blue-400");
 
   return (
     <nav
@@ -95,8 +99,9 @@ const DesktopNav: React.FC<DesktopNavProps> = ({
                   label={item.label}
                   onClick={() => toggleDropdown(item.label)}
                   isActive={activeDropdown === item.label}
-                  scrolled={scrolled}
                   theme={theme}
+                  scrolled={scrolled}
+                  isHomePage={isHomePage}
                 />
                 <DropdownMenu>
                   {item.children.map((child) => (

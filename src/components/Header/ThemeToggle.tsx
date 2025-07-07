@@ -3,16 +3,17 @@ import { Sun, Moon } from "lucide-react";
 import { useTheme } from "../../context/ThemeContext";
 
 interface ThemeToggleProps {
-  theme: string; // Prop for current theme (passed from Header)
-  scrolled: boolean; // Prop for scroll state (passed from Header)
+  theme: string;
+  scrolled: boolean;
+  isHomePage?: boolean;
 }
 
-const ThemeToggle: React.FC<ThemeToggleProps> = ({ theme, scrolled }) => {
+const ThemeToggle: React.FC<ThemeToggleProps> = ({ theme, scrolled, isHomePage }) => {
   const { toggleTheme } = useTheme();
 
-  const iconColorClass = (scrolled || theme === 'light')
-    ? "text-slate-800 hover:bg-slate-200 dark:text-white dark:hover:bg-slate-700"
-    : "text-white hover:bg-slate-100 dark:text-white dark:hover:bg-slate-700";
+  const iconColorClass = (isHomePage && !scrolled)
+    ? "text-white hover:bg-slate-100 dark:hover:bg-slate-700"
+    : (theme === 'light' ? "text-slate-800 hover:bg-slate-200" : "text-white hover:bg-slate-100 dark:hover:bg-slate-700");
 
   return (
     <button

@@ -1,7 +1,8 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { HelmetProvider } from "react-helmet-async";
 import { ThemeProvider } from "./context/ThemeContext";
-import Layout from "./components/Layout/Layout";
+import LayoutHomePage from "./components/Layout/LayoutHomePage";
+import LayoutNewsPage from "./components/Layout/LayoutNewsPage";
 import HomePage from "./pages/HomePage";
 import NewsPage from "./pages/NewsPage";
 import NewsPost from "./pages/NewsPost";
@@ -21,70 +22,128 @@ function App() {
     <HelmetProvider>
       <ThemeProvider>
         <BrowserRouter future={{ v7_startTransition: true }}>
-          <Layout>
-            <Routes>
-              <Route
-                path="/"
-                element={<HomePage />}
-              />
-              <Route
-                path="/news"
-                element={<NewsPage />}
-              />
-              <Route
-                path="/news/:slug"
-                element={<NewsPost />}
-              />
-              <Route
-                path="/news/category/:category"
-                element={<NewsPage />}
-              />
-              <Route
-                path="/news/tag/:tag"
-                element={<NewsPage />}
-              />
-              <Route
-                path="/search"
-                element={<SearchResultsPage />}
-              />
-              <Route
-                path="/privacy-policy"
-                element={<PrivacyPolicy />}
-              />
-              <Route
-                path="/terms-of-service"
-                element={<TermsOfService />}
-              />
-              <Route
-                path="/cookie-policy"
-                element={<CookiePolicy />}
-              />
-              <Route
-                path="/services/emergency"
-                element={<EmergencyService />}
-              />
-              <Route
-                path="/services/drains"
-                element={<DrainService />}
-              />
-              <Route
-                path="/services/water-heaters"
-                element={<WaterHeaterService />}
-              />
-              <Route
-                path="/services/remodeling"
-                element={<RemodelingService />}
-              />
-              <Route
-                path="/services/pipes"
-                element={<PipeService />}
-              />
-              <Route
-                path="/services/fixtures"
-                element={<FixtureService />}
-              />
-            </Routes>
-          </Layout>
+          <Routes>
+            <Route
+              path="/"
+              element={
+                <LayoutHomePage>
+                  <HomePage />
+                </LayoutHomePage>
+              }
+            />
+            <Route
+              path="/news"
+              element={
+                <LayoutNewsPage>
+                  <NewsPage />
+                </LayoutNewsPage>
+              }
+            />
+            <Route
+              path="/news/:slug"
+              element={
+                <LayoutNewsPage>
+                  <NewsPost />
+                </LayoutNewsPage>
+              }
+            />
+            <Route
+              path="/news/category/:category"
+              element={
+                <LayoutNewsPage>
+                  <NewsPage />
+                </LayoutNewsPage>
+              }
+            />
+            <Route
+              path="/news/tag/:tag"
+              element={
+                <LayoutNewsPage>
+                  <NewsPage />
+                </LayoutNewsPage>
+              }
+            />
+            <Route
+              path="/search"
+              element={
+                <LayoutNewsPage>
+                  <SearchResultsPage />
+                </LayoutNewsPage>
+              }
+            />
+            <Route
+              path="/privacy-policy"
+              element={
+                <LayoutNewsPage>
+                  <PrivacyPolicy />
+                </LayoutNewsPage>
+              }
+            />
+            <Route
+              path="/terms-of-service"
+              element={
+                <LayoutNewsPage>
+                  <TermsOfService />
+                </LayoutNewsPage>
+              }
+            />
+            <Route
+              path="/cookie-policy"
+              element={
+                <LayoutNewsPage>
+                  <CookiePolicy />
+                </LayoutNewsPage>
+              }
+            />
+            <Route
+              path="/services/emergency"
+              element={
+                <LayoutNewsPage>
+                  <EmergencyService />
+                </LayoutNewsPage>
+              }
+            />
+            <Route
+              path="/services/drains"
+              element={
+                <LayoutNewsPage>
+                  <DrainService />
+                </LayoutNewsPage>
+              }
+            />
+            <Route
+              path="/services/water-heaters"
+              element={
+                <LayoutNewsPage>
+                  <WaterHeaterService />
+                </LayoutNewsPage>
+              }
+            />
+            <Route
+              path="/services/remodeling"
+              element={
+                <LayoutNewsPage>
+                  <RemodelingService />
+                </LayoutNewsPage>
+              }
+            />
+            <Route
+              path="/services/pipes"
+              element={
+                <LayoutNewsPage>
+                  <PipeService />
+                </LayoutNewsPage>
+              }
+            />
+            <Route
+              path="/services/fixtures"
+              element={
+                <LayoutNewsPage>
+                  <FixtureService />
+                </LayoutNewsPage>
+              }
+            />
+          </Routes>
         </BrowserRouter>
       </ThemeProvider>
     </HelmetProvider>
