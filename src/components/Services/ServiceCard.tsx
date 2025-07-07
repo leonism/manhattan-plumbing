@@ -6,7 +6,6 @@ interface ServiceCardProps {
   title: string;
   description: string;
   icon: React.ReactNode;
-  href: string;
 }
 
 const ServiceCard: React.FC<ServiceCardProps> = ({
@@ -27,7 +26,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
         {description}
       </p>
       <Button
-        href={href}
+        
         variant="primary"
         size="md"
         className="hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-300 border-blue-600 dark:border-blue-400 hover:bg-blue-50 dark:hover:bg-blue-900/20">

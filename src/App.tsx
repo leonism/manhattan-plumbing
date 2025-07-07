@@ -10,13 +10,9 @@ import SearchResultsPage from "./pages/SearchResultsPage";
 import PrivacyPolicy from "./pages/legal/PrivacyPolicy";
 import TermsOfService from "./pages/legal/TermsOfService";
 import CookiePolicy from "./pages/legal/CookiePolicy";
-import DrainService from "./pages/services/DrainService";
-import EmergencyService from "./pages/services/EmergencyService";
-import FixtureService from "./pages/services/FixtureService";
-import RemodelingService from "./pages/services/RemodelingService";
-import WaterHeaterService from "./pages/services/WaterHeaterService";
-import PipeService from "./pages/services/PipeService";
+
 import CookieConsent from "./components/UI/CookieConsent";
+import ServicesPage from "./pages/ServicesPage";
 
 function App() {
   return (
@@ -96,51 +92,20 @@ function App() {
                 </LayoutNewsPage>
               }
             />
+            
             <Route
-              path="/services/emergency"
+              path="/services"
               element={
                 <LayoutNewsPage>
-                  <EmergencyService />
+                  <ServicesPage />
                 </LayoutNewsPage>
               }
             />
             <Route
-              path="/services/drains"
+              path="/services/:slug"
               element={
                 <LayoutNewsPage>
-                  <DrainService />
-                </LayoutNewsPage>
-              }
-            />
-            <Route
-              path="/services/water-heaters"
-              element={
-                <LayoutNewsPage>
-                  <WaterHeaterService />
-                </LayoutNewsPage>
-              }
-            />
-            <Route
-              path="/services/remodeling"
-              element={
-                <LayoutNewsPage>
-                  <RemodelingService />
-                </LayoutNewsPage>
-              }
-            />
-            <Route
-              path="/services/pipes"
-              element={
-                <LayoutNewsPage>
-                  <PipeService />
-                </LayoutNewsPage>
-              }
-            />
-            <Route
-              path="/services/fixtures"
-              element={
-                <LayoutNewsPage>
-                  <FixtureService />
+                  <ServicesPage />
                 </LayoutNewsPage>
               }
             />
