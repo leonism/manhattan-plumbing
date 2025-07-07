@@ -1,10 +1,19 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, useMemo } from "react";
 import { useSearch } from "../../hooks/useSearch";
 import { Link, useNavigate } from "react-router-dom";
-import { Search, Loader, Newspaper, Wrench } from "lucide-react";
+import { Search, Loader, Newspaper, Wrench, X } from "lucide-react";
+import Logo from "./Logo";
 
 interface SearchBarProps {
   onClose: () => void;
+}
+
+interface SearchResultItem {
+  slug: string;
+  title: string;
+  excerpt: string;
+  featuredImage?: { src: string; alt: string };
+  icon?: string;
 }
 
 const SearchBar: React.FC<SearchBarProps> = ({ onClose }) => {
@@ -14,10 +23,16 @@ const SearchBar: React.FC<SearchBarProps> = ({ onClose }) => {
   const navigate = useNavigate();
   const inputRef = useRef<HTMLInputElement>(null);
 
-  const allResults = [...results.news, ...results.services];
+  const allResults = useMemo(() => 
+    [...results.news, ...results.services],
+    [results.news, results.services]
+  );
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        onClose();
+      }
       if (e.key === "ArrowDown") {
         e.preventDefault();
         setActiveIndex((prev) => (prev < allResults.length - 1 ? prev + 1 : prev));
@@ -35,7 +50,7 @@ const SearchBar: React.FC<SearchBarProps> = ({ onClose }) => {
     return () => window.removeEventListener("keydown", handleKeyDown);
   }, [activeIndex, allResults, navigate, onClose]);
 
-  const getIcon = (item: any) => {
+  const getIcon = (item: SearchResultItem) => {
     if (item.featuredImage) {
       return <img src={item.featuredImage.src} alt={item.featuredImage.alt} className="w-full h-full object-cover" />;
     }
@@ -55,11 +70,14 @@ const SearchBar: React.FC<SearchBarProps> = ({ onClose }) => {
           value={query}
           onChange={(e) => setQuery(e.target.value)}
           placeholder="Search..."
-          className="w-full pl-12 pr-4 py-3 bg-transparent focus:outline-none text-lg text-slate-900 dark:text-white"
+          className="w-full pl-12 pr-12 py-3 bg-transparent focus:outline-none text-lg text-slate-900 dark:text-white"
           aria-label="Search"
           autoFocus
         />
-        {isLoading && <Loader className="absolute right-8 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-400 animate-spin" />}
+        {isLoading && <Loader className="absolute right-16 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-400 animate-spin" />}
+        <button onClick={onClose} className="absolute right-6 top-1/2 -translate-y-1/2 p-2 text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 rounded-full">
+          <X size={20} />
+        </button>
       </div>
 
       <div className="overflow-y-auto max-h-[60vh]">
@@ -118,9 +136,16 @@ const SearchBar: React.FC<SearchBarProps> = ({ onClose }) => {
         )}
       </div>
 
-      <div className="p-4 border-t border-slate-200 dark:border-slate-700 text-xs text-slate-500 flex items-center justify-end gap-4">
-        <span>Navigate with <kbd className="font-sans border rounded-md px-1.5 py-0.5 bg-slate-100 dark:bg-slate-900 dark:border-slate-600">↑</kbd> <kbd className="font-sans border rounded-md px-1.5 py-0.5 bg-slate-100 dark:bg-slate-900 dark:border-slate-600">↓</kbd></span>
-        <span>Select with <kbd className="font-sans border rounded-md px-1.5 py-0.5 bg-slate-100 dark:bg-slate-900 dark:border-slate-600">↵</kbd></span>
+      <div className="p-2 sm:p-4 border-t border-slate-200 dark:border-slate-700 text-xs text-slate-500 flex items-center justify-between gap-4">
+        <div className="flex items-center gap-2">
+          <Logo size="small" />
+          <span className="font-semibold hidden sm:inline">ManhattanPlumbing</span>
+        </div>
+        <div className="flex items-center gap-2 sm:gap-4">
+          <span className="hidden sm:inline">Navigate with <kbd className="font-sans border rounded-md px-1.5 py-0.5 bg-slate-100 dark:bg-slate-900 dark:border-slate-600">↑</kbd> <kbd className="font-sans border rounded-md px-1.5 py-0.5 bg-slate-100 dark:bg-slate-900 dark:border-slate-600">↓</kbd></span>
+          <span className="hidden sm:inline">Select with <kbd className="font-sans border rounded-md px-1.5 py-0.5 bg-slate-100 dark:bg-slate-900 dark:border-slate-600">↵</kbd></span>
+          <span className="sm:hidden">Use <kbd className="font-sans border rounded-md px-1.5 py-0.5 bg-slate-100 dark:bg-slate-900 dark:border-slate-600">↑</kbd> <kbd className="font-sans border rounded-md px-1.5 py-0.5 bg-slate-100 dark:bg-slate-900 dark:border-slate-600">↓</kbd> <kbd className="font-sans border rounded-md px-1.5 py-0.5 bg-slate-100 dark:bg-slate-900 dark:border-slate-600">↵</kbd></span>
+        </div>
       </div>
     </div>
   );
