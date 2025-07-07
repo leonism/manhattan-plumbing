@@ -23,7 +23,7 @@ const SearchBar: React.FC<SearchBarProps> = ({ onClose }) => {
   const navigate = useNavigate();
   const inputRef = useRef<HTMLInputElement>(null);
 
-  const allResults = useMemo(() => 
+  const allResults = useMemo(() =>
     [...results.news, ...results.services],
     [results.news, results.services]
   );
@@ -139,7 +139,7 @@ const SearchBar: React.FC<SearchBarProps> = ({ onClose }) => {
       <div className="p-2 sm:p-4 border-t border-slate-200 dark:border-slate-700 text-xs text-slate-500 flex items-center justify-between gap-4">
         <div className="flex items-center gap-2">
           <Logo size="small" />
-          <span className="font-semibold hidden sm:inline">ManhattanPlumbing</span>
+          {/* <span className="font-semibold hidden sm:inline">ManhattanPlumbing</span> */}
         </div>
         <div className="flex items-center gap-2 sm:gap-4">
           <span className="hidden sm:inline">Navigate with <kbd className="font-sans border rounded-md px-1.5 py-0.5 bg-slate-100 dark:bg-slate-900 dark:border-slate-600">↑</kbd> <kbd className="font-sans border rounded-md px-1.5 py-0.5 bg-slate-100 dark:bg-slate-900 dark:border-slate-600">↓</kbd></span>
