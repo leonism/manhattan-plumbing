@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { format } from "date-fns";
+import { slugify } from "../../utils/slugify"; // Assuming slugify is in a utils file
 
 interface NewsCardProps {
   post: {
@@ -24,7 +25,7 @@ interface NewsCardProps {
 
 const NewsCard: React.FC<NewsCardProps> = ({ post }) => {
   return (
-    <article className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300">
+    <article className="bg-white dark:bg-slate-800 rounded-lg shadow-lg overflow-hidden transform hover:scale-105 transition-transform duration-300">
       <Link
         to={`/news/${post.slug}`}
         className="block">
@@ -35,18 +36,18 @@ const NewsCard: React.FC<NewsCardProps> = ({ post }) => {
             className="object-cover w-full h-full transform hover:scale-105 transition-transform duration-300"
             loading="lazy"
           />
-          <span className="absolute top-4 left-4 bg-primary-600 text-white px-3 py-1 rounded-full text-sm">
+          <Link to={`/news/category/${slugify(post.category)}`} className="absolute top-4 left-4 bg-blue-600 text-white px-3 py-1 rounded-full text-sm font-semibold dark:bg-blue-400">
             {post.category}
-          </span>
+          </Link>
         </div>
       </Link>
 
       <div className="p-6">
-        <div className="flex items-center mb-4 space-x-2 text-sm text-gray-600">
+        <div className="flex items-center mb-4 space-x-2 text-sm text-slate-600 dark:text-slate-400">
           <img
             src={post.author.image}
             alt={post.author.name}
-            className="w-8 h-8 rounded-full"
+            className="w-8 h-8 rounded-full border border-slate-200 dark:border-slate-700"
             loading="lazy"
           />
           <span>{post.author.name}</span>
@@ -58,18 +59,18 @@ const NewsCard: React.FC<NewsCardProps> = ({ post }) => {
           <span>{post.readingTime}</span>
         </div>
 
-        <h2 className="text-xl font-semibold mb-3 hover:text-primary-600 transition-colors">
+        <h2 className="text-xl font-semibold mb-3 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
           <Link to={`/news/${post.slug}`}>{post.title}</Link>
         </h2>
 
-        <p className="text-gray-600 mb-4 line-clamp-3">{post.excerpt}</p>
+        <p className="text-slate-600 dark:text-slate-400 mb-4 line-clamp-3">{post.excerpt}</p>
 
         <div className="flex flex-wrap gap-2">
           {post.tags.slice(0, 3).map((tag) => (
             <Link
               key={tag}
-              to={`/news/tag/${tag}`}
-              className="text-sm text-gray-500 hover:text-primary-600 bg-gray-100 px-3 py-1 rounded-full transition-colors">
+              to={`/news/tag/${slugify(tag)}`}
+              className="text-sm text-blue-700 dark:text-blue-200 hover:text-blue-900 dark:hover:text-blue-50 bg-blue-100 dark:bg-blue-900 px-3 py-1 rounded-full transition-colors">
               #{tag}
             </Link>
           ))}

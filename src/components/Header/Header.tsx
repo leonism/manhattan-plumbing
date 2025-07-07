@@ -69,6 +69,7 @@ const Header: React.FC = () => {
               isOpen={isOpen}
               toggleMenu={toggleMenu}
               scrolled={scrolled}
+              theme={theme}
             />
           </div>
         </div>

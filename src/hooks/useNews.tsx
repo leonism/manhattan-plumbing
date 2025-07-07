@@ -1,5 +1,6 @@
 import { useState, useEffect, useMemo } from "react";
 import type { Post, UseNewsOptions } from "../types/news";
+import { slugify } from "../utils/slugify";
 
 interface MDXModule {
   default: React.ComponentType<any>;
@@ -42,9 +43,9 @@ export const useNews = ({
 
     let filteredPosts = allPosts;
     if (category) {
-      filteredPosts = allPosts.filter((post) => post.category === category);
+      filteredPosts = allPosts.filter((post) => slugify(post.category) === category);
     } else if (tag) {
-      filteredPosts = allPosts.filter((post) => post.tags.includes(tag));
+      filteredPosts = allPosts.filter((post) => post.tags.map(t => slugify(t)).includes(tag));
     }
 
     const allCategories = [...new Set(allPosts.map(p => p.category))];

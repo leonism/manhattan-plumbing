@@ -14,62 +14,44 @@ const DropdownButton = ({
   label,
   onClick,
   isActive,
-  theme,
   scrolled,
 }: {
   label: string;
   onClick: () => void;
   isActive: boolean;
-  theme: string;
   scrolled: boolean;
 }) => {
-  const textColorClass =
-    scrolled && theme === "light"
-      ? "text-slate-800"
-      : "text-white dark:text-white";
+  const textColorClass = scrolled
+    ? "text-slate-800 group-hover:text-blue-600 dark:text-white dark:group-hover:text-blue-400"
+    : "text-white group-hover:text-blue-600 dark:text-white dark:group-hover:text-blue-400";
+
   return (
     <button
       onClick={onClick}
-      className={`flex items-center space-x-1 font-medium transition-colors hover:text-blue-600 dark:hover:text-blue-400 ${textColorClass}`}
+      className={`flex items-center space-x-1 font-medium transition-colors ${textColorClass}`}
       aria-expanded={isActive}
       aria-haspopup="true">
       <span>{label}</span>
       <ChevronDown
         size={16}
-        className={`transition-transform group-hover:rotate-180 ${textColorClass}`}
+        className={`transition-transform ${isActive ? "rotate-180" : ""} ${textColorClass}`}
       />
     </button>
   );
 };
 
-const DropdownMenu = ({ children }: { children: React.ReactNode }) => (
-  <ul
-    className="absolute left-0 invisible py-2 mt-2 w-48 bg-white rounded-xl shadow-2xl border border-slate-200 opacity-0 transition-all duration-200 dark:bg-slate-800 group-hover:opacity-100 group-hover:visible"
-    role="menu">
-    {children}
-  </ul>
-);
-
 const MenuItem = ({
   label,
   href,
-  theme,
 }: {
   label: string;
   href: string;
-  theme: string;
 }) => {
-  // MenuItem text color will be based on its background (white/slate-800), so no direct change needed based on scroll/light mode here
-  // It will contrast with its own dropdown menu background
-  const linkClass =
-    theme === "light"
-      ? "block px-4 py-2 text-slate-700 transition-colors hover:bg-slate-100 dark:text-slate-200 dark:hover:bg-slate-700"
-      : "block px-4 py-2 text-white transition-colors hover:bg-slate-100 dark:text-slate-200 dark:hover:bg-slate-700";
   return (
     <li role="none">
       <a
         href={href}
-        className={linkClass} // Updated to use dynamic class
+        className="block px-4 py-2 text-slate-700 dark:text-slate-200 transition-colors hover:bg-slate-100 dark:hover:bg-slate-700"
         role="menuitem">
         {label}
       </a>
@@ -81,13 +63,11 @@ const DesktopNav: React.FC<DesktopNavProps> = ({
   navItems,
   activeDropdown,
   toggleDropdown,
-  theme,
   scrolled,
 }) => {
-  const linkColorClass =
-    scrolled && theme === "light"
-      ? "text-slate-800"
-      : "text-white dark:text-white";
+  const linkColorClass = scrolled
+    ? "text-slate-800 hover:text-blue-600 dark:text-white dark:hover:text-blue-400"
+    : "text-white hover:text-blue-600 dark:text-white dark:hover:text-blue-400";
 
   return (
     <nav
@@ -104,18 +84,14 @@ const DesktopNav: React.FC<DesktopNavProps> = ({
                   label={item.label}
                   onClick={() => toggleDropdown(item.label)}
                   isActive={activeDropdown === item.label}
-                  theme={theme} // Pass theme
-                  scrolled={scrolled} // Pass scrolled
+                  scrolled={scrolled}
                 />
                 <DropdownMenu>
-                  {" "}
-                  {/* DropdownMenu itself doesn't need theme/scrolled as its colors are fixed */}
                   {item.children.map((child) => (
                     <MenuItem
                       key={child.label}
                       label={child.label}
                       href={child.href}
-                      theme={theme} // Pass theme to MenuItem for its own logic if needed, though current logic is fine
                     />
                   ))}
                 </DropdownMenu>
@@ -123,7 +99,7 @@ const DesktopNav: React.FC<DesktopNavProps> = ({
             ) : (
               <a
                 href={item.href}
-                className={`font-medium transition-colors hover:text-blue-600 dark:hover:text-blue-400 ${linkColorClass}`}>
+                className={`font-medium transition-colors ${linkColorClass}`}>
                 {item.label}
               </a>
             )}

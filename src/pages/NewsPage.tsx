@@ -3,50 +3,59 @@ import { useParams, Link } from "react-router-dom";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import SectionHeading from "../components/UI/SectionHeading";
 import NewsCard from "../components/News/NewsCard";
-import SearchBar from "../components/UI/SearchBar";
 import Button from "../components/UI/Button";
 import { useNews } from "../hooks/useNews";
 
+// Helper function to slugify strings
+const slugify = (text: string) => {
+  return text
+    .toString()
+    .normalize('NFD')
+    .replace(/\p{M}/gu, '')
+    .toLowerCase()
+    .trim()
+    .replace(/\s+/g, '-')
+    .replace(/[^\w-]+/g, '')
+    .replace(/--+/g, '-');
+};
+
 const NewsPage: React.FC = () => {
-  const { category } = useParams();
+  const { category, tag } = useParams();
   const [currentPage, setCurrentPage] = useState(1);
   const { posts, categories, totalPages } = useNews({
     category,
+    tag,
     page: currentPage,
   });
 
   return (
     <main className="min-h-screen py-16">
       <div className="container mx-auto px-4">
-        <header className="mb-12">
+        <header className="mb-12 text-center">
           <SectionHeading
-            title={category ? `${category} News` : "Latest News"}
+            title={category ? `${category} News` : tag ? `${tag} Articles` : "Latest News"}
             subtitle="Stay informed about the latest updates and insights"
           />
 
-          <div className="mt-8 max-w-xl">
-            <SearchBar />
-          </div>
-
-          <div className="mt-6 flex flex-wrap gap-3">
+          <div className="mt-6 flex flex-wrap gap-3 justify-center">
             <Link
               to="/news"
               className={`text-sm ${
-                !category
-                  ? "bg-primary-600 text-white"
-                  : "bg-gray-100 text-gray-700"
-              } px-4 py-2 rounded-full hover:bg-primary-600 hover:text-white transition-colors`}>
+                !category && !tag
+                  ? "bg-blue-600 text-white dark:bg-blue-400"
+                  : "bg-slate-100 text-slate-700 dark:bg-slate-700 dark:text-slate-200"
+              } px-4 py-2 rounded-full hover:bg-blue-600 hover:text-white dark:hover:bg-blue-400 dark:hover:text-white transition-colors`}>
               All
             </Link>
             {categories.map((cat) => (
               <Link
                 key={cat}
-                to={`/news/category/${cat}`}
+                to={`/news/category/${slugify(cat)}`}
                 className={`text-sm ${
                   category === cat
-                    ? "bg-primary-600 text-white"
-                    : "bg-gray-100 text-gray-700"
-                } px-4 py-2 rounded-full hover:bg-primary-600 hover:text-white transition-colors`}>
+                    ? "bg-blue-600 text-white dark:bg-blue-400"
+                    : "bg-slate-100 text-slate-700 dark:bg-slate-700 dark:text-slate-200"
+                } px-4 py-2 rounded-full hover:bg-blue-600 hover:text-white dark:hover:bg-blue-400 dark:hover:text-white transition-colors`}>
                 {cat}
               </Link>
             ))}
