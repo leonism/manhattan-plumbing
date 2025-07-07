@@ -41,7 +41,7 @@ const About: React.FC = () => (
             lasting results.
           </Paragraph>
           <BenefitsList benefits={benefits} />
-          <Button href="#contact">
+          <Button href="/#contact">
             <Phone
               className="mr-2"
               size={18}

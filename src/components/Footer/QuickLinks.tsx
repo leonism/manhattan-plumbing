@@ -19,10 +19,10 @@ const QuickLinks: React.FC<QuickLinksProps> = ({ className }) => {
           {[
             { href: "/", text: "Home" },
             { href: "/news", text: "News & Updates" },
-            { href: "#services", text: "Services" },
-            { href: "#about", text: "About Us" },
-            { href: "#testimonials", text: "Testimonials" },
-            { href: "#contact", text: "Contact" },
+            { href: "/#services", text: "Services" },
+            { href: "/#about", text: "About Us" },
+            { href: "/#testimonials", text: "Testimonials" },
+            { href: "/#contact", text: "Contact" },
           ].map(({ href, text }) => (
             <li key={text}>
               <a

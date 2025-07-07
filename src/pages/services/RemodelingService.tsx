@@ -71,7 +71,7 @@ const RemodelingServicePage = () => {
                 </div>
               </Button>
               <Button
-                href="#contact"
+                href="/#contact"
                 variant="secondary">
                 <div className="flex items-center">
                   <Hammer
@@ -268,25 +268,25 @@ const RemodelingServicePage = () => {
             <Button
               href="tel:+12125551234"
               variant="secondary"
-              className="bg-white text-blue-600 hover:bg-blue-50">
+              className="bg-white text-blue-600 hover:bg-blue-100 dark:hover:bg-slate-200">
               <div className="flex items-center">
                 <Zap
-                  className="mr-3"
+                  className="mr-3 group-hover:animate-pulse"
                   size={20}
                 />
-                <span>Call Now: (212) 555-1234</span>
+                <span>Emergency Call: (212) 555-1234</span>
               </div>
             </Button>
             <Button
-              href="#contact"
+              href="/#contact"
               variant="outline"
-              className="text-white border-white hover:bg-white/10">
+              className="text-white border-white hover:bg-white/20 dark:hover:bg-white/20">
               <div className="flex items-center">
                 <Hammer
                   className="mr-3"
                   size={20}
                 />
-                <span>Get a Free Quote</span>
+                <span>Free Consultation</span>
               </div>
             </Button>
           </div>

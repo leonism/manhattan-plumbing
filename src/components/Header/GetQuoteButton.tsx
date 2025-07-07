@@ -5,7 +5,7 @@ import Button from "../UI/Button";
 const GetQuoteButton: React.FC = () => {
   return (
     <Button
-      href="#contact"
+      href="/#contact"
       className="group"
       aria-label="Get a personalized quote">
       <SparklesIcon

@@ -271,7 +271,7 @@ const FixturesServicePage = () => {
             <Button
               href="tel:+12125551234"
               variant="secondary"
-              className="bg-white text-blue-600 hover:bg-blue-50">
+              className="bg-white text-blue-600 hover:bg-blue-100 dark:hover:bg-slate-200">
               <div className="flex items-center">
                 <Wrench
                   className="mr-3"
@@ -281,9 +281,9 @@ const FixturesServicePage = () => {
               </div>
             </Button>
             <Button
-              href="#contact"
+              href="/#contact"
               variant="outline"
-              className="text-white border-white hover:bg-white/10">
+              className="text-white border-white hover:bg-white/20 dark:hover:bg-white/20">
               <div className="flex items-center">
                 <Clock
                   className="mr-3"

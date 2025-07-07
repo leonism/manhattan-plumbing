@@ -14,7 +14,7 @@ const HeroContent = () => {
       </p>
       <div className="mb-5 flex flex-col gap-4 sm:flex-row">
         <HeroButton
-          href="#contact"
+          href="/#contact"
           icon={CheckCircle}>
           Get a Free Quote
         </HeroButton>

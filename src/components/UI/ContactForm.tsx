@@ -178,13 +178,13 @@ const ContactForm: React.FC<ContactFormProps> = ({
       <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400 mt-3 sm:mt-4">
         By submitting this form, you agree to our{" "}
         <a
-          href="#privacy"
+          href="/privacy-policy"
           className="text-blue-600 dark:text-blue-400 hover:underline">
           Privacy Policy
         </a>{" "}
         and{" "}
         <a
-          href="#terms"
+          href="/terms-of-service"
           className="text-blue-600 dark:text-blue-400 hover:underline">
           Terms of Service
         </a>

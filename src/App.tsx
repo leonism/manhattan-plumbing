@@ -16,6 +16,7 @@ import FixtureService from "./pages/services/FixtureService";
 import RemodelingService from "./pages/services/RemodelingService";
 import WaterHeaterService from "./pages/services/WaterHeaterService";
 import PipeService from "./pages/services/PipeService";
+import CookieConsent from "./components/UI/CookieConsent";
 
 function App() {
   return (
@@ -145,6 +146,7 @@ function App() {
             />
           </Routes>
         </BrowserRouter>
+        <CookieConsent />
       </ThemeProvider>
     </HelmetProvider>
   );
