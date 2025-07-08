@@ -86,7 +86,7 @@ const NewsPage: React.FC = () => {
             {Array.from({ length: totalPages }, (_, i) => (
               <Button
                 key={i + 1}
-                variant={currentPage === i + 1 ? 'primary' : 'outline'}
+                variant={currentPage === i + 1 ? 'primary' : 'outline-solid'}
                 size="sm"
                 onClick={() => setCurrentPage(i + 1)}
               >

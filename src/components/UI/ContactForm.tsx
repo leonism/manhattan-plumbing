@@ -27,7 +27,7 @@ const ContactForm: React.FC<ContactFormProps> = ({
       'p-4 sm:p-6 md:p-8', // Responsive padding
       'transition-all duration-200',
       rounded ? 'rounded-lg sm:rounded-xl' : '', // Responsive rounding
-      shadow ? 'shadow-sm sm:shadow-md' : '', // Responsive shadow
+      shadow ? 'shadow-xs sm:shadow-md' : '', // Responsive shadow
     ]
 
     const variantClasses = {
@@ -75,7 +75,7 @@ const ContactForm: React.FC<ContactFormProps> = ({
             value={formData.name}
             onChange={handleChange}
             required
-            className="w-full px-3 py-2 sm:px-4 sm:py-3 text-sm sm:text-base border border-slate-300 dark:border-slate-600 rounded-md bg-white dark:bg-slate-700 text-slate-800 dark:text-white placeholder-slate-400 dark:placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors"
+            className="w-full px-3 py-2 sm:px-4 sm:py-3 text-sm sm:text-base border border-slate-300 dark:border-slate-600 rounded-md bg-white dark:bg-slate-700 text-slate-800 dark:text-white placeholder-slate-400 dark:placeholder-slate-500 focus:outline-hidden focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors"
             placeholder="John Doe"
           />
         </div>
@@ -96,7 +96,7 @@ const ContactForm: React.FC<ContactFormProps> = ({
               value={formData.email}
               onChange={handleChange}
               required
-              className="w-full px-3 py-2 sm:px-4 sm:py-3 text-sm sm:text-base border border-slate-300 dark:border-slate-600 rounded-md bg-white dark:bg-slate-700 text-slate-800 dark:text-white placeholder-slate-400 dark:placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors"
+              className="w-full px-3 py-2 sm:px-4 sm:py-3 text-sm sm:text-base border border-slate-300 dark:border-slate-600 rounded-md bg-white dark:bg-slate-700 text-slate-800 dark:text-white placeholder-slate-400 dark:placeholder-slate-500 focus:outline-hidden focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors"
               placeholder="john@example.com"
             />
           </div>
@@ -115,7 +115,7 @@ const ContactForm: React.FC<ContactFormProps> = ({
               value={formData.phone}
               onChange={handleChange}
               required
-              className="w-full px-3 py-2 sm:px-4 sm:py-3 text-sm sm:text-base border border-slate-300 dark:border-slate-600 rounded-md bg-white dark:bg-slate-700 text-slate-800 dark:text-white placeholder-slate-400 dark:placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors"
+              className="w-full px-3 py-2 sm:px-4 sm:py-3 text-sm sm:text-base border border-slate-300 dark:border-slate-600 rounded-md bg-white dark:bg-slate-700 text-slate-800 dark:text-white placeholder-slate-400 dark:placeholder-slate-500 focus:outline-hidden focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors"
               placeholder="(212) 555-1234"
             />
           </div>
@@ -135,7 +135,7 @@ const ContactForm: React.FC<ContactFormProps> = ({
             value={formData.service}
             onChange={handleChange}
             required
-            className="w-full px-3 py-2 sm:px-4 sm:py-3 text-sm sm:text-base border border-slate-300 dark:border-slate-600 rounded-md bg-white dark:bg-slate-700 text-slate-800 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors"
+            className="w-full px-3 py-2 sm:px-4 sm:py-3 text-sm sm:text-base border border-slate-300 dark:border-slate-600 rounded-md bg-white dark:bg-slate-700 text-slate-800 dark:text-white focus:outline-hidden focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors"
           >
             <option value="">Select a service</option>
             <option value="emergency">Emergency Plumbing</option>
@@ -161,7 +161,7 @@ const ContactForm: React.FC<ContactFormProps> = ({
             value={formData.message}
             onChange={handleChange}
             rows={3}
-            className="w-full px-3 py-2 sm:px-4 sm:py-3 text-sm sm:text-base border border-slate-300 dark:border-slate-600 rounded-md bg-white dark:bg-slate-700 text-slate-800 dark:text-white placeholder-slate-400 dark:placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors"
+            className="w-full px-3 py-2 sm:px-4 sm:py-3 text-sm sm:text-base border border-slate-300 dark:border-slate-600 rounded-md bg-white dark:bg-slate-700 text-slate-800 dark:text-white placeholder-slate-400 dark:placeholder-slate-500 focus:outline-hidden focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors"
             placeholder="Please provide details about your plumbing needs..."
           />
         </div>
@@ -219,7 +219,7 @@ export default ContactForm
 
 // Grid layout: grid-cols-1 sm:grid-cols-2
 
-// Shadows: shadow-sm sm:shadow-md
+// Shadows: shadow-xs sm:shadow-md
 
 // Rounded corners: rounded-lg sm:rounded-xl
 

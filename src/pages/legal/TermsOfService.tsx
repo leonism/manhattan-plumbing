@@ -240,7 +240,7 @@ const TermsOfService: React.FC = () => {
 
         <main id="main-content" className="relative z-10 py-16">
           <div className="container mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
-            <article className="mt-12 overflow-hidden rounded-2xl bg-white backdrop-blur-sm shadow-lg transition-all duration-300 hover:shadow-xl dark:bg-gray-800/90">
+            <article className="mt-12 overflow-hidden rounded-2xl bg-white backdrop-blur-xs shadow-lg transition-all duration-300 hover:shadow-xl dark:bg-gray-800/90">
               <div className="px-6 pt-6 mb-10">
                 <StaticHeading
                   title="Terms of Service"
@@ -256,7 +256,7 @@ const TermsOfService: React.FC = () => {
                   }`}
                 >
                   <button
-                    className="flex w-full items-center justify-between p-6 text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500"
+                    className="flex w-full items-center justify-between p-6 text-left focus:outline-hidden focus-visible:ring-2 focus-visible:ring-blue-500"
                     onClick={() => toggleSection(index)}
                     aria-expanded={openSections[index]}
                     aria-controls={`section-${index}`}

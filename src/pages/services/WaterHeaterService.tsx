@@ -14,7 +14,7 @@ const WaterHeatersServicePage = () => {
     <main className="min-h-screen bg-white dark:bg-slate-900">
       {/* Hero Section with Pexels Background Image */}
       <section className="relative bg-slate-900 text-white">
-        <div className="absolute inset-0 z-0 bg-center bg-cover bg-blend-multiply brightness-[0.6] after:absolute after:inset-0 after:bg-gradient-to-b after:from-transparent after:via-black/30 after:to-black/70">
+        <div className="absolute inset-0 z-0 bg-center bg-cover bg-blend-multiply brightness-[0.6] after:absolute after:inset-0 after:bg-linear-to-b after:from-transparent after:via-black/30 after:to-black/70">
           <img
             src={heroImage}
             alt="Professional water heater installation"
@@ -176,7 +176,7 @@ const WaterHeatersServicePage = () => {
                     {service.features.map((feature, i) => (
                       <li key={i} className="flex items-start">
                         <CheckCircle
-                          className="flex-shrink-0 mt-1 mr-3 text-blue-600 dark:text-blue-400"
+                          className="shrink-0 mt-1 mr-3 text-blue-600 dark:text-blue-400"
                           size={18}
                         />
                         <span className="text-slate-600 dark:text-slate-300">{feature}</span>
@@ -191,7 +191,7 @@ const WaterHeatersServicePage = () => {
       </section>
 
       {/* Energy Efficiency CTA */}
-      <section className="py-16 bg-gradient-to-r from-blue-600 to-blue-800 text-white">
+      <section className="py-16 bg-linear-to-r from-blue-600 to-blue-800 text-white">
         <div className="container mx-auto px-4 md:px-6 text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-6">Save Up To 34% On Energy Bills</h2>
           <p className="text-xl text-blue-100 max-w-3xl mx-auto mb-8">

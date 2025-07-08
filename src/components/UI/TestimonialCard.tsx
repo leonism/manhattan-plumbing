@@ -30,7 +30,7 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({
       </div>
 
       {/* Testimonial Text */}
-      <p className="text-slate-600 dark:text-slate-300 mb-6 flex-grow">"{testimonial}"</p>
+      <p className="text-slate-600 dark:text-slate-300 mb-6 grow">"{testimonial}"</p>
 
       {/* Customer Info */}
       <div className="flex items-center mt-2">

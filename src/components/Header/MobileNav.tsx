@@ -21,7 +21,7 @@ const MobileNav: React.FC<MobileNavProps> = ({
   if (!isOpen) return null
 
   return (
-    <div className="lg:hidden fixed inset-0 bg-slate-900/95 backdrop-blur-sm z-40">
+    <div className="lg:hidden fixed inset-0 bg-slate-900/95 backdrop-blur-xs z-40">
       <div className="container mx-auto px-4 md:px-6 pt-24 pb-8 h-full overflow-y-auto">
         <nav className="flex flex-col space-y-4">
           {navItems.map((item) => (

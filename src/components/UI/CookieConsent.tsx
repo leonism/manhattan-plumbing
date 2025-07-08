@@ -42,7 +42,7 @@ const CookieConsent: React.FC = () => {
           </a>
           .
         </p>
-        <div className="flex gap-3 flex-shrink-0">
+        <div className="flex gap-3 shrink-0">
           <button
             onClick={handleAccept}
             className="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-md text-sm font-medium transition-colors dark:bg-blue-400 dark:hover:bg-blue-500"

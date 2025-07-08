@@ -54,7 +54,7 @@ const RemodelingServicePage = () => {
     <main className="min-h-screen bg-white dark:bg-slate-900">
       {/* Hero Section with Pexels Background Image */}
       <section className="relative bg-slate-900 text-white">
-        <div className="absolute inset-0 z-0 bg-center bg-cover bg-blend-multiply brightness-[0.6] after:absolute after:inset-0 after:bg-gradient-to-b after:from-transparent after:via-black/30 after:to-black/70">
+        <div className="absolute inset-0 z-0 bg-center bg-cover bg-blend-multiply brightness-[0.6] after:absolute after:inset-0 after:bg-linear-to-b after:from-transparent after:via-black/30 after:to-black/70">
           {bathroomImages[0] && (
             <img
               src={bathroomImages[0].src.large}
@@ -158,7 +158,7 @@ const RemodelingServicePage = () => {
                   className="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110"
                   loading="lazy"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent flex items-end p-6">
+                <div className="absolute inset-0 bg-linear-to-t from-black/70 via-transparent to-transparent flex items-end p-6">
                   <div>
                     <p className="text-white font-semibold text-lg">
                       {image.photographer && `Photo by ${image.photographer}`}
@@ -227,7 +227,7 @@ const RemodelingServicePage = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 bg-gradient-to-r from-blue-600 to-blue-800 text-white">
+      <section className="py-16 bg-linear-to-r from-blue-600 to-blue-800 text-white">
         <div className="container mx-auto px-4 md:px-6 text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-6">Ready for Your Dream Bathroom?</h2>
           <p className="text-xl text-blue-100 max-w-3xl mx-auto mb-8">

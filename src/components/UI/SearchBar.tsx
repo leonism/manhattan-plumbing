@@ -78,7 +78,7 @@ const SearchBar: React.FC<SearchBarProps> = ({ onClose }) => {
           value={query}
           onChange={(e) => setQuery(e.target.value)}
           placeholder="Search..."
-          className="w-full pl-12 pr-12 py-3 bg-transparent focus:outline-none text-lg text-slate-900 dark:text-white"
+          className="w-full pl-12 pr-12 py-3 bg-transparent focus:outline-hidden text-lg text-slate-900 dark:text-white"
           aria-label="Search"
           autoFocus
         />
@@ -115,7 +115,7 @@ const SearchBar: React.FC<SearchBarProps> = ({ onClose }) => {
                     onClick={onClose}
                     className={`flex items-center gap-4 p-4 rounded-lg transition-colors ${activeIndex === index ? 'bg-slate-100 dark:bg-slate-700' : 'hover:bg-slate-50 dark:hover:bg-slate-700/50'}`}
                   >
-                    <div className="w-12 h-12 rounded-md bg-slate-200 dark:bg-slate-600 flex items-center justify-center flex-shrink-0 overflow-hidden">
+                    <div className="w-12 h-12 rounded-md bg-slate-200 dark:bg-slate-600 flex items-center justify-center shrink-0 overflow-hidden">
                       {getIcon(result)}
                     </div>
                     <div>
@@ -148,7 +148,7 @@ const SearchBar: React.FC<SearchBarProps> = ({ onClose }) => {
                     onClick={onClose}
                     className={`flex items-center gap-4 p-4 rounded-lg transition-colors ${activeIndex === index + results.news.length ? 'bg-slate-100 dark:bg-slate-700' : 'hover:bg-slate-50 dark:hover:bg-slate-700/50'}`}
                   >
-                    <div className="w-12 h-12 rounded-md bg-slate-200 dark:bg-slate-600 flex items-center justify-center flex-shrink-0 overflow-hidden">
+                    <div className="w-12 h-12 rounded-md bg-slate-200 dark:bg-slate-600 flex items-center justify-center shrink-0 overflow-hidden">
                       {getIcon(result)}
                     </div>
                     <div>

@@ -15,11 +15,11 @@ const AboutImage: React.FC = () => (
     </figure>
     <div
       id="wrapperBoxFloat"
-      className="absolute p-3 mr-3 md:p-5 max-w-xs text-white bg-blue-600/100 rounded-2xl shadow-lg backdrop-blur-xl bg-opacity-80 right-0 -bottom-12 md:-right-10 md:-bottom-12"
+      className="absolute p-3 mr-3 md:p-5 max-w-xs text-white bg-blue-600 rounded-2xl shadow-lg backdrop-blur-xl bg-opacity-80 right-0 -bottom-12 md:-right-10 md:-bottom-12"
       aria-label="Years of experience"
     >
       <div className="flex items-start gap-3">
-        <CheckCircle className="flex-shrink-0 mt-1 text-white" size={24} />
+        <CheckCircle className="shrink-0 mt-1 text-white" size={24} />
         <div id="wrapperBoxText">
           <p className="mb-2 text-xl font-bold flex items-center gap-2">
             <span className="text-white">30+ Years</span>

@@ -17,7 +17,7 @@ const HeroContent = () => {
         </HeroButton>
         <a
           href="tel:+12125551234"
-          className="inline-flex justify-center items-center px-6 py-3 font-medium text-white rounded-md border-2 border-white transition-colors duration-200 hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-white"
+          className="inline-flex justify-center items-center px-6 py-3 font-medium text-white rounded-md border-2 border-white transition-colors duration-200 hover:bg-white/10 focus:outline-hidden focus:ring-2 focus:ring-offset-2 focus:ring-white"
           aria-label="Call us at 212-555-1234"
         >
           <PhoneCall size={20} className="mr-2" aria-hidden="true" />

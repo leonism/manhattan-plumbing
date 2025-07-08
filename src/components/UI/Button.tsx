@@ -3,7 +3,7 @@ import React from 'react'
 interface ButtonProps {
   children: React.ReactNode
   href?: string
-  variant?: 'primary' | 'secondary' | 'danger' | 'outline'
+  variant?: 'primary' | 'secondary' | 'danger' | 'outline-solid'
   size?: 'sm' | 'md' | 'lg'
   fullWidth?: boolean
   className?: string
@@ -22,7 +22,7 @@ const Button: React.FC<ButtonProps> = ({
   isDisabled = false, // Destructure and provide a default value
 }) => {
   const baseStyles =
-    'inline-flex items-center justify-center font-medium rounded-md transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2'
+    'inline-flex items-center justify-center font-medium rounded-md transition-all duration-200 focus:outline-hidden focus:ring-2 focus:ring-offset-2'
 
   const variantStyles = {
     primary: 'bg-blue-600 hover:bg-blue-700 text-white hover:text-white focus:ring-blue-500',

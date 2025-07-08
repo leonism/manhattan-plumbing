@@ -162,12 +162,12 @@ const NewsPost: React.FC = () => {
             className="max-w-4xl mx-auto prose prose-lg prose-slate dark:prose-invert
             prose-h1:text-4xl prose-h2:text-3xl prose-h3:text-2xl prose-h4:text-xl
             prose-h1:font-extrabold prose-h2:font-bold prose-h3:font-semibold prose-h4:font-medium
-            prose-a:text-blue-600 dark:prose-a:text-blue-400 prose-a:no-underline hover:prose-a:underline
+            prose-a:text-blue-600 dark:prose-a:text-blue-400 prose-a:no-underline prose-a:hover:underline
             prose-img:rounded-lg prose-img:shadow-md
             prose-blockquote:border-l-4 prose-blockquote:border-blue-500 prose-blockquote:pl-4 prose-blockquote:italic
             prose-p:leading-relaxed prose-li:leading-relaxed
             prose-li:marker:text-blue-500
-            prose-code:bg-slate-100 dark:prose-code:bg-slate-800 prose-code:px-1 prose-code:rounded
+            prose-code:bg-slate-100 dark:prose-code:bg-slate-800 prose-code:px-1 prose-code:rounded-sm
             prose-strong:font-bold
             prose-table:w-full prose-table:table-auto prose-table:border-collapse prose-table:rounded-lg prose-table:overflow-hidden
             prose-th:bg-slate-200 dark:prose-th:bg-slate-700 prose-th:p-3 prose-th:text-left prose-th:font-semibold
@@ -185,8 +185,8 @@ const NewsPost: React.FC = () => {
                 to={`/news/${previousPost.slug}`}
                 className="flex items-center gap-2 p-4 rounded-xl border border-slate-200 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-800 text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-200 transition-colors w-full sm:w-auto group"
               >
-                <ArrowLeft className="w-5 h-5 flex-shrink-0 group-hover:-translate-x-1 transition-transform" />
-                <div className="flex-grow">
+                <ArrowLeft className="w-5 h-5 shrink-0 group-hover:-translate-x-1 transition-transform" />
+                <div className="grow">
                   <div className="text-sm text-slate-500 dark:text-slate-400">Previous Article</div>
                   <div className="font-semibold line-clamp-1">{previousPost.title}</div>
                 </div>
@@ -200,11 +200,11 @@ const NewsPost: React.FC = () => {
                 to={`/news/${nextPost.slug}`}
                 className="flex items-center gap-2 p-4 rounded-xl border border-slate-200 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-800 text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-200 transition-colors w-full sm:w-auto ml-auto text-right"
               >
-                <div className="flex-grow">
+                <div className="grow">
                   <div className="text-sm text-slate-500 dark:text-slate-400">Next Article</div>
                   <div className="font-semibold line-clamp-1">{nextPost.title}</div>
                 </div>
-                <ArrowRight className="w-5 h-5 flex-shrink-0 group-hover:translate-x-1 transition-transform" />
+                <ArrowRight className="w-5 h-5 shrink-0 group-hover:translate-x-1 transition-transform" />
               </Link>
             ) : (
               <div className="w-full sm:w-auto" />
