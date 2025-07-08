@@ -5,7 +5,7 @@ import { format } from 'date-fns'
 import { Calendar, Clock, Tag, ArrowLeft, ArrowRight, Folder } from 'lucide-react'
 import { MDXProvider } from '@mdx-js/react'
 import Button from '../components/UI/Button'
-import { useNews } from '../hooks/useNews'
+import SkeletonLoader from '../components/UI/SkeletonLoader'
 
 // Helper function to slugify strings
 const slugify = (text: string) => {
@@ -41,11 +41,10 @@ const NewsPost: React.FC = () => {
       <main className="min-h-screen py-16">
         <div className="container mx-auto px-4">
           <div className="text-center">
-            <h1 className="text-2xl font-bold mb-4">Post Not Found</h1>
-            <p className="mb-8">
-              The article you're looking for doesn't exist or has been removed.
-            </p>
-            <Button href="/news">Back to News</Button>
+            <SkeletonLoader type="text" count={1} className="h-10 w-3/4 mx-auto mb-4" />
+            <SkeletonLoader type="text" count={2} className="w-full mx-auto mb-8" />
+            <SkeletonLoader type="image" className="h-64 w-full mx-auto mb-8" />
+            <SkeletonLoader type="text" count={5} className="w-full mx-auto" />
           </div>
         </div>
       </main>
