@@ -20,12 +20,14 @@ const PipeService = lazy(() => import("./pages/services/PipeService"));
 const RemodelingService = lazy(() => import("./pages/services/RemodelingService"));
 const WaterHeaterService = lazy(() => import("./pages/services/WaterHeaterService"));
 
+import LoadingSpinner from "./components/UI/LoadingSpinner";
+
 function App() {
   return (
     <HelmetProvider>
       <ThemeProvider>
         <BrowserRouter future={{ v7_startTransition: true }}>
-          <Suspense fallback={<div>Loading...</div>}>
+          <Suspense fallback={<LoadingSpinner />}>
             <Routes>
               <Route
                 path="/"
