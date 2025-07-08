@@ -6,14 +6,28 @@ import {
   Droplet,
   Home,
   CheckCircle,
-  // Zap,
-  // Clock,
+  Clock,
 } from 'lucide-react'
-import fixtureHero from '../../assets/images/pexels-newyork-010.jpg'
-import faucetInstall from '../../assets/images/pexels-newyork-011.jpg'
-import showerUpgrade from '../../assets/images/pexels-newyork-012.jpg'
-import waterEfficiency from '../../assets/images/pexels-newyork-013.jpg'
-import fixtureRepair from '../../assets/images/pexels-newyork-014.jpg'
+
+import fixtureHeroJpg from '../../assets/images/pexels-newyork-010.jpg'
+import fixtureHeroWebp from '../../assets/images/pexels-newyork-010.jpg?format=webp'
+import fixtureHeroAvif from '../../assets/images/pexels-newyork-010.jpg?format=avif'
+
+import faucetInstallJpg from '../../assets/images/pexels-newyork-011.jpg'
+import faucetInstallWebp from '../../assets/images/pexels-newyork-011.jpg?format=webp'
+import faucetInstallAvif from '../../assets/images/pexels-newyork-011.jpg?format=avif'
+
+import showerUpgradeJpg from '../../assets/images/pexels-newyork-012.jpg'
+import showerUpgradeWebp from '../../assets/images/pexels-newyork-012.jpg?format=webp'
+import showerUpgradeAvif from '../../assets/images/pexels-newyork-012.jpg?format=avif'
+
+import waterEfficiencyJpg from '../../assets/images/pexels-newyork-013.jpg'
+import waterEfficiencyWebp from '../../assets/images/pexels-newyork-013.jpg?format=webp'
+import waterEfficiencyAvif from '../../assets/images/pexels-newyork-013.jpg?format=avif'
+
+import fixtureRepairJpg from '../../assets/images/pexels-newyork-014.jpg'
+import fixtureRepairWebp from '../../assets/images/pexels-newyork-014.jpg?format=webp'
+import fixtureRepairAvif from '../../assets/images/pexels-newyork-014.jpg?format=avif'
 
 const FixturesServicePage = () => {
   return (
@@ -21,12 +35,16 @@ const FixturesServicePage = () => {
       {/* Hero Section with Modern Fixtures */}
       <section className="relative bg-slate-900 text-white">
         <div className="absolute inset-0 z-0 bg-center bg-cover bg-blend-multiply brightness-[0.9] after:absolute after:inset-0 after:bg-linear-to-b after:from-transparent after:via-black/30 after:to-black/70">
-          <img
-            src={fixtureHero}
-            alt="Professional installing modern bathroom fixtures"
-            className="w-full h-full object-cover"
-            loading="lazy"
-          />
+          <picture>
+            <source srcSet={fixtureHeroAvif} type="image/avif" />
+            <source srcSet={fixtureHeroWebp} type="image/webp" />
+            <img
+              src={fixtureHeroJpg}
+              alt="Professional installing modern bathroom fixtures"
+              className="w-full h-full object-cover"
+              loading="lazy"
+            />
+          </picture>
         </div>
         <div className="container mx-auto px-4 md:px-6 py-32 relative z-10">
           <div className="max-w-3xl mx-auto text-center">
@@ -113,7 +131,7 @@ const FixturesServicePage = () => {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mt-12">
             {[
               {
-                image: faucetInstall,
+                image: { jpg: faucetInstallJpg, webp: faucetInstallWebp, avif: faucetInstallAvif },
                 icon: <Droplet size={32} className="text-blue-600 dark:text-blue-400" />,
                 title: 'Faucet Installation & Repair',
                 description:
@@ -121,7 +139,7 @@ const FixturesServicePage = () => {
                 features: ['Precision installation', 'Leak prevention', 'Water flow optimization'],
               },
               {
-                image: showerUpgrade,
+                image: { jpg: showerUpgradeJpg, webp: showerUpgradeWebp, avif: showerUpgradeAvif },
                 icon: <ShowerHead size={32} className="text-blue-600 dark:text-blue-400" />,
                 title: 'Shower System Upgrades',
                 description:
@@ -133,7 +151,7 @@ const FixturesServicePage = () => {
                 ],
               },
               {
-                image: waterEfficiency,
+                image: { jpg: waterEfficiencyJpg, webp: waterEfficiencyWebp, avif: waterEfficiencyAvif },
                 icon: <CheckCircle size={32} className="text-blue-600 dark:text-blue-400" />,
                 title: 'Water-Efficient Fixtures',
                 description:
@@ -145,7 +163,7 @@ const FixturesServicePage = () => {
                 ],
               },
               {
-                image: fixtureRepair,
+                image: { jpg: fixtureRepairJpg, webp: fixtureRepairWebp, avif: fixtureRepairAvif },
                 icon: <Wrench size={32} className="text-blue-600 dark:text-blue-400" />,
                 title: 'Fixture Maintenance & Repair',
                 description:
@@ -162,12 +180,16 @@ const FixturesServicePage = () => {
                 className="bg-white dark:bg-slate-800 rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300"
               >
                 <div className="h-64 overflow-hidden relative">
-                  <img
-                    src={service.image}
-                    alt={service.title}
-                    className="w-full h-full object-cover"
-                    loading="lazy"
-                  />
+                  <picture>
+                    <source srcSet={service.image.avif} type="image/avif" />
+                    <source srcSet={service.image.webp} type="image/webp" />
+                    <img
+                      src={service.image.jpg}
+                      alt={service.title}
+                      className="w-full h-full object-cover"
+                      loading="lazy"
+                    />
+                  </picture>
                 </div>
                 <div className="p-8">
                   <h3 className="text-2xl font-bold text-slate-800 dark:text-white mb-4">

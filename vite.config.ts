@@ -21,13 +21,13 @@ export default defineConfig({
         quality: 80,
       },
       jpeg: {
-        quality: 75,
+        quality: 60,
       },
       webp: {
-        lossless: true, // Use lossless compression for WebP
+        quality: 80, // Use 80% quality for WebP
       },
       avif: {
-        lossless: true, // Use lossless compression for AVIF
+        quality: 70, // Use 70% quality for AVIF
       },
       // Optional: Configure other image formats as needed
     }),

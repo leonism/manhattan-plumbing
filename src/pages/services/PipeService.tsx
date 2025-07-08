@@ -1,11 +1,26 @@
 import SectionHeading from '../../components/UI/SectionHeading'
 import Button from '../../components/UI/Button'
 import { Wrench, Shield, CheckCircle, Zap, Clock } from 'lucide-react'
-import pipeHero from '../../assets/images/pexels-newyork-001.jpg'
-import leakDetection from '../../assets/images/pexels-newyork-001.jpg'
-import pipeReplacement from '../../assets/images/pexels-newyork-002.jpg'
-import corrosion from '../../assets/images/pexels-newyork-003.jpg'
-import pressure from '../../assets/images/pexels-newyork-004.jpg'
+
+import pipeHeroJpg from '../../assets/images/pexels-newyork-001.jpg'
+import pipeHeroWebp from '../../assets/images/pexels-newyork-001.jpg?format=webp'
+import pipeHeroAvif from '../../assets/images/pexels-newyork-001.jpg?format=avif'
+
+import leakDetectionJpg from '../../assets/images/pexels-newyork-001.jpg'
+import leakDetectionWebp from '../../assets/images/pexels-newyork-001.jpg?format=webp'
+import leakDetectionAvif from '../../assets/images/pexels-newyork-001.jpg?format=avif'
+
+import pipeReplacementJpg from '../../assets/images/pexels-newyork-002.jpg'
+import pipeReplacementWebp from '../../assets/images/pexels-newyork-002.jpg?format=webp'
+import pipeReplacementAvif from '../../assets/images/pexels-newyork-002.jpg?format=avif'
+
+import corrosionJpg from '../../assets/images/pexels-newyork-003.jpg'
+import corrosionWebp from '../../assets/images/pexels-newyork-003.jpg?format=webp'
+import corrosionAvif from '../../assets/images/pexels-newyork-003.jpg?format=avif'
+
+import pressureJpg from '../../assets/images/pexels-newyork-004.jpg'
+import pressureWebp from '../../assets/images/pexels-newyork-004.jpg?format=webp'
+import pressureAvif from '../../assets/images/pexels-newyork-004.jpg?format=avif'
 
 const PipesServicePage = () => {
   return (
@@ -13,12 +28,16 @@ const PipesServicePage = () => {
       {/* Hero Section */}
       <section className="relative bg-slate-900 text-white">
         <div className="absolute inset-0 z-0 bg-center bg-cover bg-blend-multiply brightness-[0.6] after:absolute after:inset-0 after:bg-linear-to-b after:from-transparent after:via-black/30 after:to-black/70">
-          <img
-            src={pipeHero}
-            alt="Professional pipe repair service"
-            className="w-full h-full object-cover"
-            loading="lazy"
-          />
+          <picture>
+            <source srcSet={pipeHeroAvif} type="image/avif" />
+            <source srcSet={pipeHeroWebp} type="image/webp" />
+            <img
+              src={pipeHeroJpg}
+              alt="Professional pipe repair service"
+              className="w-full h-full object-cover"
+              loading="lazy"
+            />
+          </picture>
         </div>
         <div className="container mx-auto px-4 md:px-6 py-32 relative z-10">
           <div className="max-w-3xl mx-auto text-center">
@@ -104,7 +123,7 @@ const PipesServicePage = () => {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mt-12">
             {[
               {
-                image: leakDetection,
+                image: { jpg: leakDetectionJpg, webp: leakDetectionWebp, avif: leakDetectionAvif },
                 title: 'Advanced Leak Detection',
                 description:
                   'Using infrared technology and acoustic sensors to pinpoint hidden leaks without unnecessary demolition.',
@@ -115,7 +134,7 @@ const PipesServicePage = () => {
                 ],
               },
               {
-                image: pipeReplacement,
+                image: { jpg: pipeReplacementJpg, webp: pipeReplacementWebp, avif: pipeReplacementAvif },
                 title: 'Pipe Replacement',
                 description:
                   'Complete replacement of aging or damaged pipe systems using the highest quality materials.',
@@ -126,7 +145,7 @@ const PipesServicePage = () => {
                 ],
               },
               {
-                image: corrosion,
+                image: { jpg: corrosionJpg, webp: corrosionWebp, avif: corrosionAvif },
                 title: 'Corrosion Solutions',
                 description:
                   'Specialized treatments to extend the life of corroding pipes and prevent future damage.',
@@ -137,7 +156,7 @@ const PipesServicePage = () => {
                 ],
               },
               {
-                image: pressure,
+                image: { jpg: pressureJpg, webp: pressureWebp, avif: pressureAvif },
                 title: 'Pressure Optimization',
                 description:
                   'Diagnosing and correcting water pressure issues that strain your plumbing system.',
@@ -153,12 +172,16 @@ const PipesServicePage = () => {
                 className="bg-white dark:bg-slate-800 rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300"
               >
                 <div className="h-64 overflow-hidden">
-                  <img
-                    src={service.image}
-                    alt={service.title}
-                    className="w-full h-full object-cover"
-                    loading="lazy"
-                  />
+                  <picture>
+                    <source srcSet={service.image.avif} type="image/avif" />
+                    <source srcSet={service.image.webp} type="image/webp" />
+                    <img
+                      src={service.image.jpg}
+                      alt={service.title}
+                      className="w-full h-full object-cover"
+                      loading="lazy"
+                    />
+                  </picture>
                 </div>
                 <div className="p-8">
                   <h3 className="text-2xl font-bold text-slate-800 dark:text-white mb-4">

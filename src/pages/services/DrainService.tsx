@@ -1,11 +1,26 @@
 import SectionHeading from '../../components/UI/SectionHeading'
 import Button from '../../components/UI/Button'
 import { Droplets, Wrench, Shield, Clock, CheckCircle, Zap } from 'lucide-react'
-import drainHero from '../../assets/images/pexels-newyork-001.jpg'
-import kitchenClog from '../../assets/images/pexels-newyork-002.jpg'
-import bathroomDrain from '../../assets/images/pexels-newyork-003.jpg'
-import sewerLine from '../../assets/images/pexels-newyork-004.jpg'
-import outdoorDrain from '../../assets/images/pexels-newyork-005.jpg'
+
+import drainHeroJpg from '../../assets/images/pexels-newyork-001.jpg'
+import drainHeroWebp from '../../assets/images/pexels-newyork-001.jpg?format=webp'
+import drainHeroAvif from '../../assets/images/pexels-newyork-001.jpg?format=avif'
+
+import kitchenClogJpg from '../../assets/images/pexels-newyork-002.jpg'
+import kitchenClogWebp from '../../assets/images/pexels-newyork-002.jpg?format=webp'
+import kitchenClogAvif from '../../assets/images/pexels-newyork-002.jpg?format=avif'
+
+import bathroomDrainJpg from '../../assets/images/pexels-newyork-003.jpg'
+import bathroomDrainWebp from '../../assets/images/pexels-newyork-003.jpg?format=webp'
+import bathroomDrainAvif from '../../assets/images/pexels-newyork-003.jpg?format=avif'
+
+import sewerLineJpg from '../../assets/images/pexels-newyork-004.jpg'
+import sewerLineWebp from '../../assets/images/pexels-newyork-004.jpg?format=webp'
+import sewerLineAvif from '../../assets/images/pexels-newyork-004.jpg?format=avif'
+
+import outdoorDrainJpg from '../../assets/images/pexels-newyork-005.jpg'
+import outdoorDrainWebp from '../../assets/images/pexels-newyork-005.jpg?format=webp'
+import outdoorDrainAvif from '../../assets/images/pexels-newyork-005.jpg?format=avif'
 
 const DrainsServicePage = () => {
   return (
@@ -13,12 +28,16 @@ const DrainsServicePage = () => {
       {/* Hero Section with Background Image */}
       <section className="relative bg-slate-900 text-white">
         <div className="absolute inset-0 z-0 bg-center bg-cover bg-blend-multiply brightness-[0.7] after:absolute after:inset-0 after:bg-linear-to-b after:from-transparent after:via-black/30 after:to-black/70">
-          <img
-            src={drainHero}
-            alt="Professional drain cleaning service"
-            className="w-full h-full object-cover"
-            loading="lazy"
-          />
+          <picture>
+            <source srcSet={drainHeroAvif} type="image/avif" />
+            <source srcSet={drainHeroWebp} type="image/webp" />
+            <img
+              src={drainHeroJpg}
+              alt="Professional drain cleaning service"
+              className="w-full h-full object-cover"
+              loading="lazy"
+            />
+          </picture>
         </div>
         <div className="container mx-auto px-4 md:px-6 py-32 relative z-10">
           <div className="max-w-3xl mx-auto text-center">
@@ -107,7 +126,7 @@ const DrainsServicePage = () => {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mt-12 ">
             {[
               {
-                image: kitchenClog,
+                image: { jpg: kitchenClogJpg, webp: kitchenClogWebp, avif: kitchenClogAvif },
                 title: 'Kitchen Sink Clogs',
                 description:
                   'Grease, food particles, and soap buildup can create stubborn clogs in your kitchen drains. Our hydro jetting technology blasts away even the toughest blockages.',
@@ -118,7 +137,7 @@ const DrainsServicePage = () => {
                 ],
               },
               {
-                image: bathroomDrain,
+                image: { jpg: bathroomDrainJpg, webp: bathroomDrainWebp, avif: bathroomDrainAvif },
                 title: 'Bathroom Drain Cleaning',
                 description:
                   'Hair, soap scum, and mineral deposits slow down your drains. We use specialized tools to completely clear your bathroom plumbing.',
@@ -129,14 +148,14 @@ const DrainsServicePage = () => {
                 ],
               },
               {
-                image: sewerLine,
+                image: { jpg: sewerLineJpg, webp: sewerLineWebp, avif: sewerLineAvif },
                 title: 'Sewer Line Services',
                 description:
                   'When multiple drains are slow or you notice sewage backups, you may have a main line issue. Our camera inspections pinpoint the exact problem.',
                 features: ['Camera inspections', 'Trenchless repairs', 'Root intrusion removal'],
               },
               {
-                image: outdoorDrain,
+                image: { jpg: outdoorDrainJpg, webp: outdoorDrainWebp, avif: outdoorDrainAvif },
                 title: 'Outdoor Drain Solutions',
                 description:
                   'Keep your property dry with professional cleaning of outdoor drains, gutters, and downspouts that protect your foundation from water damage.',
@@ -148,12 +167,16 @@ const DrainsServicePage = () => {
                 className="bg-white dark:bg-slate-800 rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300"
               >
                 <div className="h-64 overflow-hidden">
-                  <img
-                    src={service.image}
-                    alt={service.title}
-                    className="w-full h-full object-cover bg-center bg-cover bg-blend-multiply brightness-[0.7] after:absolute after:inset-0 after:bg-linear-to-b after:from-transparent after:via-black/30 after:to-black/70"
-                    loading="lazy"
-                  />
+                  <picture>
+                    <source srcSet={service.image.avif} type="image/avif" />
+                    <source srcSet={service.image.webp} type="image/webp" />
+                    <img
+                      src={service.image.jpg}
+                      alt={service.title}
+                      className="w-full h-full object-cover bg-center bg-cover bg-blend-multiply brightness-[0.7] after:absolute after:inset-0 after:bg-linear-to-b after:from-transparent after:via-black/30 after:to-black/70"
+                      loading="lazy"
+                    />
+                  </picture>
                 </div>
                 <div className="p-8">
                   <h3 className="text-2xl font-bold text-slate-800 dark:text-white mb-4">

@@ -11,11 +11,26 @@ import {
   Flame,
   Bath,
 } from 'lucide-react'
-import emergencyHero from '../../assets/images/pexels-newyork-005.jpg'
-import burstPipe from '../../assets/images/pexels-newyork-006.jpg'
-import sewerBackup from '../../assets/images/pexels-newyork-007.jpg'
-import waterHeater from '../../assets/images/pexels-newyork-008.jpg'
-import gasLeak from '../../assets/images/pexels-newyork-009.jpg'
+
+import emergencyHeroJpg from '../../assets/images/pexels-newyork-005.jpg'
+import emergencyHeroWebp from '../../assets/images/pexels-newyork-005.jpg?format=webp'
+import emergencyHeroAvif from '../../assets/images/pexels-newyork-005.jpg?format=avif'
+
+import burstPipeJpg from '../../assets/images/pexels-newyork-006.jpg'
+import burstPipeWebp from '../../assets/images/pexels-newyork-006.jpg?format=webp'
+import burstPipeAvif from '../../assets/images/pexels-newyork-006.jpg?format=avif'
+
+import sewerBackupJpg from '../../assets/images/pexels-newyork-007.jpg'
+import sewerBackupWebp from '../../assets/images/pexels-newyork-007.jpg?format=webp'
+import sewerBackupAvif from '../../assets/images/pexels-newyork-007.jpg?format=avif'
+
+import waterHeaterJpg from '../../assets/images/pexels-newyork-008.jpg'
+import waterHeaterWebp from '../../assets/images/pexels-newyork-008.jpg?format=webp'
+import waterHeaterAvif from '../../assets/images/pexels-newyork-008.jpg?format=avif'
+
+import gasLeakJpg from '../../assets/images/pexels-newyork-009.jpg'
+import gasLeakWebp from '../../assets/images/pexels-newyork-009.jpg?format=webp'
+import gasLeakAvif from '../../assets/images/pexels-newyork-009.jpg?format=avif'
 
 const EmergencyServicePage = () => {
   return (
@@ -23,12 +38,16 @@ const EmergencyServicePage = () => {
       {/* Hero Section with Urgent CTA */}
       <section className="relative bg-slate-900 text-white">
         <div className="absolute inset-0 z-0 bg-center bg-cover bg-blend-multiply brightness-[1.1] after:absolute after:inset-0 after:bg-linear-to-b after:from-transparent after:via-black/30 after:to-black/70">
-          <img
-            src={emergencyHero}
-            alt="Emergency plumbing service technician working"
-            className="w-full h-full object-cover"
-            loading="lazy"
-          />
+          <picture>
+            <source srcSet={emergencyHeroAvif} type="image/avif" />
+            <source srcSet={emergencyHeroWebp} type="image/webp" />
+            <img
+              src={emergencyHeroJpg}
+              alt="Emergency plumbing service technician working"
+              className="w-full h-full object-cover"
+              loading="lazy"
+            />
+          </picture>
         </div>
         <div className="container mx-auto px-4 md:px-6 py-32 relative z-10">
           <div className="max-w-3xl mx-auto text-center">
@@ -119,7 +138,7 @@ const EmergencyServicePage = () => {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mt-12">
             {[
               {
-                image: burstPipe,
+                image: { jpg: burstPipeJpg, webp: burstPipeWebp, avif: burstPipeAvif },
                 icon: <Droplet size={32} className="text-blue-600" />,
                 title: 'Burst Pipe Repairs',
                 description:
@@ -127,7 +146,7 @@ const EmergencyServicePage = () => {
                 features: ['Instant water shut-off', 'Pipe replacement', 'Water damage mitigation'],
               },
               {
-                image: sewerBackup,
+                image: { jpg: sewerBackupJpg, webp: sewerBackupWebp, avif: sewerBackupAvif },
                 icon: <Bath size={32} className="text-blue-600" />,
                 title: 'Sewer Line Emergencies',
                 description:
@@ -139,7 +158,7 @@ const EmergencyServicePage = () => {
                 ],
               },
               {
-                image: waterHeater,
+                image: { jpg: waterHeaterJpg, webp: waterHeaterWebp, avif: waterHeaterAvif },
                 icon: <Flame size={32} className="text-blue-600" />,
                 title: 'Water Heater Failures',
                 description:
@@ -147,7 +166,7 @@ const EmergencyServicePage = () => {
                 features: ['Same-day replacements', 'Leak containment', 'Safety valve repairs'],
               },
               {
-                image: gasLeak,
+                image: { jpg: gasLeakJpg, webp: gasLeakWebp, avif: gasLeakAvif },
                 icon: <AlertTriangle size={32} className="text-blue-600" />,
                 title: 'Gas Line Leaks',
                 description:
@@ -160,12 +179,16 @@ const EmergencyServicePage = () => {
                 className="bg-white dark:bg-slate-800 rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300"
               >
                 <div className="h-64 overflow-hidden relative">
-                  <img
-                    src={service.image}
-                    alt={service.title}
-                    className="w-full h-full object-cover"
-                    loading="lazy"
-                  />
+                  <picture>
+                    <source srcSet={service.image.avif} type="image/avif" />
+                    <source srcSet={service.image.webp} type="image/webp" />
+                    <img
+                      src={service.image.jpg}
+                      alt={service.title}
+                      className="w-full h-full object-cover"
+                      loading="lazy"
+                    />
+                  </picture>
                   <div className="absolute bottom-4 left-4 bg-white text-white p-3 rounded-full">
                     {service.icon}
                   </div>
