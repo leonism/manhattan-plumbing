@@ -66,11 +66,19 @@ interface NewsPostContentProps {
     author: {
       name: string;
       role: string;
-      image: string;
+      image: {
+        src: string;
+        webp: string;
+        avif: string;
+      };
     };
     category: string;
     tags: string[];
-    image: string;
+    image: {
+      src: string;
+      webp: string;
+      avif: string;
+    };
   };
   content: React.ReactNode;
 }
@@ -104,7 +112,7 @@ const NewsPostContent: React.FC<NewsPostContentProps> = ({
         {frontmatter.image && (
           <meta
             property="og:image"
-            content={frontmatter.image}
+            content={frontmatter.image.src}
           />
         )}
       </Helmet>
@@ -117,11 +125,16 @@ const NewsPostContent: React.FC<NewsPostContentProps> = ({
         />
 
         <div className="mt-6 flex items-center gap-4">
-          <img
-            src={frontmatter.author.image}
-            alt={frontmatter.author.name}
-            className="w-12 h-12 rounded-full"
-          />
+          <picture>
+            <source srcSet={frontmatter.author.image.avif} type="image/avif" />
+            <source srcSet={frontmatter.author.image.webp} type="image/webp" />
+            <img
+              src={frontmatter.author.image.src}
+              alt={frontmatter.author.name}
+              className="w-12 h-12 rounded-full"
+              loading="lazy"
+            />
+          </picture>
           <div>
             <h3 className="font-medium text-gray-900">
               {frontmatter.author.name}
@@ -133,11 +146,16 @@ const NewsPostContent: React.FC<NewsPostContentProps> = ({
         </div>
 
         {frontmatter.image && (
-          <img
-            src={frontmatter.image}
-            alt={frontmatter.title}
-            className="mt-8 w-full h-[400px] object-cover rounded-xl"
-          />
+          <picture>
+            <source srcSet={frontmatter.image.avif} type="image/avif" />
+            <source srcSet={frontmatter.image.webp} type="image/webp" />
+            <img
+              src={frontmatter.image.src}
+              alt={frontmatter.title}
+              className="mt-8 w-full h-[400px] object-cover rounded-xl"
+              loading="lazy"
+            />
+          </picture>
         )}
       </header>
 

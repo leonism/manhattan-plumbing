@@ -16,8 +16,41 @@ const fetchAllPosts = () => {
   for (const path in postFiles) {
     const module = postFiles[path];
     const data = module.frontmatter;
+
     if (data.status === "published") {
-      allPosts.push({ ...data, body: module.default } as Post);
+      const featuredImage = data.featuredImage.src.startsWith('http') ? {
+        src: data.featuredImage.src,
+        webp: data.featuredImage.src,
+        avif: data.featuredImage.src,
+        alt: data.featuredImage.alt,
+        caption: data.featuredImage.caption,
+      } : {
+        src: `/src/assets/images/${data.featuredImage.src}`,
+        webp: `/src/assets/images/${data.featuredImage.src}?format=webp`,
+        avif: `/src/assets/images/${data.featuredImage.src}?format=avif`,
+        alt: data.featuredImage.alt,
+        caption: data.featuredImage.caption,
+      };
+
+      const authorImage = data.author.image.startsWith('http') ? {
+        src: data.author.image,
+        webp: data.author.image,
+        avif: data.author.image,
+      } : {
+        src: `/src/assets/images/${data.author.image}`,
+        webp: `/src/assets/images/${data.author.image}?format=webp`,
+        avif: `/src/assets/images/${data.author.image}?format=avif`,
+      };
+
+      allPosts.push({
+        ...data,
+        featuredImage: featuredImage,
+        author: {
+          ...data.author,
+          image: authorImage,
+        },
+        body: module.default,
+      } as Post);
     }
   }
 
