@@ -5,6 +5,8 @@ import { format } from 'date-fns'
 import { Calendar, Clock, Tag, ArrowLeft, ArrowRight, Folder } from 'lucide-react'
 import { MDXProvider } from '@mdx-js/react'
 
+import { useNews } from '../hooks/useNews'
+import { Post } from '../types/news'
 import SkeletonLoader from '../components/UI/SkeletonLoader'
 
 // Helper function to slugify strings
@@ -30,7 +32,7 @@ const NewsPost: React.FC = () => {
   const { slug } = useParams()
   const { allPosts } = useNews()
 
-  const postIndex = allPosts.findIndex((post) => post.slug === slug)
+  const postIndex = allPosts.findIndex((post: Post) => post.slug === slug)
   const post = allPosts[postIndex]
 
   const previousPost = postIndex > 0 ? allPosts[postIndex - 1] : null
@@ -144,7 +146,7 @@ const NewsPost: React.FC = () => {
             </div>
 
             <div className="flex flex-wrap justify-center gap-2 mb-8">
-              {post.tags.map((tag) => (
+              {post.tags.map((tag: string) => (
                 <Link
                   key={tag}
                   to={`/news/tag/${slugify(tag)}`}
@@ -211,14 +213,14 @@ const NewsPost: React.FC = () => {
           </div>
 
           {/* Related Articles Section */}
-          {allPosts.filter((p) => p.slug !== post.slug).length > 0 && (
+          {allPosts.filter((p: Post) => p.slug !== post.slug).length > 0 && (
             <div className="max-w-4xl mx-auto mt-16">
               <h2 className="text-3xl font-bold mb-8 text-center">More Articles</h2>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 {allPosts
-                  .filter((p) => p.slug !== post.slug)
+                  .filter((p: Post) => p.slug !== post.slug)
                   .slice(0, 3)
-                  .map((relatedPost) => (
+                  .map((relatedPost: Post) => (
                     <div
                       key={relatedPost.slug}
                       className="bg-white dark:bg-slate-800 rounded-lg shadow-lg overflow-hidden transform hover:scale-105 transition-transform duration-300"
