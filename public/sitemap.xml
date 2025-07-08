@@ -1,50 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  
+
   <url>
     <loc>https://manhattanplumbing.com/</loc>
-<<<<<<< HEAD
-    <lastmod>2025-07-07T17:23:24.694Z</lastmod>
-=======
     <lastmod>2025-07-07T22:53:24.552Z</lastmod>
->>>>>>> dev
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://manhattanplumbing.com/news</loc>
-<<<<<<< HEAD
-    <lastmod>2025-07-07T17:23:24.696Z</lastmod>
-=======
     <lastmod>2025-07-07T22:53:24.554Z</lastmod>
->>>>>>> dev
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://manhattanplumbing.com/privacy-policy</loc>
-<<<<<<< HEAD
-    <lastmod>2025-07-07T17:23:24.696Z</lastmod>
-=======
     <lastmod>2025-07-07T22:53:24.554Z</lastmod>
->>>>>>> dev
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://manhattanplumbing.com/terms-of-service</loc>
-<<<<<<< HEAD
-    <lastmod>2025-07-07T17:23:24.696Z</lastmod>
-=======
     <lastmod>2025-07-07T22:53:24.554Z</lastmod>
->>>>>>> dev
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://manhattanplumbing.com/cookie-policy</loc>
-<<<<<<< HEAD
-    <lastmod>2025-07-07T17:23:24.696Z</lastmod>
-=======
     <lastmod>2025-07-07T22:53:24.554Z</lastmod>
->>>>>>> dev
     <priority>0.7</priority>
   </url>
-  
+
 </urlset>

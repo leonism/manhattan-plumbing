@@ -5,7 +5,11 @@ export interface Post {
   author: {
     name: string;
     role: string;
-    image: string;
+    image: {
+      src: string;
+      webp: string;
+      avif: string;
+    };
   };
   category: string;
   tags: string[];
@@ -13,6 +17,8 @@ export interface Post {
     src: string;
     alt: string;
     caption: string;
+    webp: string;
+    avif: string;
   };
   excerpt: string;
   readingTime: string;

@@ -6,6 +6,7 @@ import { Calendar, Clock, Tag, ArrowLeft, ArrowRight, Folder } from "lucide-reac
 import { MDXProvider } from "@mdx-js/react";
 import Button from "../components/UI/Button";
 import { useNews } from "../hooks/useNews";
+import type { Post } from "../types/news";
 
 // Helper function to slugify strings
 const slugify = (text: string) => {
@@ -111,11 +112,16 @@ const NewsPost: React.FC = () => {
             </div>
 
             <div className="flex items-center justify-center gap-4 mb-8">
-              <img
-                src={post.author.image}
-                alt={post.author.name}
-                className="w-12 h-12 rounded-full border-2 border-blue-400"
-              />
+              <picture>
+                <source srcSet={post.author.image.avif} type="image/avif" />
+                <source srcSet={post.author.image.webp} type="image/webp" />
+                <img
+                  src={post.author.image.src}
+                  alt={post.author.name}
+                  className="w-12 h-12 rounded-full border-2 border-blue-400"
+                  loading="lazy"
+                />
+              </picture>
               <div>
                 <div className="font-medium text-slate-900 dark:text-white">
                   {post.author.name}
@@ -127,11 +133,16 @@ const NewsPost: React.FC = () => {
             </div>
 
             <div className="relative rounded-lg overflow-hidden mb-8 shadow-lg">
-              <img
-                src={post.featuredImage.src}
-                alt={post.featuredImage.alt}
-                className="object-cover w-full h-full max-h-96"
-              />
+              <picture>
+                <source srcSet={post.featuredImage.avif} type="image/avif" />
+                <source srcSet={post.featuredImage.webp} type="image/webp" />
+                <img
+                  src={post.featuredImage.src}
+                  alt={post.featuredImage.alt}
+                  className="object-cover w-full h-full max-h-96"
+                  loading="lazy"
+                />
+              </picture>
               {post.featuredImage.caption && (
                 <div className="absolute bottom-0 left-0 right-0 bg-black/60 text-white p-4 text-sm">
                   {post.featuredImage.caption}
@@ -213,11 +224,16 @@ const NewsPost: React.FC = () => {
                     key={relatedPost.slug}
                     className="bg-white dark:bg-slate-800 rounded-lg shadow-lg overflow-hidden transform hover:scale-105 transition-transform duration-300">
                     <Link to={`/news/${relatedPost.slug}`}>
-                      <img
-                        src={relatedPost.featuredImage.src}
-                        alt={relatedPost.featuredImage.alt}
-                        className="w-full h-48 object-cover"
-                      />
+                      <picture>
+                        <source srcSet={relatedPost.featuredImage.avif} type="image/avif" />
+                        <source srcSet={relatedPost.featuredImage.webp} type="image/webp" />
+                        <img
+                          src={relatedPost.featuredImage.src}
+                          alt={relatedPost.featuredImage.alt}
+                          className="w-full h-48 object-cover"
+                          loading="lazy"
+                        />
+                      </picture>
                     </Link>
                     <div className="p-4">
                       <h3 className="font-bold text-lg mb-2">

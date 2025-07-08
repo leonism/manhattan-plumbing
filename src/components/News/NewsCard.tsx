@@ -3,24 +3,10 @@ import { Link } from "react-router-dom";
 import { format } from "date-fns";
 import { slugify } from "../../utils/slugify"; // Assuming slugify is in a utils file
 
+import type { Post } from "../../types/news";
+
 interface NewsCardProps {
-  post: {
-    slug: string;
-    title: string;
-    excerpt: string;
-    featuredImage: {
-      src: string;
-      alt: string;
-    };
-    date: string;
-    author: {
-      name: string;
-      image: string;
-    };
-    category: string;
-    tags: string[];
-    readingTime: string;
-  };
+  post: Post;
 }
 
 const NewsCard: React.FC<NewsCardProps> = ({ post }) => {
@@ -30,12 +16,16 @@ const NewsCard: React.FC<NewsCardProps> = ({ post }) => {
         <Link
           to={`/news/${post.slug}`}
           className="block">
-          <img
-            src={post.featuredImage.src}
-            alt={post.featuredImage.alt}
-            className="object-cover w-full h-full transform hover:scale-105 transition-transform duration-300"
-            loading="lazy"
-          />
+          <picture>
+            <source srcSet={post.featuredImage.avif} type="image/avif" />
+            <source srcSet={post.featuredImage.webp} type="image/webp" />
+            <img
+              src={post.featuredImage.src}
+              alt={post.featuredImage.alt}
+              className="object-cover w-full h-full transform hover:scale-105 transition-transform duration-300"
+              loading="lazy"
+            />
+          </picture>
         </Link>
         <Link to={`/news/category/${slugify(post.category)}`} className="absolute top-4 left-4 bg-blue-600 text-white px-3 py-1 rounded-full text-sm font-semibold dark:bg-blue-400">
           {post.category}
@@ -43,13 +33,17 @@ const NewsCard: React.FC<NewsCardProps> = ({ post }) => {
       </div>
 
       <div className="p-6">
-        <div className="flex items-center mb-4 space-x-2 text-sm text-nowrap text-slate-600 dark:text-slate-400">
-          <img
-            src={post.author.image}
-            alt={post.author.name}
-            className="w-8 h-8 rounded-full border border-slate-200 dark:border-slate-700"
-            loading="lazy"
-          />
+        <div className="flex items-center mb-4 space-x-2 sm:text-xs md:text-sm text-left text-nowrap text-slate-600 dark:text-slate-400">
+          <picture>
+            <source srcSet={post.author.image.avif} type="image/avif" />
+            <source srcSet={post.author.image.webp} type="image/webp" />
+            <img
+              src={post.author.image.src}
+              alt={post.author.name}
+              className="w-8 h-8 rounded-full border border-slate-200 dark:border-slate-700"
+              loading="lazy"
+            />
+          </picture>
           <span>{post.author.name}</span>
           <span>•</span>
           <time dateTime={post.date}>

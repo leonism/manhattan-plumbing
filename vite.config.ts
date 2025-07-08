@@ -1,6 +1,6 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
-import viteImagemin from "vite-plugin-imagemin";
+import { ViteImageOptimizer } from "vite-plugin-image-optimizer";
 import viteCompression from "vite-plugin-compression";
 import mdx from "@mdx-js/rollup";
 import remarkFrontmatter from "remark-frontmatter";
@@ -16,32 +16,20 @@ export default defineConfig({
       remarkPlugins: [remarkFrontmatter, remarkMdxFrontmatter, remarkGfm], // Add remarkGfm
       rehypePlugins: [[rehypeReact, { createElement: React.createElement, Fragment: React.Fragment }]], // Configure rehypeReact
     }),
-    viteImagemin({
-      // Ensure only image files are processed
-      filter: (id) => /\.(jpe?g|png|gif|svg)$/i.test(id),
-      gifsicle: {
-        optimizationLevel: 7,
-        interlaced: false,
-      },
-      optipng: {
-        optimizationLevel: 7,
-      },
-      mozjpeg: {
-        quality: 50,
-      },
-      pngquant: {
-        quality: [0.8, 0.9],
-        speed: 4,
-      },
-      svgo: {
-        plugins: [
-          { name: "removeViewBox" },
-          { name: "removeEmptyAttrs", active: false },
-        ],
-      },
-      webp: {
+    ViteImageOptimizer({
+      png: {
         quality: 80,
       },
+      jpeg: {
+        quality: 75,
+      },
+      webp: {
+        lossless: true, // Use lossless compression for WebP
+      },
+      avif: {
+        lossless: true, // Use lossless compression for AVIF
+      },
+      // Optional: Configure other image formats as needed
     }),
     viteCompression({
       algorithm: "gzip",

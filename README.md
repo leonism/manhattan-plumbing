@@ -1,13 +1,3 @@
-# Manhattan Plumbing 🚰
-
-![Vite](https://img.shields.io/badge/built%20with-Vite-646CFF.svg?style=flat-square&logo=vite&logoColor=white)
-![TypeScript](https://img.shields.io/badge/language-TypeScript-3178C6.svg?style=flat-square&logo=typescript&logoColor=white)
-![React](https://img.shields.io/badge/framework-React-61DAFB.svg?style=flat-square&logo=react&logoColor=white)
-
-A fast, scalable plumbing-website starter built with Vite, React, TailwindCSS and TypeScript — optimized for performance, maintainability, and future scalability.
-
----
-
 <div align="center">
   <h1>Manhattan Plumbing</h1>
   <p>
