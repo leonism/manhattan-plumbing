@@ -33,7 +33,7 @@ const NewsCard: React.FC<NewsCardProps> = ({ post }) => {
       </div>
 
       <div className="p-6">
-        <div className="flex items-center mb-4 space-x-2 sm:text-xs md:text-sm text-left text-nowrap text-slate-600 dark:text-slate-400">
+        <div className="flex mb-4 items-center text-left space-x-1 text-base md:text-sm text-slate-600 dark:text-slate-400">
           <picture>
             <source srcSet={post.author.image.avif} type="image/avif" />
             <source srcSet={post.author.image.webp} type="image/webp" />
@@ -44,19 +44,28 @@ const NewsCard: React.FC<NewsCardProps> = ({ post }) => {
               loading="lazy"
             />
           </picture>
-          <span>{post.author.name}</span>
+          <span className="md:text-nowrap">
+            {post.author.name}
+          </span>
           <span>•</span>
-          <time dateTime={post.date}>
-            {format(new Date(post.date), "MMM d, yyyy")}
-          </time>
-          <span>•</span>
-          <span>{post.readingTime}</span>
+          <span className="md:text-nowrap">
+            <time dateTime={post.date}>
+              {format(new Date(post.date), "MMM d, yyyy")}
+            </time>
+          </span>
+          <span className="hidden md:inline">•</span>
+          <span className="hidden md:inline md:text-nowrap">
+            {post.readingTime}
+          </span>
         </div>
-
         <h2 className="text-xl dark:text-white/90 font-semibold mb-3 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
-          <Link to={`/news/${post.slug}`}>{post.title}</Link>
+          <Link to={`/news/${post.slug}`}>
+            {post.title}
+          </Link>
         </h2>
-        <p className="text-slate-600 dark:text-slate-400 mb-4 line-clamp-3">{post.excerpt}</p>
+        <p className="text-slate-600 dark:text-slate-400 mb-4 line-clamp-3">
+          {post.excerpt}
+        </p>
         <div className="flex flex-wrap gap-2">
           {post.tags.slice(0, 3).map((tag) => (
             <Link
