@@ -2,6 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+<<<<<<< HEAD
     <loc>https://manhattan-plumbing.pages.dev//</loc>
     <lastmod>2025-07-08T01:01:39.068Z</lastmod>
     <priority>1.0</priority>
@@ -24,6 +25,30 @@
   <url>
     <loc>https://manhattan-plumbing.pages.dev//cookie-policy</loc>
     <lastmod>2025-07-08T01:01:39.070Z</lastmod>
+=======
+    <loc>https://manhattanplumbing.com/</loc>
+    <lastmod>2025-07-08T06:37:44.999Z</lastmod>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://manhattanplumbing.com/news</loc>
+    <lastmod>2025-07-08T06:37:45.000Z</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://manhattanplumbing.com/privacy-policy</loc>
+    <lastmod>2025-07-08T06:37:45.000Z</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://manhattanplumbing.com/terms-of-service</loc>
+    <lastmod>2025-07-08T06:37:45.000Z</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://manhattanplumbing.com/cookie-policy</loc>
+    <lastmod>2025-07-08T06:37:45.000Z</lastmod>
+>>>>>>> dev
     <priority>0.7</priority>
   </url>
   

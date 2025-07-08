@@ -1,7 +1,8 @@
-import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useEffect, useState, Suspense, lazy } from 'react';
+import { Link, useParams } from 'react-router-dom';
 import ServiceCard from '../components/Services/ServiceCard';
 import SectionHeading from '../components/UI/SectionHeading';
+import LayoutNewsPage from '../components/Layout/LayoutNewsPage';
 
 import {
   Wrench, // General service icon
@@ -16,7 +17,7 @@ interface Service {
   name: string;
   path: string;
   icon: React.ReactNode;
-  component?: React.ComponentType;
+  component?: React.ComponentType | React.LazyExoticComponent<React.ComponentType>;
 }
 
 const serviceIconMap: { [key: string]: React.ReactNode } = {
@@ -30,12 +31,19 @@ const serviceIconMap: { [key: string]: React.ReactNode } = {
 };
 
 const ServicesPage: React.FC = () => {
+  const { slug } = useParams<{ slug: string }>();
   const [services, setServices] = useState<Service[]>([]);
+  const [CurrentServiceComponent, setCurrentServiceComponent] = useState<React.ComponentType | React.LazyExoticComponent<React.ComponentType> | null>(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
     const loadServices = async () => {
+      setLoading(true);
+      setError(null);
       const serviceModules = import.meta.glob('./services/*.tsx');
       const loadedServices: Service[] = [];
+      let foundService: Service | null = null;
 
       for (const path in serviceModules) {
         const fileName = path.split('/').pop();
@@ -46,18 +54,82 @@ const ServicesPage: React.FC = () => {
             .trim();
           const servicePath = `/services/${serviceName.toLowerCase().replace(/\s/g, '-')}`;
           const icon = serviceIconMap[serviceName] || serviceIconMap['Default'];
-          loadedServices.push({
+
+          const service: Service = {
             name: serviceName,
             path: servicePath,
             icon: icon,
-          });
+          };
+
+          if (slug && servicePath.endsWith(`/${slug}`)) {
+            service.component = lazy(serviceModules[path] as () => Promise<{ default: React.ComponentType }>);
+            foundService = service;
+          }
+          loadedServices.push(service);
         }
       }
       setServices(loadedServices);
+
+      if (slug) {
+        if (foundService && foundService.component) {
+          setCurrentServiceComponent(foundService.component);
+        } else {
+          setError(`Service not found for slug: ${slug}`);
+          setCurrentServiceComponent(null);
+        }
+      }
+      setLoading(false);
     };
 
     loadServices();
-  }, []);
+  }, [slug]);
+
+  if (slug) {
+    if (loading) {
+      return (
+        <LayoutNewsPage>
+          <div className="container mx-auto py-8 mt-20 text-center">
+            <p>Loading service details...</p>
+          </div>
+        </LayoutNewsPage>
+      );
+    }
+
+    if (error) {
+      return (
+        <LayoutNewsPage>
+          <div className="container mx-auto py-8 mt-20 text-center text-red-500">
+            <p>{error}</p>
+            <p>Please check the URL or return to the <a href="/services" className="text-blue-500 hover:underline">services list</a>.</p>
+          </div>
+        </LayoutNewsPage>
+      );
+    }
+
+    if (CurrentServiceComponent) {
+      return (
+        <Suspense fallback={
+          <LayoutNewsPage>
+            <div className="container mx-auto py-8 mt-20 text-center">
+              <p>Loading service content...</p>
+            </div>
+          </LayoutNewsPage>
+        }>
+          <LayoutNewsPage>
+            <CurrentServiceComponent />
+          </LayoutNewsPage>
+        </Suspense>
+      );
+    }
+
+    return (
+      <LayoutNewsPage>
+        <div className="container mx-auto py-8 mt-20 text-center">
+          <p>No service content to display.</p>
+        </div>
+      </LayoutNewsPage>
+    );
+  }
 
   return (
     <div className="container mx-auto py-8 mt-20">

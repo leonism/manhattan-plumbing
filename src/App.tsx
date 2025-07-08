@@ -11,7 +11,6 @@ import PrivacyPolicy from "./pages/legal/PrivacyPolicy";
 import TermsOfService from "./pages/legal/TermsOfService";
 import CookiePolicy from "./pages/legal/CookiePolicy";
 import ServicesPage from "./pages/ServicesPage";
-import IndividualServicePage from "./pages/IndividualServicePage";
 import CookieConsent from "./components/UI/CookieConsent";
 
 function App() {
@@ -93,20 +92,8 @@ function App() {
               }
             />
 
-            <Route
-              path="/services"
-              element={
-                <LayoutNewsPage>
-                  <ServicesPage />
-                </LayoutNewsPage>
-              }
-            />
-            <Route
-              path="/services/:slug"
-              element={
-                <IndividualServicePage />
-              }
-            />
+            <Route path="/services" element={<ServicesPage />} />
+          <Route path="/services/:slug" element={<ServicesPage />} />
           </Routes>
         </BrowserRouter>
         <CookieConsent />
