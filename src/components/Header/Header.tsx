@@ -45,14 +45,14 @@ const Header: React.FC<HeaderProps> = ({ isHomePage = false }) => {
             scrolled={scrolled}
             isHomePage={isHomePage}
           />
-          <div className="hidden lg:flex items-center gap-1">
+          <div className="hidden lg:flex items-center">
             <SearchToggle theme={theme} scrolled={scrolled} isHomePage={isHomePage} />
             <ThemeToggle theme={theme} scrolled={scrolled} isHomePage={isHomePage} />
             <GetQuoteButton />
           </div>
 
           {/* Mobile Navigation Button */}
-          <div className="flex lg:hidden items-center space-x-3">
+          <div className="flex lg:hidden items-center space-x-1 mt-1">
             <ThemeToggle theme={theme} scrolled={scrolled} isHomePage={isHomePage} />
             <SearchToggle theme={theme} scrolled={scrolled} isHomePage={isHomePage} />
             <MenuToggle

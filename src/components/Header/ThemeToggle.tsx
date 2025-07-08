@@ -21,7 +21,7 @@ const ThemeToggle: React.FC<ThemeToggleProps> = ({ theme, scrolled, isHomePage }
   return (
     <button
       onClick={toggleTheme}
-      className={`p-2 rounded-full transition-colors ${iconColorClass}`}
+      className={`p-1 rounded-full transition-colors ${iconColorClass}`}
       aria-label={theme === 'light' ? 'Switch to dark theme' : 'Switch to light theme'}
     >
       {theme === 'light' ? <Moon size={20} /> : <Sun size={20} />}

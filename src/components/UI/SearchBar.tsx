@@ -7,6 +7,7 @@ import Logo from './Logo'
 
 export interface SearchBarProps {
   onClear: () => void
+  onClose: () => void
 }
 
 interface SearchResultItem {
@@ -17,7 +18,7 @@ interface SearchResultItem {
   icon?: string
 }
 
-const SearchBar: React.FC<SearchBarProps> = ({ onClear }) => {
+const SearchBar: React.FC<SearchBarProps> = ({ onClear, onClose }) => {
   const [query, setQuery] = useState('')
   const { allPosts } = useNews()
   const { results, isLoading } = useSearch(query, allPosts)

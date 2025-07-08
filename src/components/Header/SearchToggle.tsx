@@ -22,7 +22,7 @@ const SearchToggle: React.FC<SearchToggleProps> = ({ theme, scrolled, isHomePage
     <>
       <button
         onClick={() => setIsSearchOpen(true)}
-        className={`p-2 rounded-full transition-colors ${iconColorClass}`}
+        className={`p-1 rounded-full transition-colors ${iconColorClass}`}
         aria-label="Search"
       >
         <Search size={20} />
