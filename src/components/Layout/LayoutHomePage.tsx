@@ -1,9 +1,9 @@
-import React from "react";
-import Header from "../Header/Header";
-import Footer from "../Footer/Footer";
+import React from 'react'
+import Header from '../Header/Header'
+import Footer from '../Footer/Footer'
 
 interface LayoutHomePageProps {
-  children: React.ReactNode;
+  children: React.ReactNode
 }
 
 const LayoutHomePage: React.FC<LayoutHomePageProps> = ({ children }) => {
@@ -13,7 +13,7 @@ const LayoutHomePage: React.FC<LayoutHomePageProps> = ({ children }) => {
       <main className="flex-grow">{children}</main>
       <Footer />
     </div>
-  );
-};
+  )
+}
 
-export default LayoutHomePage;
+export default LayoutHomePage

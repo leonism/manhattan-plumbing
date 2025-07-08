@@ -1,12 +1,12 @@
-import React from 'react';
-import { Star } from 'lucide-react';
+import React from 'react'
+import { Star } from 'lucide-react'
 
 interface TestimonialCardProps {
-  name: string;
-  occupation: string;
-  testimonial: string;
-  rating: number;
-  imgSrc: string;
+  name: string
+  occupation: string
+  testimonial: string
+  rating: number
+  imgSrc: string
 }
 
 const TestimonialCard: React.FC<TestimonialCardProps> = ({
@@ -28,12 +28,10 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({
           />
         ))}
       </div>
-      
+
       {/* Testimonial Text */}
-      <p className="text-slate-600 dark:text-slate-300 mb-6 flex-grow">
-        "{testimonial}"
-      </p>
-      
+      <p className="text-slate-600 dark:text-slate-300 mb-6 flex-grow">"{testimonial}"</p>
+
       {/* Customer Info */}
       <div className="flex items-center mt-2">
         <img
@@ -48,7 +46,7 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default TestimonialCard;
+export default TestimonialCard

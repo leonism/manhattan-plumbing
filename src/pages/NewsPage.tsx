@@ -1,10 +1,10 @@
-import React, { useState } from "react";
-import { useParams, Link } from "react-router-dom";
-import { ChevronLeft, ChevronRight } from "lucide-react";
-import SectionHeading from "../components/UI/SectionHeading";
-import NewsCard from "../components/News/NewsCard";
-import Button from "../components/UI/Button";
-import { useNews } from "../hooks/useNews";
+import React, { useState } from 'react'
+import { useParams, Link } from 'react-router-dom'
+import { ChevronLeft, ChevronRight } from 'lucide-react'
+import SectionHeading from '../components/UI/SectionHeading'
+import NewsCard from '../components/News/NewsCard'
+import Button from '../components/UI/Button'
+import { useNews } from '../hooks/useNews'
 
 // Helper function to slugify strings
 const slugify = (text: string) => {
@@ -16,24 +16,24 @@ const slugify = (text: string) => {
     .trim()
     .replace(/\s+/g, '-')
     .replace(/[^\w-]+/g, '')
-    .replace(/--+/g, '-');
-};
+    .replace(/--+/g, '-')
+}
 
 const NewsPage: React.FC = () => {
-  const { category, tag } = useParams();
-  const [currentPage, setCurrentPage] = useState(1);
+  const { category, tag } = useParams()
+  const [currentPage, setCurrentPage] = useState(1)
   const { posts, categories, totalPages } = useNews({
     category,
     tag,
     page: currentPage,
-  });
+  })
 
   return (
     <main className="min-h-screen py-16">
       <div className="container mx-auto px-4">
         <header className="mb-12 text-center">
           <SectionHeading
-            title={category ? `${category} News` : tag ? `${tag} Articles` : "Latest News"}
+            title={category ? `${category} News` : tag ? `${tag} Articles` : 'Latest News'}
             subtitle="Stay informed about the latest updates and insights"
             centered={true}
           />
@@ -43,9 +43,10 @@ const NewsPage: React.FC = () => {
               to="/news"
               className={`text-sm ${
                 !category && !tag
-                  ? "bg-blue-600 text-white dark:bg-blue-400"
-                  : "bg-slate-100 text-slate-700 dark:bg-slate-700 dark:text-slate-200"
-              } px-4 py-2 rounded-full hover:bg-blue-600 hover:text-white dark:hover:bg-blue-400 dark:hover:text-white transition-colors`}>
+                  ? 'bg-blue-600 text-white dark:bg-blue-400'
+                  : 'bg-slate-100 text-slate-700 dark:bg-slate-700 dark:text-slate-200'
+              } px-4 py-2 rounded-full hover:bg-blue-600 hover:text-white dark:hover:bg-blue-400 dark:hover:text-white transition-colors`}
+            >
               All
             </Link>
             {categories.map((cat) => (
@@ -54,9 +55,10 @@ const NewsPage: React.FC = () => {
                 to={`/news/category/${slugify(cat)}`}
                 className={`text-sm ${
                   category === cat
-                    ? "bg-blue-600 text-white dark:bg-blue-400"
-                    : "bg-slate-100 text-slate-700 dark:bg-slate-700 dark:text-slate-200"
-                } px-4 py-2 rounded-full hover:bg-blue-600 hover:text-white dark:hover:bg-blue-400 dark:hover:text-white transition-colors`}>
+                    ? 'bg-blue-600 text-white dark:bg-blue-400'
+                    : 'bg-slate-100 text-slate-700 dark:bg-slate-700 dark:text-slate-200'
+                } px-4 py-2 rounded-full hover:bg-blue-600 hover:text-white dark:hover:bg-blue-400 dark:hover:text-white transition-colors`}
+              >
                 {cat}
               </Link>
             ))}
@@ -65,10 +67,7 @@ const NewsPage: React.FC = () => {
 
         <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {posts.map((post) => (
-            <NewsCard
-              key={post.slug}
-              post={post}
-            />
+            <NewsCard key={post.slug} post={post} />
           ))}
         </section>
 
@@ -78,7 +77,8 @@ const NewsPage: React.FC = () => {
               variant="outline"
               size="sm"
               onClick={() => setCurrentPage((p) => Math.max(1, p - 1))}
-              isDisabled={currentPage === 1}>
+              isDisabled={currentPage === 1}
+            >
               <ChevronLeft className="w-5 h-5 mr-1" />
               Previous
             </Button>
@@ -86,9 +86,10 @@ const NewsPage: React.FC = () => {
             {Array.from({ length: totalPages }, (_, i) => (
               <Button
                 key={i + 1}
-                variant={currentPage === i + 1 ? "primary" : "outline"}
+                variant={currentPage === i + 1 ? 'primary' : 'outline'}
                 size="sm"
-                onClick={() => setCurrentPage(i + 1)}>
+                onClick={() => setCurrentPage(i + 1)}
+              >
                 {i + 1}
               </Button>
             ))}
@@ -97,7 +98,8 @@ const NewsPage: React.FC = () => {
               variant="outline"
               size="sm"
               onClick={() => setCurrentPage((p) => Math.min(totalPages, p + 1))}
-              isDisabled={currentPage === totalPages}>
+              isDisabled={currentPage === totalPages}
+            >
               Next
               <ChevronRight className="w-5 h-5 ml-1" />
             </Button>
@@ -105,7 +107,7 @@ const NewsPage: React.FC = () => {
         )}
       </div>
     </main>
-  );
-};
+  )
+}
 
-export default NewsPage;
+export default NewsPage

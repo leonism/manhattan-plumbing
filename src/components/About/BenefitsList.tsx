@@ -1,12 +1,10 @@
-import React from "react";
-import { CheckCircle } from "lucide-react";
+import React from 'react'
+import { CheckCircle } from 'lucide-react'
 
 const BenefitsList: React.FC<{ benefits: string[] }> = ({ benefits }) => (
   <ul className="mb-8 space-y-3">
     {benefits.map((benefit, index) => (
-      <li
-        key={index}
-        className="flex items-start">
+      <li key={index} className="flex items-start">
         <CheckCircle
           size={20}
           className="flex-shrink-0 mt-1 mr-3 text-green-500"
@@ -16,6 +14,6 @@ const BenefitsList: React.FC<{ benefits: string[] }> = ({ benefits }) => (
       </li>
     ))}
   </ul>
-);
+)
 
-export default BenefitsList;
+export default BenefitsList

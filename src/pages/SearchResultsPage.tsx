@@ -1,14 +1,14 @@
-import React from "react";
-import { useSearchParams } from "react-router-dom";
-import SectionHeading from "../components/UI/SectionHeading";
-import NewsCard from "../components/News/NewsCard";
-import SearchBar from "../components/UI/SearchBar";
-import { useSearch } from "../hooks/useSearch";
+import React from 'react'
+import { useSearchParams } from 'react-router-dom'
+import SectionHeading from '../components/UI/SectionHeading'
+import NewsCard from '../components/News/NewsCard'
+import SearchBar from '../components/UI/SearchBar'
+import { useSearch } from '../hooks/useSearch'
 
 const SearchResultsPage: React.FC = () => {
-  const [searchParams] = useSearchParams();
-  const query = searchParams.get("q") || "";
-  const { results, isLoading } = useSearch(query);
+  const [searchParams] = useSearchParams()
+  const query = searchParams.get('q') || ''
+  const { results, isLoading } = useSearch(query)
 
   return (
     <main className="min-h-screen py-16">
@@ -32,20 +32,15 @@ const SearchResultsPage: React.FC = () => {
         ) : results.length > 0 ? (
           <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {results.map((post) => (
-              <NewsCard
-                key={post.slug}
-                post={post}
-              />
+              <NewsCard key={post.slug} post={post} />
             ))}
           </section>
         ) : (
           <div className="text-center py-12">
             <h2 className="text-2xl font-semibold mb-4">No results found</h2>
             <p className="text-gray-600">
-              Try adjusting your search terms or browse our{" "}
-              <a
-                href="/news"
-                className="text-primary-600 hover:underline">
+              Try adjusting your search terms or browse our{' '}
+              <a href="/news" className="text-primary-600 hover:underline">
                 latest news
               </a>
             </p>
@@ -53,7 +48,7 @@ const SearchResultsPage: React.FC = () => {
         )}
       </div>
     </main>
-  );
-};
+  )
+}
 
-export default SearchResultsPage;
+export default SearchResultsPage

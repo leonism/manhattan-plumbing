@@ -1,9 +1,9 @@
-import React from "react";
-import Header from "../Header/Header";
-import Footer from "../../components/Footer/Footer";
+import React from 'react'
+import Header from '../Header/Header'
+import Footer from '../../components/Footer/Footer'
 
 interface LayoutNewsPageProps {
-  children: React.ReactNode;
+  children: React.ReactNode
 }
 
 const LayoutNewsPage: React.FC<LayoutNewsPageProps> = ({ children }) => {
@@ -13,7 +13,7 @@ const LayoutNewsPage: React.FC<LayoutNewsPageProps> = ({ children }) => {
       <main className="flex-grow">{children}</main>
       <Footer />
     </div>
-  );
-};
+  )
+}
 
-export default LayoutNewsPage;
+export default LayoutNewsPage

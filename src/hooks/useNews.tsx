@@ -1,46 +1,50 @@
-import { useState, useEffect, useMemo } from "react";
-import type { Post, UseNewsOptions } from "../types/news";
-import { slugify } from "../utils/slugify";
+import { useState, useEffect, useMemo } from 'react'
+import type { Post, UseNewsOptions } from '../types/news'
+import { slugify } from '../utils/slugify'
 
 interface MDXModule {
-  default: React.ComponentType<any>;
-  frontmatter: Post;
+  default: React.ComponentType<object>
+  frontmatter: Post
 }
 
 const fetchAllPosts = () => {
-  const postFiles = import.meta.glob<MDXModule>("../content/news/*.mdx", {
+  const postFiles = import.meta.glob<MDXModule>('../content/news/*.mdx', {
     eager: true,
-  });
+  })
 
-  const allPosts: Post[] = [];
+  const allPosts: Post[] = []
   for (const path in postFiles) {
-    const module = postFiles[path];
-    const data = module.frontmatter;
+    const module = postFiles[path]
+    const data = module.frontmatter
 
-    if (data.status === "published") {
-      const featuredImage = data.featuredImage.src.startsWith('http') ? {
-        src: data.featuredImage.src,
-        webp: data.featuredImage.src,
-        avif: data.featuredImage.src,
-        alt: data.featuredImage.alt,
-        caption: data.featuredImage.caption,
-      } : {
-        src: `/src/assets/images/${data.featuredImage.src}`,
-        webp: `/src/assets/images/${data.featuredImage.src}?format=webp`,
-        avif: `/src/assets/images/${data.featuredImage.src}?format=avif`,
-        alt: data.featuredImage.alt,
-        caption: data.featuredImage.caption,
-      };
+    if (data.status === 'published') {
+      const featuredImage = data.featuredImage.src.startsWith('http')
+        ? {
+            src: data.featuredImage.src,
+            webp: data.featuredImage.src,
+            avif: data.featuredImage.src,
+            alt: data.featuredImage.alt,
+            caption: data.featuredImage.caption,
+          }
+        : {
+            src: `/src/assets/images/${data.featuredImage.src}`,
+            webp: `/src/assets/images/${data.featuredImage.src}?format=webp`,
+            avif: `/src/assets/images/${data.featuredImage.src}?format=avif`,
+            alt: data.featuredImage.alt,
+            caption: data.featuredImage.caption,
+          }
 
-      const authorImage = data.author.image.startsWith('http') ? {
-        src: data.author.image,
-        webp: data.author.image,
-        avif: data.author.image,
-      } : {
-        src: `/src/assets/images/${data.author.image}`,
-        webp: `/src/assets/images/${data.author.image}?format=webp`,
-        avif: `/src/assets/images/${data.author.image}?format=avif`,
-      };
+      const authorImage = data.author.image.startsWith('http')
+        ? {
+            src: data.author.image,
+            webp: data.author.image,
+            avif: data.author.image,
+          }
+        : {
+            src: `/src/assets/images/${data.author.image}`,
+            webp: `/src/assets/images/${data.author.image}?format=webp`,
+            avif: `/src/assets/images/${data.author.image}?format=avif`,
+          }
 
       allPosts.push({
         ...data,
@@ -50,48 +54,43 @@ const fetchAllPosts = () => {
           image: authorImage,
         },
         body: module.default,
-      } as Post);
+      } as Post)
     }
   }
 
-  allPosts.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
-  return allPosts;
-};
+  allPosts.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
+  return allPosts
+}
 
-export const useNews = ({
-  category,
-  tag,
-  page = 1,
-  limit = 9,
-}: UseNewsOptions = {}) => {
-  const allPosts = useMemo(() => fetchAllPosts(), []);
+export const useNews = ({ category, tag, page = 1, limit = 9 }: UseNewsOptions = {}) => {
+  const allPosts = useMemo(() => fetchAllPosts(), [])
 
-  const [posts, setPosts] = useState<Post[]>([]);
-  const [categories, setCategories] = useState<string[]>([]);
-  const [totalPages, setTotalPages] = useState(1);
-  const [isLoading, setIsLoading] = useState(true);
+  const [posts, setPosts] = useState<Post[]>([])
+  const [categories, setCategories] = useState<string[]>([])
+  const [totalPages, setTotalPages] = useState(1)
+  const [isLoading, setIsLoading] = useState(true)
 
   useEffect(() => {
-    setIsLoading(true);
+    setIsLoading(true)
 
-    let filteredPosts = allPosts;
+    let filteredPosts = allPosts
     if (category) {
-      filteredPosts = allPosts.filter((post) => slugify(post.category) === category);
+      filteredPosts = allPosts.filter((post) => slugify(post.category) === category)
     } else if (tag) {
-      filteredPosts = allPosts.filter((post) => post.tags.map(t => slugify(t)).includes(tag));
+      filteredPosts = allPosts.filter((post) => post.tags.map((t) => slugify(t)).includes(tag))
     }
 
-    const allCategories = [...new Set(allPosts.map(p => p.category))];
-    const totalPosts = filteredPosts.length;
-    setTotalPages(Math.ceil(totalPosts / limit));
+    const allCategories = [...new Set(allPosts.map((p) => p.category))]
+    const totalPosts = filteredPosts.length
+    setTotalPages(Math.ceil(totalPosts / limit))
 
-    const start = (page - 1) * limit;
-    const paginatedPosts = filteredPosts.slice(start, start + limit);
+    const start = (page - 1) * limit
+    const paginatedPosts = filteredPosts.slice(start, start + limit)
 
-    setPosts(paginatedPosts);
-    setCategories(allCategories);
-    setIsLoading(false);
-  }, [category, tag, page, limit, allPosts]);
+    setPosts(paginatedPosts)
+    setCategories(allCategories)
+    setIsLoading(false)
+  }, [category, tag, page, limit, allPosts])
 
   return {
     posts,
@@ -99,5 +98,5 @@ export const useNews = ({
     totalPages,
     isLoading,
     allPosts,
-  };
-};
+  }
+}

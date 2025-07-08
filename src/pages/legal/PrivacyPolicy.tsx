@@ -1,27 +1,27 @@
-import React, { useState } from "react";
-import StaticHeading from "../../components/UI/StaticHeading";
-import { Helmet } from "react-helmet-async";
-import { ChevronDownIcon, ChevronUpIcon } from "@heroicons/react/24/outline";
-import ContactForm from "../../components/UI/ContactForm";
-import HeroBackground from "../../components/Hero/HeroBackground";
+import React, { useState } from 'react'
+import StaticHeading from '../../components/UI/StaticHeading'
+import { Helmet } from 'react-helmet-async'
+import { ChevronDownIcon, ChevronUpIcon } from '@heroicons/react/24/outline'
+import ContactForm from '../../components/UI/ContactForm'
+import HeroBackground from '../../components/Hero/HeroBackground'
 
 const PrivacyPolicy: React.FC = () => {
-  const lastUpdated = "2025-05-21";
+  const lastUpdated = '2025-05-21'
   const [openSections, setOpenSections] = useState<Record<number, boolean>>({
     0: true, // First section open by default
-  });
+  })
 
   const contactInfo = {
-    company: "Manhattan Plumbing",
-    address: "123 Plumbing Ave",
-    city: "Manhattan, NY 10001",
-    email: "privacy@manhattanplumbing.com",
-    phone: "(212) 555-1234",
-  };
+    company: 'Manhattan Plumbing',
+    address: '123 Plumbing Ave',
+    city: 'Manhattan, NY 10001',
+    email: 'privacy@manhattanplumbing.com',
+    phone: '(212) 555-1234',
+  }
 
   const sections = [
     {
-      title: "1. Information We Collect",
+      title: '1. Information We Collect',
       content: (
         <>
           <p className="text-gray-600 dark:text-gray-300 mb-4 leading-relaxed">
@@ -29,22 +29,16 @@ const PrivacyPolicy: React.FC = () => {
           </p>
           <ul className="space-y-3">
             {[
-              { text: "Name, email address, and phone number", icon: "👤" },
-              { text: "Service address and billing information", icon: "🏠" },
-              { text: "Service history and preferences", icon: "📋" },
-              { text: "Communications with our team", icon: "✉️" },
+              { text: 'Name, email address, and phone number', icon: '👤' },
+              { text: 'Service address and billing information', icon: '🏠' },
+              { text: 'Service history and preferences', icon: '📋' },
+              { text: 'Communications with our team', icon: '✉️' },
             ].map((item, index) => (
-              <li
-                key={index}
-                className="flex items-start">
-                <span
-                  className="mr-2 mt-1"
-                  aria-hidden="true">
+              <li key={index} className="flex items-start">
+                <span className="mr-2 mt-1" aria-hidden="true">
                   {item.icon}
                 </span>
-                <span className="text-gray-600 dark:text-gray-300">
-                  {item.text}
-                </span>
+                <span className="text-gray-600 dark:text-gray-300">{item.text}</span>
               </li>
             ))}
           </ul>
@@ -52,7 +46,7 @@ const PrivacyPolicy: React.FC = () => {
       ),
     },
     {
-      title: "2. How We Use Your Information",
+      title: '2. How We Use Your Information',
       content: (
         <>
           <p className="text-gray-600 dark:text-gray-300 mb-4 leading-relaxed">
@@ -60,25 +54,22 @@ const PrivacyPolicy: React.FC = () => {
           </p>
           <ul className="grid gap-3 sm:grid-cols-2">
             {[
-              { text: "Provide and improve our services", icon: "🔧" },
-              { text: "Communicate with you about appointments", icon: "🗓️" },
+              { text: 'Provide and improve our services', icon: '🔧' },
+              { text: 'Communicate with you about appointments', icon: '🗓️' },
               {
-                text: "Send service updates and promotional offers",
-                icon: "📢",
+                text: 'Send service updates and promotional offers',
+                icon: '📢',
               },
-              { text: "Process payments and maintain accounts", icon: "💳" },
+              { text: 'Process payments and maintain accounts', icon: '💳' },
             ].map((item, index) => (
               <li
                 key={index}
-                className="flex items-start bg-gray-50 dark:bg-gray-700 p-3 rounded-lg">
-                <span
-                  className="mr-2 mt-1"
-                  aria-hidden="true">
+                className="flex items-start bg-gray-50 dark:bg-gray-700 p-3 rounded-lg"
+              >
+                <span className="mr-2 mt-1" aria-hidden="true">
                   {item.icon}
                 </span>
-                <span className="text-gray-600 dark:text-gray-300">
-                  {item.text}
-                </span>
+                <span className="text-gray-600 dark:text-gray-300">{item.text}</span>
               </li>
             ))}
           </ul>
@@ -86,33 +77,26 @@ const PrivacyPolicy: React.FC = () => {
       ),
     },
     {
-      title: "3. Information Sharing",
+      title: '3. Information Sharing',
       content: (
         <>
           <p className="text-gray-600 dark:text-gray-300 mb-4 leading-relaxed">
-            We do not sell or share your personal information with third parties
-            except:
+            We do not sell or share your personal information with third parties except:
           </p>
           <ul className="space-y-3">
             {[
-              { text: "With your consent", icon: "✅" },
-              { text: "To comply with legal obligations", icon: "⚖️" },
+              { text: 'With your consent', icon: '✅' },
+              { text: 'To comply with legal obligations', icon: '⚖️' },
               {
-                text: "With service providers who assist our operations",
-                icon: "🤝",
+                text: 'With service providers who assist our operations',
+                icon: '🤝',
               },
             ].map((item, index) => (
-              <li
-                key={index}
-                className="flex items-start">
-                <span
-                  className="mr-2 mt-1"
-                  aria-hidden="true">
+              <li key={index} className="flex items-start">
+                <span className="mr-2 mt-1" aria-hidden="true">
                   {item.icon}
                 </span>
-                <span className="text-gray-600 dark:text-gray-300">
-                  {item.text}
-                </span>
+                <span className="text-gray-600 dark:text-gray-300">{item.text}</span>
               </li>
             ))}
           </ul>
@@ -120,17 +104,16 @@ const PrivacyPolicy: React.FC = () => {
       ),
     },
     {
-      title: "4. Security",
+      title: '4. Security',
       content: (
         <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
-          We implement appropriate technical and organizational security
-          measures to protect your personal information against unauthorized
-          access, alteration, disclosure, or destruction.
+          We implement appropriate technical and organizational security measures to protect your
+          personal information against unauthorized access, alteration, disclosure, or destruction.
         </p>
       ),
     },
     {
-      title: "5. Your Rights",
+      title: '5. Your Rights',
       content: (
         <>
           <p className="text-gray-600 dark:text-gray-300 mb-4 leading-relaxed">
@@ -138,22 +121,19 @@ const PrivacyPolicy: React.FC = () => {
           </p>
           <ul className="grid gap-3 sm:grid-cols-2">
             {[
-              { text: "Access your personal information", icon: "🔍" },
-              { text: "Correct inaccurate information", icon: "✏️" },
-              { text: "Request deletion of your information", icon: "🗑️" },
-              { text: "Opt-out of marketing communications", icon: "✋" },
+              { text: 'Access your personal information', icon: '🔍' },
+              { text: 'Correct inaccurate information', icon: '✏️' },
+              { text: 'Request deletion of your information', icon: '🗑️' },
+              { text: 'Opt-out of marketing communications', icon: '✋' },
             ].map((item, index) => (
               <li
                 key={index}
-                className="flex items-start bg-gray-50 dark:bg-gray-700 p-3 rounded-lg">
-                <span
-                  className="mr-2 mt-1"
-                  aria-hidden="true">
+                className="flex items-start bg-gray-50 dark:bg-gray-700 p-3 rounded-lg"
+              >
+                <span className="mr-2 mt-1" aria-hidden="true">
                   {item.icon}
                 </span>
-                <span className="text-gray-600 dark:text-gray-300">
-                  {item.text}
-                </span>
+                <span className="text-gray-600 dark:text-gray-300">{item.text}</span>
               </li>
             ))}
           </ul>
@@ -161,37 +141,32 @@ const PrivacyPolicy: React.FC = () => {
       ),
     },
     {
-      title: "6. Contact Us",
+      title: '6. Contact Us',
       content: (
         <>
           <p className="text-gray-600 dark:text-gray-300 mb-6 leading-relaxed">
-            If you have any questions about this Privacy Policy, please contact
-            us at:
+            If you have any questions about this Privacy Policy, please contact us at:
           </p>
           <address className="bg-blue-50 dark:bg-gray-700 p-6 rounded-lg not-italic border border-blue-100 dark:border-gray-600">
             <div className="space-y-2">
-              <p className="text-gray-800 dark:text-white font-medium">
-                {contactInfo.company}
-              </p>
+              <p className="text-gray-800 dark:text-white font-medium">{contactInfo.company}</p>
+              <p className="text-gray-600 dark:text-gray-300">{contactInfo.address}</p>
+              <p className="text-gray-600 dark:text-gray-300">{contactInfo.city}</p>
               <p className="text-gray-600 dark:text-gray-300">
-                {contactInfo.address}
-              </p>
-              <p className="text-gray-600 dark:text-gray-300">
-                {contactInfo.city}
-              </p>
-              <p className="text-gray-600 dark:text-gray-300">
-                Email:{" "}
+                Email:{' '}
                 <a
                   href={`mailto:${contactInfo.email}`}
-                  className="text-blue-600 dark:text-blue-400 hover:underline">
+                  className="text-blue-600 dark:text-blue-400 hover:underline"
+                >
                   {contactInfo.email}
                 </a>
               </p>
               <p className="text-gray-600 dark:text-gray-300">
-                Phone:{" "}
+                Phone:{' '}
                 <a
-                  href={`tel:${contactInfo.phone.replace(/[^\d+]/g, "")}`}
-                  className="text-blue-600 dark:text-blue-400 hover:underline">
+                  href={`tel:${contactInfo.phone.replace(/[^\d+]/g, '')}`}
+                  className="text-blue-600 dark:text-blue-400 hover:underline"
+                >
                   {contactInfo.phone}
                 </a>
               </p>
@@ -208,14 +183,14 @@ const PrivacyPolicy: React.FC = () => {
         </>
       ),
     },
-  ];
+  ]
 
   const toggleSection = (index: number) => {
     setOpenSections((prev) => ({
       ...prev,
       [index]: !prev[index],
-    }));
-  };
+    }))
+  }
 
   return (
     <>
@@ -225,18 +200,13 @@ const PrivacyPolicy: React.FC = () => {
           name="description"
           content="Learn about how Manhattan Plumbing collects, uses, and protects your personal information."
         />
-        <link
-          rel="canonical"
-          href="https://manhattan-plumbing.pages.dev/privacy-policy"
-        />
+        <link rel="canonical" href="https://manhattan-plumbing.pages.dev/privacy-policy" />
       </Helmet>
 
       <div className="relative min-h-screen">
         {/* Add HeroBackground with reduced opacity for better text readability */}
         <HeroBackground />
-        <main
-          id="main-content"
-          className="relative z-10 py-16">
+        <main id="main-content" className="relative z-10 py-16">
           <div className="container mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
             <article className="mt-12 overflow-hidden rounded-2xl bg-white backdrop-blur-sm shadow-lg transition-all duration-300 hover:shadow-xl dark:bg-gray-800/90">
               <div className="px-6 pt-6 mb-10">
@@ -250,13 +220,15 @@ const PrivacyPolicy: React.FC = () => {
                 <section
                   key={index}
                   className={`border-b border-gray-200 dark:border-gray-700 ${
-                    index === 0 ? "border-t" : ""
-                  }`}>
+                    index === 0 ? 'border-t' : ''
+                  }`}
+                >
                   <button
                     className="flex w-full items-center justify-between p-6 text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500"
                     onClick={() => toggleSection(index)}
                     aria-expanded={openSections[index]}
-                    aria-controls={`section-${index}`}>
+                    aria-controls={`section-${index}`}
+                  >
                     <h2 className="text-xl font-bold text-gray-900 dark:text-white">
                       {section.title}
                     </h2>
@@ -277,10 +249,9 @@ const PrivacyPolicy: React.FC = () => {
 
                   <div
                     id={`section-${index}`}
-                    className={`px-6 pb-6 ${
-                      openSections[index] ? "block" : "hidden"
-                    }`}
-                    aria-labelledby={`section-${index}-heading`}>
+                    className={`px-6 pb-6 ${openSections[index] ? 'block' : 'hidden'}`}
+                    aria-labelledby={`section-${index}-heading`}
+                  >
                     {section.content}
                   </div>
                 </section>
@@ -290,7 +261,7 @@ const PrivacyPolicy: React.FC = () => {
         </main>
       </div>
     </>
-  );
-};
+  )
+}
 
-export default PrivacyPolicy;
+export default PrivacyPolicy

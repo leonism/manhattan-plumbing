@@ -7,6 +7,7 @@
     "dev": "vite",
     "build": "vite build && npm run generate",
     "lint": "eslint .",
+    "format": "prettier --write \"src/**/*.{js,jsx,ts,tsx,json,css,scss,md}\"",
     "preview": "vite preview",
     "generate": "npm run generate:sitemap && npm run generate:rss",
     "generate:sitemap": "node scripts/generate-sitemap.js",

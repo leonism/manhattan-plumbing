@@ -1,4 +1,4 @@
-import bgImage from "/src/assets/images/pexels-newyork-004.jpg";
+import bgImage from '/src/assets/images/pexels-newyork-004.jpg'
 
 const HeroBackground = () => {
   return (
@@ -8,7 +8,7 @@ const HeroBackground = () => {
       role="img"
       aria-label="New York City skyline background"
     />
-  );
-};
+  )
+}
 
-export default HeroBackground;
+export default HeroBackground

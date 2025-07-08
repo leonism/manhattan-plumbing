@@ -1,10 +1,10 @@
-import React from "react";
+import React from 'react'
 
 interface StaticHeadingProps {
-  title: string;
-  subtitle: string;
-  centered?: boolean;
-  className?: string;
+  title: string
+  subtitle: string
+  centered?: boolean
+  className?: string
 }
 
 const StaticHeading: React.FC<StaticHeadingProps> = ({
@@ -14,10 +14,7 @@ const StaticHeading: React.FC<StaticHeadingProps> = ({
   className,
 }) => {
   return (
-    <div
-      className={`${centered ? "text-center" : ""} ${
-        className ? className : ""
-      }`}>
+    <div className={`${centered ? 'text-center' : ''} ${className ? className : ''}`}>
       <h1 className="mt-10 text-4xl md:text-5xl font-bold tracking-tight text-blue-600 dark:text-blue-400">
         {title}
       </h1>
@@ -27,7 +24,7 @@ const StaticHeading: React.FC<StaticHeadingProps> = ({
         </p>
       )}
     </div>
-  );
-};
+  )
+}
 
-export default StaticHeading;
+export default StaticHeading

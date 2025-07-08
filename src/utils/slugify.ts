@@ -7,7 +7,7 @@ const slugify = (text: string) => {
     .trim()
     .replace(/\s+/g, '-')
     .replace(/[^\w-]+/g, '')
-    .replace(/--+/g, '-');
-};
+    .replace(/--+/g, '-')
+}
 
-export { slugify };
+export { slugify }
