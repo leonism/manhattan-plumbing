@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import SectionHeading from '../../components/UI/SectionHeading'
 import Button from '../../components/UI/Button'
 import { Home, Bath, Hammer, Zap, CheckCircle } from 'lucide-react'
+import SkeletonLoader from '../../components/UI/SkeletonLoader'
 
 interface PexelsImage {
   id: number
@@ -28,10 +29,12 @@ interface PexelsImage {
 
 const RemodelingServicePage = () => {
   const [bathroomImages, setBathroomImages] = useState<PexelsImage[]>([])
+  const [loading, setLoading] = useState(true)
 
   useEffect(() => {
     const fetchBathroomImages = async () => {
       try {
+        setLoading(true)
         const response = await fetch(
           'https://api.pexels.com/v1/search?query=luxury+bathroom+remodel&per_page=6',
           {
@@ -44,6 +47,8 @@ const RemodelingServicePage = () => {
         setBathroomImages(data.photos || [])
       } catch (error) {
         console.error('Error fetching images from Pexels:', error)
+      } finally {
+        setLoading(false)
       }
     }
 
@@ -55,13 +60,17 @@ const RemodelingServicePage = () => {
       {/* Hero Section with Pexels Background Image */}
       <section className="relative bg-slate-900 text-white">
         <div className="absolute inset-0 z-0 bg-center bg-cover bg-blend-multiply brightness-[0.6] after:absolute after:inset-0 after:bg-linear-to-b after:from-transparent after:via-black/30 after:to-black/70">
-          {bathroomImages[0] && (
-            <img
-              src={bathroomImages[0].src.large}
-              alt={bathroomImages[0].alt || 'Luxury bathroom remodeling'}
-              className="w-full h-full object-cover"
-              loading="lazy"
-            />
+          {loading ? (
+            <SkeletonLoader type="image" className="w-full h-full" />
+          ) : (
+            bathroomImages[0] && (
+              <img
+                src={bathroomImages[0].src.large}
+                alt={bathroomImages[0].alt || 'Luxury bathroom remodeling'}
+                className="w-full h-full object-cover"
+                loading="lazy"
+              />
+            )
           )}
         </div>
         <div className="container mx-auto px-4 md:px-6 py-32 relative z-10">
@@ -147,34 +156,38 @@ const RemodelingServicePage = () => {
             centered
           />
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-12">
-            {bathroomImages.slice(1, 7).map((image, index) => (
-              <div
-                key={index}
-                className="group relative overflow-hidden rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300"
-              >
-                <img
-                  src={image.src.medium}
-                  alt={image.alt || 'Bathroom remodel example'}
-                  className="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110"
-                  loading="lazy"
-                />
-                <div className="absolute inset-0 bg-linear-to-t from-black/70 via-transparent to-transparent flex items-end p-6">
-                  <div>
-                    <p className="text-white font-semibold text-lg">
-                      {image.photographer && `Photo by ${image.photographer}`}
-                    </p>
-                    <a
-                      href={image.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-blue-300 hover:text-blue-100 text-sm"
-                    >
-                      View on Pexels
-                    </a>
+            {loading ? (
+              <SkeletonLoader type="image" count={6} className="h-64" />
+            ) : (
+              bathroomImages.slice(1, 7).map((image, index) => (
+                <div
+                  key={index}
+                  className="group relative overflow-hidden rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300"
+                >
+                  <img
+                    src={image.src.medium}
+                    alt={image.alt || 'Bathroom remodel example'}
+                    className="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110"
+                    loading="lazy"
+                  />
+                  <div className="absolute inset-0 bg-linear-to-t from-black/70 via-transparent to-transparent flex items-end p-6">
+                    <div>
+                      <p className="text-white font-semibold text-lg">
+                        {image.photographer && `Photo by ${image.photographer}`}
+                      </p>
+                      <a
+                        href={image.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-blue-300 hover:text-blue-100 text-sm"
+                      >
+                        View on Pexels
+                      </a>
+                    </div>
                   </div>
                 </div>
-              </div>
-            ))}
+              ))
+            )}
           </div>
         </div>
       </section>

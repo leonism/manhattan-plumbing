@@ -4,6 +4,7 @@ import SectionHeading from '../components/UI/SectionHeading'
 import NewsCard from '../components/News/NewsCard'
 import SearchBar from '../components/UI/SearchBar'
 import { useSearch } from '../hooks/useSearch'
+import SkeletonLoader from '../components/UI/SkeletonLoader'
 
 const SearchResultsPage: React.FC = () => {
   const [searchParams] = useSearchParams()
@@ -17,7 +18,7 @@ const SearchResultsPage: React.FC = () => {
           <SectionHeading
             title="Search Results"
             subtitle={`Found ${results.length} results for "${query}"`}
-            alignment="left"
+            centered={false}
           />
 
           <div className="mt-8 max-w-xl">
@@ -26,9 +27,9 @@ const SearchResultsPage: React.FC = () => {
         </header>
 
         {isLoading ? (
-          <div className="flex justify-center items-center min-h-[400px]">
-            <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-primary-600"></div>
-          </div>
+          <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <SkeletonLoader type="card" count={6} className="col-span-1" />
+          </section>
         ) : results.length > 0 ? (
           <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {results.map((post) => (

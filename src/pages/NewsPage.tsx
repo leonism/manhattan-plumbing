@@ -5,6 +5,7 @@ import SectionHeading from '../components/UI/SectionHeading'
 import NewsCard from '../components/News/NewsCard'
 import Button from '../components/UI/Button'
 import { useNews } from '../hooks/useNews'
+import SkeletonLoader from '../components/UI/SkeletonLoader'
 
 // Helper function to slugify strings
 const slugify = (text: string) => {
@@ -22,7 +23,7 @@ const slugify = (text: string) => {
 const NewsPage: React.FC = () => {
   const { category, tag } = useParams()
   const [currentPage, setCurrentPage] = useState(1)
-  const { posts, categories, totalPages } = useNews({
+  const { posts, categories, totalPages, isLoading } = useNews({
     category,
     tag,
     page: currentPage,
@@ -66,9 +67,11 @@ const NewsPage: React.FC = () => {
         </header>
 
         <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {posts.map((post) => (
-            <NewsCard key={post.slug} post={post} />
-          ))}
+          {isLoading ? (
+            <SkeletonLoader type="card" count={9} className="col-span-1" />
+          ) : (
+            posts.map((post) => <NewsCard key={post.slug} post={post} />)
+          )}
         </section>
 
         {totalPages > 1 && (
