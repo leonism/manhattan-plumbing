@@ -5,6 +5,7 @@ import { format } from 'date-fns'
 import { Calendar, Clock, Tag, ArrowLeft, ArrowRight, Folder } from 'lucide-react'
 import { MDXProvider } from '@mdx-js/react'
 
+import { useNews } from '../hooks/useNews'
 import SkeletonLoader from '../components/UI/SkeletonLoader'
 
 // Helper function to slugify strings
@@ -87,7 +88,35 @@ const NewsPost: React.FC = () => {
 
           <header className="max-w-4xl mx-auto mb-12 text-center">
             <h1 className="text-4xl md:text-5xl font-extrabold leading-tight mb-6">{post.title}</h1>
-
+            <div className="relative rounded-lg overflow-hidden mb-8 shadow-lg">
+              <picture>
+                <source srcSet={post.featuredImage.avif} type="image/avif" />
+                <source srcSet={post.featuredImage.webp} type="image/webp" />
+                <img
+                  src={post.featuredImage.src}
+                  alt={post.featuredImage.alt}
+                  className="object-cover w-full h-full max-h-96"
+                  loading="lazy"
+                />
+              </picture>
+              {post.featuredImage.caption && (
+                <div className="absolute bottom-0 left-0 right-0 bg-black/60 text-white p-4 text-sm">
+                  {post.featuredImage.caption}
+                </div>
+              )}
+            </div>
+            <div className="flex flex-wrap justify-center gap-2 mb-8">
+              {post.tags.map((tag) => (
+                <Link
+                  key={tag}
+                  to={`/news/tag/${slugify(tag)}`}
+                  className="inline-flex items-center text-sm bg-blue-100 hover:bg-blue-200 text-blue-700 px-3 py-1 rounded-full transition-colors dark:bg-blue-900 dark:text-blue-200 dark:hover:bg-blue-800"
+                >
+                  <Tag className="w-4 h-4 mr-1" />
+                  {tag}
+                </Link>
+              ))}
+            </div>
             <div className="flex flex-wrap items-center justify-center gap-4 text-slate-600 dark:text-slate-400 mb-6">
               <div className="flex items-center">
                 <Calendar className="w-4 h-4 mr-2" />
@@ -107,7 +136,6 @@ const NewsPost: React.FC = () => {
                 </Link>
               </div>
             </div>
-
             <div className="flex items-center justify-center gap-4 mb-8">
               <picture>
                 <source srcSet={post.author.image.avif} type="image/avif" />
@@ -123,37 +151,6 @@ const NewsPost: React.FC = () => {
                 <div className="font-medium text-slate-900 dark:text-white">{post.author.name}</div>
                 <div className="text-sm text-slate-600 dark:text-slate-400">{post.author.role}</div>
               </div>
-            </div>
-
-            <div className="relative rounded-lg overflow-hidden mb-8 shadow-lg">
-              <picture>
-                <source srcSet={post.featuredImage.avif} type="image/avif" />
-                <source srcSet={post.featuredImage.webp} type="image/webp" />
-                <img
-                  src={post.featuredImage.src}
-                  alt={post.featuredImage.alt}
-                  className="object-cover w-full h-full max-h-96"
-                  loading="lazy"
-                />
-              </picture>
-              {post.featuredImage.caption && (
-                <div className="absolute bottom-0 left-0 right-0 bg-black/60 text-white p-4 text-sm">
-                  {post.featuredImage.caption}
-                </div>
-              )}
-            </div>
-
-            <div className="flex flex-wrap justify-center gap-2 mb-8">
-              {post.tags.map((tag) => (
-                <Link
-                  key={tag}
-                  to={`/news/tag/${slugify(tag)}`}
-                  className="inline-flex items-center text-sm bg-blue-100 hover:bg-blue-200 text-blue-700 px-3 py-1 rounded-full transition-colors dark:bg-blue-900 dark:text-blue-200 dark:hover:bg-blue-800"
-                >
-                  <Tag className="w-4 h-4 mr-1" />
-                  {tag}
-                </Link>
-              ))}
             </div>
           </header>
 
