@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef, useMemo } from "react";
 import { useSearch } from "../../hooks/useSearch";
+import { useNews } from "../../hooks/useNews";
 import { Link, useNavigate } from "react-router-dom";
 import { Search, Loader, Newspaper, Wrench, X } from "lucide-react";
 import Logo from "./Logo";
@@ -18,7 +19,8 @@ interface SearchResultItem {
 
 const SearchBar: React.FC<SearchBarProps> = ({ onClose }) => {
   const [query, setQuery] = useState("");
-  const { results, isLoading } = useSearch(query);
+  const { allPosts } = useNews();
+  const { results, isLoading } = useSearch(query, allPosts);
   const [activeIndex, setActiveIndex] = useState(-1);
   const navigate = useNavigate();
   const inputRef = useRef<HTMLInputElement>(null);

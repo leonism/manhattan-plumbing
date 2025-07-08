@@ -24,8 +24,7 @@ interface CategorizedResults {
   services: SearchResult[];
 }
 
-export const useSearch = (query: string) => {
-  const { allPosts } = useNews();
+export const useSearch = (query: string, allPosts: any[]) => {
   const [results, setResults] = useState<CategorizedResults>({ news: [], services: [] });
   const [isLoading, setIsLoading] = useState(false);
 
