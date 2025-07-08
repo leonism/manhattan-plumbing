@@ -26,7 +26,7 @@ const MenuToggle: React.FC<MenuToggleProps> = ({
   return (
     <button
       onClick={toggleMenu}
-      className={`p-1 rounded-full transition-colors ${iconColorClass}`}
+      className={`p-1 md:p-2 rounded-full transition-colors ${iconColorClass}`}
       aria-label="Toggle menu"
       aria-expanded={isOpen}
     >
