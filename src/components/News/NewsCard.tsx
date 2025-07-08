@@ -43,7 +43,7 @@ const NewsCard: React.FC<NewsCardProps> = ({ post }) => {
       </div>
 
       <div className="p-6">
-        <div className="flex items-center mb-4 space-x-2 text-sm text-nowrap text-slate-600 dark:text-slate-400">
+        <div className="flex items-center mb-4 space-x-2 text-sm text-left text-nowrap text-slate-600 dark:text-slate-400">
           <img
             src={post.author.image}
             alt={post.author.name}
