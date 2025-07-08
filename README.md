@@ -8,15 +8,17 @@
 
 [![Manhattan Plumbing](manhattan-plumber.png 'A fast, scalable plumbing-website starter built with Vite, React, TailwindCSS and TypeScript — optimized for performance, maintainability, and future scalability.')](https://manhattan-plumbing.pages.dev/)
 
-  [![React](https://img.shields.io/badge/React-18.3.1-FF5D01?style=flat&logo=react&logoColor=white)](https://react.dev)
-  [![TypeScript](https://img.shields.io/badge/TypeScript-5.0+-3178C6?style=flat&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
-  [![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-3.4.17-38B2AC?style=flat&logo=tailwind-css&logoColor=white)](https://tailwindcss.com)
-  [![License](https://img.shields.io/badge/License-ISC-blue.svg)](LICENSE)
+[![React](https://img.shields.io/badge/React-18.3.1-FF5D01?style=flat&logo=react&logoColor=white)](https://react.dev)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.0+-3178C6?style=flat&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-4.1.11-38B2AC?style=flat&logo=tailwind-css&logoColor=white)](https://tailwindcss.com)
+[![License](https://img.shields.io/badge/License-ISC-blue.svg)](LICENSE)
 
   <!-- Additional new badges below -->
-  [![Cloudflare Pages](https://img.shields.io/badge/Deployed%20on-Cloudflare_Pages-F38020?style=flat&logo=cloudflare&logoColor=white)](https://pages.cloudflare.com/)
-  [![Vercel](https://img.shields.io/badge/Preview-Vercel-000000?style=flat&logo=vercel&logoColor=white)](https://vercel.com/)
-  [![Dark Mode](https://img.shields.io/badge/Dark_Mode-Enabled-000000?style=flat)](#)
+
+[![Cloudflare Pages](https://img.shields.io/badge/Deployed%20on-Cloudflare_Pages-F38020?style=flat&logo=cloudflare&logoColor=white)](https://pages.cloudflare.com/)
+[![Vercel](https://img.shields.io/badge/Preview-Vercel-000000?style=flat&logo=vercel&logoColor=white)](https://vercel.com/)
+[![Dark Mode](https://img.shields.io/badge/Dark_Mode-Enabled-000000?style=flat)](#)
+
 </div>
 
 ## Table of Contents
@@ -41,10 +43,10 @@
 
 1. Clone the repository:
 
-   ```bash
-   git clone https://github.com/leonism/manhattan-plumbing.git
-   cd manhattan-plumbing
-   ```
+    ```bash
+    git clone https://github.com/leonism/manhattan-plumbing.git
+    cd manhattan-plumbing
+    ```
 
 2. Install dependencies:
 
@@ -52,7 +54,7 @@
 git clone https://github.com/leonism/manhattan-plumbing.git
 cd manhattan-plumbing
 npm install
-````
+```
 
 ### Development
 
@@ -82,8 +84,8 @@ The built files will be in the `dist/` directory.
 
 1. Configure your static hosting provider to:
 
-   - Build command: `npm run build` or `yarn build`
-   - Publish directory: `dist`
+    - Build command: `npm run build` or `yarn build`
+    - Publish directory: `dist`
 
 2. Set up any required environment variables
 
@@ -91,14 +93,14 @@ The built files will be in the `dist/` directory.
 
 1. Build the Docker image:
 
-   ```bash
-   docker build -t manhatten-plumbing .
-   ```
+    ```bash
+    docker build -t manhatten-plumbing .
+    ```
 
 2. Run the container:
-   ```bash
-   docker run -p 8080:80 manhattan-plumbing
-   ```
+    ```bash
+    docker run -p 8080:80 manhattan-plumbing
+    ```
 
 ## Project Structure
 
@@ -132,7 +134,8 @@ manhattan-plumbing/
 
 ## 🤝 Contributing
 
-Contributions welcome! Please submit issues or pull requests for bug fixes, improvements, or ideas. We aim to build a robust, future-proof starter together.
+Contributions welcome! Please submit issues or pull requests for bug fixes,
+improvements, or ideas. We aim to build a robust, future-proof starter together.
 
 ---
 

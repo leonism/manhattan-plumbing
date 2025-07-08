@@ -6,7 +6,6 @@ import {
   Droplet,
   Home,
   CheckCircle,
-  Clock,
 } from 'lucide-react'
 
 import fixtureHeroJpg from '../../assets/images/pexels-newyork-010.jpg'

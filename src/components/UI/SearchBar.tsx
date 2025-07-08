@@ -5,8 +5,8 @@ import { Link, useNavigate } from 'react-router-dom'
 import { Search, Loader, Newspaper, Wrench, X } from 'lucide-react'
 import Logo from './Logo'
 
-interface SearchBarProps {
-  onClose: () => void
+export interface SearchBarProps {
+  onClear: () => void
 }
 
 interface SearchResultItem {
@@ -17,7 +17,7 @@ interface SearchResultItem {
   icon?: string
 }
 
-const SearchBar: React.FC<SearchBarProps> = ({ onClose }) => {
+const SearchBar: React.FC<SearchBarProps> = ({ onClear }) => {
   const [query, setQuery] = useState('')
   const { allPosts } = useNews()
   const { results, isLoading } = useSearch(query, allPosts)
@@ -86,7 +86,10 @@ const SearchBar: React.FC<SearchBarProps> = ({ onClose }) => {
           <Loader className="absolute right-16 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-400 animate-spin" />
         )}
         <button
-          onClick={onClose}
+          onClick={() => {
+            setQuery('');
+            onClear();
+          }}
           className="absolute right-6 top-1/2 -translate-y-1/2 p-2 text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 rounded-full"
         >
           <X size={20} />
