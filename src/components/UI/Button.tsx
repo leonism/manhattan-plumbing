@@ -3,7 +3,7 @@ import React from 'react'
 interface ButtonProps {
   children: React.ReactNode
   href?: string
-  variant?: 'primary' | 'secondary' | 'danger' | 'outline-solid'
+  variant?: 'primary' | 'secondary' | 'danger' | 'outline' | 'outline-solid'
   size?: 'sm' | 'md' | 'lg'
   fullWidth?: boolean
   className?: string
