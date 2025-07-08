@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-    <id>https://manhattanplumbing.com</id>
+    <id>https://manhattan-plumbing.pages.dev/</id>
     <title>Manhattan Plumbing</title>
-    <updated>2025-07-07T22:53:25.219Z</updated>
+    <updated>2025-07-08T01:01:39.802Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <author>
         <name>Manhattan Plumbing</name>
         <email>info@manhattanplumbing.com</email>
-        <uri>https://manhattanplumbing.com</uri>
+        <uri>https://manhattan-plumbing.pages.dev/</uri>
     </author>
-    <link rel="alternate" href="https://manhattanplumbing.com"/>
-    <link rel="self" href="https://manhattanplumbing.com/atom.xml"/>
+    <link rel="alternate" href="https://manhattan-plumbing.pages.dev/"/>
+    <link rel="self" href="https://manhattan-plumbing.pages.dev//atom.xml"/>
     <subtitle>Professional plumbing services in Manhattan, NY</subtitle>
-    <logo>https://manhattanplumbing.com/images/logo.png</logo>
-    <icon>https://manhattanplumbing.com/favicon.ico</icon>
+    <logo>https://manhattan-plumbing.pages.dev//images/logo.png</logo>
+    <icon>https://manhattan-plumbing.pages.dev//favicon.ico</icon>
     <rights>All rights reserved 2025, Manhattan Plumbing</rights>
 </feed>

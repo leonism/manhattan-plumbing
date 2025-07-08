@@ -3,7 +3,7 @@ import fs from "fs-extra";
 import matter from "gray-matter";
 import { Feed } from "feed";
 
-const SITE_URL = "https://manhattanplumbing.com"; // Ensure no trailing spaces
+const SITE_URL = "https://manhattan-plumbing.pages.dev/"; // Ensure no trailing spaces
 const SITE_TITLE = "Manhattan Plumbing";
 const SITE_DESCRIPTION = "Professional plumbing services in Manhattan, NY";
 

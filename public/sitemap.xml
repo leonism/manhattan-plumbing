@@ -1,30 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-
+  
   <url>
-    <loc>https://manhattanplumbing.com/</loc>
-    <lastmod>2025-07-07T22:53:24.552Z</lastmod>
+    <loc>https://manhattan-plumbing.pages.dev//</loc>
+    <lastmod>2025-07-08T01:01:39.068Z</lastmod>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://manhattanplumbing.com/news</loc>
-    <lastmod>2025-07-07T22:53:24.554Z</lastmod>
+    <loc>https://manhattan-plumbing.pages.dev//news</loc>
+    <lastmod>2025-07-08T01:01:39.070Z</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://manhattanplumbing.com/privacy-policy</loc>
-    <lastmod>2025-07-07T22:53:24.554Z</lastmod>
+    <loc>https://manhattan-plumbing.pages.dev//privacy-policy</loc>
+    <lastmod>2025-07-08T01:01:39.070Z</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://manhattanplumbing.com/terms-of-service</loc>
-    <lastmod>2025-07-07T22:53:24.554Z</lastmod>
+    <loc>https://manhattan-plumbing.pages.dev//terms-of-service</loc>
+    <lastmod>2025-07-08T01:01:39.070Z</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://manhattanplumbing.com/cookie-policy</loc>
-    <lastmod>2025-07-07T22:53:24.554Z</lastmod>
+    <loc>https://manhattan-plumbing.pages.dev//cookie-policy</loc>
+    <lastmod>2025-07-08T01:01:39.070Z</lastmod>
     <priority>0.7</priority>
   </url>
-
+  
 </urlset>
