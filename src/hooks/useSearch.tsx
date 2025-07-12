@@ -4,37 +4,37 @@ import type { Post } from '../types/news'
 // Define services data statically with icons
 const services = [
   {
-    slug: '/services/emergency',
+    slug: '/services/emergency-service',
     title: 'Emergency Plumbing',
     excerpt: '24/7 immediate response for all plumbing emergencies.',
     icon: 'Wrench',
   },
   {
-    slug: '/services/drains',
+    slug: '/services/drain-service',
     title: 'Drain Cleaning',
     excerpt: 'Expert cleaning and clearing of all types of drains.',
     icon: 'Wrench',
   },
   {
-    slug: '/services/water-heaters',
+    slug: '/services/water-heater-service',
     title: 'Water Heaters',
     excerpt: 'Installation, repair, and maintenance of water heaters.',
     icon: 'Wrench',
   },
   {
-    slug: '/services/remodeling',
+    slug: '/services/remodeling-service',
     title: 'Remodeling Services',
     excerpt: 'Plumbing for kitchen and bathroom remodeling projects.',
     icon: 'Wrench',
   },
   {
-    slug: '/services/pipes',
+    slug: '/services/pipe-service',
     title: 'Pipe Repair & Installation',
     excerpt: 'Leak detection, pipe repair, and full re-piping services.',
     icon: 'Wrench',
   },
   {
-    slug: '/services/fixtures',
+    slug: '/services/fixture-service',
     title: 'Fixture Installation',
     excerpt: 'Installation and repair of faucets, toilets, and other fixtures.',
     icon: 'Wrench',

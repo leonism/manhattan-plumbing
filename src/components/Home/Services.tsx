@@ -50,7 +50,7 @@ const Services: React.FC = () => {
       description:
         'Professional installation of faucets, toilets, showers, and other fixtures. Quality workmanship guaranteed.',
       icon: <Wrench size={32} />,
-      href: '/services/fixtures',
+      href: '/services/fixture-service',
       id: 'fixture-service',
     },
   ]
