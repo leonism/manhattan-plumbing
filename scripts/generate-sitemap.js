@@ -7,7 +7,7 @@ const SITE_URL = "https://manhattan-plumbing.pages.dev";
 async function generateSitemap() {
   try {
     // Get all markdown files in the content directory
-    const contentFiles = await globby(["src/content/**/*.md"]);
+    const contentFiles = await globby(["src/content/**/*.md", "src/content/**/*.mdx"]);
 
     // Get all static pages
     const staticPages = [

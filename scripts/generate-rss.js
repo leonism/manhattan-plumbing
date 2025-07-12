@@ -32,7 +32,7 @@ async function generateRssFeed() {
     })
 
     // Get all markdown files
-    const contentFiles = await globby(['src/content/**/*.md'])
+    const contentFiles = await globby(['src/content/**/*.md', 'src/content/**/*.mdx'])
 
     // Process markdown files
     await Promise.all(
