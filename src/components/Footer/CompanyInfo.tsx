@@ -1,6 +1,6 @@
 import React from 'react'
 import Logo from '../UI/Logo'
-import { Facebook, Twitter, Instagram, Youtube, Linkedin } from 'lucide-react'
+import { Facebook, Twitter, Instagram, Youtube, Linkedin, Rss } from 'lucide-react'
 
 interface CompanyInfoProps {
   className?: string
@@ -25,10 +25,11 @@ const CompanyInfo: React.FC<CompanyInfoProps> = ({ className }) => {
             { icon: Instagram, label: 'Instagram' },
             { icon: Linkedin, label: 'LinkedIn' },
             { icon: Youtube, label: 'YouTube' },
-          ].map(({ icon: Icon, label }) => (
+            { icon: Rss, label: 'RSS Feed', href: '/rss.xml' },
+          ].map(({ icon: Icon, label, href }) => (
             <li key={label}>
               <a
-                href="#"
+                href={href || "#"}
                 className="text-slate-300 transition-colors hover:text-white"
                 aria-label={label}
               >

@@ -16,6 +16,12 @@ async function generateSitemap() {
       "/privacy-policy",
       "/terms-of-service",
       "/cookie-policy",
+      "/services/drain-service",
+      "/services/emergency-service",
+      "/services/fixture-service",
+      "/services/pipe-service",
+      "/services/remodeling-service",
+      "/services/water-heater-service",
     ];
 
     // Process markdown files to get their data

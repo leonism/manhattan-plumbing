@@ -50,7 +50,7 @@ const ShareButtons: React.FC<ShareButtonsProps> = ({ post }) => {
   };
 
   return (
-    <div className="flex items-center gap-2 mt-4">
+    <div className="flex items-center justify-center gap-2 mt-4">
       <span className="text-sm font-medium text-slate-600 dark:text-slate-400">Share:</span>
       {networks.map((network) => (
         <a
