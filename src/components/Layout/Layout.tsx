@@ -1,9 +1,10 @@
-import React from 'react'
-import Header from '../Header/Header'
-import Footer from '../Footer/Footer'
+import React from 'react';
+import Header from '../Header/Header';
+import Footer from '../Footer/Footer';
+import BackToTop from '../UI/BackToTop';
 
 interface LayoutProps {
-  children: React.ReactNode
+  children: React.ReactNode;
 }
 
 const Layout: React.FC<LayoutProps> = ({ children }) => {
@@ -12,8 +13,9 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
       <Header />
       <main className="grow">{children}</main>
       <Footer />
+      <BackToTop />
     </div>
-  )
-}
+  );
+};
 
-export default Layout
+export default Layout;
