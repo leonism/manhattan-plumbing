@@ -5,7 +5,7 @@ import HeroStats from './HeroStats'
 const HeroSection = () => {
   return (
     <section
-      className="relative pt-24 md:pt-32 pb-20 md:pb-32 overflow-hidden"
+      className="relative overflow-hidden pt-24 pb-20 md:pt-32 md:pb-32"
       aria-label="Main hero section"
     >
       <HeroBackground />

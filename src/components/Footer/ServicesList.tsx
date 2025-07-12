@@ -7,7 +7,7 @@ interface ServicesListProps {
 const ServicesList: React.FC<ServicesListProps> = ({ className }) => {
   return (
     <section aria-labelledby="our-services" className={className}>
-      <h3 id="our-services" className="text-xl font-semibold mb-6">
+      <h3 id="our-services" className="mb-6 text-xl font-semibold">
         Services
       </h3>
       <nav aria-label="Our services">
@@ -21,7 +21,7 @@ const ServicesList: React.FC<ServicesListProps> = ({ className }) => {
             { href: '/services/fixture-service', text: 'Fixtures Service' },
           ].map(({ href, text }) => (
             <li key={text}>
-              <a href={href} className="text-slate-300 hover:text-white transition-colors">
+              <a href={href} className="text-slate-300 transition-colors hover:text-white">
                 {text}
               </a>
             </li>

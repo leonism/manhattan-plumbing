@@ -6,7 +6,7 @@ interface CallToActionBackgroundProps {
 
 const CallToActionBackground: React.FC<CallToActionBackgroundProps> = ({ imageUrl }) => (
   <div
-    className="absolute inset-0 bg-cover bg-center z-0"
+    className="absolute inset-0 z-0 bg-cover bg-center"
     style={{
       backgroundImage: `url(${imageUrl})`,
       filter: 'brightness(0.3)',

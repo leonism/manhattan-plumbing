@@ -59,32 +59,32 @@ const RemodelingServicePage = () => {
     <main className="min-h-screen bg-white dark:bg-slate-900">
       {/* Hero Section with Pexels Background Image */}
       <section className="relative bg-slate-900 text-white">
-        <div className="absolute inset-0 z-0 bg-center bg-cover bg-blend-multiply brightness-[0.6] after:absolute after:inset-0 after:bg-linear-to-b after:from-transparent after:via-black/30 after:to-black/70">
+        <div className="absolute inset-0 z-0 bg-cover bg-center bg-blend-multiply brightness-[0.6] after:absolute after:inset-0 after:bg-linear-to-b after:from-transparent after:via-black/30 after:to-black/70">
           {loading ? (
-            <SkeletonLoader type="image" className="w-full h-full" />
+            <SkeletonLoader type="image" className="h-full w-full" />
           ) : (
             bathroomImages[0] && (
               <img
                 src={bathroomImages[0].src.large}
                 alt={bathroomImages[0].alt || 'Luxury bathroom remodeling'}
-                className="w-full h-full object-cover"
+                className="h-full w-full object-cover"
                 loading="lazy"
               />
             )
           )}
         </div>
-        <div className="container mx-auto px-4 md:px-6 py-32 relative z-10">
-          <div className="max-w-3xl mx-auto text-center">
-            <div className="flex justify-center mb-6">
+        <div className="relative z-10 container mx-auto px-4 py-32 md:px-6">
+          <div className="mx-auto max-w-3xl text-center">
+            <div className="mb-6 flex justify-center">
               <Home size={56} className="text-blue-400" />
             </div>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
+            <h1 className="mb-6 text-4xl leading-tight font-bold md:text-5xl lg:text-6xl">
               Luxury Bathroom Remodeling in Manhattan
             </h1>
-            <p className="text-xl md:text-2xl text-blue-100 mb-8">
+            <p className="mb-8 text-xl text-blue-100 md:text-2xl">
               Transform your bathroom into a spa-like retreat with our premium remodeling services
             </p>
-            <div className="flex flex-col sm:flex-row justify-center gap-4">
+            <div className="flex flex-col justify-center gap-4 sm:flex-row">
               <Button href="tel:+12125551234" variant="primary" className="group">
                 <div className="flex items-center">
                   <Zap className="mr-3 group-hover:animate-pulse" size={20} />
@@ -103,14 +103,14 @@ const RemodelingServicePage = () => {
       </section>
 
       {/* Why Choose Us Section */}
-      <section className="py-16 bg-slate-50 dark:bg-slate-800/50">
+      <section className="bg-slate-50 py-16 dark:bg-slate-800/50">
         <div className="container mx-auto px-4 md:px-6">
           <SectionHeading
             title="Why Choose Our Remodeling Services"
             subtitle="Manhattan's premier bathroom transformation experts"
             centered
           />
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
+          <div className="mt-12 grid grid-cols-1 gap-8 md:grid-cols-3">
             {[
               {
                 icon: <CheckCircle size={40} className="text-blue-600 dark:text-blue-400" />,
@@ -132,13 +132,13 @@ const RemodelingServicePage = () => {
             ].map((feature, index) => (
               <div
                 key={index}
-                className="bg-white dark:bg-slate-700 rounded-xl shadow-lg p-8 hover:shadow-xl transition-shadow duration-300"
+                className="rounded-xl bg-white p-8 shadow-lg transition-shadow duration-300 hover:shadow-xl dark:bg-slate-700"
               >
-                <div className="flex justify-center mb-6">{feature.icon}</div>
-                <h3 className="text-2xl font-bold text-center text-slate-800 dark:text-white mb-4">
+                <div className="mb-6 flex justify-center">{feature.icon}</div>
+                <h3 className="mb-4 text-center text-2xl font-bold text-slate-800 dark:text-white">
                   {feature.title}
                 </h3>
-                <p className="text-lg text-center text-slate-600 dark:text-slate-300">
+                <p className="text-center text-lg text-slate-600 dark:text-slate-300">
                   {feature.description}
                 </p>
               </div>
@@ -155,31 +155,31 @@ const RemodelingServicePage = () => {
             subtitle="Luxury bathroom transformations"
             centered
           />
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-12">
+          <div className="mt-12 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
             {loading ? (
               <SkeletonLoader type="image" count={6} className="h-64" />
             ) : (
               bathroomImages.slice(1, 7).map((image, index) => (
                 <div
                   key={index}
-                  className="group relative overflow-hidden rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300"
+                  className="group relative overflow-hidden rounded-xl shadow-lg transition-all duration-300 hover:shadow-2xl"
                 >
                   <img
                     src={image.src.medium}
                     alt={image.alt || 'Bathroom remodel example'}
-                    className="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110"
+                    className="h-64 w-full object-cover transition-transform duration-500 group-hover:scale-110"
                     loading="lazy"
                   />
-                  <div className="absolute inset-0 bg-linear-to-t from-black/70 via-transparent to-transparent flex items-end p-6">
+                  <div className="absolute inset-0 flex items-end bg-linear-to-t from-black/70 via-transparent to-transparent p-6">
                     <div>
-                      <p className="text-white font-semibold text-lg">
+                      <p className="text-lg font-semibold text-white">
                         {image.photographer && `Photo by ${image.photographer}`}
                       </p>
                       <a
                         href={image.url}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="text-blue-300 hover:text-blue-100 text-sm"
+                        className="text-sm text-blue-300 hover:text-blue-100"
                       >
                         View on Pexels
                       </a>
@@ -193,7 +193,7 @@ const RemodelingServicePage = () => {
       </section>
 
       {/* Process Section */}
-      <section className="py-16 bg-blue-50 dark:bg-blue-900/20">
+      <section className="bg-blue-50 py-16 dark:bg-blue-900/20">
         <div className="container mx-auto px-4 md:px-6">
           <SectionHeading
             title="Our Remodeling Process"
@@ -201,7 +201,7 @@ const RemodelingServicePage = () => {
             centered
           />
 
-          <div className="grid grid-cols-1 lg:grid-cols-4 gap-8 mt-12">
+          <div className="mt-12 grid grid-cols-1 gap-8 lg:grid-cols-4">
             {[
               {
                 title: '1. Consultation',
@@ -226,10 +226,10 @@ const RemodelingServicePage = () => {
             ].map((step, index) => (
               <div
                 key={index}
-                className="bg-white dark:bg-slate-800 rounded-xl shadow-md p-8 text-center"
+                className="rounded-xl bg-white p-8 text-center shadow-md dark:bg-slate-800"
               >
-                <div className="flex justify-center mb-4">{step.icon}</div>
-                <h3 className="text-xl font-bold text-slate-800 dark:text-white mb-3">
+                <div className="mb-4 flex justify-center">{step.icon}</div>
+                <h3 className="mb-3 text-xl font-bold text-slate-800 dark:text-white">
                   {step.title}
                 </h3>
                 <p className="text-slate-600 dark:text-slate-300">{step.description}</p>
@@ -240,14 +240,14 @@ const RemodelingServicePage = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 bg-linear-to-r from-blue-600 to-blue-800 text-white">
-        <div className="container mx-auto px-4 md:px-6 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6">Ready for Your Dream Bathroom?</h2>
-          <p className="text-xl text-blue-100 max-w-3xl mx-auto mb-8">
+      <section className="bg-linear-to-r from-blue-600 to-blue-800 py-16 text-white">
+        <div className="container mx-auto px-4 text-center md:px-6">
+          <h2 className="mb-6 text-3xl font-bold md:text-4xl">Ready for Your Dream Bathroom?</h2>
+          <p className="mx-auto mb-8 max-w-3xl text-xl text-blue-100">
             Schedule your free design consultation today and take the first step toward your perfect
             bathroom.
           </p>
-          <div className="flex flex-col sm:flex-row justify-center gap-4">
+          <div className="flex flex-col justify-center gap-4 sm:flex-row">
             <Button href="tel:+12125551234" variant="primary" className="group">
               <div className="flex items-center">
                 <Zap className="mr-3 group-hover:animate-pulse" size={20} />

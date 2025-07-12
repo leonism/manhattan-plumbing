@@ -15,11 +15,11 @@ const StaticHeading: React.FC<StaticHeadingProps> = ({
 }) => {
   return (
     <div className={`${centered ? 'text-center' : ''} ${className ? className : ''}`}>
-      <h1 className="mt-10 text-4xl md:text-5xl font-bold tracking-tight text-blue-600 dark:text-blue-400">
+      <h1 className="mt-10 text-4xl font-bold tracking-tight text-blue-600 md:text-5xl dark:text-blue-400">
         {title}
       </h1>
       {subtitle && (
-        <p className="text-sm md:text-md font-normal text-slate-600 max-w-3xl mx-auto dark:text-slate-300">
+        <p className="md:text-md mx-auto max-w-3xl text-sm font-normal text-slate-600 dark:text-slate-300">
           {subtitle}
         </p>
       )}

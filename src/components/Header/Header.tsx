@@ -26,9 +26,9 @@ const Header: React.FC<HeaderProps> = ({ isHomePage = false }) => {
 
   return (
     <header
-      className={`fixed w-full top-0 z-50 transition-all duration-300 ${
+      className={`fixed top-0 z-50 w-full transition-all duration-300 ${
         scrolled || !isHomePage
-          ? 'bg-white dark:bg-slate-900 shadow-md py-3'
+          ? 'bg-white py-3 shadow-md dark:bg-slate-900'
           : 'bg-transparent py-6'
       }`}
       aria-label="Main navigation"
@@ -45,14 +45,14 @@ const Header: React.FC<HeaderProps> = ({ isHomePage = false }) => {
             scrolled={scrolled}
             isHomePage={isHomePage}
           />
-          <div className="hidden lg:flex items-center">
+          <div className="hidden items-center lg:flex">
             <SearchToggle theme={theme} scrolled={scrolled} isHomePage={isHomePage} />
             <ThemeToggle theme={theme} scrolled={scrolled} isHomePage={isHomePage} />
             <GetQuoteButton />
           </div>
 
           {/* Mobile Navigation Button */}
-          <div className="flex lg:hidden items-center space-x-1 mt-1">
+          <div className="mt-1 flex items-center space-x-1 lg:hidden">
             <ThemeToggle theme={theme} scrolled={scrolled} isHomePage={isHomePage} />
             <SearchToggle theme={theme} scrolled={scrolled} isHomePage={isHomePage} />
             <MenuToggle

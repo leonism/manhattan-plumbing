@@ -7,7 +7,7 @@ interface LegalInfoProps {
 const LegalInfo: React.FC<LegalInfoProps> = ({ className }) => {
   return (
     <section aria-labelledby="legal-info" className={className}>
-      <h3 id="legal-info" className="text-xl font-semibold mb-6">
+      <h3 id="legal-info" className="mb-6 text-xl font-semibold">
         Legal
       </h3>
       <nav aria-label="Legal information">
@@ -18,7 +18,7 @@ const LegalInfo: React.FC<LegalInfoProps> = ({ className }) => {
             { href: '/cookie-policy', text: 'Cookie Policy' },
           ].map(({ href, text }) => (
             <li key={text}>
-              <a href={href} className="text-slate-300 hover:text-white transition-colors">
+              <a href={href} className="text-slate-300 transition-colors hover:text-white">
                 {text}
               </a>
             </li>

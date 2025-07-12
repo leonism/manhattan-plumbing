@@ -14,9 +14,9 @@ const NewsSection: React.FC = () => {
       <section
         id="news"
         aria-labelledby="news-heading"
-        className="py-20 bg-slate-50 dark:bg-slate-800"
+        className="bg-slate-50 py-20 dark:bg-slate-800"
       >
-        <div className="container px-4 mx-auto md:px-6">
+        <div className="container mx-auto px-4 md:px-6">
           <SectionHeading
             title="Latest News"
             subtitle="Stay updated with our latest articles and insights"
@@ -38,9 +38,9 @@ const NewsSection: React.FC = () => {
     <section
       id="news"
       aria-labelledby="news-heading"
-      className="py-20 bg-slate-50 dark:bg-slate-800"
+      className="bg-slate-50 py-20 dark:bg-slate-800"
     >
-      <div className="container px-4 mx-auto md:px-6">
+      <div className="container mx-auto px-4 md:px-6">
         <SectionHeading
           title="Latest News"
           subtitle="Stay updated with our latest articles and insights"

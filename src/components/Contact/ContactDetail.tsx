@@ -7,11 +7,11 @@ interface ContactDetailProps {
 }
 
 const ContactDetail: React.FC<ContactDetailProps> = ({ icon, title, children }) => (
-  <article className="flex items-start gap-4 mb-6">
-    <div className="text-blue-600 dark:text-blue-400 shrink-0">{icon}</div>
+  <article className="mb-6 flex items-start gap-4">
+    <div className="shrink-0 text-blue-600 dark:text-blue-400">{icon}</div>
     <div>
-      <h4 className="font-semibold text-slate-800 dark:text-white mb-1 text-lg">{title}</h4>
-      <div className="text-slate-600 dark:text-slate-300 text-base">{children}</div>
+      <h4 className="mb-1 text-lg font-semibold text-slate-800 dark:text-white">{title}</h4>
+      <div className="text-base text-slate-600 dark:text-slate-300">{children}</div>
     </div>
   </article>
 )

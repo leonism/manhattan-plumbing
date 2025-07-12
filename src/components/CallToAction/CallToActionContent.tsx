@@ -7,8 +7,8 @@ interface CallToActionContentProps {
 
 const CallToActionContent: React.FC<CallToActionContentProps> = ({ heading, text }) => (
   <>
-    <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">{heading}</h2>
-    <p className="text-xl text-white/90 mb-8 max-w-3xl mx-auto">{text}</p>
+    <h2 className="mb-6 text-3xl font-bold text-white md:text-4xl">{heading}</h2>
+    <p className="mx-auto mb-8 max-w-3xl text-xl text-white/90">{text}</p>
   </>
 )
 

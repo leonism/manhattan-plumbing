@@ -51,7 +51,7 @@ const DropdownButton = ({
 
 const DropdownMenu = ({ children }: { children: React.ReactNode }) => (
   <ul
-    className="absolute left-0 invisible py-2 mt-2 w-48 bg-white rounded-xl shadow-2xl border border-slate-200 opacity-0 transition-all duration-200 dark:bg-slate-800 group-hover:opacity-100 group-hover:visible"
+    className="invisible absolute left-0 mt-2 w-48 rounded-xl border border-slate-200 bg-white py-2 opacity-0 shadow-2xl transition-all duration-200 group-hover:visible group-hover:opacity-100 dark:bg-slate-800"
     role="menu"
   >
     {children}
@@ -63,7 +63,7 @@ const MenuItem = ({ label, href }: { label: string; href: string }) => {
     <li role="none">
       <a
         href={href}
-        className="block px-4 py-2 text-slate-700 dark:text-slate-200 transition-colors hover:bg-slate-100 dark:hover:bg-slate-700"
+        className="block px-4 py-2 text-slate-700 transition-colors hover:bg-slate-100 dark:text-slate-200 dark:hover:bg-slate-700"
         role="menuitem"
       >
         {label}
@@ -91,7 +91,7 @@ const DesktopNav: React.FC<DesktopNavProps> = ({
     <nav className="hidden lg:block" aria-label="Primary">
       <ul className="flex items-center space-x-8">
         {navItems.map((item) => (
-          <li key={item.label} className="relative group">
+          <li key={item.label} className="group relative">
             {item.children ? (
               <>
                 <DropdownButton

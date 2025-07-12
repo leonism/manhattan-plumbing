@@ -27,18 +27,18 @@ const SearchResultsPage: React.FC = () => {
         </header>
 
         {isLoading ? (
-          <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <section className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
             <SkeletonLoader type="card" count={6} className="col-span-1" />
           </section>
         ) : results.length > 0 ? (
-          <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <section className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
             {results.map((post) => (
               <NewsCard key={post.slug} post={post} />
             ))}
           </section>
         ) : (
-          <div className="text-center py-12">
-            <h2 className="text-2xl font-semibold mb-4">No results found</h2>
+          <div className="py-12 text-center">
+            <h2 className="mb-4 text-2xl font-semibold">No results found</h2>
             <p className="text-gray-600">
               Try adjusting your search terms or browse our{' '}
               <a href="/news" className="text-primary-600 hover:underline">

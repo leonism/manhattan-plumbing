@@ -92,7 +92,7 @@ const IndividualServicePage: React.FC = () => {
   if (loading) {
     return (
       <LayoutNewsPage>
-        <div className="container mx-auto py-8 mt-20 text-center">
+        <div className="container mx-auto mt-20 py-8 text-center">
           <p>Loading service details...</p>
         </div>
       </LayoutNewsPage>
@@ -102,7 +102,7 @@ const IndividualServicePage: React.FC = () => {
   if (error) {
     return (
       <LayoutNewsPage>
-        <div className="container mx-auto py-8 mt-20 text-center text-red-500">
+        <div className="container mx-auto mt-20 py-8 text-center text-red-500">
           <p>{error}</p>
           <p>
             Please check the URL or return to the{' '}
@@ -121,7 +121,7 @@ const IndividualServicePage: React.FC = () => {
       <Suspense
         fallback={
           <LayoutNewsPage>
-            <div className="container mx-auto py-8 mt-20 text-center">
+            <div className="container mx-auto mt-20 py-8 text-center">
               <p>Loading service content...</p>
             </div>
           </LayoutNewsPage>
@@ -136,7 +136,7 @@ const IndividualServicePage: React.FC = () => {
 
   return (
     <LayoutNewsPage>
-      <div className="container mx-auto py-8 mt-20 text-center">
+      <div className="container mx-auto mt-20 py-8 text-center">
         <p>No service content to display.</p>
       </div>
     </LayoutNewsPage>

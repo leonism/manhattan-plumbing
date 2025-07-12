@@ -13,22 +13,22 @@ const SkeletonLoader: React.FC<SkeletonLoaderProps> = ({
 }) => {
   const renderTextSkeleton = () => (
     <div className={`space-y-2 ${className}`}>
-      <div className="h-4 bg-gray-300 rounded w-full animate-pulse"></div>
-      <div className="h-4 bg-gray-300 rounded w-5/6 animate-pulse"></div>
-      <div className="h-4 bg-gray-300 rounded w-4/6 animate-pulse"></div>
+      <div className="h-4 w-full animate-pulse rounded bg-gray-300"></div>
+      <div className="h-4 w-5/6 animate-pulse rounded bg-gray-300"></div>
+      <div className="h-4 w-4/6 animate-pulse rounded bg-gray-300"></div>
     </div>
   )
 
   const renderImageSkeleton = () => (
-    <div className={`bg-gray-300 rounded w-full h-48 animate-pulse ${className}`}></div>
+    <div className={`h-48 w-full animate-pulse rounded bg-gray-300 ${className}`}></div>
   )
 
   const renderCardSkeleton = () => (
-    <div className={`bg-gray-200 rounded-lg shadow-md p-4 ${className}`}>
-      <div className="h-6 bg-gray-300 rounded w-3/4 mb-4 animate-pulse"></div>
-      <div className="h-4 bg-gray-300 rounded w-full mb-2 animate-pulse"></div>
-      <div className="h-4 bg-gray-300 rounded w-5/6 animate-pulse"></div>
-      <div className="h-4 bg-gray-300 rounded w-4/6 animate-pulse"></div>
+    <div className={`rounded-lg bg-gray-200 p-4 shadow-md ${className}`}>
+      <div className="mb-4 h-6 w-3/4 animate-pulse rounded bg-gray-300"></div>
+      <div className="mb-2 h-4 w-full animate-pulse rounded bg-gray-300"></div>
+      <div className="h-4 w-5/6 animate-pulse rounded bg-gray-300"></div>
+      <div className="h-4 w-4/6 animate-pulse rounded bg-gray-300"></div>
     </div>
   )
 
