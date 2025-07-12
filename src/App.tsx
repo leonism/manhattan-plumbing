@@ -19,6 +19,7 @@ const FixtureService = lazy(() => import('./pages/services/FixtureService'))
 const PipeService = lazy(() => import('./pages/services/PipeService'))
 const RemodelingService = lazy(() => import('./pages/services/RemodelingService'))
 const WaterHeaterService = lazy(() => import('./pages/services/WaterHeaterService'))
+const LocationPage = lazy(() => import('./pages/LocationPage'))
 
 import LoadingSpinner from './components/UI/LoadingSpinner'
 
@@ -146,6 +147,14 @@ function App() {
                 element={
                   <LayoutNewsPage>
                     <WaterHeaterService />
+                  </LayoutNewsPage>
+                }
+              />
+              <Route
+                path="/location"
+                element={
+                  <LayoutNewsPage>
+                    <LocationPage />
                   </LayoutNewsPage>
                 }
               />

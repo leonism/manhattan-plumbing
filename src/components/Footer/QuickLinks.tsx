@@ -17,6 +17,7 @@ const QuickLinks: React.FC<QuickLinksProps> = ({ className }) => {
             { href: '/news', text: 'News & Updates' },
             { href: '/#services', text: 'Services' },
             { href: '/#about', text: 'About Us' },
+            { href: '/location', text: 'Location' },
             { href: '/#testimonials', text: 'Testimonials' },
             { href: '/#contact', text: 'Contact' },
           ].map(({ href, text }) => (
