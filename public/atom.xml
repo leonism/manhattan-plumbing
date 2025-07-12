@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://manhattan-plumbing.pages.dev</id>
     <title>Manhattan Plumbing</title>
-    <updated>2025-07-12T13:20:21.813Z</updated>
+    <updated>2025-07-12T13:22:07.896Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <author>
         <name>Manhattan Plumbing</name>
@@ -15,56 +15,6 @@
     <logo>https://manhattan-plumbing.pages.dev/images/logo.png</logo>
     <icon>https://manhattan-plumbing.pages.dev/favicon.ico</icon>
     <rights>All rights reserved 2025, Manhattan Plumbing</rights>
-    <entry>
-        <title type="html"><![CDATA[10 Common Plumbing Myths Debunked by Experts]]></title>
-        <id>https://manhattan-plumbing.pages.dev/news/common-plumbing-myths-debunkedx</id>
-        <link href="https://manhattan-plumbing.pages.dev/news/common-plumbing-myths-debunkedx"/>
-        <updated>2025-05-12T00:00:00.000Z</updated>
-        <summary type="html"><![CDATA[Professional plumbers debunk common plumbing myths and misconceptions. Learn the truth about drain cleaners, water heaters, and other plumbing-related beliefs that might be costing you money or damaging your plumbing system.]]></summary>
-        <content type="html"><![CDATA[
-# 10 Common Plumbing Myths Debunked by Experts
-
-As plumbing professionals, we often encounter misconceptions that can lead to costly mistakes or unnecessary worries. Let's separate fact from fiction with expert analysis of common plumbing myths.
-
-## Myth #1: Chemical Drain Cleaners Are Safe and Effective
-
-**The Truth**: Chemical drain cleaners can actually damage your pipes and create more problems than they solve. These harsh chemicals:
-
-- Corrode pipe materials
-- Create harmful fumes
-- May not address the root cause
-- Can make clogs worse
-
-## Myth #2: A Leaky Faucet Isn't a Big Deal
-
-**The Truth**: Even small leaks can waste thousands of gallons of water annually and lead to:
-
-- Higher water bills
-- Water damage
-- Mineral buildup
-- Wasted resources
-
-## Myth #3: Hot Water Helps Grease Go Down Drains
-
-**The Truth**: Hot water actually causes grease to:
-
-- Liquefy temporarily
-- Flow further into pipes
-- Cool and solidify
-- Create stubborn clogs
-
-[Continue with more myths and expert explanations...]
-]]></content>
-        <author>
-            <name>Lisa Rodriguez</name>
-            <uri>https://manhattan-plumbing.pages.dev/news/common-plumbing-myths-debunkedx</uri>
-        </author>
-        <category label="plumbing myths"/>
-        <category label="fact checking"/>
-        <category label="plumbing tips"/>
-        <category label="homeowner education"/>
-        <category label="professional advice"/>
-    </entry>
     <entry>
         <title type="html"><![CDATA[2025 Bathroom Remodeling Trends: Modern Luxury Meets Sustainability]]></title>
         <id>https://manhattan-plumbing.pages.dev/news/bathroom-remodeling-trendsx</id>
@@ -174,57 +124,6 @@ Learn how to implement greywater recycling in your home:
         <category label="water efficiency"/>
         <category label="environmental impact"/>
         <category label="energy savings"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Smart Home Plumbing Technology Trends for 2025]]></title>
-        <id>https://manhattan-plumbing.pages.dev/news/smart-home-plumbingx</id>
-        <link href="https://manhattan-plumbing.pages.dev/news/smart-home-plumbingx"/>
-        <updated>2025-05-15T00:00:00.000Z</updated>
-        <summary type="html"><![CDATA[Explore the cutting-edge smart plumbing technologies transforming homes in 2025. From AI-powered leak detection to voice-controlled fixtures, discover how smart technology is revolutionizing home water management.]]></summary>
-        <content type="html"><![CDATA[
-# Smart Home Plumbing Technology Trends for 2025
-
-The integration of smart technology into home plumbing systems has revolutionized how we monitor, manage, and conserve water. In this comprehensive guide, we'll explore the latest innovations that are making waves in the plumbing industry this year.
-
-## 1. AI-Powered Leak Detection Systems
-
-Modern leak detection systems now utilize artificial intelligence to identify potential issues before they become major problems. These systems can:
-
-- Monitor water pressure in real-time
-- Detect unusual water usage patterns
-- Alert homeowners instantly via smartphone apps
-- Automatically shut off water supply in emergencies
-
-## 2. Voice-Controlled Fixtures
-
-Smart faucets and fixtures that respond to voice commands are becoming increasingly popular. With integration to popular virtual assistants like Alexa and Google Home, you can:
-
-- Control water temperature precisely
-- Set specific water amounts for recipes
-- Monitor daily water usage
-- Create custom routines for different tasks
-
-## 3. Smart Water Heaters
-
-The latest generation of smart water heaters offers unprecedented control and efficiency:
-
-- Remote temperature control
-- Usage pattern learning
-- Energy efficiency optimization
-- Predictive maintenance alerts
-
-[Continue with detailed sections about each technology trend...]
-]]></content>
-        <author>
-            <name>Michael Chen</name>
-            <uri>https://manhattan-plumbing.pages.dev/news/smart-home-plumbingx</uri>
-        </author>
-        <category label="smart home"/>
-        <category label="automation"/>
-        <category label="water management"/>
-        <category label="IoT"/>
-        <category label="technology trends"/>
-        <category label="home improvement"/>
     </entry>
     <entry>
         <title type="html"><![CDATA[Emergency Plumbing Services: What You Need to Know]]></title>
@@ -364,6 +263,57 @@ Summer is the perfect time for:
         <category label="plumbing tips"/>
         <category label="winterization"/>
         <category label="spring cleaning"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Smart Home Plumbing Technology Trends for 2025]]></title>
+        <id>https://manhattan-plumbing.pages.dev/news/smart-home-plumbingx</id>
+        <link href="https://manhattan-plumbing.pages.dev/news/smart-home-plumbingx"/>
+        <updated>2025-05-15T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Explore the cutting-edge smart plumbing technologies transforming homes in 2025. From AI-powered leak detection to voice-controlled fixtures, discover how smart technology is revolutionizing home water management.]]></summary>
+        <content type="html"><![CDATA[
+# Smart Home Plumbing Technology Trends for 2025
+
+The integration of smart technology into home plumbing systems has revolutionized how we monitor, manage, and conserve water. In this comprehensive guide, we'll explore the latest innovations that are making waves in the plumbing industry this year.
+
+## 1. AI-Powered Leak Detection Systems
+
+Modern leak detection systems now utilize artificial intelligence to identify potential issues before they become major problems. These systems can:
+
+- Monitor water pressure in real-time
+- Detect unusual water usage patterns
+- Alert homeowners instantly via smartphone apps
+- Automatically shut off water supply in emergencies
+
+## 2. Voice-Controlled Fixtures
+
+Smart faucets and fixtures that respond to voice commands are becoming increasingly popular. With integration to popular virtual assistants like Alexa and Google Home, you can:
+
+- Control water temperature precisely
+- Set specific water amounts for recipes
+- Monitor daily water usage
+- Create custom routines for different tasks
+
+## 3. Smart Water Heaters
+
+The latest generation of smart water heaters offers unprecedented control and efficiency:
+
+- Remote temperature control
+- Usage pattern learning
+- Energy efficiency optimization
+- Predictive maintenance alerts
+
+[Continue with detailed sections about each technology trend...]
+]]></content>
+        <author>
+            <name>Michael Chen</name>
+            <uri>https://manhattan-plumbing.pages.dev/news/smart-home-plumbingx</uri>
+        </author>
+        <category label="smart home"/>
+        <category label="automation"/>
+        <category label="water management"/>
+        <category label="IoT"/>
+        <category label="technology trends"/>
+        <category label="home improvement"/>
     </entry>
     <entry>
         <title type="html"><![CDATA[The Ultimate Guide to Fixing Leaky Faucets]]></title>
@@ -514,6 +464,56 @@ Sustainable water use is most powerful when shared by all household members. Dis
         <category label="sustainable living"/>
         <category label="home improvement"/>
         <category label="green solutions"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[10 Common Plumbing Myths Debunked by Experts]]></title>
+        <id>https://manhattan-plumbing.pages.dev/news/common-plumbing-myths-debunkedx</id>
+        <link href="https://manhattan-plumbing.pages.dev/news/common-plumbing-myths-debunkedx"/>
+        <updated>2025-05-12T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Professional plumbers debunk common plumbing myths and misconceptions. Learn the truth about drain cleaners, water heaters, and other plumbing-related beliefs that might be costing you money or damaging your plumbing system.]]></summary>
+        <content type="html"><![CDATA[
+# 10 Common Plumbing Myths Debunked by Experts
+
+As plumbing professionals, we often encounter misconceptions that can lead to costly mistakes or unnecessary worries. Let's separate fact from fiction with expert analysis of common plumbing myths.
+
+## Myth #1: Chemical Drain Cleaners Are Safe and Effective
+
+**The Truth**: Chemical drain cleaners can actually damage your pipes and create more problems than they solve. These harsh chemicals:
+
+- Corrode pipe materials
+- Create harmful fumes
+- May not address the root cause
+- Can make clogs worse
+
+## Myth #2: A Leaky Faucet Isn't a Big Deal
+
+**The Truth**: Even small leaks can waste thousands of gallons of water annually and lead to:
+
+- Higher water bills
+- Water damage
+- Mineral buildup
+- Wasted resources
+
+## Myth #3: Hot Water Helps Grease Go Down Drains
+
+**The Truth**: Hot water actually causes grease to:
+
+- Liquefy temporarily
+- Flow further into pipes
+- Cool and solidify
+- Create stubborn clogs
+
+[Continue with more myths and expert explanations...]
+]]></content>
+        <author>
+            <name>Lisa Rodriguez</name>
+            <uri>https://manhattan-plumbing.pages.dev/news/common-plumbing-myths-debunkedx</uri>
+        </author>
+        <category label="plumbing myths"/>
+        <category label="fact checking"/>
+        <category label="plumbing tips"/>
+        <category label="homeowner education"/>
+        <category label="professional advice"/>
     </entry>
     <entry>
         <title type="html"><![CDATA[Essential Water Heater Maintenance Tips for Longevity]]></title>
