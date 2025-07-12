@@ -1,6 +1,6 @@
 import React from 'react'
 import { useParams, Link } from 'react-router-dom'
-import { Helmet } from 'react-helmet-async'
+import SEO from '../components/SEO/SEO';
 import { format } from 'date-fns'
 import { Calendar, Clock, Tag, ArrowLeft, ArrowRight, Folder } from 'lucide-react'
 import { MDXProvider } from '@mdx-js/react'
@@ -55,28 +55,36 @@ const NewsPost: React.FC = () => {
 
   return (
     <>
-      <Helmet>
-        <title>{post.title} | Manhattan Plumbing</title>
-        <meta name="description" content={post.excerpt} />
-        <meta property="og:title" content={post.title} />
-        <meta property="og:description" content={post.excerpt} />
-        <meta property="og:image" content={post.featuredImage.src} />
-        <link rel="canonical" href={`/news/${post.slug}`} />
-        <script type="application/ld+json">
-          {JSON.stringify({
-            '@context': 'https://schema.org',
-            '@type': 'BlogPosting',
-            headline: post.title,
-            description: post.excerpt,
-            image: post.featuredImage.src,
-            datePublished: post.date,
-            author: {
-              '@type': 'Person',
-              name: post.author.name,
+      <SEO
+        title={`${post.title} | Manhattan Plumbing`}
+        description={post.excerpt}
+        keywords={post.tags}
+        canonical={`https://www.manhattanplumbing.com/news/${post.slug}`}
+        ogTitle={post.title}
+        ogDescription={post.excerpt}
+        ogImage={post.featuredImage.src}
+        ogUrl={`https://www.manhattanplumbing.com/news/${post.slug}`}
+        jsonLd={{
+          '@context': 'https://schema.org',
+          '@type': 'BlogPosting',
+          headline: post.title,
+          description: post.excerpt,
+          image: post.featuredImage.src,
+          datePublished: post.date,
+          author: {
+            '@type': 'Person',
+            name: post.author.name,
+          },
+          publisher: {
+            '@type': 'Organization',
+            name: 'Manhattan Plumbing',
+            logo: {
+              '@type': 'ImageObject',
+              url: 'https://www.manhattanplumbing.com/manhattan-plumber.png',
             },
-          })}
-        </script>
-      </Helmet>
+          },
+        }}
+      />
 
       <main className="min-h-screen bg-slate-50 py-20 text-slate-800 sm:py-24 dark:bg-slate-900 dark:text-slate-200">
         <article className="container mx-auto px-4 py-8">

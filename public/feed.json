@@ -1,13 +1,13 @@
 {
     "version": "https://jsonfeed.org/version/1",
     "title": "Manhattan Plumbing",
-    "home_page_url": "https://manhattan-plumbing.pages.dev/",
-    "feed_url": "https://manhattan-plumbing.pages.dev//feed.json",
+    "home_page_url": "https://manhattan-plumbing.pages.dev",
+    "feed_url": "https://manhattan-plumbing.pages.dev/feed.json",
     "description": "Professional plumbing services in Manhattan, NY",
-    "icon": "https://manhattan-plumbing.pages.dev//images/logo.png",
+    "icon": "https://manhattan-plumbing.pages.dev/images/logo.png",
     "author": {
         "name": "Manhattan Plumbing",
-        "url": "https://manhattan-plumbing.pages.dev/"
+        "url": "https://manhattan-plumbing.pages.dev"
     },
     "items": []
 }

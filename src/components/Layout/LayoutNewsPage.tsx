@@ -1,9 +1,10 @@
-import React from 'react'
-import Header from '../Header/Header'
-import Footer from '../../components/Footer/Footer'
+import React from 'react';
+import Header from '../Header/Header';
+import Footer from '../../components/Footer/Footer';
+import BackToTop from '../UI/BackToTop';
 
 interface LayoutNewsPageProps {
-  children: React.ReactNode
+  children: React.ReactNode;
 }
 
 const LayoutNewsPage: React.FC<LayoutNewsPageProps> = ({ children }) => {
@@ -12,8 +13,9 @@ const LayoutNewsPage: React.FC<LayoutNewsPageProps> = ({ children }) => {
       <Header isHomePage={false} />
       <main className="grow">{children}</main>
       <Footer />
+      <BackToTop />
     </div>
-  )
-}
+  );
+};
 
-export default LayoutNewsPage
+export default LayoutNewsPage;

@@ -1,9 +1,10 @@
-import React from 'react'
-import Header from '../Header/Header'
-import Footer from '../Footer/Footer'
+import React from 'react';
+import Header from '../Header/Header';
+import Footer from '../Footer/Footer';
+import BackToTop from '../UI/BackToTop';
 
 interface LayoutHomePageProps {
-  children: React.ReactNode
+  children: React.ReactNode;
 }
 
 const LayoutHomePage: React.FC<LayoutHomePageProps> = ({ children }) => {
@@ -12,8 +13,9 @@ const LayoutHomePage: React.FC<LayoutHomePageProps> = ({ children }) => {
       <Header isHomePage={true} />
       <main className="grow">{children}</main>
       <Footer />
+      <BackToTop />
     </div>
-  )
-}
+  );
+};
 
-export default LayoutHomePage
+export default LayoutHomePage;

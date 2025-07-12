@@ -1,30 +1,56 @@
-import SectionHeading from '../../components/UI/SectionHeading'
-import Button from '../../components/UI/Button'
-import { Droplets, Wrench, Shield, Clock, CheckCircle, Zap } from 'lucide-react'
+import SEO from '../../components/SEO/SEO';
+import SectionHeading from '../../components/UI/SectionHeading';
+import Button from '../../components/UI/Button';
+import { Droplets, Wrench, Shield, Clock, CheckCircle, Zap } from 'lucide-react';
 
-import drainHeroJpg from '../../assets/images/pexels-newyork-001.jpg'
-import drainHeroWebp from '../../assets/images/pexels-newyork-001.jpg?format=webp'
-import drainHeroAvif from '../../assets/images/pexels-newyork-001.jpg?format=avif'
+import drainHeroJpg from '../../assets/images/pexels-newyork-001.jpg';
+import drainHeroWebp from '../../assets/images/pexels-newyork-001.jpg?format=webp';
+import drainHeroAvif from '../../assets/images/pexels-newyork-001.jpg?format=avif';
 
-import kitchenClogJpg from '../../assets/images/pexels-newyork-002.jpg'
-import kitchenClogWebp from '../../assets/images/pexels-newyork-002.jpg?format=webp'
-import kitchenClogAvif from '../../assets/images/pexels-newyork-002.jpg?format=avif'
+import kitchenClogJpg from '../../assets/images/pexels-newyork-002.jpg';
+import kitchenClogWebp from '../../assets/images/pexels-newyork-002.jpg?format=webp';
+import kitchenClogAvif from '../../assets/images/pexels-newyork-002.jpg?format=avif';
 
-import bathroomDrainJpg from '../../assets/images/pexels-newyork-003.jpg'
-import bathroomDrainWebp from '../../assets/images/pexels-newyork-003.jpg?format=webp'
-import bathroomDrainAvif from '../../assets/images/pexels-newyork-003.jpg?format=avif'
+import bathroomDrainJpg from '../../assets/images/pexels-newyork-003.jpg';
+import bathroomDrainWebp from '../../assets/images/pexels-newyork-003.jpg?format=webp';
+import bathroomDrainAvif from '../../assets/images/pexels-newyork-003.jpg?format=avif';
 
-import sewerLineJpg from '../../assets/images/pexels-newyork-004.jpg'
-import sewerLineWebp from '../../assets/images/pexels-newyork-004.jpg?format=webp'
-import sewerLineAvif from '../../assets/images/pexels-newyork-004.jpg?format=avif'
+import sewerLineJpg from '../../assets/images/pexels-newyork-004.jpg';
+import sewerLineWebp from '../../assets/images/pexels-newyork-004.jpg?format=webp';
+import sewerLineAvif from '../../assets/images/pexels-newyork-004.jpg?format=avif';
 
-import outdoorDrainJpg from '../../assets/images/pexels-newyork-005.jpg'
-import outdoorDrainWebp from '../../assets/images/pexels-newyork-005.jpg?format=webp'
-import outdoorDrainAvif from '../../assets/images/pexels-newyork-005.jpg?format=avif'
+import outdoorDrainJpg from '../../assets/images/pexels-newyork-005.jpg';
+import outdoorDrainWebp from '../../assets/images/pexels-newyork-005.jpg?format=webp';
+import outdoorDrainAvif from '../../assets/images/pexels-newyork-005.jpg?format=avif';
 
 const DrainsServicePage = () => {
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'Service',
+    serviceType: 'Drain Cleaning',
+    provider: {
+      '@type': 'Organization',
+      name: 'Manhattan Plumbing',
+      url: 'https://www.manhattanplumbing.com',
+      logo: 'https://www.manhattanplumbing.com/manhattan-plumber.png',
+    },
+    areaServed: {
+      '@type': 'City',
+      name: 'Manhattan',
+    },
+    description: 'Expert drain cleaning services in Manhattan. We handle kitchen clogs, bathroom drains, sewer lines, and more.',
+  };
+
   return (
     <main className="min-h-screen bg-white dark:bg-slate-900">
+      <SEO
+        title="Drain Cleaning Services | Manhattan Plumbing"
+        description="Fast and effective drain cleaning services in Manhattan. We clear clogged drains in kitchens, bathrooms, and sewer lines using the latest technology."
+        keywords={['drain cleaning', 'clogged drain', 'sewer cleaning', 'Manhattan', 'plumber']}
+        canonical="https://www.manhattanplumbing.com/services/drain-service"
+        ogImage={drainHeroJpg}
+        jsonLd={jsonLd}
+      />
       {/* Hero Section with Background Image */}
       <section className="relative bg-slate-900 text-white">
         <div className="absolute inset-0 z-0 bg-cover bg-center bg-blend-multiply brightness-[0.7] after:absolute after:inset-0 after:bg-linear-to-b after:from-transparent after:via-black/30 after:to-black/70">
@@ -44,7 +70,7 @@ const DrainsServicePage = () => {
             <div className="mb-6 flex justify-center">
               <Droplets size={56} className="text-blue-400" />
             </div>
-            <h1 className="mb-6 text-4xl leading-tight font-bold md:text-5xl lg:text-6xl">
+            <h1 className="mb-6 text-4xl font-bold leading-tight md:text-5xl lg:text-6xl">
               Expert Drain Cleaning Services in Manhattan
             </h1>
             <p className="mb-8 text-xl text-blue-100 md:text-2xl">
@@ -228,7 +254,7 @@ const DrainsServicePage = () => {
         </div>
       </section>
     </main>
-  )
-}
+  );
+};
 
-export default DrainsServicePage
+export default DrainsServicePage;
