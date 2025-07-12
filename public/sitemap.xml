@@ -3,22 +3,22 @@
 
   <url>
     <loc>https://manhattan-plumbing.pages.dev/</loc>
-    <lastmod>2025-07-12T09:25:40.728Z</lastmod>
+    <lastmod>2025-07-12T13:04:16.668Z</lastmod>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://manhattan-plumbing.pages.dev/news</loc>
-    <lastmod>2025-07-12T09:25:40.730Z</lastmod>
+    <lastmod>2025-07-12T13:04:16.669Z</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://manhattan-plumbing.pages.dev/privacy-policy</loc>
-    <lastmod>2025-07-12T09:25:40.730Z</lastmod>
+    <lastmod>2025-07-12T13:04:16.669Z</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://manhattan-plumbing.pages.dev/terms-of-service</loc>
-    <lastmod>2025-07-12T09:25:40.730Z</lastmod>
+    <lastmod>2025-07-12T13:04:16.669Z</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
@@ -34,7 +34,41 @@
     <lastmod>2025-07-12T06:09:20.293Z</lastmod>
 =======
     <loc>https://manhattan-plumbing.pages.dev/cookie-policy</loc>
+<<<<<<< HEAD
     <lastmod>2025-07-12T09:25:40.730Z</lastmod>
+>>>>>>> dev
+=======
+    <lastmod>2025-07-12T13:04:16.669Z</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://manhattan-plumbing.pages.dev/services/drain-service</loc>
+    <lastmod>2025-07-12T13:04:16.669Z</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://manhattan-plumbing.pages.dev/services/emergency-service</loc>
+    <lastmod>2025-07-12T13:04:16.669Z</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://manhattan-plumbing.pages.dev/services/fixture-service</loc>
+    <lastmod>2025-07-12T13:04:16.669Z</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://manhattan-plumbing.pages.dev/services/pipe-service</loc>
+    <lastmod>2025-07-12T13:04:16.669Z</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://manhattan-plumbing.pages.dev/services/remodeling-service</loc>
+    <lastmod>2025-07-12T13:04:16.669Z</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://manhattan-plumbing.pages.dev/services/water-heater-service</loc>
+    <lastmod>2025-07-12T13:04:16.669Z</lastmod>
 >>>>>>> dev
     <priority>0.7</priority>
   </url>

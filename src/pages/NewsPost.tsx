@@ -5,7 +5,8 @@ import { format } from 'date-fns'
 import { Calendar, Clock, Tag, ArrowLeft, ArrowRight, Folder } from 'lucide-react'
 import { MDXProvider } from '@mdx-js/react'
 
-import { useNews } from '../hooks/useNews'
+import ShareButtons from '../components/News/ShareButtons';
+import { useNews } from '../hooks/useNews';
 import { Post } from '../types/news'
 import SkeletonLoader from '../components/UI/SkeletonLoader'
 
@@ -126,6 +127,7 @@ const NewsPost: React.FC = () => {
                 </Link>
               ))}
             </div>
+            
             <div className="mb-6 flex flex-wrap items-center justify-center gap-4 text-slate-600 dark:text-slate-400">
               <div className="flex items-center">
                 <Calendar className="mr-2 h-4 w-4" />
@@ -165,6 +167,10 @@ const NewsPost: React.FC = () => {
 
           <div className="prose prose-lg prose-slate dark:prose-invert prose-h1:text-4xl prose-h2:text-3xl prose-h3:text-2xl prose-h4:text-xl prose-h1:font-extrabold prose-h2:font-bold prose-h3:font-semibold prose-h4:font-medium prose-a:text-blue-600 dark:prose-a:text-blue-400 prose-a:no-underline prose-a:hover:underline prose-img:rounded-lg prose-img:shadow-md prose-blockquote:border-l-4 prose-blockquote:border-blue-500 prose-blockquote:pl-4 prose-blockquote:italic prose-p:leading-relaxed prose-li:leading-relaxed prose-li:marker:text-blue-500 prose-code:bg-slate-100 dark:prose-code:bg-slate-800 prose-code:px-1 prose-code:rounded-sm prose-strong:font-bold prose-table:w-full prose-table:table-auto prose-table:border-collapse prose-table:rounded-lg prose-table:overflow-hidden prose-th:bg-slate-200 dark:prose-th:bg-slate-700 prose-th:p-3 prose-th:text-left prose-th:font-semibold prose-td:p-3 prose-td:border-b prose-td:border-slate-200 dark:prose-td:border-slate-700 prose-ul:list-disc prose-ul:pl-5 prose-ol:list-decimal prose-ol:pl-5 mx-auto max-w-4xl">
             <MDXProvider components={components}>{React.createElement(post.body)}</MDXProvider>
+          </div>
+
+          <div className="mx-auto mt-8 max-w-4xl">
+            <ShareButtons post={post} />
           </div>
 
           <div className="mx-auto mt-16 flex max-w-4xl flex-col items-center justify-between gap-4 border-t border-slate-200 pt-8 sm:flex-row dark:border-slate-700">

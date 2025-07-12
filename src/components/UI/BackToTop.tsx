@@ -1,37 +1,37 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react'
 
 const BackToTop: React.FC = () => {
-  const [isVisible, setIsVisible] = useState(false);
+  const [isVisible, setIsVisible] = useState(false)
 
   const toggleVisibility = () => {
     if (window.pageYOffset > 300) {
-      setIsVisible(true);
+      setIsVisible(true)
     } else {
-      setIsVisible(false);
+      setIsVisible(false)
     }
-  };
+  }
 
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,
       behavior: 'smooth',
-    });
-  };
+    })
+  }
 
   useEffect(() => {
-    window.addEventListener('scroll', toggleVisibility);
+    window.addEventListener('scroll', toggleVisibility)
 
     return () => {
-      window.removeEventListener('scroll', toggleVisibility);
-    };
-  }, []);
+      window.removeEventListener('scroll', toggleVisibility)
+    }
+  }, [])
 
   return (
-    <div className="fixed bottom-4 right-4 z-50">
+    <div className="fixed right-4 bottom-4 z-50">
       {isVisible && (
         <button
           onClick={scrollToTop}
-          className="bg-blue-600 hover:bg-blue-700 text-white font-bold p-3 rounded-full shadow-lg transition-all duration-300 ease-in-out transform hover:scale-110"
+          className="transform rounded-full bg-blue-600 p-3 font-bold text-white shadow-lg transition-all duration-300 ease-in-out hover:scale-110 hover:bg-blue-700"
           aria-label="Go to top"
         >
           <svg
@@ -51,7 +51,7 @@ const BackToTop: React.FC = () => {
         </button>
       )}
     </div>
-  );
-};
+  )
+}
 
-export default BackToTop;
+export default BackToTop
