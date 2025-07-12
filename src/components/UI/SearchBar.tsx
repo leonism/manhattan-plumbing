@@ -88,8 +88,8 @@ const SearchBar: React.FC<SearchBarProps> = ({ onClear, onClose }) => {
         )}
         <button
           onClick={() => {
-            setQuery('');
-            onClear();
+            setQuery('')
+            onClear()
           }}
           className="absolute right-6 top-1/2 -translate-y-1/2 p-2 text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 rounded-full"
         >

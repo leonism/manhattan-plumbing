@@ -1,16 +1,16 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import { ChevronDown, X } from 'lucide-react';
-import { NavItem } from './navConfig';
-import Logo from '../UI/Logo';
-import GetQuoteButton from './GetQuoteButton';
+import React from 'react'
+import { Link } from 'react-router-dom'
+import { ChevronDown, X } from 'lucide-react'
+import { NavItem } from './navConfig'
+import Logo from '../UI/Logo'
+import GetQuoteButton from './GetQuoteButton'
 
 interface MobileNavProps {
-  navItems: NavItem[];
-  isOpen: boolean;
-  activeDropdown: string | null;
-  toggleDropdown: (label: string) => void;
-  setIsOpen: (isOpen: boolean) => void;
+  navItems: NavItem[]
+  isOpen: boolean
+  activeDropdown: string | null
+  toggleDropdown: (label: string) => void
+  setIsOpen: (isOpen: boolean) => void
 }
 
 const MobileNav: React.FC<MobileNavProps> = ({
@@ -87,7 +87,7 @@ const MobileNav: React.FC<MobileNavProps> = ({
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default MobileNav;
+export default MobileNav

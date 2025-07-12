@@ -16,9 +16,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ title, description, icon, hre
         {icon}
       </div>
       <h3 className="mb-3 text-xl font-bold text-slate-800 dark:text-white">{title}</h3>
-      <p className="grow mb-5 text-slate-600 dark:text-slate-300 line-clamp-3">
-        {description}
-      </p>
+      <p className="grow mb-5 text-slate-600 dark:text-slate-300 line-clamp-3">{description}</p>
       <Button href={href} variant="primary" size="md" className="bg-blue-600 text-white">
         <ArrowRightCircle className="mr-2" size={18} />
         Learn More

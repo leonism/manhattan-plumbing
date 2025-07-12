@@ -134,7 +134,11 @@ const PipesServicePage = () => {
                 ],
               },
               {
-                image: { jpg: pipeReplacementJpg, webp: pipeReplacementWebp, avif: pipeReplacementAvif },
+                image: {
+                  jpg: pipeReplacementJpg,
+                  webp: pipeReplacementWebp,
+                  avif: pipeReplacementAvif,
+                },
                 title: 'Pipe Replacement',
                 description:
                   'Complete replacement of aging or damaged pipe systems using the highest quality materials.',
