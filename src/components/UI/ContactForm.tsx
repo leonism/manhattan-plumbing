@@ -52,7 +52,7 @@ const ContactForm: React.FC<ContactFormProps> = ({
       {heading && (
         <h3
           id="form-title"
-          className={`${headingSizes[headingSize]} font-bold mb-4 sm:mb-6 md:mb-8 text-slate-800 dark:text-white text-center sm:text-left`}
+          className={`${headingSizes[headingSize]} mb-4 text-center font-bold text-slate-800 sm:mb-6 sm:text-left md:mb-8 dark:text-white`}
         >
           {heading}
         </h3>
@@ -64,7 +64,7 @@ const ContactForm: React.FC<ContactFormProps> = ({
         <div>
           <label
             htmlFor="name"
-            className="block text-sm sm:text-base font-medium text-slate-700 dark:text-slate-300 mb-1 sm:mb-2"
+            className="mb-1 block text-sm font-medium text-slate-700 sm:mb-2 sm:text-base dark:text-slate-300"
           >
             Full Name *
           </label>
@@ -75,17 +75,17 @@ const ContactForm: React.FC<ContactFormProps> = ({
             value={formData.name}
             onChange={handleChange}
             required
-            className="w-full px-3 py-2 sm:px-4 sm:py-3 text-sm sm:text-base border border-slate-300 dark:border-slate-600 rounded-md bg-white dark:bg-slate-700 text-slate-800 dark:text-white placeholder-slate-400 dark:placeholder-slate-500 focus:outline-hidden focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors"
+            className="w-full rounded-md border border-slate-300 bg-white px-3 py-2 text-sm text-slate-800 placeholder-slate-400 transition-colors focus:border-transparent focus:ring-2 focus:ring-blue-500 focus:outline-hidden sm:px-4 sm:py-3 sm:text-base dark:border-slate-600 dark:bg-slate-700 dark:text-white dark:placeholder-slate-500"
             placeholder="John Doe"
           />
         </div>
 
         {/* Responsive Grid for Email/Phone */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
+        <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 sm:gap-4">
           <div>
             <label
               htmlFor="email"
-              className="block text-sm sm:text-base font-medium text-slate-700 dark:text-slate-300 mb-1 sm:mb-2"
+              className="mb-1 block text-sm font-medium text-slate-700 sm:mb-2 sm:text-base dark:text-slate-300"
             >
               Email Address *
             </label>
@@ -96,7 +96,7 @@ const ContactForm: React.FC<ContactFormProps> = ({
               value={formData.email}
               onChange={handleChange}
               required
-              className="w-full px-3 py-2 sm:px-4 sm:py-3 text-sm sm:text-base border border-slate-300 dark:border-slate-600 rounded-md bg-white dark:bg-slate-700 text-slate-800 dark:text-white placeholder-slate-400 dark:placeholder-slate-500 focus:outline-hidden focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors"
+              className="w-full rounded-md border border-slate-300 bg-white px-3 py-2 text-sm text-slate-800 placeholder-slate-400 transition-colors focus:border-transparent focus:ring-2 focus:ring-blue-500 focus:outline-hidden sm:px-4 sm:py-3 sm:text-base dark:border-slate-600 dark:bg-slate-700 dark:text-white dark:placeholder-slate-500"
               placeholder="john@example.com"
             />
           </div>
@@ -104,7 +104,7 @@ const ContactForm: React.FC<ContactFormProps> = ({
           <div>
             <label
               htmlFor="phone"
-              className="block text-sm sm:text-base font-medium text-slate-700 dark:text-slate-300 mb-1 sm:mb-2"
+              className="mb-1 block text-sm font-medium text-slate-700 sm:mb-2 sm:text-base dark:text-slate-300"
             >
               Phone Number *
             </label>
@@ -115,7 +115,7 @@ const ContactForm: React.FC<ContactFormProps> = ({
               value={formData.phone}
               onChange={handleChange}
               required
-              className="w-full px-3 py-2 sm:px-4 sm:py-3 text-sm sm:text-base border border-slate-300 dark:border-slate-600 rounded-md bg-white dark:bg-slate-700 text-slate-800 dark:text-white placeholder-slate-400 dark:placeholder-slate-500 focus:outline-hidden focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors"
+              className="w-full rounded-md border border-slate-300 bg-white px-3 py-2 text-sm text-slate-800 placeholder-slate-400 transition-colors focus:border-transparent focus:ring-2 focus:ring-blue-500 focus:outline-hidden sm:px-4 sm:py-3 sm:text-base dark:border-slate-600 dark:bg-slate-700 dark:text-white dark:placeholder-slate-500"
               placeholder="(212) 555-1234"
             />
           </div>
@@ -125,7 +125,7 @@ const ContactForm: React.FC<ContactFormProps> = ({
         <div>
           <label
             htmlFor="service"
-            className="block text-sm sm:text-base font-medium text-slate-700 dark:text-slate-300 mb-1 sm:mb-2"
+            className="mb-1 block text-sm font-medium text-slate-700 sm:mb-2 sm:text-base dark:text-slate-300"
           >
             Service Needed *
           </label>
@@ -135,7 +135,7 @@ const ContactForm: React.FC<ContactFormProps> = ({
             value={formData.service}
             onChange={handleChange}
             required
-            className="w-full px-3 py-2 sm:px-4 sm:py-3 text-sm sm:text-base border border-slate-300 dark:border-slate-600 rounded-md bg-white dark:bg-slate-700 text-slate-800 dark:text-white focus:outline-hidden focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors"
+            className="w-full rounded-md border border-slate-300 bg-white px-3 py-2 text-sm text-slate-800 transition-colors focus:border-transparent focus:ring-2 focus:ring-blue-500 focus:outline-hidden sm:px-4 sm:py-3 sm:text-base dark:border-slate-600 dark:bg-slate-700 dark:text-white"
           >
             <option value="">Select a service</option>
             <option value="emergency">Emergency Plumbing</option>
@@ -151,7 +151,7 @@ const ContactForm: React.FC<ContactFormProps> = ({
         <div>
           <label
             htmlFor="message"
-            className="block text-sm sm:text-base font-medium text-slate-700 dark:text-slate-300 mb-1 sm:mb-2"
+            className="mb-1 block text-sm font-medium text-slate-700 sm:mb-2 sm:text-base dark:text-slate-300"
           >
             Message
           </label>
@@ -161,7 +161,7 @@ const ContactForm: React.FC<ContactFormProps> = ({
             value={formData.message}
             onChange={handleChange}
             rows={3}
-            className="w-full px-3 py-2 sm:px-4 sm:py-3 text-sm sm:text-base border border-slate-300 dark:border-slate-600 rounded-md bg-white dark:bg-slate-700 text-slate-800 dark:text-white placeholder-slate-400 dark:placeholder-slate-500 focus:outline-hidden focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors"
+            className="w-full rounded-md border border-slate-300 bg-white px-3 py-2 text-sm text-slate-800 placeholder-slate-400 transition-colors focus:border-transparent focus:ring-2 focus:ring-blue-500 focus:outline-hidden sm:px-4 sm:py-3 sm:text-base dark:border-slate-600 dark:bg-slate-700 dark:text-white dark:placeholder-slate-500"
             placeholder="Please provide details about your plumbing needs..."
           />
         </div>
@@ -172,21 +172,21 @@ const ContactForm: React.FC<ContactFormProps> = ({
         <Button
           size="md"
           fullWidth
-          className="group flex items-center justify-center gap-2 py-2 sm:py-3 text-sm sm:text-base"
+          className="group flex items-center justify-center gap-2 py-2 text-sm sm:py-3 sm:text-base"
         >
           <span>Submit Request</span>
-          <PaperAirplaneIcon className="h-4 w-4 sm:h-5 sm:w-5 transition-transform group-hover:translate-x-1" />
+          <PaperAirplaneIcon className="h-4 w-4 transition-transform group-hover:translate-x-1 sm:h-5 sm:w-5" />
         </Button>
       </div>
 
       {/* Responsive Footer Text */}
-      <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400 mt-3 sm:mt-4">
+      <p className="mt-3 text-xs text-slate-500 sm:mt-4 sm:text-sm dark:text-slate-400">
         By submitting this form, you agree to our{' '}
-        <a href="/privacy-policy" className="text-blue-600 dark:text-blue-400 hover:underline">
+        <a href="/privacy-policy" className="text-blue-600 hover:underline dark:text-blue-400">
           Privacy Policy
         </a>{' '}
         and{' '}
-        <a href="/terms-of-service" className="text-blue-600 dark:text-blue-400 hover:underline">
+        <a href="/terms-of-service" className="text-blue-600 hover:underline dark:text-blue-400">
           Terms of Service
         </a>
         .

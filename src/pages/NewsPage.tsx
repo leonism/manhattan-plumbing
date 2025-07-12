@@ -39,14 +39,14 @@ const NewsPage: React.FC = () => {
             centered={true}
           />
 
-          <div className="mt-6 flex flex-wrap gap-3 justify-center">
+          <div className="mt-6 flex flex-wrap justify-center gap-3">
             <Link
               to="/news"
               className={`text-sm ${
                 !category && !tag
                   ? 'bg-blue-600 text-white dark:bg-blue-400'
                   : 'bg-slate-100 text-slate-700 dark:bg-slate-700 dark:text-slate-200'
-              } px-4 py-2 rounded-full hover:bg-blue-600 hover:text-white dark:hover:bg-blue-400 dark:hover:text-white transition-colors`}
+              } rounded-full px-4 py-2 transition-colors hover:bg-blue-600 hover:text-white dark:hover:bg-blue-400 dark:hover:text-white`}
             >
               All
             </Link>
@@ -58,7 +58,7 @@ const NewsPage: React.FC = () => {
                   category === cat
                     ? 'bg-blue-600 text-white dark:bg-blue-400'
                     : 'bg-slate-100 text-slate-700 dark:bg-slate-700 dark:text-slate-200'
-                } px-4 py-2 rounded-full hover:bg-blue-600 hover:text-white dark:hover:bg-blue-400 dark:hover:text-white transition-colors`}
+                } rounded-full px-4 py-2 transition-colors hover:bg-blue-600 hover:text-white dark:hover:bg-blue-400 dark:hover:text-white`}
               >
                 {cat}
               </Link>
@@ -66,7 +66,7 @@ const NewsPage: React.FC = () => {
           </div>
         </header>
 
-        <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <section className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
           {isLoading ? (
             <SkeletonLoader type="card" count={9} className="col-span-1" />
           ) : (
@@ -82,7 +82,7 @@ const NewsPage: React.FC = () => {
               onClick={() => setCurrentPage((p) => Math.max(1, p - 1))}
               isDisabled={currentPage === 1}
             >
-              <ChevronLeft className="w-5 h-5 mr-1" />
+              <ChevronLeft className="mr-1 h-5 w-5" />
               Previous
             </Button>
 
@@ -104,7 +104,7 @@ const NewsPage: React.FC = () => {
               isDisabled={currentPage === totalPages}
             >
               Next
-              <ChevronRight className="w-5 h-5 ml-1" />
+              <ChevronRight className="ml-1 h-5 w-5" />
             </Button>
           </nav>
         )}

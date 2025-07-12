@@ -17,8 +17,8 @@ const benefits = [
 
 const About: React.FC = () => (
   <section id="about" aria-labelledby="about-heading" className="py-10">
-    <div className="container px-4 mx-auto md:px-6">
-      <div className="grid grid-cols-1 gap-10 items-center lg:grid-cols-2">
+    <div className="container mx-auto px-4 md:px-6">
+      <div className="grid grid-cols-1 items-center gap-10 lg:grid-cols-2">
         <article>
           <SectionHeading
             title="About Manhattan Plumbing"

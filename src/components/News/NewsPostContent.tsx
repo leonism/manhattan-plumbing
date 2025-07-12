@@ -6,32 +6,32 @@ import SectionHeading from '../UI/SectionHeading'
 // Custom components for MDX content
 const components = {
   h1: (props: React.HTMLAttributes<HTMLHeadingElement>) => (
-    <h1 className="text-4xl font-bold mb-6 text-gray-900" {...props} />
+    <h1 className="mb-6 text-4xl font-bold text-gray-900" {...props} />
   ),
   h2: (props: React.HTMLAttributes<HTMLHeadingElement>) => (
-    <h2 className="text-3xl font-bold mb-4 text-gray-800" {...props} />
+    <h2 className="mb-4 text-3xl font-bold text-gray-800" {...props} />
   ),
   h3: (props: React.HTMLAttributes<HTMLHeadingElement>) => (
-    <h3 className="text-2xl font-semibold mb-3 text-gray-800" {...props} />
+    <h3 className="mb-3 text-2xl font-semibold text-gray-800" {...props} />
   ),
   p: (props: React.HTMLAttributes<HTMLParagraphElement>) => (
-    <p className="text-gray-600 leading-relaxed mb-4" {...props} />
+    <p className="mb-4 leading-relaxed text-gray-600" {...props} />
   ),
   ul: (props: React.HTMLAttributes<HTMLUListElement>) => (
-    <ul className="list-disc list-inside mb-4 text-gray-600" {...props} />
+    <ul className="mb-4 list-inside list-disc text-gray-600" {...props} />
   ),
   ol: (props: React.HTMLAttributes<HTMLOListElement>) => (
-    <ol className="list-decimal list-inside mb-4 text-gray-600" {...props} />
+    <ol className="mb-4 list-inside list-decimal text-gray-600" {...props} />
   ),
   blockquote: (props: React.HTMLAttributes<HTMLQuoteElement>) => (
     <blockquote
-      className="border-l-4 border-primary-500 pl-4 my-4 italic text-gray-700"
+      className="border-primary-500 my-4 border-l-4 pl-4 text-gray-700 italic"
       {...props}
     />
   ),
   img: (props: React.ImgHTMLAttributes<HTMLImageElement>) => (
     <img
-      className="rounded-lg shadow-md my-6 w-full"
+      className="my-6 w-full rounded-lg shadow-md"
       {...props}
       alt={props.alt || ''}
       loading="lazy"
@@ -73,7 +73,7 @@ const NewsPostContent: React.FC<NewsPostContentProps> = ({ frontmatter, content 
   })
 
   return (
-    <article className="max-w-4xl mx-auto px-4 py-12">
+    <article className="mx-auto max-w-4xl px-4 py-12">
       <Helmet>
         <title>{frontmatter.seoTitle} | Manhattan Plumbing</title>
         <meta name="description" content={frontmatter.description} />
@@ -96,7 +96,7 @@ const NewsPostContent: React.FC<NewsPostContentProps> = ({ frontmatter, content 
             <img
               src={frontmatter.author.image.src}
               alt={frontmatter.author.name}
-              className="w-12 h-12 rounded-full"
+              className="h-12 w-12 rounded-full"
               loading="lazy"
             />
           </picture>
@@ -115,7 +115,7 @@ const NewsPostContent: React.FC<NewsPostContentProps> = ({ frontmatter, content 
             <img
               src={frontmatter.image.src}
               alt={frontmatter.title}
-              className="mt-8 w-full h-[400px] object-cover rounded-xl"
+              className="mt-8 h-[400px] w-full rounded-xl object-cover"
               loading="lazy"
             />
           </picture>
@@ -126,10 +126,10 @@ const NewsPostContent: React.FC<NewsPostContentProps> = ({ frontmatter, content 
         <MDXProvider components={components}>{content}</MDXProvider>
       </div>
 
-      <footer className="mt-12 pt-8 border-t border-gray-200">
+      <footer className="mt-12 border-t border-gray-200 pt-8">
         <div className="flex flex-wrap gap-2">
           {frontmatter.tags.map((tag) => (
-            <span key={tag} className="px-3 py-1 bg-gray-100 text-gray-600 text-sm rounded-full">
+            <span key={tag} className="rounded-full bg-gray-100 px-3 py-1 text-sm text-gray-600">
               #{tag}
             </span>
           ))}

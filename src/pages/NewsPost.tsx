@@ -43,10 +43,10 @@ const NewsPost: React.FC = () => {
       <main className="min-h-screen py-16">
         <div className="container mx-auto px-4">
           <div className="text-center">
-            <SkeletonLoader type="text" count={1} className="h-10 w-3/4 mx-auto mb-4" />
-            <SkeletonLoader type="text" count={2} className="w-full mx-auto mb-8" />
-            <SkeletonLoader type="image" className="h-64 w-full mx-auto mb-8" />
-            <SkeletonLoader type="text" count={5} className="w-full mx-auto" />
+            <SkeletonLoader type="text" count={1} className="mx-auto mb-4 h-10 w-3/4" />
+            <SkeletonLoader type="text" count={2} className="mx-auto mb-8 w-full" />
+            <SkeletonLoader type="image" className="mx-auto mb-8 h-64 w-full" />
+            <SkeletonLoader type="text" count={5} className="mx-auto w-full" />
           </div>
         </div>
       </main>
@@ -78,7 +78,7 @@ const NewsPost: React.FC = () => {
         </script>
       </Helmet>
 
-      <main className="min-h-screen py-20 sm:py-24 bg-slate-50 dark:bg-slate-900 text-slate-800 dark:text-slate-200">
+      <main className="min-h-screen bg-slate-50 py-20 text-slate-800 sm:py-24 dark:bg-slate-900 dark:text-slate-200">
         <article className="container mx-auto px-4 py-8">
           {/* <Link
             to="/news"
@@ -87,64 +87,64 @@ const NewsPost: React.FC = () => {
             Back to News
           </Link> */}
 
-          <header className="max-w-4xl mx-auto mb-12 text-center">
-            <h1 className="text-4xl md:text-5xl font-extrabold leading-tight mb-6">{post.title}</h1>
-            <div className="relative rounded-lg overflow-hidden mb-8 shadow-lg">
+          <header className="mx-auto mb-12 max-w-4xl text-center">
+            <h1 className="mb-6 text-4xl leading-tight font-extrabold md:text-5xl">{post.title}</h1>
+            <div className="relative mb-8 overflow-hidden rounded-lg shadow-lg">
               <picture>
                 <source srcSet={post.featuredImage.avif} type="image/avif" />
                 <source srcSet={post.featuredImage.webp} type="image/webp" />
                 <img
                   src={post.featuredImage.src}
                   alt={post.featuredImage.alt}
-                  className="object-cover w-full h-full max-h-96"
+                  className="h-full max-h-96 w-full object-cover"
                   loading="lazy"
                 />
               </picture>
               {post.featuredImage.caption && (
-                <div className="absolute bottom-0 left-0 right-0 bg-black/60 text-white p-4 text-sm">
+                <div className="absolute right-0 bottom-0 left-0 bg-black/60 p-4 text-sm text-white">
                   {post.featuredImage.caption}
                 </div>
               )}
             </div>
-            <div className="flex flex-wrap justify-center gap-2 mb-8">
+            <div className="mb-8 flex flex-wrap justify-center gap-2">
               {post.tags.map((tag: string) => (
                 <Link
                   key={tag}
                   to={`/news/tag/${slugify(tag)}`}
-                  className="inline-flex items-center text-sm bg-blue-100 hover:bg-blue-200 text-blue-700 px-3 py-1 rounded-full transition-colors dark:bg-blue-900 dark:text-blue-200 dark:hover:bg-blue-800"
+                  className="inline-flex items-center rounded-full bg-blue-100 px-3 py-1 text-sm text-blue-700 transition-colors hover:bg-blue-200 dark:bg-blue-900 dark:text-blue-200 dark:hover:bg-blue-800"
                 >
-                  <Tag className="w-4 h-4 mr-1" />
+                  <Tag className="mr-1 h-4 w-4" />
                   {tag}
                 </Link>
               ))}
             </div>
-            <div className="flex flex-wrap items-center justify-center gap-4 text-slate-600 dark:text-slate-400 mb-6">
+            <div className="mb-6 flex flex-wrap items-center justify-center gap-4 text-slate-600 dark:text-slate-400">
               <div className="flex items-center">
-                <Calendar className="w-4 h-4 mr-2" />
+                <Calendar className="mr-2 h-4 w-4" />
                 <time dateTime={post.date}>{format(new Date(post.date), 'MMMM d, yyyy')}</time>
               </div>
               <div className="flex items-center">
-                <Clock className="w-4 h-4 mr-2" />
+                <Clock className="mr-2 h-4 w-4" />
                 {post.readingTime}
               </div>
               <div className="flex items-center">
-                <Folder className="w-4 h-4 mr-2" />
+                <Folder className="mr-2 h-4 w-4" />
                 <Link
                   to={`/news/category/${post.category}`}
-                  className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+                  className="transition-colors hover:text-blue-600 dark:hover:text-blue-400"
                 >
                   {post.category}
                 </Link>
               </div>
             </div>
-            <div className="flex items-center justify-center gap-4 mb-8">
+            <div className="mb-8 flex items-center justify-center gap-4">
               <picture>
                 <source srcSet={post.author.image.avif} type="image/avif" />
                 <source srcSet={post.author.image.webp} type="image/webp" />
                 <img
                   src={post.author.image.src}
                   alt={post.author.name}
-                  className="w-12 h-12 rounded-full border-2 border-blue-400"
+                  className="h-12 w-12 rounded-full border-2 border-blue-400"
                   loading="lazy"
                 />
               </picture>
@@ -155,37 +155,20 @@ const NewsPost: React.FC = () => {
             </div>
           </header>
 
-          <div
-            className="max-w-4xl mx-auto prose prose-lg prose-slate dark:prose-invert
-            prose-h1:text-4xl prose-h2:text-3xl prose-h3:text-2xl prose-h4:text-xl
-            prose-h1:font-extrabold prose-h2:font-bold prose-h3:font-semibold prose-h4:font-medium
-            prose-a:text-blue-600 dark:prose-a:text-blue-400 prose-a:no-underline prose-a:hover:underline
-            prose-img:rounded-lg prose-img:shadow-md
-            prose-blockquote:border-l-4 prose-blockquote:border-blue-500 prose-blockquote:pl-4 prose-blockquote:italic
-            prose-p:leading-relaxed prose-li:leading-relaxed
-            prose-li:marker:text-blue-500
-            prose-code:bg-slate-100 dark:prose-code:bg-slate-800 prose-code:px-1 prose-code:rounded-sm
-            prose-strong:font-bold
-            prose-table:w-full prose-table:table-auto prose-table:border-collapse prose-table:rounded-lg prose-table:overflow-hidden
-            prose-th:bg-slate-200 dark:prose-th:bg-slate-700 prose-th:p-3 prose-th:text-left prose-th:font-semibold
-            prose-td:p-3 prose-td:border-b prose-td:border-slate-200 dark:prose-td:border-slate-700
-            prose-ul:list-disc prose-ul:pl-5
-            prose-ol:list-decimal prose-ol:pl-5
-            "
-          >
+          <div className="prose prose-lg prose-slate dark:prose-invert prose-h1:text-4xl prose-h2:text-3xl prose-h3:text-2xl prose-h4:text-xl prose-h1:font-extrabold prose-h2:font-bold prose-h3:font-semibold prose-h4:font-medium prose-a:text-blue-600 dark:prose-a:text-blue-400 prose-a:no-underline prose-a:hover:underline prose-img:rounded-lg prose-img:shadow-md prose-blockquote:border-l-4 prose-blockquote:border-blue-500 prose-blockquote:pl-4 prose-blockquote:italic prose-p:leading-relaxed prose-li:leading-relaxed prose-li:marker:text-blue-500 prose-code:bg-slate-100 dark:prose-code:bg-slate-800 prose-code:px-1 prose-code:rounded-sm prose-strong:font-bold prose-table:w-full prose-table:table-auto prose-table:border-collapse prose-table:rounded-lg prose-table:overflow-hidden prose-th:bg-slate-200 dark:prose-th:bg-slate-700 prose-th:p-3 prose-th:text-left prose-th:font-semibold prose-td:p-3 prose-td:border-b prose-td:border-slate-200 dark:prose-td:border-slate-700 prose-ul:list-disc prose-ul:pl-5 prose-ol:list-decimal prose-ol:pl-5 mx-auto max-w-4xl">
             <MDXProvider components={components}>{React.createElement(post.body)}</MDXProvider>
           </div>
 
-          <div className="max-w-4xl mx-auto mt-16 flex flex-col sm:flex-row justify-between items-center border-t border-slate-200 dark:border-slate-700 pt-8 gap-4">
+          <div className="mx-auto mt-16 flex max-w-4xl flex-col items-center justify-between gap-4 border-t border-slate-200 pt-8 sm:flex-row dark:border-slate-700">
             {previousPost ? (
               <Link
                 to={`/news/${previousPost.slug}`}
-                className="flex items-center gap-2 p-4 rounded-xl border border-slate-200 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-800 text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-200 transition-colors w-full sm:w-auto group"
+                className="group flex w-full items-center gap-2 rounded-xl border border-slate-200 p-4 text-blue-600 transition-colors hover:bg-slate-100 hover:text-blue-800 sm:w-auto dark:border-slate-700 dark:text-blue-400 dark:hover:bg-slate-800 dark:hover:text-blue-200"
               >
-                <ArrowLeft className="w-5 h-5 shrink-0 group-hover:-translate-x-1 transition-transform" />
+                <ArrowLeft className="h-5 w-5 shrink-0 transition-transform group-hover:-translate-x-1" />
                 <div className="grow">
                   <div className="text-sm text-slate-500 dark:text-slate-400">Previous Article</div>
-                  <div className="font-semibold line-clamp-1">{previousPost.title}</div>
+                  <div className="line-clamp-1 font-semibold">{previousPost.title}</div>
                 </div>
               </Link>
             ) : (
@@ -195,13 +178,13 @@ const NewsPost: React.FC = () => {
             {nextPost ? (
               <Link
                 to={`/news/${nextPost.slug}`}
-                className="flex items-center gap-2 p-4 rounded-xl border border-slate-200 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-800 text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-200 transition-colors w-full sm:w-auto ml-auto text-right"
+                className="ml-auto flex w-full items-center gap-2 rounded-xl border border-slate-200 p-4 text-right text-blue-600 transition-colors hover:bg-slate-100 hover:text-blue-800 sm:w-auto dark:border-slate-700 dark:text-blue-400 dark:hover:bg-slate-800 dark:hover:text-blue-200"
               >
                 <div className="grow">
                   <div className="text-sm text-slate-500 dark:text-slate-400">Next Article</div>
-                  <div className="font-semibold line-clamp-1">{nextPost.title}</div>
+                  <div className="line-clamp-1 font-semibold">{nextPost.title}</div>
                 </div>
-                <ArrowRight className="w-5 h-5 shrink-0 group-hover:translate-x-1 transition-transform" />
+                <ArrowRight className="h-5 w-5 shrink-0 transition-transform group-hover:translate-x-1" />
               </Link>
             ) : (
               <div className="w-full sm:w-auto" />
@@ -210,16 +193,16 @@ const NewsPost: React.FC = () => {
 
           {/* Related Articles Section */}
           {allPosts.filter((p: Post) => p.slug !== post.slug).length > 0 && (
-            <div className="max-w-4xl mx-auto mt-16">
-              <h2 className="text-3xl font-bold mb-8 text-center">More Articles</h2>
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="mx-auto mt-16 max-w-4xl">
+              <h2 className="mb-8 text-center text-3xl font-bold">More Articles</h2>
+              <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
                 {allPosts
                   .filter((p: Post) => p.slug !== post.slug)
                   .slice(0, 3)
                   .map((relatedPost: Post) => (
                     <div
                       key={relatedPost.slug}
-                      className="bg-white dark:bg-slate-800 rounded-lg shadow-lg overflow-hidden transform hover:scale-105 transition-transform duration-300"
+                      className="transform overflow-hidden rounded-lg bg-white shadow-lg transition-transform duration-300 hover:scale-105 dark:bg-slate-800"
                     >
                       <Link to={`/news/${relatedPost.slug}`}>
                         <picture>
@@ -228,21 +211,21 @@ const NewsPost: React.FC = () => {
                           <img
                             src={relatedPost.featuredImage.src}
                             alt={relatedPost.featuredImage.alt}
-                            className="w-full h-48 object-cover"
+                            className="h-48 w-full object-cover"
                             loading="lazy"
                           />
                         </picture>
                       </Link>
                       <div className="p-4">
-                        <h3 className="font-bold text-lg mb-2">
+                        <h3 className="mb-2 text-lg font-bold">
                           <Link
                             to={`/news/${relatedPost.slug}`}
-                            className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+                            className="transition-colors hover:text-blue-600 dark:hover:text-blue-400"
                           >
                             {relatedPost.title}
                           </Link>
                         </h3>
-                        <p className="text-slate-600 dark:text-slate-400 text-sm line-clamp-2">
+                        <p className="line-clamp-2 text-sm text-slate-600 dark:text-slate-400">
                           {relatedPost.excerpt}
                         </p>
                       </div>

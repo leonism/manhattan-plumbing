@@ -11,12 +11,12 @@ const Contact: React.FC = () => {
   return (
     <section
       id="contact"
-      className="py-12 lg:py-20 bg-white dark:bg-slate-900"
+      className="bg-white py-12 lg:py-20 dark:bg-slate-900"
       aria-labelledby="contact-heading"
     >
       <div className="container mx-auto px-4 md:px-6">
         {/* Section Heading */}
-        <header className="text-center mb-8 lg:mb-12" id="contact-heading">
+        <header className="mb-8 text-center lg:mb-12" id="contact-heading">
           <SectionHeading
             title="Contact Us"
             subtitle="Have a plumbing issue or need a quote? Get in touch with our team today."
@@ -25,17 +25,17 @@ const Contact: React.FC = () => {
         </header>
 
         {/* Main Content */}
-        <div className="grid grid-cols-1 lg:grid-cols-[1fr_400px] gap-8 lg:gap-12 items-start">
+        <div className="grid grid-cols-1 items-start gap-8 lg:grid-cols-[1fr_400px] lg:gap-12">
           {/* Left Column: Contact Information */}
           <article aria-labelledby="contact-info">
             <h3
               id="contact-info"
-              className="text-xl lg:text-2xl font-bold mb-6 text-slate-800 dark:text-white"
+              className="mb-6 text-xl font-bold text-slate-800 lg:text-2xl dark:text-white"
             >
               Get In Touch
             </h3>
 
-            <p className="text-slate-600 dark:text-slate-300 mb-8 text-base lg:text-lg">
+            <p className="mb-8 text-base text-slate-600 lg:text-lg dark:text-slate-300">
               Our friendly customer service team is standing by to answer your questions and
               schedule your appointment. Contact us through the form or using the information below.
             </p>

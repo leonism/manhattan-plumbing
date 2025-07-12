@@ -8,7 +8,7 @@ interface LayoutHomePageProps {
 
 const LayoutHomePage: React.FC<LayoutHomePageProps> = ({ children }) => {
   return (
-    <div className="flex flex-col bg-white/90 min-h-screen dark:bg-slate-900 transition-colors duration-300">
+    <div className="flex min-h-screen flex-col bg-white/90 transition-colors duration-300 dark:bg-slate-900">
       <Header isHomePage={true} />
       <main className="grow">{children}</main>
       <Footer />

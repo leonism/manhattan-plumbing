@@ -6,7 +6,7 @@ const PhoneComponent: React.FC = () => (
   <ContactDetail icon={<Phone size={24} />} title="Phone">
     <a
       href="tel:+12125551234"
-      className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+      className="transition-colors hover:text-blue-600 dark:hover:text-blue-400"
     >
       (212) 555-1234
     </a>

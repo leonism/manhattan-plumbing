@@ -13,7 +13,7 @@ const CompanyInfo: React.FC<CompanyInfoProps> = ({ className }) => {
         Company Information
       </h2>
       <Logo />
-      <p className="text-slate-300 mb-6 mt-4">
+      <p className="mt-4 mb-6 text-slate-300">
         Professional plumbing services with a commitment to quality and customer satisfaction since
         1985.
       </p>
@@ -29,7 +29,7 @@ const CompanyInfo: React.FC<CompanyInfoProps> = ({ className }) => {
             <li key={label}>
               <a
                 href="#"
-                className="text-slate-300 hover:text-white transition-colors"
+                className="text-slate-300 transition-colors hover:text-white"
                 aria-label={label}
               >
                 <Icon size={20} />

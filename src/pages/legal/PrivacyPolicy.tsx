@@ -24,7 +24,7 @@ const PrivacyPolicy: React.FC = () => {
       title: '1. Information We Collect',
       content: (
         <>
-          <p className="text-gray-600 dark:text-gray-300 mb-4 leading-relaxed">
+          <p className="mb-4 leading-relaxed text-gray-600 dark:text-gray-300">
             We collect information that you provide directly to us, including:
           </p>
           <ul className="space-y-3">
@@ -35,7 +35,7 @@ const PrivacyPolicy: React.FC = () => {
               { text: 'Communications with our team', icon: '✉️' },
             ].map((item, index) => (
               <li key={index} className="flex items-start">
-                <span className="mr-2 mt-1" aria-hidden="true">
+                <span className="mt-1 mr-2" aria-hidden="true">
                   {item.icon}
                 </span>
                 <span className="text-gray-600 dark:text-gray-300">{item.text}</span>
@@ -49,7 +49,7 @@ const PrivacyPolicy: React.FC = () => {
       title: '2. How We Use Your Information',
       content: (
         <>
-          <p className="text-gray-600 dark:text-gray-300 mb-4 leading-relaxed">
+          <p className="mb-4 leading-relaxed text-gray-600 dark:text-gray-300">
             We use the information we collect to:
           </p>
           <ul className="grid gap-3 sm:grid-cols-2">
@@ -64,9 +64,9 @@ const PrivacyPolicy: React.FC = () => {
             ].map((item, index) => (
               <li
                 key={index}
-                className="flex items-start bg-gray-50 dark:bg-gray-700 p-3 rounded-lg"
+                className="flex items-start rounded-lg bg-gray-50 p-3 dark:bg-gray-700"
               >
-                <span className="mr-2 mt-1" aria-hidden="true">
+                <span className="mt-1 mr-2" aria-hidden="true">
                   {item.icon}
                 </span>
                 <span className="text-gray-600 dark:text-gray-300">{item.text}</span>
@@ -80,7 +80,7 @@ const PrivacyPolicy: React.FC = () => {
       title: '3. Information Sharing',
       content: (
         <>
-          <p className="text-gray-600 dark:text-gray-300 mb-4 leading-relaxed">
+          <p className="mb-4 leading-relaxed text-gray-600 dark:text-gray-300">
             We do not sell or share your personal information with third parties except:
           </p>
           <ul className="space-y-3">
@@ -93,7 +93,7 @@ const PrivacyPolicy: React.FC = () => {
               },
             ].map((item, index) => (
               <li key={index} className="flex items-start">
-                <span className="mr-2 mt-1" aria-hidden="true">
+                <span className="mt-1 mr-2" aria-hidden="true">
                   {item.icon}
                 </span>
                 <span className="text-gray-600 dark:text-gray-300">{item.text}</span>
@@ -106,7 +106,7 @@ const PrivacyPolicy: React.FC = () => {
     {
       title: '4. Security',
       content: (
-        <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
+        <p className="leading-relaxed text-gray-600 dark:text-gray-300">
           We implement appropriate technical and organizational security measures to protect your
           personal information against unauthorized access, alteration, disclosure, or destruction.
         </p>
@@ -116,7 +116,7 @@ const PrivacyPolicy: React.FC = () => {
       title: '5. Your Rights',
       content: (
         <>
-          <p className="text-gray-600 dark:text-gray-300 mb-4 leading-relaxed">
+          <p className="mb-4 leading-relaxed text-gray-600 dark:text-gray-300">
             You have the right to:
           </p>
           <ul className="grid gap-3 sm:grid-cols-2">
@@ -128,9 +128,9 @@ const PrivacyPolicy: React.FC = () => {
             ].map((item, index) => (
               <li
                 key={index}
-                className="flex items-start bg-gray-50 dark:bg-gray-700 p-3 rounded-lg"
+                className="flex items-start rounded-lg bg-gray-50 p-3 dark:bg-gray-700"
               >
-                <span className="mr-2 mt-1" aria-hidden="true">
+                <span className="mt-1 mr-2" aria-hidden="true">
                   {item.icon}
                 </span>
                 <span className="text-gray-600 dark:text-gray-300">{item.text}</span>
@@ -144,19 +144,19 @@ const PrivacyPolicy: React.FC = () => {
       title: '6. Contact Us',
       content: (
         <>
-          <p className="text-gray-600 dark:text-gray-300 mb-6 leading-relaxed">
+          <p className="mb-6 leading-relaxed text-gray-600 dark:text-gray-300">
             If you have any questions about this Privacy Policy, please contact us at:
           </p>
-          <address className="bg-blue-50 dark:bg-gray-700 p-6 rounded-lg not-italic border border-blue-100 dark:border-gray-600">
+          <address className="rounded-lg border border-blue-100 bg-blue-50 p-6 not-italic dark:border-gray-600 dark:bg-gray-700">
             <div className="space-y-2">
-              <p className="text-gray-800 dark:text-white font-medium">{contactInfo.company}</p>
+              <p className="font-medium text-gray-800 dark:text-white">{contactInfo.company}</p>
               <p className="text-gray-600 dark:text-gray-300">{contactInfo.address}</p>
               <p className="text-gray-600 dark:text-gray-300">{contactInfo.city}</p>
               <p className="text-gray-600 dark:text-gray-300">
                 Email:{' '}
                 <a
                   href={`mailto:${contactInfo.email}`}
-                  className="text-blue-600 dark:text-blue-400 hover:underline"
+                  className="text-blue-600 hover:underline dark:text-blue-400"
                 >
                   {contactInfo.email}
                 </a>
@@ -165,7 +165,7 @@ const PrivacyPolicy: React.FC = () => {
                 Phone:{' '}
                 <a
                   href={`tel:${contactInfo.phone.replace(/[^\d+]/g, '')}`}
-                  className="text-blue-600 dark:text-blue-400 hover:underline"
+                  className="text-blue-600 hover:underline dark:text-blue-400"
                 >
                   {contactInfo.phone}
                 </a>
@@ -208,8 +208,8 @@ const PrivacyPolicy: React.FC = () => {
         <HeroBackground />
         <main id="main-content" className="relative z-10 py-16">
           <div className="container mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
-            <article className="mt-12 overflow-hidden rounded-2xl bg-white backdrop-blur-xs shadow-lg transition-all duration-300 hover:shadow-xl dark:bg-gray-800/90">
-              <div className="px-6 pt-6 mb-10">
+            <article className="mt-12 overflow-hidden rounded-2xl bg-white shadow-lg backdrop-blur-xs transition-all duration-300 hover:shadow-xl dark:bg-gray-800/90">
+              <div className="mb-10 px-6 pt-6">
                 <StaticHeading
                   title="Privacy Policy"
                   subtitle={`(Last updated: ${lastUpdated})`}

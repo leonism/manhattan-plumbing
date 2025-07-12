@@ -13,9 +13,9 @@ const CallToAction: React.FC = () => {
   const scheduleUrl = '#contact'
 
   return (
-    <section className="py-20 relative">
+    <section className="relative py-20">
       <CallToActionBackground imageUrl={backgroundImage} />
-      <div className="container mx-auto px-4 md:px-6 relative z-10 text-center">
+      <div className="relative z-10 container mx-auto px-4 text-center md:px-6">
         <CallToActionContent heading={heading} text={text} />
         <CallToActionButtons phoneNumber={phoneNumber} scheduleUrl={scheduleUrl} />
       </div>

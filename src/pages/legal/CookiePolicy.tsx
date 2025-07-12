@@ -23,7 +23,7 @@ const CookiePolicy: React.FC = () => {
     {
       title: '1. What Are Cookies',
       content: (
-        <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
+        <p className="leading-relaxed text-gray-600 dark:text-gray-300">
           Cookies are small text files that are placed on your computer or mobile device when you
           visit our website. They allow us to remember your preferences and improve your browsing
           experience.
@@ -62,14 +62,14 @@ const CookiePolicy: React.FC = () => {
           ].map((type, index) => (
             <div
               key={index}
-              className="p-5 bg-gray-50 dark:bg-gray-700 rounded-lg border-l-4 border-blue-500"
+              className="rounded-lg border-l-4 border-blue-500 bg-gray-50 p-5 dark:bg-gray-700"
             >
               <div className="flex items-start">
-                <span className="text-2xl mr-3" aria-hidden="true">
+                <span className="mr-3 text-2xl" aria-hidden="true">
                   {type.icon}
                 </span>
                 <div>
-                  <h3 className="text-xl font-semibold text-gray-800 dark:text-white mb-2">
+                  <h3 className="mb-2 text-xl font-semibold text-gray-800 dark:text-white">
                     {type.title}
                   </h3>
                   <p className="text-gray-600 dark:text-gray-300">{type.description}</p>
@@ -83,7 +83,7 @@ const CookiePolicy: React.FC = () => {
     {
       title: '3. Cookie Management',
       content: (
-        <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
+        <p className="leading-relaxed text-gray-600 dark:text-gray-300">
           You can control and/or delete cookies as you wish. You can delete all cookies that are
           already on your computer and you can set most browsers to prevent them from being placed.
           However, if you do this, you may have to manually adjust some preferences every time you
@@ -95,7 +95,7 @@ const CookiePolicy: React.FC = () => {
       title: '4. Your Choices',
       content: (
         <>
-          <p className="text-gray-600 dark:text-gray-300 mb-4 leading-relaxed">
+          <p className="mb-4 leading-relaxed text-gray-600 dark:text-gray-300">
             When you first visit our website, you will be presented with a cookie banner that allows
             you to:
           </p>
@@ -107,7 +107,7 @@ const CookiePolicy: React.FC = () => {
               { text: 'Learn more about our cookie policy', icon: '📄' },
             ].map((choice, index) => (
               <li key={index} className="flex items-start">
-                <span className="mr-2 mt-1" aria-hidden="true">
+                <span className="mt-1 mr-2" aria-hidden="true">
                   {choice.icon}
                 </span>
                 <span className="text-gray-600 dark:text-gray-300">{choice.text}</span>
@@ -121,7 +121,7 @@ const CookiePolicy: React.FC = () => {
       title: '5. Third-Party Cookies',
       content: (
         <>
-          <p className="text-gray-600 dark:text-gray-300 mb-4 leading-relaxed">
+          <p className="mb-4 leading-relaxed text-gray-600 dark:text-gray-300">
             We use some third-party services that may set their own cookies, including:
           </p>
           <ul className="grid gap-3 sm:grid-cols-2">
@@ -136,9 +136,9 @@ const CookiePolicy: React.FC = () => {
             ].map((service, index) => (
               <li
                 key={index}
-                className="flex items-start bg-gray-50 dark:bg-gray-700 p-3 rounded-lg"
+                className="flex items-start rounded-lg bg-gray-50 p-3 dark:bg-gray-700"
               >
-                <span className="mr-2 mt-1" aria-hidden="true">
+                <span className="mt-1 mr-2" aria-hidden="true">
                   {service.icon}
                 </span>
                 <span className="text-gray-600 dark:text-gray-300">{service.text}</span>
@@ -151,7 +151,7 @@ const CookiePolicy: React.FC = () => {
     {
       title: '6. Updates to This Policy',
       content: (
-        <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
+        <p className="leading-relaxed text-gray-600 dark:text-gray-300">
           We may update this Cookie Policy from time to time. The latest version will always be
           available on our website.
         </p>
@@ -161,20 +161,20 @@ const CookiePolicy: React.FC = () => {
       title: '7. Contact Us',
       content: (
         <>
-          <p className="text-gray-600 dark:text-gray-300 mb-6 leading-relaxed">
+          <p className="mb-6 leading-relaxed text-gray-600 dark:text-gray-300">
             If you have any questions about our Cookie Policy, please contact us using the form
             below or reach out to us at:
           </p>
-          <address className="bg-blue-50 dark:bg-gray-700 p-6 rounded-lg not-italic border border-blue-100 dark:border-gray-600 mb-8">
+          <address className="mb-8 rounded-lg border border-blue-100 bg-blue-50 p-6 not-italic dark:border-gray-600 dark:bg-gray-700">
             <div className="space-y-2">
-              <p className="text-gray-800 dark:text-white font-medium">{contactInfo.company}</p>
+              <p className="font-medium text-gray-800 dark:text-white">{contactInfo.company}</p>
               <p className="text-gray-600 dark:text-gray-300">{contactInfo.address}</p>
               <p className="text-gray-600 dark:text-gray-300">{contactInfo.city}</p>
               <p className="text-gray-600 dark:text-gray-300">
                 Email:{' '}
                 <a
                   href={`mailto:${contactInfo.email}`}
-                  className="text-blue-600 dark:text-blue-400 hover:underline"
+                  className="text-blue-600 hover:underline dark:text-blue-400"
                 >
                   {contactInfo.email}
                 </a>
@@ -183,7 +183,7 @@ const CookiePolicy: React.FC = () => {
                 Phone:{' '}
                 <a
                   href={`tel:${contactInfo.phone}`}
-                  className="text-blue-600 dark:text-blue-400 hover:underline"
+                  className="text-blue-600 hover:underline dark:text-blue-400"
                 >
                   {contactInfo.phone}
                 </a>
@@ -226,8 +226,8 @@ const CookiePolicy: React.FC = () => {
         <HeroBackground />
         <main id="main-content" className="relative z-10 py-16">
           <div className="container mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
-            <article className="mt-12 overflow-hidden rounded-2xl bg-white backdrop-blur-xs shadow-lg transition-all duration-300 hover:shadow-xl dark:bg-gray-800/90">
-              <div className="px-6 pt-6 mb-10">
+            <article className="mt-12 overflow-hidden rounded-2xl bg-white shadow-lg backdrop-blur-xs transition-all duration-300 hover:shadow-xl dark:bg-gray-800/90">
+              <div className="mb-10 px-6 pt-6">
                 <StaticHeading
                   title="Cookie Policy"
                   subtitle={`(Last updated: ${lastUpdated})`}

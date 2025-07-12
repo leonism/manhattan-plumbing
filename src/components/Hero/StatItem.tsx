@@ -9,21 +9,21 @@ const StatItem = ({
 }) => {
   return (
     <article
-      className="flex flex-col items-center text-center mx-auto my-auto md:text-left md:mx-0"
+      className="mx-auto my-auto flex flex-col items-center text-center md:mx-0 md:text-left"
       aria-labelledby={`stat-label-${label.replace(/\s+/g, '-').toLowerCase()}`}
     >
       <div className="flex items-center">
         {/* Icon */}
-        <Icon className="h-4 w-4 mr-2 md:h-6 md:w-6 xl:h-8 xl:w-8 text-white" aria-hidden="true" />
+        <Icon className="mr-2 h-4 w-4 text-white md:h-6 md:w-6 xl:h-8 xl:w-8" aria-hidden="true" />
         {/* Value */}
-        <span className="text-sm md:text-2xl xl:text-4xl font-bold text-white leading-none">
+        <span className="text-sm leading-none font-bold text-white md:text-2xl xl:text-4xl">
           {value}
         </span>
       </div>
       {/* Label */}
       <p
         id={`stat-label-${label.replace(/\s+/g, '-').toLowerCase()}`}
-        className="text-xs md:text-md xl:text-xl text-white/90 leading-relaxed"
+        className="md:text-md text-xs leading-relaxed text-white/90 xl:text-xl"
       >
         {label}
       </p>

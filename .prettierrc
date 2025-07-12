@@ -12,34 +12,16 @@
   'htmlWhitespaceSensitivity': 'css',
   'proseWrap': 'always',
   'embeddedLanguageFormatting': 'off',
+  'plugins': ['prettier-plugin-tailwindcss'],
 
   'overrides':
     [
       { 'files': '*.json', 'options': { 'tabWidth': 2 } },
-      {
-        'files': '*.yml',
-        'options':
-          {
-            'tabWidth': 2,
-            'proseWrap': 'preserve',
-            'yamlBracketSpacing': false,
-            'yamlQuoteProps': 'preserve',
-          },
-      },
+      { 'files': '*.yml', 'options': { 'tabWidth': 2, 'proseWrap': 'preserve' } },
       { 'files': '*.md', 'options': { 'tabWidth': 4, 'printWidth': 80, 'proseWrap': 'always' } },
-      { 'files': '*.mdx', 'options': { 'tabWidth': 4, 'printWidth': 80, 'proseWrap': 'always' } },
       {
-        'files': ['*.ts', '*.js', '*.tsx', '*.jsx'],
+        'files': ['*.ts', '*.tsx', '*.js'],
         'options': { 'semi': false, 'singleQuote': true, 'trailingComma': 'es5' },
-      },
-      {
-        'files': ['*.scss', '*.sass'],
-        'options':
-          {
-            'singleQuote': false,
-            'scssBracketSpacing': false,
-            'scssSortProperties': 'alphabetical',
-          },
       },
       {
         'files': '*.html',

@@ -34,7 +34,7 @@ const Testimonials: React.FC = () => {
   ]
 
   return (
-    <section id="testimonials" className="py-20 bg-slate-100 dark:bg-slate-800/50">
+    <section id="testimonials" className="bg-slate-100 py-20 dark:bg-slate-800/50">
       <div className="container mx-auto px-4 md:px-6">
         <SectionHeading
           title="Customers Testimonials"
@@ -42,7 +42,7 @@ const Testimonials: React.FC = () => {
           centered
         />
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
           {testimonials.map((testimonial, index) => (
             <TestimonialCard
               key={index}

@@ -17,9 +17,9 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({
   imgSrc,
 }) => {
   return (
-    <div className="bg-white dark:bg-slate-800 rounded-lg shadow-md p-6 flex flex-col h-full">
+    <div className="flex h-full flex-col rounded-lg bg-white p-6 shadow-md dark:bg-slate-800">
       {/* Stars */}
-      <div className="flex text-yellow-400 mb-4">
+      <div className="mb-4 flex text-yellow-400">
         {[...Array(5)].map((_, i) => (
           <Star
             key={i}
@@ -30,14 +30,14 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({
       </div>
 
       {/* Testimonial Text */}
-      <p className="text-slate-600 dark:text-slate-300 mb-6 grow">"{testimonial}"</p>
+      <p className="mb-6 grow text-slate-600 dark:text-slate-300">"{testimonial}"</p>
 
       {/* Customer Info */}
-      <div className="flex items-center mt-2">
+      <div className="mt-2 flex items-center">
         <img
           src={imgSrc}
           alt={name}
-          className="w-12 h-12 rounded-full object-cover mr-4"
+          className="mr-4 h-12 w-12 rounded-full object-cover"
           loading="lazy"
         />
         <div>

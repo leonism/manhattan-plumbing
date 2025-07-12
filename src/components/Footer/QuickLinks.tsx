@@ -7,7 +7,7 @@ interface QuickLinksProps {
 const QuickLinks: React.FC<QuickLinksProps> = ({ className }) => {
   return (
     <section aria-labelledby="quick-links" className={className}>
-      <h3 id="quick-links" className="text-xl font-semibold mb-6">
+      <h3 id="quick-links" className="mb-6 text-xl font-semibold">
         Quick Links
       </h3>
       <nav aria-label="Quick links">
@@ -21,7 +21,7 @@ const QuickLinks: React.FC<QuickLinksProps> = ({ className }) => {
             { href: '/#contact', text: 'Contact' },
           ].map(({ href, text }) => (
             <li key={text}>
-              <a href={href} className="text-slate-300 hover:text-white transition-colors">
+              <a href={href} className="text-slate-300 transition-colors hover:text-white">
                 {text}
               </a>
             </li>
