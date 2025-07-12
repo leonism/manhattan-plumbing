@@ -5,7 +5,8 @@ import { format } from 'date-fns'
 import { Calendar, Clock, Tag, ArrowLeft, ArrowRight, Folder } from 'lucide-react'
 import { MDXProvider } from '@mdx-js/react'
 
-import { useNews } from '../hooks/useNews'
+import ShareButtons from '../components/News/ShareButtons';
+import { useNews } from '../hooks/useNews';
 import { Post } from '../types/news'
 import SkeletonLoader from '../components/UI/SkeletonLoader'
 
@@ -126,6 +127,7 @@ const NewsPost: React.FC = () => {
                 </Link>
               ))}
             </div>
+            <ShareButtons post={post} />
             <div className="mb-6 flex flex-wrap items-center justify-center gap-4 text-slate-600 dark:text-slate-400">
               <div className="flex items-center">
                 <Calendar className="mr-2 h-4 w-4" />
