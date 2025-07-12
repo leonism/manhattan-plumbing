@@ -2,7 +2,7 @@ import { globby } from "globby";
 import fs from "fs-extra";
 import matter from "gray-matter";
 
-const SITE_URL = "https://manhattan-plumbing.pages.dev/";
+const SITE_URL = "https://manhattan-plumbing.pages.dev";
 
 async function generateSitemap() {
   try {
