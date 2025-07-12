@@ -22,6 +22,7 @@ async function generateSitemap() {
       "/services/pipe-service",
       "/services/remodeling-service",
       "/services/water-heater-service",
+      "/location",
     ];
 
     // Process markdown files to get their data

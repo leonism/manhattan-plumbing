@@ -46,6 +46,7 @@ async function generateRssFeed() {
       { url: '/services/pipe-service', title: 'Pipe Repair & Replacement | Manhattan Plumbing', description: 'Durable solutions for leaky, corroded, or damaged pipes in Manhattan.' },
       { url: '/services/remodeling-service', title: 'Bathroom Remodeling | Manhattan Plumbing', description: 'Transform your bathroom with our premium remodeling services in Manhattan.' },
       { url: '/services/water-heater-service', title: 'Water Heater Services | Manhattan Plumbing', description: 'Reliable water heater installation, repair, and maintenance in Manhattan.' },
+      { url: '/location', title: 'Our Location | Manhattan Plumbing', description: 'Find Manhattan Plumbing at our convenient location in the heart of Manhattan.' },
     ];
 
     staticPages.forEach(page => {
