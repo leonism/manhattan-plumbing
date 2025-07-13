@@ -77,7 +77,10 @@ async function generateRssFeed() {
         $('img').each((i, elem) => {
           const src = $(elem).attr('src')
           if (src) {
-            $(elem).attr('src', src.replace(/&/g, '&amp;'))
+            // Decode and re-encode to ensure proper escaping of all characters
+            const decodedSrc = decodeURIComponent(src);
+            const encodedSrc = encodeURIComponent(decodedSrc).replace(/%26/g, '&amp;');
+            $(elem).attr('src', encodedSrc);
           }
         })
         htmlContent = $.html()
@@ -104,6 +107,8 @@ async function generateRssFeed() {
             type: 'image/jpeg',
             length: 0,
           },
+          category: data.tags.map((tag) => ({ name: tag })),
+        })
       })
     )
 
