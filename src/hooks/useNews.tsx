@@ -1,6 +1,6 @@
 import { useState, useEffect, useMemo } from 'react'
 import type { Post, UseNewsOptions } from '../types/news'
-import { slugify } from '../utils/slugify'
+import { slugify } from '../utils/slugify.js'
 
 interface MDXModule {
   default: React.ComponentType<object>
