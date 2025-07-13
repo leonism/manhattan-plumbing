@@ -1,110 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  
   <url>
     <loc>https://manhattan-plumbing.pages.dev/</loc>
-    <lastmod>2025-07-13T08:04:21.857Z</lastmod>
-    <priority>1.0</priority>
+    <lastmod>2024-07-28</lastmod>
+    <priority>1.00</priority>
   </url>
   <url>
     <loc>https://manhattan-plumbing.pages.dev/news</loc>
-    <lastmod>2025-07-13T08:04:21.859Z</lastmod>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://manhattan-plumbing.pages.dev/privacy-policy</loc>
-    <lastmod>2025-07-13T08:04:21.859Z</lastmod>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://manhattan-plumbing.pages.dev/terms-of-service</loc>
-    <lastmod>2025-07-13T08:04:21.859Z</lastmod>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://manhattan-plumbing.pages.dev/cookie-policy</loc>
-    <lastmod>2025-07-13T08:04:21.859Z</lastmod>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://manhattan-plumbing.pages.dev/services/drain-service</loc>
-    <lastmod>2025-07-13T08:04:21.859Z</lastmod>
-    <priority>0.7</priority>
+    <lastmod>2024-07-28</lastmod>
+    <priority>0.80</priority>
   </url>
   <url>
     <loc>https://manhattan-plumbing.pages.dev/services/emergency-service</loc>
-    <lastmod>2025-07-13T08:04:21.859Z</lastmod>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://manhattan-plumbing.pages.dev/services/fixture-service</loc>
-    <lastmod>2025-07-13T08:04:21.859Z</lastmod>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://manhattan-plumbing.pages.dev/services/pipe-service</loc>
-    <lastmod>2025-07-13T08:04:21.859Z</lastmod>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://manhattan-plumbing.pages.dev/services/remodeling-service</loc>
-    <lastmod>2025-07-13T08:04:21.859Z</lastmod>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://manhattan-plumbing.pages.dev/services/water-heater-service</loc>
-    <lastmod>2025-07-13T08:04:21.859Z</lastmod>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://manhattan-plumbing.pages.dev/location</loc>
-    <lastmod>2025-07-13T08:04:21.859Z</lastmod>
-    <priority>0.7</priority>
-  </url>
-  
-  <url>
-    <loc>https://manhattan-plumbing.pages.dev/news/bathroom-remodeling-trendsx</loc>
-    <lastmod>2025-05-18T00:00:00.000Z</lastmod>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://manhattan-plumbing.pages.dev/news/common-plumbing-myths-debunkedx</loc>
-    <lastmod>2025-05-12T00:00:00.000Z</lastmod>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://manhattan-plumbing.pages.dev/news/eco-friendly-plumbing-solutionsx</loc>
-    <lastmod>2025-05-18T00:00:00.000Z</lastmod>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://manhattan-plumbing.pages.dev/news/first-news-postx</loc>
-    <lastmod>2025-05-21T00:00:00.000Z</lastmod>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://manhattan-plumbing.pages.dev/news/preventive-maintenancex</loc>
-    <lastmod>2025-05-19T00:00:00.000Z</lastmod>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://manhattan-plumbing.pages.dev/news/smart-home-plumbingx</loc>
-    <lastmod>2025-05-15T00:00:00.000Z</lastmod>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://manhattan-plumbing.pages.dev/news/ultimate-guide-fixing-leaky-faucetsx</loc>
-    <lastmod>2025-05-16T00:00:00.000Z</lastmod>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://manhattan-plumbing.pages.dev/news/water-conservation-tipsx</loc>
-    <lastmod>2025-05-21T00:00:00.000Z</lastmod>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://manhattan-plumbing.pages.dev/news/water-heater-maintenance-tipsx</loc>
-    <lastmod>2025-05-14T00:00:00.000Z</lastmod>
-    <priority>0.8</priority>
+    <lastmod>2024-07-28</lastmod>
+    <priority>0.80</priority>
   </url>
 </urlset>
