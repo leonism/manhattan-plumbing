@@ -13,7 +13,7 @@ const SearchResultsPage: React.FC = () => {
   const { results, isLoading } = useSearch(query)
 
   return (
-    <>
+    <React.Fragment>
       <SEO
         title={`Search Results for "${query}" | Manhattan Plumbing`}
         description={`Displaying search results for your query: "${query}". Find relevant news and services from Manhattan Plumbing.`}
@@ -60,7 +60,7 @@ const SearchResultsPage: React.FC = () => {
         )}
       </div>
     </main>
-    </main>
+    </React.Fragment>
   )
 }
 
