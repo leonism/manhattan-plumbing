@@ -34,7 +34,10 @@ const DrainsServicePage = () => {
         description="Fast and effective drain cleaning services in Manhattan. We clear clogged drains in kitchens, bathrooms, and sewer lines using the latest technology."
         keywords={['drain cleaning', 'clogged drain', 'sewer cleaning', 'Manhattan', 'plumber']}
         canonical="https://www.manhattanplumbing.com/services/drain-service"
+        ogTitle="Drain Cleaning Services | Manhattan Plumbing"
+        ogDescription="Fast and effective drain cleaning services in Manhattan. We clear clogged drains in kitchens, bathrooms, and sewer lines using the latest technology."
         ogImage={drainHeroJpg}
+        ogUrl="https://www.manhattanplumbing.com/services/drain-service"
         jsonLd={jsonLd}
       />
       {/* Hero Section with Background Image */}

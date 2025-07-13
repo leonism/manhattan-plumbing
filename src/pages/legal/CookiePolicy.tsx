@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import StaticHeading from '../../components/UI/StaticHeading'
-import { Helmet } from 'react-helmet-async'
+import SEO from '../../components/SEO/SEO'
 import { ChevronDownIcon, ChevronUpIcon } from '@heroicons/react/24/outline'
 import ContactForm from '../../components/UI/ContactForm'
 import HeroBackground from '../../components/Hero/HeroBackground'
@@ -212,14 +212,14 @@ const CookiePolicy: React.FC = () => {
 
   return (
     <>
-      <Helmet>
-        <title>Cookie Policy | Manhattan Plumbing</title>
-        <meta
-          name="description"
-          content="Learn about how Manhattan Plumbing uses cookies and similar technologies on our website."
-        />
-        <link rel="canonical" href="https://manhattan-plumbing.pages.dev/cookie-policy" />
-      </Helmet>
+      <SEO
+        title="Cookie Policy | Manhattan Plumbing"
+        description="Learn about how Manhattan Plumbing uses cookies and similar technologies on our website."
+        canonical="https://manhattan-plumbing.pages.dev/cookie-policy"
+        ogTitle="Cookie Policy | Manhattan Plumbing"
+        ogDescription="Learn about how Manhattan Plumbing uses cookies and similar technologies on our website."
+        ogUrl="https://manhattan-plumbing.pages.dev/cookie-policy"
+      />
 
       <div className="relative min-h-screen">
         {/* Hero Background with NYC skyline */}

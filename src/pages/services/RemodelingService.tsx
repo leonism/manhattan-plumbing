@@ -80,7 +80,10 @@ const RemodelingServicePage = () => {
         description="Transform your bathroom with our premium remodeling services in Manhattan. We offer custom designs and luxury fixtures."
         keywords={['bathroom remodeling', 'bathroom renovation', 'luxury bathroom', 'Manhattan', 'plumber']}
         canonical="https://www.manhattanplumbing.com/services/remodeling-service"
+        ogTitle="Bathroom Remodeling | Manhattan Plumbing"
+        ogDescription="Transform your bathroom with our premium remodeling services in Manhattan. We offer custom designs and luxury fixtures."
         ogImage={bathroomImages.length > 0 ? bathroomImages[0].src.large : ''}
+        ogUrl="https://www.manhattanplumbing.com/services/remodeling-service"
         jsonLd={jsonLd}
       />
       {/* Hero Section with Pexels Background Image */}

@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import StaticHeading from '../../components/UI/StaticHeading'
-import { Helmet } from 'react-helmet-async'
+import SEO from '../../components/SEO/SEO'
 import { ChevronDownIcon, ChevronUpIcon } from '@heroicons/react/24/outline'
 import ContactForm from '../../components/UI/ContactForm'
 import HeroBackground from '../../components/Hero/HeroBackground'
@@ -194,14 +194,14 @@ const PrivacyPolicy: React.FC = () => {
 
   return (
     <>
-      <Helmet>
-        <title>Privacy Policy | Manhattan Plumbing</title>
-        <meta
-          name="description"
-          content="Learn about how Manhattan Plumbing collects, uses, and protects your personal information."
-        />
-        <link rel="canonical" href="https://manhattan-plumbing.pages.dev/privacy-policy" />
-      </Helmet>
+      <SEO
+        title="Privacy Policy | Manhattan Plumbing"
+        description="Learn about how Manhattan Plumbing collects, uses, and protects your personal information."
+        canonical="https://manhattan-plumbing.pages.dev/privacy-policy"
+        ogTitle="Privacy Policy | Manhattan Plumbing"
+        ogDescription="Learn about how Manhattan Plumbing collects, uses, and protects your personal information."
+        ogUrl="https://manhattan-plumbing.pages.dev/privacy-policy"
+      />
 
       <div className="relative min-h-screen">
         {/* Add HeroBackground with reduced opacity for better text readability */}

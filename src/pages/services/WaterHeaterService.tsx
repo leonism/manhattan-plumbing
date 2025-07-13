@@ -35,7 +35,10 @@ const WaterHeatersServicePage = () => {
         description="Reliable water heater installation, repair, and maintenance in Manhattan. We offer 24/7 emergency service and a 10-year guarantee."
         keywords={['water heater', 'tankless water heater', 'water heater repair', 'water heater installation', 'Manhattan']}
         canonical="https://www.manhattanplumbing.com/services/water-heater-service"
+        ogTitle="Water Heater Services | Manhattan Plumbing"
+        ogDescription="Reliable water heater installation, repair, and maintenance in Manhattan. We offer 24/7 emergency service and a 10-year guarantee."
         ogImage={heroImage}
+        ogUrl="https://www.manhattanplumbing.com/services/water-heater-service"
         jsonLd={jsonLd}
       />
       {/* Hero Section with Pexels Background Image */}

@@ -58,7 +58,10 @@ const EmergencyServicePage = () => {
         description="Immediate response for plumbing emergencies in Manhattan. Our certified plumbers are available 24/7 for burst pipes, sewer backups, and more."
         keywords={['emergency plumber', '24/7 plumber', 'burst pipe', 'sewer backup', 'Manhattan']}
         canonical="https://www.manhattanplumbing.com/services/emergency-service"
+        ogTitle="24/7 Emergency Plumbing Services | Manhattan Plumbing"
+        ogDescription="Immediate response for plumbing emergencies in Manhattan. Our certified plumbers are available 24/7 for burst pipes, sewer backups, and more."
         ogImage={emergencyHeroJpg}
+        ogUrl="https://www.manhattanplumbing.com/services/emergency-service"
         jsonLd={jsonLd}
       />
       {/* Hero Section with Urgent CTA */}

@@ -66,7 +66,10 @@ const LocationPage: React.FC = () => {
         description="Find Manhattan Plumbing at our convenient location in the heart of Manhattan. View our address, contact details, and service area."
         keywords={['plumber location', 'Manhattan plumbing address', 'plumbing service area New York']}
         canonical="https://www.manhattanplumbing.com/location"
+        ogTitle="Our Location | Manhattan Plumbing"
+        ogDescription="Find Manhattan Plumbing at our convenient location in the heart of Manhattan. View our address, contact details, and service area."
         ogImage="https://www.manhattanplumbing.com/manhattan-plumber.png"
+        ogUrl="https://www.manhattanplumbing.com/location"
         jsonLd={jsonLd}
       />
 

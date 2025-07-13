@@ -29,7 +29,10 @@ const HomePage: React.FC = () => {
         description="Manhattan Plumbing offers reliable and affordable plumbing services in New York City. From leaky faucets to emergency repairs, our expert plumbers are here to help."
         keywords={['plumber', 'plumbing', 'New York', 'Manhattan', 'emergency plumber']}
         canonical="https://www.manhattanplumbing.com"
+        ogTitle="Manhattan Plumbing | Your Trusted Local Plumber"
+        ogDescription="Manhattan Plumbing offers reliable and affordable plumbing services in New York City. From leaky faucets to emergency repairs, our expert plumbers are here to help."
         ogImage="https://www.manhattanplumbing.com/manhattan-plumber.png"
+        ogUrl="https://www.manhattanplumbing.com"
         jsonLd={jsonLd}
       />
       <Hero />

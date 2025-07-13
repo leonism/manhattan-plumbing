@@ -48,7 +48,10 @@ const FixturesServicePage = () => {
         description="Expert plumbing fixture installation and repair in Manhattan. We specialize in faucets, showers, and water-efficient fixtures."
         keywords={['fixture installation', 'fixture repair', 'faucet installation', 'shower upgrade', 'Manhattan']}
         canonical="https://www.manhattanplumbing.com/services/fixture-service"
+        ogTitle="Fixture Installation & Repair | Manhattan Plumbing"
+        ogDescription="Expert plumbing fixture installation and repair in Manhattan. We specialize in faucets, showers, and water-efficient fixtures."
         ogImage={fixtureHeroJpg}
+        ogUrl="https://www.manhattanplumbing.com/services/fixture-service"
         jsonLd={jsonLd}
       />
       {/* Hero Section with Modern Fixtures */}

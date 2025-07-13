@@ -6,6 +6,7 @@ import NewsCard from '../components/News/NewsCard'
 import Button from '../components/UI/Button'
 import { useNews } from '../hooks/useNews'
 import SkeletonLoader from '../components/UI/SkeletonLoader'
+import SEO from '../components/SEO/SEO'
 
 // Helper function to slugify strings
 const slugify = (text: string) => {
@@ -29,15 +30,42 @@ const NewsPage: React.FC = () => {
     page: currentPage,
   })
 
+  const pageTitle = category
+    ? `${category} News | Manhattan Plumbing`
+    : tag
+    ? `${tag} Articles | Manhattan Plumbing`
+    : 'Latest News | Manhattan Plumbing'
+  const pageDescription = category
+    ? `Explore all news articles categorized under ${category} from Manhattan Plumbing.`
+    : tag
+    ? `Read articles tagged with ${tag} from Manhattan Plumbing.`
+    : 'Stay informed about the latest plumbing news, tips, and company updates from Manhattan Plumbing.'
+  const pageCanonical = category
+    ? `https://www.manhattanplumbing.com/news/category/${slugify(category)}`
+    : tag
+    ? `https://www.manhattanplumbing.com/news/tag/${slugify(tag)}`
+    : 'https://www.manhattanplumbing.com/news'
+  const ogImage = 'https://www.manhattanplumbing.com/manhattan-plumber.png' // Generic image for news page
+
   return (
-    <main className="min-h-screen py-16">
-      <div className="container mx-auto px-4">
-        <header className="mb-12 text-center">
-          <SectionHeading
-            title={category ? `${category} News` : tag ? `${tag} Articles` : 'Latest News'}
-            subtitle="Stay informed about the latest updates and insights"
-            centered={true}
-          />
+    <>
+      <SEO
+        title={pageTitle}
+        description={pageDescription}
+        canonical={pageCanonical}
+        ogTitle={pageTitle}
+        ogDescription={pageDescription}
+        ogImage={ogImage}
+        ogUrl={pageCanonical}
+      />
+      <main className="min-h-screen py-16">
+        <div className="container mx-auto px-4">
+          <header className="mb-12 text-center">
+            <SectionHeading
+              title={category ? `${category} News` : tag ? `${tag} Articles` : 'Latest News'}
+              subtitle="Stay informed about the latest updates and insights"
+              centered={true}
+            />
 
           <div className="mt-6 flex flex-wrap justify-center gap-3">
             <Link
@@ -110,6 +138,7 @@ const NewsPage: React.FC = () => {
         )}
       </div>
     </main>
+    </>
   )
 }
 

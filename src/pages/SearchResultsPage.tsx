@@ -5,6 +5,7 @@ import NewsCard from '../components/News/NewsCard'
 import SearchBar from '../components/UI/SearchBar'
 import { useSearch } from '../hooks/useSearch'
 import SkeletonLoader from '../components/UI/SkeletonLoader'
+import SEO from '../components/SEO/SEO'
 
 const SearchResultsPage: React.FC = () => {
   const [searchParams] = useSearchParams()
@@ -12,14 +13,24 @@ const SearchResultsPage: React.FC = () => {
   const { results, isLoading } = useSearch(query)
 
   return (
-    <main className="min-h-screen py-16">
-      <div className="container mx-auto px-4">
-        <header className="mb-12">
-          <SectionHeading
-            title="Search Results"
-            subtitle={`Found ${results.length} results for "${query}"`}
-            centered={false}
-          />
+    <>
+      <SEO
+        title={`Search Results for "${query}" | Manhattan Plumbing`}
+        description={`Displaying search results for your query: "${query}". Find relevant news and services from Manhattan Plumbing.`}
+        keywords={['search results', query, 'Manhattan Plumbing']}
+        canonical={`https://www.manhattanplumbing.com/search?q=${encodeURIComponent(query)}`}
+        ogTitle={`Search Results for "${query}" | Manhattan Plumbing`}
+        ogDescription={`Displaying search results for your query: "${query}". Find relevant news and services from Manhattan Plumbing.`}
+        ogUrl={`https://www.manhattanplumbing.com/search?q=${encodeURIComponent(query)}`}
+      />
+      <main className="min-h-screen py-16">
+        <div className="container mx-auto px-4">
+          <header className="mb-12">
+            <SectionHeading
+              title="Search Results"
+              subtitle={`Found ${results.length} results for "${query}"`}
+              centered={false}
+            />
 
           <div className="mt-8 max-w-xl">
             <SearchBar />
@@ -48,6 +59,7 @@ const SearchResultsPage: React.FC = () => {
           </div>
         )}
       </div>
+    </main>
     </main>
   )
 }

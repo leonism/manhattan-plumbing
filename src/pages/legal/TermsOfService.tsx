@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import StaticHeading from '../../components/UI/StaticHeading'
-import { Helmet } from 'react-helmet-async'
+import SEO from '../../components/SEO/SEO'
 import { ChevronDownIcon, ChevronUpIcon } from '@heroicons/react/24/outline'
 import ContactForm from '../../components/UI/ContactForm'
 import HeroBackground from '../../components/Hero/HeroBackground'
@@ -225,14 +225,14 @@ const TermsOfService: React.FC = () => {
 
   return (
     <>
-      <Helmet>
-        <title>Terms of Service | Manhattan Plumbing</title>
-        <meta
-          name="description"
-          content="Read our terms of service to understand the conditions for using Manhattan Plumbing's services."
-        />
-        <link rel="canonical" href="https://manhattan-plumbing.pages.dev/terms-of-service" />
-      </Helmet>
+      <SEO
+        title="Terms of Service | Manhattan Plumbing"
+        description="Read our terms of service to understand the conditions for using Manhattan Plumbing's services."
+        canonical="https://manhattan-plumbing.pages.dev/terms-of-service"
+        ogTitle="Terms of Service | Manhattan Plumbing"
+        ogDescription="Read our terms of service to understand the conditions for using Manhattan Plumbing's services."
+        ogUrl="https://manhattan-plumbing.pages.dev/terms-of-service"
+      />
 
       <div className="relative min-h-screen">
         {/* Hero Background with NYC skyline */}
