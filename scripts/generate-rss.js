@@ -64,9 +64,13 @@ async function generateRssFeed() {
     // Process markdown files
     await Promise.all(
       contentFiles.map(async (file) => {
-        const content = await fs.readFile(file, 'utf-8')
+        const fileContent = await fs.readFile(file, 'utf-8')
+        const { data, content: mdxContent } = matter(fileContent, {
+          engines: { js: () => ({}) },
+        })
+
         // Convert markdown to HTML
-        let htmlContent = marked(markdown)
+        let htmlContent = marked(mdxContent)
 
         // Use cheerio to parse HTML and escape ampersands in image src attributes
         const $ = cheerio.load(htmlContent)
@@ -100,8 +104,6 @@ async function generateRssFeed() {
             type: 'image/jpeg',
             length: 0,
           },
-          category: data.tags.map((tag) => ({ name: tag })),
-        })
       })
     )
 
