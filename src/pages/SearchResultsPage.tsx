@@ -1,7 +1,7 @@
 import React from 'react'
 import { useSearchParams } from 'react-router-dom'
 import SectionHeading from '../components/UI/SectionHeading'
-import NewsCard from '../components/News/NewsCard'
+import SearchResultCard from '../components/Search/SearchResultCard'
 import SearchBar from '../components/UI/SearchBar'
 import { useSearch, SearchResult } from '../hooks/useSearch'
 import { useNews } from '../hooks/useNews'
@@ -49,8 +49,8 @@ const SearchResultsPage: React.FC = () => {
                 <div className="col-span-full">
                   <h2 className="mb-4 text-2xl font-semibold">News Articles</h2>
                   <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
-                    {results.news.map((post: SearchResult) => (
-                      <NewsCard key={post.slug} post={post} />
+                    {results.news.map((result: SearchResult) => (
+                      <SearchResultCard key={result.slug} result={result} />
                     ))}
                   </div>
                 </div>
