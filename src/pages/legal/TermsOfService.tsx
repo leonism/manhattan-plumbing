@@ -232,6 +232,13 @@ const TermsOfService: React.FC = () => {
         ogTitle="Terms of Service | Manhattan Plumbing"
         ogDescription="Read our terms of service to understand the conditions for using Manhattan Plumbing's services."
         ogUrl="https://manhattan-plumbing.pages.dev/terms-of-service"
+        jsonLd={{
+          '@context': 'https://schema.org',
+          '@type': 'WebPage',
+          name: 'Terms of Service',
+          description: 'Read our terms of service to understand the conditions for using Manhattan Plumbing's services.',
+          url: 'https://manhattan-plumbing.pages.dev/terms-of-service',
+        }}
       />
 
       <div className="relative min-h-screen">

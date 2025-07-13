@@ -201,6 +201,13 @@ const PrivacyPolicy: React.FC = () => {
         ogTitle="Privacy Policy | Manhattan Plumbing"
         ogDescription="Learn about how Manhattan Plumbing collects, uses, and protects your personal information."
         ogUrl="https://manhattan-plumbing.pages.dev/privacy-policy"
+        jsonLd={{
+          '@context': 'https://schema.org',
+          '@type': 'WebPage',
+          name: 'Privacy Policy',
+          description: 'Learn about how Manhattan Plumbing collects, uses, and protects your personal information.',
+          url: 'https://manhattan-plumbing.pages.dev/privacy-policy',
+        }}
       />
 
       <div className="relative min-h-screen">
