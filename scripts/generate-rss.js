@@ -13,7 +13,7 @@ async function generateRssFeed() {
   marked.setOptions({
     gfm: true,
     breaks: true,
-    escape: false, // Disable HTML escaping by marked
+    escape: true,
   })
   try {
     const feed = new Feed({
@@ -131,7 +131,7 @@ async function generateRssFeed() {
         $('img').each((i, elem) => {
           const src = $(elem).attr('src')
           if (src) {
-            $(elem).attr('src', src)
+            $(elem).attr('src', escapeXmlAttribute(src))
           }
         })
         htmlContent = $('body').html()
@@ -154,9 +154,9 @@ async function generateRssFeed() {
             },
           ],
           date: new Date(data.date),
-          image: data.featuredImage.src,
+          image: escapeXmlAttribute(encodeURI(data.featuredImage.src)),
           enclosure: {
-            url: data.featuredImage.src,
+            url: escapeXmlAttribute(encodeURI(data.featuredImage.src)),
             type: 'image/jpeg',
             length: 0,
           },

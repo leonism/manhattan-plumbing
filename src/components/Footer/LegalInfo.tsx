@@ -1,32 +1,26 @@
 import React from 'react'
 
-interface LegalInfoProps {
-  className?: string
-}
-
-const LegalInfo: React.FC<LegalInfoProps> = ({ className }) => {
-  return (
-    <section aria-labelledby="legal-info" className={className}>
-      <h3 id="legal-info" className="mb-6 text-xl font-semibold">
-        Legal
-      </h3>
-      <nav aria-label="Legal information">
-        <ul className="space-y-3">
-          {[
-            { href: '/privacy-policy', text: 'Privacy Policy' },
-            { href: '/terms-of-service', text: 'Terms of Service' },
-            { href: '/cookie-policy', text: 'Cookie Policy' },
-          ].map(({ href, text }) => (
-            <li key={text}>
-              <a href={href} className="text-slate-300 transition-colors hover:text-white">
-                {text}
-              </a>
-            </li>
-          ))}
-        </ul>
-      </nav>
-    </section>
-  )
-}
+const LegalInfo: React.FC = () => (
+  <div>
+    <h3 className="text-lg font-semibold text-white mb-4">Legal</h3>
+    <ul className="space-y-2">
+      <li>
+        <a href="/privacy-policy" className="text-slate-400 hover:text-white transition-colors">
+          Privacy Policy
+        </a>
+      </li>
+      <li>
+        <a href="/terms-of-service" className="text-slate-400 hover:text-white transition-colors">
+          Terms of Service
+        </a>
+      </li>
+      <li>
+        <a href="/cookie-policy" className="text-slate-400 hover:text-white transition-colors">
+          Cookie Policy
+        </a>
+      </li>
+    </ul>
+  </div>
+)
 
 export default LegalInfo
