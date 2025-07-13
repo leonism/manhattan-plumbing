@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://manhattan-plumbing.pages.dev</id>
     <title>Manhattan Plumbing</title>
-    <updated>2025-07-13T02:00:46.883Z</updated>
+    <updated>2025-07-13T02:06:19.775Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <author>
         <name>Manhattan Plumbing</name>
@@ -19,134 +19,85 @@
         <title type="html"><![CDATA[Manhattan Plumbing Home]]></title>
         <id>https://manhattan-plumbing.pages.dev/</id>
         <link href="https://manhattan-plumbing.pages.dev/"/>
-        <updated>2025-07-13T02:00:46.904Z</updated>
+        <updated>2025-07-13T02:06:19.842Z</updated>
         <summary type="html"><![CDATA[Your trusted local plumber in Manhattan.]]></summary>
     </entry>
     <entry>
         <title type="html"><![CDATA[Manhattan Plumbing News]]></title>
         <id>https://manhattan-plumbing.pages.dev/news</id>
         <link href="https://manhattan-plumbing.pages.dev/news"/>
-        <updated>2025-07-13T02:00:46.904Z</updated>
+        <updated>2025-07-13T02:06:19.842Z</updated>
         <summary type="html"><![CDATA[Latest news and articles from Manhattan Plumbing.]]></summary>
     </entry>
     <entry>
         <title type="html"><![CDATA[Privacy Policy | Manhattan Plumbing]]></title>
         <id>https://manhattan-plumbing.pages.dev/privacy-policy</id>
         <link href="https://manhattan-plumbing.pages.dev/privacy-policy"/>
-        <updated>2025-07-13T02:00:46.904Z</updated>
+        <updated>2025-07-13T02:06:19.842Z</updated>
         <summary type="html"><![CDATA[Manhattan Plumbing Privacy Policy.]]></summary>
     </entry>
     <entry>
         <title type="html"><![CDATA[Terms of Service | Manhattan Plumbing]]></title>
         <id>https://manhattan-plumbing.pages.dev/terms-of-service</id>
         <link href="https://manhattan-plumbing.pages.dev/terms-of-service"/>
-        <updated>2025-07-13T02:00:46.904Z</updated>
+        <updated>2025-07-13T02:06:19.842Z</updated>
         <summary type="html"><![CDATA[Manhattan Plumbing Terms of Service.]]></summary>
     </entry>
     <entry>
         <title type="html"><![CDATA[Cookie Policy | Manhattan Plumbing]]></title>
         <id>https://manhattan-plumbing.pages.dev/cookie-policy</id>
         <link href="https://manhattan-plumbing.pages.dev/cookie-policy"/>
-        <updated>2025-07-13T02:00:46.904Z</updated>
+        <updated>2025-07-13T02:06:19.842Z</updated>
         <summary type="html"><![CDATA[Manhattan Plumbing Cookie Policy.]]></summary>
     </entry>
     <entry>
         <title type="html"><![CDATA[Drain Cleaning Services | Manhattan Plumbing]]></title>
         <id>https://manhattan-plumbing.pages.dev/services/drain-service</id>
         <link href="https://manhattan-plumbing.pages.dev/services/drain-service"/>
-        <updated>2025-07-13T02:00:46.904Z</updated>
+        <updated>2025-07-13T02:06:19.842Z</updated>
         <summary type="html"><![CDATA[Fast and effective drain cleaning services in Manhattan.]]></summary>
     </entry>
     <entry>
         <title type="html"><![CDATA[Emergency Plumbing Services | Manhattan Plumbing]]></title>
         <id>https://manhattan-plumbing.pages.dev/services/emergency-service</id>
         <link href="https://manhattan-plumbing.pages.dev/services/emergency-service"/>
-        <updated>2025-07-13T02:00:46.904Z</updated>
+        <updated>2025-07-13T02:06:19.842Z</updated>
         <summary type="html"><![CDATA[24/7 emergency plumbing services in Manhattan.]]></summary>
     </entry>
     <entry>
         <title type="html"><![CDATA[Fixture Installation & Repair | Manhattan Plumbing]]></title>
         <id>https://manhattan-plumbing.pages.dev/services/fixture-service</id>
         <link href="https://manhattan-plumbing.pages.dev/services/fixture-service"/>
-        <updated>2025-07-13T02:00:46.904Z</updated>
+        <updated>2025-07-13T02:06:19.842Z</updated>
         <summary type="html"><![CDATA[Expert plumbing fixture installation and repair in Manhattan.]]></summary>
     </entry>
     <entry>
         <title type="html"><![CDATA[Pipe Repair & Replacement | Manhattan Plumbing]]></title>
         <id>https://manhattan-plumbing.pages.dev/services/pipe-service</id>
         <link href="https://manhattan-plumbing.pages.dev/services/pipe-service"/>
-        <updated>2025-07-13T02:00:46.904Z</updated>
+        <updated>2025-07-13T02:06:19.842Z</updated>
         <summary type="html"><![CDATA[Durable solutions for leaky, corroded, or damaged pipes in Manhattan.]]></summary>
     </entry>
     <entry>
         <title type="html"><![CDATA[Bathroom Remodeling | Manhattan Plumbing]]></title>
         <id>https://manhattan-plumbing.pages.dev/services/remodeling-service</id>
         <link href="https://manhattan-plumbing.pages.dev/services/remodeling-service"/>
-        <updated>2025-07-13T02:00:46.904Z</updated>
+        <updated>2025-07-13T02:06:19.842Z</updated>
         <summary type="html"><![CDATA[Transform your bathroom with our premium remodeling services in Manhattan.]]></summary>
     </entry>
     <entry>
         <title type="html"><![CDATA[Water Heater Services | Manhattan Plumbing]]></title>
         <id>https://manhattan-plumbing.pages.dev/services/water-heater-service</id>
         <link href="https://manhattan-plumbing.pages.dev/services/water-heater-service"/>
-        <updated>2025-07-13T02:00:46.904Z</updated>
+        <updated>2025-07-13T02:06:19.842Z</updated>
         <summary type="html"><![CDATA[Reliable water heater installation, repair, and maintenance in Manhattan.]]></summary>
     </entry>
     <entry>
         <title type="html"><![CDATA[Our Location | Manhattan Plumbing]]></title>
         <id>https://manhattan-plumbing.pages.dev/location</id>
         <link href="https://manhattan-plumbing.pages.dev/location"/>
-        <updated>2025-07-13T02:00:46.904Z</updated>
+        <updated>2025-07-13T02:06:19.842Z</updated>
         <summary type="html"><![CDATA[Find Manhattan Plumbing at our convenient location in the heart of Manhattan.]]></summary>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Eco-Friendly Plumbing Solutions: 2025 Guide]]></title>
-        <id>https://manhattan-plumbing.pages.dev/news/eco-friendly-plumbing-solutionsx</id>
-        <link href="https://manhattan-plumbing.pages.dev/news/eco-friendly-plumbing-solutionsx"/>
-        <updated>2025-05-18T00:00:00.000Z</updated>
-        <summary type="html"><![CDATA[Discover the latest in eco-friendly plumbing solutions that help reduce your environmental footprint while saving money on utilities. From water-efficient fixtures to sustainable materials, learn how to make your plumbing system more environmentally friendly.]]></summary>
-        <content type="html"><![CDATA[<html><head></head><body><h1>Eco-Friendly Plumbing Solutions: 2025 Guide</h1>
-<p>As environmental consciousness continues to grow, more homeowners are seeking sustainable plumbing solutions that minimize their impact on the planet while maximizing efficiency and cost savings.</p>
-<h2>1. Water-Efficient Fixtures</h2>
-<p>Modern eco-friendly fixtures have come a long way in terms of both performance and aesthetics:</p>
-<ul>
-<li><strong>Low-Flow Showerheads</strong>: Latest models use air-infusion technology</li>
-<li><strong>Dual-Flush Toilets</strong>: Smart water usage based on need</li>
-<li><strong>Touchless Faucets</strong>: Prevent water waste with precise control</li>
-</ul>
-<h2>2. Sustainable Materials</h2>
-<p>The choice of materials can significantly impact your plumbing system's environmental footprint:</p>
-<h3>Pipe Materials</h3>
-<ul>
-<li>Recycled copper</li>
-<li>PEX (cross-linked polyethylene)</li>
-<li>Bio-based plastics</li>
-</ul>
-<h3>Fixture Materials</h3>
-<ul>
-<li>Bamboo</li>
-<li>Recycled glass</li>
-<li>Sustainable metals</li>
-</ul>
-<h2>3. Greywater Systems</h2>
-<p>Learn how to implement greywater recycling in your home:</p>
-<ul>
-<li>Bathroom to garden irrigation</li>
-<li>Laundry to toilet systems</li>
-<li>Kitchen to landscape solutions</li>
-</ul>
-<p>[Continue with detailed sections about each eco-friendly solution...]</p>
-</body></html>]]></content>
-        <author>
-            <name>Emily Green</name>
-            <uri>https://manhattan-plumbing.pages.dev/news/eco-friendly-plumbing-solutionsx</uri>
-        </author>
-        <category label="eco-friendly"/>
-        <category label="green plumbing"/>
-        <category label="sustainable solutions"/>
-        <category label="water efficiency"/>
-        <category label="environmental impact"/>
-        <category label="energy savings"/>
     </entry>
     <entry>
         <title type="html"><![CDATA[2025 Bathroom Remodeling Trends: Modern Luxury Meets Sustainability]]></title>
@@ -204,6 +155,99 @@
         <category label="sustainable design"/>
         <category label="home improvement"/>
         <category label="modern fixtures"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[10 Common Plumbing Myths Debunked by Experts]]></title>
+        <id>https://manhattan-plumbing.pages.dev/news/common-plumbing-myths-debunkedx</id>
+        <link href="https://manhattan-plumbing.pages.dev/news/common-plumbing-myths-debunkedx"/>
+        <updated>2025-05-12T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Professional plumbers debunk common plumbing myths and misconceptions. Learn the truth about drain cleaners, water heaters, and other plumbing-related beliefs that might be costing you money or damaging your plumbing system.]]></summary>
+        <content type="html"><![CDATA[<html><head></head><body><h1>10 Common Plumbing Myths Debunked by Experts</h1>
+<p>As plumbing professionals, we often encounter misconceptions that can lead to costly mistakes or unnecessary worries. Let's separate fact from fiction with expert analysis of common plumbing myths.</p>
+<h2>Myth #1: Chemical Drain Cleaners Are Safe and Effective</h2>
+<p><strong>The Truth</strong>: Chemical drain cleaners can actually damage your pipes and create more problems than they solve. These harsh chemicals:</p>
+<ul>
+<li>Corrode pipe materials</li>
+<li>Create harmful fumes</li>
+<li>May not address the root cause</li>
+<li>Can make clogs worse</li>
+</ul>
+<h2>Myth #2: A Leaky Faucet Isn't a Big Deal</h2>
+<p><strong>The Truth</strong>: Even small leaks can waste thousands of gallons of water annually and lead to:</p>
+<ul>
+<li>Higher water bills</li>
+<li>Water damage</li>
+<li>Mineral buildup</li>
+<li>Wasted resources</li>
+</ul>
+<h2>Myth #3: Hot Water Helps Grease Go Down Drains</h2>
+<p><strong>The Truth</strong>: Hot water actually causes grease to:</p>
+<ul>
+<li>Liquefy temporarily</li>
+<li>Flow further into pipes</li>
+<li>Cool and solidify</li>
+<li>Create stubborn clogs</li>
+</ul>
+<p>[Continue with more myths and expert explanations...]</p>
+</body></html>]]></content>
+        <author>
+            <name>Lisa Rodriguez</name>
+            <uri>https://manhattan-plumbing.pages.dev/news/common-plumbing-myths-debunkedx</uri>
+        </author>
+        <category label="plumbing myths"/>
+        <category label="fact checking"/>
+        <category label="plumbing tips"/>
+        <category label="homeowner education"/>
+        <category label="professional advice"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Eco-Friendly Plumbing Solutions: 2025 Guide]]></title>
+        <id>https://manhattan-plumbing.pages.dev/news/eco-friendly-plumbing-solutionsx</id>
+        <link href="https://manhattan-plumbing.pages.dev/news/eco-friendly-plumbing-solutionsx"/>
+        <updated>2025-05-18T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Discover the latest in eco-friendly plumbing solutions that help reduce your environmental footprint while saving money on utilities. From water-efficient fixtures to sustainable materials, learn how to make your plumbing system more environmentally friendly.]]></summary>
+        <content type="html"><![CDATA[<html><head></head><body><h1>Eco-Friendly Plumbing Solutions: 2025 Guide</h1>
+<p>As environmental consciousness continues to grow, more homeowners are seeking sustainable plumbing solutions that minimize their impact on the planet while maximizing efficiency and cost savings.</p>
+<h2>1. Water-Efficient Fixtures</h2>
+<p>Modern eco-friendly fixtures have come a long way in terms of both performance and aesthetics:</p>
+<ul>
+<li><strong>Low-Flow Showerheads</strong>: Latest models use air-infusion technology</li>
+<li><strong>Dual-Flush Toilets</strong>: Smart water usage based on need</li>
+<li><strong>Touchless Faucets</strong>: Prevent water waste with precise control</li>
+</ul>
+<h2>2. Sustainable Materials</h2>
+<p>The choice of materials can significantly impact your plumbing system's environmental footprint:</p>
+<h3>Pipe Materials</h3>
+<ul>
+<li>Recycled copper</li>
+<li>PEX (cross-linked polyethylene)</li>
+<li>Bio-based plastics</li>
+</ul>
+<h3>Fixture Materials</h3>
+<ul>
+<li>Bamboo</li>
+<li>Recycled glass</li>
+<li>Sustainable metals</li>
+</ul>
+<h2>3. Greywater Systems</h2>
+<p>Learn how to implement greywater recycling in your home:</p>
+<ul>
+<li>Bathroom to garden irrigation</li>
+<li>Laundry to toilet systems</li>
+<li>Kitchen to landscape solutions</li>
+</ul>
+<p>[Continue with detailed sections about each eco-friendly solution...]</p>
+</body></html>]]></content>
+        <author>
+            <name>Emily Green</name>
+            <uri>https://manhattan-plumbing.pages.dev/news/eco-friendly-plumbing-solutionsx</uri>
+        </author>
+        <category label="eco-friendly"/>
+        <category label="green plumbing"/>
+        <category label="sustainable solutions"/>
+        <category label="water efficiency"/>
+        <category label="environmental impact"/>
+        <category label="energy savings"/>
     </entry>
     <entry>
         <title type="html"><![CDATA[Emergency Plumbing Services: What You Need to Know]]></title>
@@ -295,48 +339,207 @@
         <category label="home maintenance"/>
     </entry>
     <entry>
-        <title type="html"><![CDATA[10 Common Plumbing Myths Debunked by Experts]]></title>
-        <id>https://manhattan-plumbing.pages.dev/news/common-plumbing-myths-debunkedx</id>
-        <link href="https://manhattan-plumbing.pages.dev/news/common-plumbing-myths-debunkedx"/>
-        <updated>2025-05-12T00:00:00.000Z</updated>
-        <summary type="html"><![CDATA[Professional plumbers debunk common plumbing myths and misconceptions. Learn the truth about drain cleaners, water heaters, and other plumbing-related beliefs that might be costing you money or damaging your plumbing system.]]></summary>
-        <content type="html"><![CDATA[<html><head></head><body><h1>10 Common Plumbing Myths Debunked by Experts</h1>
-<p>As plumbing professionals, we often encounter misconceptions that can lead to costly mistakes or unnecessary worries. Let's separate fact from fiction with expert analysis of common plumbing myths.</p>
-<h2>Myth #1: Chemical Drain Cleaners Are Safe and Effective</h2>
-<p><strong>The Truth</strong>: Chemical drain cleaners can actually damage your pipes and create more problems than they solve. These harsh chemicals:</p>
+        <title type="html"><![CDATA[Preventive Plumbing Maintenance: Your Seasonal Guide]]></title>
+        <id>https://manhattan-plumbing.pages.dev/news/preventive-maintenancex</id>
+        <link href="https://manhattan-plumbing.pages.dev/news/preventive-maintenancex"/>
+        <updated>2025-05-19T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Master the art of seasonal plumbing maintenance with our comprehensive guide. Learn essential tasks for each season to keep your plumbing system running smoothly year-round and prevent costly emergencies.]]></summary>
+        <content type="html"><![CDATA[<html><head></head><body><h1>Preventive Plumbing Maintenance: Your Seasonal Guide</h1>
+<p>Proper maintenance of your plumbing system is crucial for preventing expensive repairs and ensuring your home's comfort throughout the year. This comprehensive guide breaks down essential maintenance tasks by season.</p>
+<h2>Spring Maintenance Checklist</h2>
+<p>As winter thaws into spring, focus on these critical tasks:</p>
+<ol>
+<li><p><strong>Check for Winter Damage</strong></p>
 <ul>
-<li>Corrode pipe materials</li>
-<li>Create harmful fumes</li>
-<li>May not address the root cause</li>
-<li>Can make clogs worse</li>
+<li>Inspect exposed pipes for frost damage</li>
+<li>Look for signs of foundation cracks</li>
+<li>Test outdoor faucets and repair any freeze damage</li>
 </ul>
-<h2>Myth #2: A Leaky Faucet Isn't a Big Deal</h2>
-<p><strong>The Truth</strong>: Even small leaks can waste thousands of gallons of water annually and lead to:</p>
+</li>
+<li><p><strong>Clean and Maintain</strong></p>
 <ul>
-<li>Higher water bills</li>
-<li>Water damage</li>
-<li>Mineral buildup</li>
-<li>Wasted resources</li>
+<li>Clear debris from gutters and downspouts</li>
+<li>Clean outdoor drainage systems</li>
+<li>Inspect and clean sump pump</li>
 </ul>
-<h2>Myth #3: Hot Water Helps Grease Go Down Drains</h2>
-<p><strong>The Truth</strong>: Hot water actually causes grease to:</p>
+</li>
+</ol>
+<h2>Summer Maintenance Tasks</h2>
+<p>Summer is the perfect time for:</p>
+<ol>
+<li><p><strong>Outdoor System Care</strong></p>
 <ul>
-<li>Liquefy temporarily</li>
-<li>Flow further into pipes</li>
-<li>Cool and solidify</li>
-<li>Create stubborn clogs</li>
+<li>Check sprinkler systems</li>
+<li>Clean outdoor drains</li>
+<li>Inspect pool plumbing if applicable</li>
 </ul>
-<p>[Continue with more myths and expert explanations...]</p>
+</li>
+<li><p><strong>Indoor Inspections</strong></p>
+<ul>
+<li>Test water pressure</li>
+<li>Check for leaks under sinks</li>
+<li>Clean shower heads and faucet aerators</li>
+</ul>
+</li>
+</ol>
+<p>[Continue with detailed seasonal maintenance tasks...]</p>
 </body></html>]]></content>
         <author>
-            <name>Lisa Rodriguez</name>
-            <uri>https://manhattan-plumbing.pages.dev/news/common-plumbing-myths-debunkedx</uri>
+            <name>Robert Martinez</name>
+            <uri>https://manhattan-plumbing.pages.dev/news/preventive-maintenancex</uri>
         </author>
-        <category label="plumbing myths"/>
-        <category label="fact checking"/>
+        <category label="preventive maintenance"/>
+        <category label="seasonal care"/>
+        <category label="home maintenance"/>
         <category label="plumbing tips"/>
-        <category label="homeowner education"/>
-        <category label="professional advice"/>
+        <category label="winterization"/>
+        <category label="spring cleaning"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[The Ultimate Guide to Fixing Leaky Faucets]]></title>
+        <id>https://manhattan-plumbing.pages.dev/news/ultimate-guide-fixing-leaky-faucetsx</id>
+        <link href="https://manhattan-plumbing.pages.dev/news/ultimate-guide-fixing-leaky-faucetsx"/>
+        <updated>2025-05-16T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Learn how to diagnose and fix common faucet problems with our comprehensive guide. Save money on repairs and prevent water waste with these expert tips and step-by-step instructions.]]></summary>
+        <content type="html"><![CDATA[<html><head></head><body><h1>The Ultimate Guide to Fixing Leaky Faucets</h1>
+<p>A leaky faucet isn't just annoying – it can waste thousands of gallons of water annually and increase your utility bills. In this comprehensive guide, we'll show you how to identify, diagnose, and fix common faucet problems.</p>
+<h2>Common Types of Faucet Leaks</h2>
+<p>Before starting any repair, identify your faucet type:</p>
+<ol>
+<li><p><strong>Compression Faucets</strong></p>
+<ul>
+<li>Two handles for hot and cold</li>
+<li>Uses rubber washers</li>
+<li>Most common in older homes</li>
+</ul>
+</li>
+<li><p><strong>Ball-Type Faucets</strong></p>
+<ul>
+<li>Single handle design</li>
+<li>Contains a ball bearing</li>
+<li>Common in kitchen sinks</li>
+</ul>
+</li>
+<li><p><strong>Cartridge Faucets</strong></p>
+<ul>
+<li>Can be single or double handle</li>
+<li>Uses cartridge for water control</li>
+<li>Modern and reliable design</li>
+</ul>
+</li>
+</ol>
+<h2>Tools You'll Need</h2>
+<p>Gather these tools before starting:</p>
+<ul>
+<li>Adjustable wrench</li>
+<li>Phillips and flathead screwdrivers</li>
+<li>Pliers</li>
+<li>Replacement parts (washers, O-rings, cartridge)</li>
+<li>Plumber's grease</li>
+<li>Clean rags</li>
+</ul>
+<p>[Continue with detailed repair instructions...]</p>
+</body></html>]]></content>
+        <author>
+            <name>David Thompson</name>
+            <uri>https://manhattan-plumbing.pages.dev/news/ultimate-guide-fixing-leaky-faucetsx</uri>
+        </author>
+        <category label="leaky faucets"/>
+        <category label="DIY repairs"/>
+        <category label="water conservation"/>
+        <category label="home maintenance"/>
+        <category label="plumbing tips"/>
+        <category label="cost savings"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Smart Home Plumbing Technology Trends for 2025]]></title>
+        <id>https://manhattan-plumbing.pages.dev/news/smart-home-plumbingx</id>
+        <link href="https://manhattan-plumbing.pages.dev/news/smart-home-plumbingx"/>
+        <updated>2025-05-15T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Explore the cutting-edge smart plumbing technologies transforming homes in 2025. From AI-powered leak detection to voice-controlled fixtures, discover how smart technology is revolutionizing home water management.]]></summary>
+        <content type="html"><![CDATA[<html><head></head><body><h1>Smart Home Plumbing Technology Trends for 2025</h1>
+<p>The integration of smart technology into home plumbing systems has revolutionized how we monitor, manage, and conserve water. In this comprehensive guide, we'll explore the latest innovations that are making waves in the plumbing industry this year.</p>
+<h2>1. AI-Powered Leak Detection Systems</h2>
+<p>Modern leak detection systems now utilize artificial intelligence to identify potential issues before they become major problems. These systems can:</p>
+<ul>
+<li>Monitor water pressure in real-time</li>
+<li>Detect unusual water usage patterns</li>
+<li>Alert homeowners instantly via smartphone apps</li>
+<li>Automatically shut off water supply in emergencies</li>
+</ul>
+<h2>2. Voice-Controlled Fixtures</h2>
+<p>Smart faucets and fixtures that respond to voice commands are becoming increasingly popular. With integration to popular virtual assistants like Alexa and Google Home, you can:</p>
+<ul>
+<li>Control water temperature precisely</li>
+<li>Set specific water amounts for recipes</li>
+<li>Monitor daily water usage</li>
+<li>Create custom routines for different tasks</li>
+</ul>
+<h2>3. Smart Water Heaters</h2>
+<p>The latest generation of smart water heaters offers unprecedented control and efficiency:</p>
+<ul>
+<li>Remote temperature control</li>
+<li>Usage pattern learning</li>
+<li>Energy efficiency optimization</li>
+<li>Predictive maintenance alerts</li>
+</ul>
+<p>[Continue with detailed sections about each technology trend...]</p>
+</body></html>]]></content>
+        <author>
+            <name>Michael Chen</name>
+            <uri>https://manhattan-plumbing.pages.dev/news/smart-home-plumbingx</uri>
+        </author>
+        <category label="smart home"/>
+        <category label="automation"/>
+        <category label="water management"/>
+        <category label="IoT"/>
+        <category label="technology trends"/>
+        <category label="home improvement"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Essential Water Heater Maintenance Tips for Longevity]]></title>
+        <id>https://manhattan-plumbing.pages.dev/news/water-heater-maintenance-tipsx</id>
+        <link href="https://manhattan-plumbing.pages.dev/news/water-heater-maintenance-tipsx"/>
+        <updated>2025-05-14T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Maximize your water heater's lifespan and efficiency with our comprehensive maintenance guide. Learn professional tips for maintaining your water heater, reducing energy costs, and preventing common problems.]]></summary>
+        <content type="html"><![CDATA[<html><head></head><body><h1>Essential Water Heater Maintenance Tips for Longevity</h1>
+<p>Your water heater is one of the hardest working appliances in your home. Regular maintenance not only extends its lifespan but also ensures efficient operation and lower energy costs. Follow our expert guide to keep your water heater in top condition.</p>
+<h2>Why Regular Maintenance Matters</h2>
+<p>Regular maintenance of your water heater:</p>
+<ul>
+<li>Extends equipment lifespan</li>
+<li>Improves energy efficiency</li>
+<li>Prevents costly repairs</li>
+<li>Ensures consistent hot water supply</li>
+<li>Maintains safe operation</li>
+</ul>
+<h2>Annual Maintenance Checklist</h2>
+<h3>1. Safety Inspection</h3>
+<ul>
+<li>Check pressure relief valve</li>
+<li>Inspect anode rod</li>
+<li>Test temperature settings</li>
+<li>Examine gas line or electrical connections</li>
+</ul>
+<h3>2. Tank Maintenance</h3>
+<ul>
+<li>Flush sediment from tank</li>
+<li>Clean burner assembly</li>
+<li>Check for leaks</li>
+<li>Inspect heating elements</li>
+</ul>
+<p>[Continue with detailed maintenance instructions...]</p>
+</body></html>]]></content>
+        <author>
+            <name>Mark Wilson</name>
+            <uri>https://manhattan-plumbing.pages.dev/news/water-heater-maintenance-tipsx</uri>
+        </author>
+        <category label="water heater"/>
+        <category label="maintenance"/>
+        <category label="energy efficiency"/>
+        <category label="home maintenance"/>
+        <category label="cost savings"/>
+        <category label="preventive care"/>
     </entry>
     <entry>
         <title type="html"><![CDATA[10 Innovative Water Conservation Tips for Modern Homes]]></title>
@@ -414,208 +617,5 @@
         <category label="sustainable living"/>
         <category label="home improvement"/>
         <category label="green solutions"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Preventive Plumbing Maintenance: Your Seasonal Guide]]></title>
-        <id>https://manhattan-plumbing.pages.dev/news/preventive-maintenancex</id>
-        <link href="https://manhattan-plumbing.pages.dev/news/preventive-maintenancex"/>
-        <updated>2025-05-19T00:00:00.000Z</updated>
-        <summary type="html"><![CDATA[Master the art of seasonal plumbing maintenance with our comprehensive guide. Learn essential tasks for each season to keep your plumbing system running smoothly year-round and prevent costly emergencies.]]></summary>
-        <content type="html"><![CDATA[<html><head></head><body><h1>Preventive Plumbing Maintenance: Your Seasonal Guide</h1>
-<p>Proper maintenance of your plumbing system is crucial for preventing expensive repairs and ensuring your home's comfort throughout the year. This comprehensive guide breaks down essential maintenance tasks by season.</p>
-<h2>Spring Maintenance Checklist</h2>
-<p>As winter thaws into spring, focus on these critical tasks:</p>
-<ol>
-<li><p><strong>Check for Winter Damage</strong></p>
-<ul>
-<li>Inspect exposed pipes for frost damage</li>
-<li>Look for signs of foundation cracks</li>
-<li>Test outdoor faucets and repair any freeze damage</li>
-</ul>
-</li>
-<li><p><strong>Clean and Maintain</strong></p>
-<ul>
-<li>Clear debris from gutters and downspouts</li>
-<li>Clean outdoor drainage systems</li>
-<li>Inspect and clean sump pump</li>
-</ul>
-</li>
-</ol>
-<h2>Summer Maintenance Tasks</h2>
-<p>Summer is the perfect time for:</p>
-<ol>
-<li><p><strong>Outdoor System Care</strong></p>
-<ul>
-<li>Check sprinkler systems</li>
-<li>Clean outdoor drains</li>
-<li>Inspect pool plumbing if applicable</li>
-</ul>
-</li>
-<li><p><strong>Indoor Inspections</strong></p>
-<ul>
-<li>Test water pressure</li>
-<li>Check for leaks under sinks</li>
-<li>Clean shower heads and faucet aerators</li>
-</ul>
-</li>
-</ol>
-<p>[Continue with detailed seasonal maintenance tasks...]</p>
-</body></html>]]></content>
-        <author>
-            <name>Robert Martinez</name>
-            <uri>https://manhattan-plumbing.pages.dev/news/preventive-maintenancex</uri>
-        </author>
-        <category label="preventive maintenance"/>
-        <category label="seasonal care"/>
-        <category label="home maintenance"/>
-        <category label="plumbing tips"/>
-        <category label="winterization"/>
-        <category label="spring cleaning"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Smart Home Plumbing Technology Trends for 2025]]></title>
-        <id>https://manhattan-plumbing.pages.dev/news/smart-home-plumbingx</id>
-        <link href="https://manhattan-plumbing.pages.dev/news/smart-home-plumbingx"/>
-        <updated>2025-05-15T00:00:00.000Z</updated>
-        <summary type="html"><![CDATA[Explore the cutting-edge smart plumbing technologies transforming homes in 2025. From AI-powered leak detection to voice-controlled fixtures, discover how smart technology is revolutionizing home water management.]]></summary>
-        <content type="html"><![CDATA[<html><head></head><body><h1>Smart Home Plumbing Technology Trends for 2025</h1>
-<p>The integration of smart technology into home plumbing systems has revolutionized how we monitor, manage, and conserve water. In this comprehensive guide, we'll explore the latest innovations that are making waves in the plumbing industry this year.</p>
-<h2>1. AI-Powered Leak Detection Systems</h2>
-<p>Modern leak detection systems now utilize artificial intelligence to identify potential issues before they become major problems. These systems can:</p>
-<ul>
-<li>Monitor water pressure in real-time</li>
-<li>Detect unusual water usage patterns</li>
-<li>Alert homeowners instantly via smartphone apps</li>
-<li>Automatically shut off water supply in emergencies</li>
-</ul>
-<h2>2. Voice-Controlled Fixtures</h2>
-<p>Smart faucets and fixtures that respond to voice commands are becoming increasingly popular. With integration to popular virtual assistants like Alexa and Google Home, you can:</p>
-<ul>
-<li>Control water temperature precisely</li>
-<li>Set specific water amounts for recipes</li>
-<li>Monitor daily water usage</li>
-<li>Create custom routines for different tasks</li>
-</ul>
-<h2>3. Smart Water Heaters</h2>
-<p>The latest generation of smart water heaters offers unprecedented control and efficiency:</p>
-<ul>
-<li>Remote temperature control</li>
-<li>Usage pattern learning</li>
-<li>Energy efficiency optimization</li>
-<li>Predictive maintenance alerts</li>
-</ul>
-<p>[Continue with detailed sections about each technology trend...]</p>
-</body></html>]]></content>
-        <author>
-            <name>Michael Chen</name>
-            <uri>https://manhattan-plumbing.pages.dev/news/smart-home-plumbingx</uri>
-        </author>
-        <category label="smart home"/>
-        <category label="automation"/>
-        <category label="water management"/>
-        <category label="IoT"/>
-        <category label="technology trends"/>
-        <category label="home improvement"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[The Ultimate Guide to Fixing Leaky Faucets]]></title>
-        <id>https://manhattan-plumbing.pages.dev/news/ultimate-guide-fixing-leaky-faucetsx</id>
-        <link href="https://manhattan-plumbing.pages.dev/news/ultimate-guide-fixing-leaky-faucetsx"/>
-        <updated>2025-05-16T00:00:00.000Z</updated>
-        <summary type="html"><![CDATA[Learn how to diagnose and fix common faucet problems with our comprehensive guide. Save money on repairs and prevent water waste with these expert tips and step-by-step instructions.]]></summary>
-        <content type="html"><![CDATA[<html><head></head><body><h1>The Ultimate Guide to Fixing Leaky Faucets</h1>
-<p>A leaky faucet isn't just annoying – it can waste thousands of gallons of water annually and increase your utility bills. In this comprehensive guide, we'll show you how to identify, diagnose, and fix common faucet problems.</p>
-<h2>Common Types of Faucet Leaks</h2>
-<p>Before starting any repair, identify your faucet type:</p>
-<ol>
-<li><p><strong>Compression Faucets</strong></p>
-<ul>
-<li>Two handles for hot and cold</li>
-<li>Uses rubber washers</li>
-<li>Most common in older homes</li>
-</ul>
-</li>
-<li><p><strong>Ball-Type Faucets</strong></p>
-<ul>
-<li>Single handle design</li>
-<li>Contains a ball bearing</li>
-<li>Common in kitchen sinks</li>
-</ul>
-</li>
-<li><p><strong>Cartridge Faucets</strong></p>
-<ul>
-<li>Can be single or double handle</li>
-<li>Uses cartridge for water control</li>
-<li>Modern and reliable design</li>
-</ul>
-</li>
-</ol>
-<h2>Tools You'll Need</h2>
-<p>Gather these tools before starting:</p>
-<ul>
-<li>Adjustable wrench</li>
-<li>Phillips and flathead screwdrivers</li>
-<li>Pliers</li>
-<li>Replacement parts (washers, O-rings, cartridge)</li>
-<li>Plumber's grease</li>
-<li>Clean rags</li>
-</ul>
-<p>[Continue with detailed repair instructions...]</p>
-</body></html>]]></content>
-        <author>
-            <name>David Thompson</name>
-            <uri>https://manhattan-plumbing.pages.dev/news/ultimate-guide-fixing-leaky-faucetsx</uri>
-        </author>
-        <category label="leaky faucets"/>
-        <category label="DIY repairs"/>
-        <category label="water conservation"/>
-        <category label="home maintenance"/>
-        <category label="plumbing tips"/>
-        <category label="cost savings"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Essential Water Heater Maintenance Tips for Longevity]]></title>
-        <id>https://manhattan-plumbing.pages.dev/news/water-heater-maintenance-tipsx</id>
-        <link href="https://manhattan-plumbing.pages.dev/news/water-heater-maintenance-tipsx"/>
-        <updated>2025-05-14T00:00:00.000Z</updated>
-        <summary type="html"><![CDATA[Maximize your water heater's lifespan and efficiency with our comprehensive maintenance guide. Learn professional tips for maintaining your water heater, reducing energy costs, and preventing common problems.]]></summary>
-        <content type="html"><![CDATA[<html><head></head><body><h1>Essential Water Heater Maintenance Tips for Longevity</h1>
-<p>Your water heater is one of the hardest working appliances in your home. Regular maintenance not only extends its lifespan but also ensures efficient operation and lower energy costs. Follow our expert guide to keep your water heater in top condition.</p>
-<h2>Why Regular Maintenance Matters</h2>
-<p>Regular maintenance of your water heater:</p>
-<ul>
-<li>Extends equipment lifespan</li>
-<li>Improves energy efficiency</li>
-<li>Prevents costly repairs</li>
-<li>Ensures consistent hot water supply</li>
-<li>Maintains safe operation</li>
-</ul>
-<h2>Annual Maintenance Checklist</h2>
-<h3>1. Safety Inspection</h3>
-<ul>
-<li>Check pressure relief valve</li>
-<li>Inspect anode rod</li>
-<li>Test temperature settings</li>
-<li>Examine gas line or electrical connections</li>
-</ul>
-<h3>2. Tank Maintenance</h3>
-<ul>
-<li>Flush sediment from tank</li>
-<li>Clean burner assembly</li>
-<li>Check for leaks</li>
-<li>Inspect heating elements</li>
-</ul>
-<p>[Continue with detailed maintenance instructions...]</p>
-</body></html>]]></content>
-        <author>
-            <name>Mark Wilson</name>
-            <uri>https://manhattan-plumbing.pages.dev/news/water-heater-maintenance-tipsx</uri>
-        </author>
-        <category label="water heater"/>
-        <category label="maintenance"/>
-        <category label="energy efficiency"/>
-        <category label="home maintenance"/>
-        <category label="cost savings"/>
-        <category label="preventive care"/>
     </entry>
 </feed>

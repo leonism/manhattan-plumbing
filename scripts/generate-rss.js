@@ -10,6 +10,11 @@ const SITE_TITLE = 'Manhattan Plumbing'
 const SITE_DESCRIPTION = 'Professional plumbing services in Manhattan, NY'
 
 async function generateRssFeed() {
+  marked.setOptions({
+    gfm: true,
+    breaks: true,
+    escape: false, // Disable HTML escaping by marked
+  });
   try {
     const feed = new Feed({
       title: SITE_TITLE,
