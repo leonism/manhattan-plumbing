@@ -10,6 +10,11 @@ const SITE_TITLE = 'Manhattan Plumbing'
 const SITE_DESCRIPTION = 'Professional plumbing services in Manhattan, NY'
 
 async function generateRssFeed() {
+  marked.setOptions({
+    gfm: true,
+    breaks: true,
+    escape: false, // Disable HTML escaping by marked
+  });
   try {
     const feed = new Feed({
       title: SITE_TITLE,
@@ -78,9 +83,7 @@ async function generateRssFeed() {
           const src = $(elem).attr('src')
           if (src) {
             // Decode and re-encode to ensure proper escaping of all characters
-            const decodedSrc = decodeURIComponent(src);
-            const encodedSrc = encodeURIComponent(decodedSrc).replace(/%26/g, '&amp;');
-            $(elem).attr('src', encodedSrc);
+            const encodedSrc = src.replace(/&(?!amp;)/g, '&amp;');
           }
         })
         htmlContent = $.html()
