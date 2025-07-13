@@ -5,57 +5,51 @@ import viteCompression from 'vite-plugin-compression'
 import mdx from '@mdx-js/rollup'
 import remarkFrontmatter from 'remark-frontmatter'
 import remarkMdxFrontmatter from 'remark-mdx-frontmatter'
-import remarkGfm from 'remark-gfm' // Import remark-gfm
-import rehypeReact from 'rehype-react' // Import rehype-react
-import React from 'react' // Import React
+import remarkGfm from 'remark-gfm'
+import rehypeReact from 'rehype-react'
+import React from 'react'
+import { createHtmlPlugin } from 'vite-plugin-html'
 
 export default defineConfig({
   plugins: [
     react(),
     mdx({
-      remarkPlugins: [remarkFrontmatter, remarkMdxFrontmatter, remarkGfm], // Add remarkGfm
+      remarkPlugins: [remarkFrontmatter, remarkMdxFrontmatter, remarkGfm],
       rehypePlugins: [
         [rehypeReact, { createElement: React.createElement, Fragment: React.Fragment }],
-      ], // Configure rehypeReact
+      ],
     }),
     ViteImageOptimizer({
-      png: {
-        quality: 80,
-      },
-      jpeg: {
-        quality: 60,
-      },
-      webp: {
-        quality: 80, // Use 80% quality for WebP
-      },
-      avif: {
-        quality: 70, // Use 70% quality for AVIF
-      },
-      // Optional: Configure other image formats as needed
+      png: { quality: 80 },
+      jpeg: { quality: 60 },
+      webp: { quality: 80 },
+      avif: { quality: 70 },
+    }),
+    createHtmlPlugin({
+      minify: true,
     }),
     viteCompression({
       algorithm: 'gzip',
       ext: '.gz',
+      filter: /\.(js|mjs|json|css|html|xml)$/i,
+      threshold: 1025,
     }),
     viteCompression({
       algorithm: 'brotliCompress',
       ext: '.br',
+      filter: /\.(js|mjs|json|css|html|xml)$/i,
+      threshold: 1025,
     }),
   ],
   resolve: {
-    alias: {
-      // Removed buffer polyfill as front-matter is used
-    },
+    alias: {},
   },
   define: {
-    global: 'window', // Define 'global' as 'window' for browser compatibility
-    // Removed Buffer polyfill as front-matter is used
+    global: 'window',
   },
   optimizeDeps: {
-    // Exclude specific dependencies from pre-bundling
     exclude: ['lucide-react'],
   },
-  // Include markdown files as assets
   assetsInclude: ['**/*.md'],
   build: {
     rollupOptions: {
@@ -67,7 +61,6 @@ export default defineConfig({
         },
       },
     },
-    // Use terser for minification
     minify: 'terser',
     terserOptions: {
       compress: {
@@ -76,7 +69,6 @@ export default defineConfig({
       },
     },
     cssMinify: 'lightningcss',
-    
     cssCodeSplit: true,
     chunkSizeWarningLimit: 1000,
     reportCompressedSize: true,
