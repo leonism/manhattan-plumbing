@@ -2,6 +2,8 @@ import { globby } from 'globby'
 import fs from 'fs-extra'
 import matter from 'gray-matter'
 import { Feed } from 'feed'
+import { marked } from 'marked'
+import * as cheerio from 'cheerio'
 
 const SITE_URL = 'https://manhattan-plumbing.pages.dev' // Ensure no trailing spaces
 const SITE_TITLE = 'Manhattan Plumbing'
@@ -63,10 +65,20 @@ async function generateRssFeed() {
     await Promise.all(
       contentFiles.map(async (file) => {
         const content = await fs.readFile(file, 'utf-8')
-        const { data, content: markdown } = matter(content, {
-          engines: { js: () => ({}) },
+        // Convert markdown to HTML
+        let htmlContent = marked(markdown)
+
+        // Use cheerio to parse HTML and escape ampersands in image src attributes
+        const $ = cheerio.load(htmlContent)
+        $('img').each((i, elem) => {
+          const src = $(elem).attr('src')
+          if (src) {
+            $(elem).attr('src', src.replace(/&/g, '&amp;'))
+          }
         })
-        const slug = file.replace('src/content/news/', '').replace('.md', '')
+        htmlContent = $.html()
+
+        const slug = file.replace('src/content/news/', '').replace('.md', '').replace('.mdx', '')
         const url = `${SITE_URL}/news/${slug}`
 
         feed.addItem({
@@ -74,7 +86,7 @@ async function generateRssFeed() {
           id: url,
           link: url,
           description: data.excerpt,
-          content: markdown,
+          content: htmlContent, // Use the escaped HTML content
           author: [
             {
               name: data.author.name,
