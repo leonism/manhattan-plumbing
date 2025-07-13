@@ -7,24 +7,28 @@ interface LogoProps {
 }
 
 const Logo: React.FC<LogoProps> = ({ inverted = false, size = 'default' }) => {
-  const sizeClasses = size === 'small' ? 'h-6 w-6' : 'h-8 w-8'
-  const textSize = size === 'small' ? 'text-lg' : 'text-xl'
+  // Define icon and text sizes based on prop and viewport
+  const iconSize = size === 'small' ? 'h-5 w-5 sm:h-6 sm:w-6' : 'h-7 w-7 sm:h-8 sm:w-8'
+  const textSize = size === 'small' ? 'text-base sm:text-lg' : 'text-lg sm:text-xl'
 
   return (
-    <a href="/" className="flex items-center space-x-1">
+    <a
+      href="/"
+      aria-label="Go to Manhattan Plumbing homepage"
+      className="inline-flex items-center gap-1 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 sm:gap-2"
+    >
       <Droplets
-        className={`${sizeClasses} ${
-          inverted ? 'text-blue-400' : 'text-blue-600 dark:text-blue-400'
-        }`}
+        className={`${iconSize} ${inverted ? 'text-blue-400' : 'text-blue-600 dark:text-blue-400'}`}
+        aria-hidden="true"
       />
-      <div
-        className={`font-bold ${textSize} mt-auto ${
+      <span
+        className={`font-bold ${textSize} ${
           inverted ? 'text-white' : 'text-slate-800 dark:text-white'
         }`}
       >
         Manhattan
-        <span className="text-blue-600 dark:text-blue-400">Plumbing</span>
-      </div>
+        <span className="mr-2 text-blue-600 dark:text-blue-400">Plumbing</span>
+      </span>
     </a>
   )
 }
