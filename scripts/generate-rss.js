@@ -14,7 +14,7 @@ async function generateRssFeed() {
     gfm: true,
     breaks: true,
     escape: false, // Disable HTML escaping by marked
-  });
+  })
   try {
     const feed = new Feed({
       title: SITE_TITLE,
@@ -42,29 +42,78 @@ async function generateRssFeed() {
     const contentFiles = await globby(['src/content/**/*.md', 'src/content/**/*.mdx'])
 
     const staticPages = [
-      { url: '/', title: 'Manhattan Plumbing Home', description: 'Your trusted local plumber in Manhattan.' },
-      { url: '/news', title: 'Manhattan Plumbing News', description: 'Latest news and articles from Manhattan Plumbing.' },
-      { url: '/privacy-policy', title: 'Privacy Policy | Manhattan Plumbing', description: 'Manhattan Plumbing Privacy Policy.' },
-      { url: '/terms-of-service', title: 'Terms of Service | Manhattan Plumbing', description: 'Manhattan Plumbing Terms of Service.' },
-      { url: '/cookie-policy', title: 'Cookie Policy | Manhattan Plumbing', description: 'Manhattan Plumbing Cookie Policy.' },
-      { url: '/services/drain-service', title: 'Drain Cleaning Services | Manhattan Plumbing', description: 'Fast and effective drain cleaning services in Manhattan.' },
-      { url: '/services/emergency-service', title: 'Emergency Plumbing Services | Manhattan Plumbing', description: '24/7 emergency plumbing services in Manhattan.' },
-      { url: '/services/fixture-service', title: 'Fixture Installation & Repair | Manhattan Plumbing', description: 'Expert plumbing fixture installation and repair in Manhattan.' },
-      { url: '/services/pipe-service', title: 'Pipe Repair & Replacement | Manhattan Plumbing', description: 'Durable solutions for leaky, corroded, or damaged pipes in Manhattan.' },
-      { url: '/services/remodeling-service', title: 'Bathroom Remodeling | Manhattan Plumbing', description: 'Transform your bathroom with our premium remodeling services in Manhattan.' },
-      { url: '/services/water-heater-service', title: 'Water Heater Services | Manhattan Plumbing', description: 'Reliable water heater installation, repair, and maintenance in Manhattan.' },
-      { url: '/location', title: 'Our Location | Manhattan Plumbing', description: 'Find Manhattan Plumbing at our convenient location in the heart of Manhattan.' },
-    ];
+      {
+        url: '/',
+        title: 'Manhattan Plumbing Home',
+        description: 'Your trusted local plumber in Manhattan.',
+      },
+      {
+        url: '/news',
+        title: 'Manhattan Plumbing News',
+        description: 'Latest news and articles from Manhattan Plumbing.',
+      },
+      {
+        url: '/privacy-policy',
+        title: 'Privacy Policy | Manhattan Plumbing',
+        description: 'Manhattan Plumbing Privacy Policy.',
+      },
+      {
+        url: '/terms-of-service',
+        title: 'Terms of Service | Manhattan Plumbing',
+        description: 'Manhattan Plumbing Terms of Service.',
+      },
+      {
+        url: '/cookie-policy',
+        title: 'Cookie Policy | Manhattan Plumbing',
+        description: 'Manhattan Plumbing Cookie Policy.',
+      },
+      {
+        url: '/services/drain-service',
+        title: 'Drain Cleaning Services | Manhattan Plumbing',
+        description: 'Fast and effective drain cleaning services in Manhattan.',
+      },
+      {
+        url: '/services/emergency-service',
+        title: 'Emergency Plumbing Services | Manhattan Plumbing',
+        description: '24/7 emergency plumbing services in Manhattan.',
+      },
+      {
+        url: '/services/fixture-service',
+        title: 'Fixture Installation & Repair | Manhattan Plumbing',
+        description: 'Expert plumbing fixture installation and repair in Manhattan.',
+      },
+      {
+        url: '/services/pipe-service',
+        title: 'Pipe Repair & Replacement | Manhattan Plumbing',
+        description: 'Durable solutions for leaky, corroded, or damaged pipes in Manhattan.',
+      },
+      {
+        url: '/services/remodeling-service',
+        title: 'Bathroom Remodeling | Manhattan Plumbing',
+        description: 'Transform your bathroom with our premium remodeling services in Manhattan.',
+      },
+      {
+        url: '/services/water-heater-service',
+        title: 'Water Heater Services | Manhattan Plumbing',
+        description: 'Reliable water heater installation, repair, and maintenance in Manhattan.',
+      },
+      {
+        url: '/location',
+        title: 'Our Location | Manhattan Plumbing',
+        description:
+          'Find Manhattan Plumbing at our convenient location in the heart of Manhattan.',
+      },
+    ]
 
-    staticPages.forEach(page => {
+    staticPages.forEach((page) => {
       feed.addItem({
         title: page.title,
         id: `${SITE_URL}${page.url}`,
         link: `${SITE_URL}${page.url}`,
         description: page.description,
         date: new Date(),
-      });
-    });
+      })
+    })
 
     // Process markdown files
     await Promise.all(
@@ -83,7 +132,7 @@ async function generateRssFeed() {
           const src = $(elem).attr('src')
           if (src) {
             // Decode and re-encode to ensure proper escaping of all characters
-            const encodedSrc = src.replace(/&(?!amp;)/g, '&amp;');
+            const encodedSrc = src.replace(/&(?!amp;)/g, '&amp;')
           }
         })
         htmlContent = $.html()

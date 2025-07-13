@@ -29,7 +29,7 @@ const CompanyInfo: React.FC<CompanyInfoProps> = ({ className }) => {
           ].map(({ icon: Icon, label, href }) => (
             <li key={label}>
               <a
-                href={href || "#"}
+                href={href || '#'}
                 className="text-slate-300 transition-colors hover:text-white"
                 aria-label={label}
               >

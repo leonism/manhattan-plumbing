@@ -223,7 +223,8 @@ const CookiePolicy: React.FC = () => {
           '@context': 'https://schema.org',
           '@type': 'WebPage',
           name: 'Cookie Policy',
-          description: 'Learn about how Manhattan Plumbing uses cookies and similar technologies on our website.',
+          description:
+            'Learn about how Manhattan Plumbing uses cookies and similar technologies on our website.',
           url: 'https://manhattan-plumbing.pages.dev/cookie-policy',
         }}
       />

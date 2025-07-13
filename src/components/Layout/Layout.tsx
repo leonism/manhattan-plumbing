@@ -1,10 +1,10 @@
-import React from 'react';
-import Header from '../Header/Header';
-import Footer from '../Footer/Footer';
-import BackToTop from '../UI/BackToTop';
+import React from 'react'
+import Header from '../Header/Header'
+import Footer from '../Footer/Footer'
+import BackToTop from '../UI/BackToTop'
 
 interface LayoutProps {
-  children: React.ReactNode;
+  children: React.ReactNode
 }
 
 const Layout: React.FC<LayoutProps> = ({ children }) => {
@@ -15,7 +15,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
       <Footer />
       <BackToTop />
     </div>
-  );
-};
+  )
+}
 
-export default Layout;
+export default Layout

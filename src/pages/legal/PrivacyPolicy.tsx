@@ -205,7 +205,8 @@ const PrivacyPolicy: React.FC = () => {
           '@context': 'https://schema.org',
           '@type': 'WebPage',
           name: 'Privacy Policy',
-          description: 'Learn about how Manhattan Plumbing collects, uses, and protects your personal information.',
+          description:
+            'Learn about how Manhattan Plumbing collects, uses, and protects your personal information.',
           url: 'https://manhattan-plumbing.pages.dev/privacy-policy',
         }}
       />

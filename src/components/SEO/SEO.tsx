@@ -1,16 +1,16 @@
-import React from 'react';
-import { Helmet } from 'react-helmet-async';
+import React from 'react'
+import { Helmet } from 'react-helmet-async'
 
 interface SEOProps {
-  title: string;
-  description: string;
-  keywords?: string | string[];
-  canonical?: string;
-  ogTitle?: string;
-  ogDescription?: string;
-  ogImage?: string;
-  ogUrl?: string;
-  jsonLd?: object;
+  title: string
+  description: string
+  keywords?: string | string[]
+  canonical?: string
+  ogTitle?: string
+  ogDescription?: string
+  ogImage?: string
+  ogUrl?: string
+  jsonLd?: object
 }
 
 const SEO: React.FC<SEOProps> = ({
@@ -24,7 +24,7 @@ const SEO: React.FC<SEOProps> = ({
   ogUrl,
   jsonLd,
 }) => {
-  const keywordsString = Array.isArray(keywords) ? keywords.join(', ') : keywords;
+  const keywordsString = Array.isArray(keywords) ? keywords.join(', ') : keywords
 
   return (
     <Helmet>
@@ -39,7 +39,7 @@ const SEO: React.FC<SEOProps> = ({
       <meta property="og:type" content="website" />
       {jsonLd && <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>}
     </Helmet>
-  );
-};
+  )
+}
 
-export default SEO;
+export default SEO

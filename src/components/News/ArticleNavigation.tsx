@@ -1,11 +1,11 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import { ArrowLeft, ArrowRight } from 'lucide-react';
-import { Post } from '../../types/news';
+import React from 'react'
+import { Link } from 'react-router-dom'
+import { ArrowLeft, ArrowRight } from 'lucide-react'
+import { Post } from '../../types/news'
 
 interface ArticleNavigationProps {
-  previousPost: Post | null;
-  nextPost: Post | null;
+  previousPost: Post | null
+  nextPost: Post | null
 }
 
 const ArrowLeftCircle: React.FC<{ className?: string }> = ({ className }) => (
@@ -14,7 +14,7 @@ const ArrowLeftCircle: React.FC<{ className?: string }> = ({ className }) => (
   >
     <ArrowLeft className="h-4 w-4" />
   </div>
-);
+)
 
 const ArrowRightCircle: React.FC<{ className?: string }> = ({ className }) => (
   <div
@@ -22,7 +22,7 @@ const ArrowRightCircle: React.FC<{ className?: string }> = ({ className }) => (
   >
     <ArrowRight className="h-4 w-4" />
   </div>
-);
+)
 
 const ArticleNavigation: React.FC<ArticleNavigationProps> = ({ previousPost, nextPost }) => {
   return (
@@ -57,7 +57,7 @@ const ArticleNavigation: React.FC<ArticleNavigationProps> = ({ previousPost, nex
         <div className="w-full sm:w-auto" />
       )}
     </div>
-  );
-};
+  )
+}
 
-export default ArticleNavigation;
+export default ArticleNavigation

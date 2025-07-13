@@ -2,7 +2,7 @@ import React from 'react'
 import { useParams, Link } from 'react-router-dom'
 import SEO from '../components/SEO/SEO'
 import { format } from 'date-fns'
-import { Calendar, Clock, Tag, Folder } from 'lucide-react';
+import { Calendar, Clock, Tag, Folder } from 'lucide-react'
 import { MDXProvider } from '@mdx-js/react'
 
 import ShareButtons from '../components/News/ShareButtons'
@@ -10,8 +10,6 @@ import { useNews } from '../hooks/useNews'
 import { Post } from '../types/news'
 import SkeletonLoader from '../components/UI/SkeletonLoader'
 import ArticleNavigation from '../components/News/ArticleNavigation'
-
-
 
 // Helper function to slugify strings
 const slugify = (text: string) => {
