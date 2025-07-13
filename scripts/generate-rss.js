@@ -9,24 +9,11 @@ const SITE_URL = 'https://manhattan-plumbing.pages.dev' // Ensure no trailing sp
 const SITE_TITLE = 'Manhattan Plumbing'
 const SITE_DESCRIPTION = 'Professional plumbing services in Manhattan, NY'
 
-function escapeXmlAttribute(text) {
-  return text.replace(/[<>&"']/g, function (c) {
-    switch (c) {
-      case '<': return '&lt;';
-      case '>': return '&gt;';
-      case '&': return '&amp;';
-      case '"': return '&quot;';
-      case '\'': return '&apos;';
-    }
-    return c;
-  });
-}
-
 async function generateRssFeed() {
   marked.setOptions({
     gfm: true,
     breaks: true,
-    escape: true,
+    escape: false, // Disable HTML escaping by marked
   })
   try {
     const feed = new Feed({
@@ -144,7 +131,7 @@ async function generateRssFeed() {
         $('img').each((i, elem) => {
           const src = $(elem).attr('src')
           if (src) {
-            $(elem).attr('src', escapeXmlAttribute(src))
+            $(elem).attr('src', src)
           }
         })
         htmlContent = $('body').html()
@@ -167,9 +154,9 @@ async function generateRssFeed() {
             },
           ],
           date: new Date(data.date),
-          image: escapeXmlAttribute(data.featuredImage.src),
+          image: data.featuredImage.src,
           enclosure: {
-            url: escapeXmlAttribute(data.featuredImage.src),
+            url: data.featuredImage.src,
             type: 'image/jpeg',
             length: 0,
           },
