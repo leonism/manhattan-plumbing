@@ -82,7 +82,12 @@ async function generateRssFeed() {
             },
           ],
           date: new Date(data.date),
-          image: `${SITE_URL}${data.featuredImage.src}`, // Prepend SITE_URL to make the URL absolute
+          image: data.featuredImage.src,
+          enclosure: {
+            url: data.featuredImage.src.replace(/&/g, '&amp;'),
+            type: 'image/jpeg',
+            length: 0,
+          },
           category: data.tags.map((tag) => ({ name: tag })),
         })
       })
