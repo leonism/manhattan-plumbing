@@ -2,6 +2,8 @@ import { globby } from 'globby'
 import fs from 'fs-extra'
 import matter from 'gray-matter'
 import { Feed } from 'feed'
+import { marked } from 'marked'
+import * as cheerio from 'cheerio'
 
 const SITE_URL = 'https://manhattan-plumbing.pages.dev' // Ensure no trailing spaces
 const SITE_TITLE = 'Manhattan Plumbing'
@@ -62,11 +64,28 @@ async function generateRssFeed() {
     // Process markdown files
     await Promise.all(
       contentFiles.map(async (file) => {
-        const content = await fs.readFile(file, 'utf-8')
-        const { data, content: markdown } = matter(content, {
+        const fileContent = await fs.readFile(file, 'utf-8')
+        const { data, content: mdxContent } = matter(fileContent, {
           engines: { js: () => ({}) },
         })
-        const slug = file.replace('src/content/news/', '').replace('.md', '')
+
+        // Convert markdown to HTML
+        let htmlContent = marked(mdxContent)
+
+        // Use cheerio to parse HTML and escape ampersands in image src attributes
+        const $ = cheerio.load(htmlContent)
+        $('img').each((i, elem) => {
+          const src = $(elem).attr('src')
+          if (src) {
+            // Decode and re-encode to ensure proper escaping of all characters
+            const decodedSrc = decodeURIComponent(src);
+            const encodedSrc = encodeURIComponent(decodedSrc).replace(/%26/g, '&amp;');
+            $(elem).attr('src', encodedSrc);
+          }
+        })
+        htmlContent = $.html()
+
+        const slug = file.replace('src/content/news/', '').replace('.md', '').replace('.mdx', '')
         const url = `${SITE_URL}/news/${slug}`
 
         feed.addItem({
@@ -74,7 +93,7 @@ async function generateRssFeed() {
           id: url,
           link: url,
           description: data.excerpt,
-          content: markdown,
+          content: htmlContent, // Use the escaped HTML content
           author: [
             {
               name: data.author.name,
@@ -82,7 +101,12 @@ async function generateRssFeed() {
             },
           ],
           date: new Date(data.date),
-          image: `${SITE_URL}${data.featuredImage.src}`, // Prepend SITE_URL to make the URL absolute
+          image: data.featuredImage.src,
+          enclosure: {
+            url: data.featuredImage.src.replace(/&/g, '&amp;'),
+            type: 'image/jpeg',
+            length: 0,
+          },
           category: data.tags.map((tag) => ({ name: tag })),
         })
       })

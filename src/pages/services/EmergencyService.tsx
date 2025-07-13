@@ -1,6 +1,6 @@
-import SEO from '../../components/SEO/SEO';
-import SectionHeading from '../../components/UI/SectionHeading';
-import Button from '../../components/UI/Button';
+import SEO from '../../components/SEO/SEO'
+import SectionHeading from '../../components/UI/SectionHeading'
+import Button from '../../components/UI/Button'
 import {
   Shield,
   CheckCircle,
@@ -11,27 +11,27 @@ import {
   Droplet,
   Flame,
   Bath,
-} from 'lucide-react';
+} from 'lucide-react'
 
-import emergencyHeroJpg from '../../assets/images/pexels-newyork-005.jpg';
-import emergencyHeroWebp from '../../assets/images/pexels-newyork-005.jpg?format=webp';
-import emergencyHeroAvif from '../../assets/images/pexels-newyork-005.jpg?format=avif';
+import emergencyHeroJpg from '../../assets/images/pexels-newyork-005.jpg'
+import emergencyHeroWebp from '../../assets/images/pexels-newyork-005.jpg?format=webp'
+import emergencyHeroAvif from '../../assets/images/pexels-newyork-005.jpg?format=avif'
 
-import burstPipeJpg from '../../assets/images/pexels-newyork-006.jpg';
-import burstPipeWebp from '../../assets/images/pexels-newyork-006.jpg?format=webp';
-import burstPipeAvif from '../../assets/images/pexels-newyork-006.jpg?format=avif';
+import burstPipeJpg from '../../assets/images/pexels-newyork-006.jpg'
+import burstPipeWebp from '../../assets/images/pexels-newyork-006.jpg?format=webp'
+import burstPipeAvif from '../../assets/images/pexels-newyork-006.jpg?format=avif'
 
-import sewerBackupJpg from '../../assets/images/pexels-newyork-007.jpg';
-import sewerBackupWebp from '../../assets/images/pexels-newyork-007.jpg?format=webp';
-import sewerBackupAvif from '../../assets/images/pexels-newyork-007.jpg?format=avif';
+import sewerBackupJpg from '../../assets/images/pexels-newyork-007.jpg'
+import sewerBackupWebp from '../../assets/images/pexels-newyork-007.jpg?format=webp'
+import sewerBackupAvif from '../../assets/images/pexels-newyork-007.jpg?format=avif'
 
-import waterHeaterJpg from '../../assets/images/pexels-newyork-008.jpg';
-import waterHeaterWebp from '../../assets/images/pexels-newyork-008.jpg?format=webp';
-import waterHeaterAvif from '../../assets/images/pexels-newyork-008.jpg?format=avif';
+import waterHeaterJpg from '../../assets/images/pexels-newyork-008.jpg'
+import waterHeaterWebp from '../../assets/images/pexels-newyork-008.jpg?format=webp'
+import waterHeaterAvif from '../../assets/images/pexels-newyork-008.jpg?format=avif'
 
-import gasLeakJpg from '../../assets/images/pexels-newyork-009.jpg';
-import gasLeakWebp from '../../assets/images/pexels-newyork-009.jpg?format=webp';
-import gasLeakAvif from '../../assets/images/pexels-newyork-009.jpg?format=avif';
+import gasLeakJpg from '../../assets/images/pexels-newyork-009.jpg'
+import gasLeakWebp from '../../assets/images/pexels-newyork-009.jpg?format=webp'
+import gasLeakAvif from '../../assets/images/pexels-newyork-009.jpg?format=avif'
 
 const EmergencyServicePage = () => {
   const jsonLd = {
@@ -41,15 +41,16 @@ const EmergencyServicePage = () => {
     provider: {
       '@type': 'Organization',
       name: 'Manhattan Plumbing',
-      url: 'https://www.manhattanplumbing.com',
-      logo: 'https://www.manhattanplumbing.com/manhattan-plumber.png',
+      url: 'https://manhattan-plumbing.pages.dev',
+      logo: 'https://manhattan-plumbing.pages.dev/manhattan-plumber.png',
     },
     areaServed: {
       '@type': 'City',
       name: 'Manhattan',
     },
-    description: '24/7 emergency plumbing services in Manhattan. We handle burst pipes, sewer backups, water heater failures, and gas leaks.',
-  };
+    description:
+      '24/7 emergency plumbing services in Manhattan. We handle burst pipes, sewer backups, water heater failures, and gas leaks.',
+  }
 
   return (
     <main className="min-h-screen bg-white dark:bg-slate-900">
@@ -57,8 +58,11 @@ const EmergencyServicePage = () => {
         title="24/7 Emergency Plumbing Services | Manhattan Plumbing"
         description="Immediate response for plumbing emergencies in Manhattan. Our certified plumbers are available 24/7 for burst pipes, sewer backups, and more."
         keywords={['emergency plumber', '24/7 plumber', 'burst pipe', 'sewer backup', 'Manhattan']}
-        canonical="https://www.manhattanplumbing.com/services/emergency-service"
+        canonical="https://manhattan-plumbing.pages.dev/services/emergency-service"
+        ogTitle="24/7 Emergency Plumbing Services | Manhattan Plumbing"
+        ogDescription="Immediate response for plumbing emergencies in Manhattan. Our certified plumbers are available 24/7 for burst pipes, sewer backups, and more."
         ogImage={emergencyHeroJpg}
+        ogUrl="https://manhattan-plumbing.pages.dev/services/emergency-service"
         jsonLd={jsonLd}
       />
       {/* Hero Section with Urgent CTA */}
@@ -80,7 +84,7 @@ const EmergencyServicePage = () => {
             <div className="mb-6 flex justify-center">
               <AlertTriangle size={56} className="animate-pulse text-red-400" />
             </div>
-            <h1 className="mb-6 text-4xl font-bold leading-tight md:text-5xl lg:text-6xl">
+            <h1 className="mb-6 text-4xl leading-tight font-bold md:text-5xl lg:text-6xl">
               Emergency Plumbing Services Available Now
             </h1>
             <p className="mb-8 text-xl text-red-100">
@@ -271,7 +275,7 @@ const EmergencyServicePage = () => {
         </div>
       </section>
     </main>
-  );
-};
+  )
+}
 
-export default EmergencyServicePage;
+export default EmergencyServicePage

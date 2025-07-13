@@ -1,41 +1,41 @@
-import { useState, useEffect } from 'react';
-import SEO from '../../components/SEO/SEO';
-import SectionHeading from '../../components/UI/SectionHeading';
-import Button from '../../components/UI/Button';
-import { Home, Bath, Hammer, Zap, CheckCircle } from 'lucide-react';
-import SkeletonLoader from '../../components/UI/SkeletonLoader';
+import { useState, useEffect } from 'react'
+import SEO from '../../components/SEO/SEO'
+import SectionHeading from '../../components/UI/SectionHeading'
+import Button from '../../components/UI/Button'
+import { Home, Bath, Hammer, Zap, CheckCircle } from 'lucide-react'
+import SkeletonLoader from '../../components/UI/SkeletonLoader'
 
 interface PexelsImage {
-  id: number;
-  width: number;
-  height: number;
-  url: string;
-  photographer: string;
-  photographer_url: string;
-  photographer_id: number;
-  avg_color: string;
+  id: number
+  width: number
+  height: number
+  url: string
+  photographer: string
+  photographer_url: string
+  photographer_id: number
+  avg_color: string
   src: {
-    original: string;
-    large2x: string;
-    large: string;
-    medium: string;
-    small: string;
-    portrait: string;
-    landscape: string;
-    tiny: string;
-  };
-  liked: boolean;
-  alt: string;
+    original: string
+    large2x: string
+    large: string
+    medium: string
+    small: string
+    portrait: string
+    landscape: string
+    tiny: string
+  }
+  liked: boolean
+  alt: string
 }
 
 const RemodelingServicePage = () => {
-  const [bathroomImages, setBathroomImages] = useState<PexelsImage[]>([]);
-  const [loading, setLoading] = useState(true);
+  const [bathroomImages, setBathroomImages] = useState<PexelsImage[]>([])
+  const [loading, setLoading] = useState(true)
 
   useEffect(() => {
     const fetchBathroomImages = async () => {
       try {
-        setLoading(true);
+        setLoading(true)
         const response = await fetch(
           'https://api.pexels.com/v1/search?query=luxury+bathroom+remodel&per_page=6',
           {
@@ -43,18 +43,18 @@ const RemodelingServicePage = () => {
               Authorization: '5bXehp9eT0tv7vpIsJCgLsRK5cKOm5liuVdUphgYKfeJco8Hv2cE1h14', // Replace with your actual API key
             },
           }
-        );
-        const data = await response.json();
-        setBathroomImages(data.photos || []);
+        )
+        const data = await response.json()
+        setBathroomImages(data.photos || [])
       } catch (error) {
-        console.error('Error fetching images from Pexels:', error);
+        console.error('Error fetching images from Pexels:', error)
       } finally {
-        setLoading(false);
+        setLoading(false)
       }
-    };
+    }
 
-    fetchBathroomImages();
-  }, []);
+    fetchBathroomImages()
+  }, [])
 
   const jsonLd = {
     '@context': 'https://schema.org',
@@ -63,24 +63,34 @@ const RemodelingServicePage = () => {
     provider: {
       '@type': 'Organization',
       name: 'Manhattan Plumbing',
-      url: 'https://www.manhattanplumbing.com',
-      logo: 'https://www.manhattanplumbing.com/manhattan-plumber.png',
+      url: 'https://manhattan-plumbing.pages.dev',
+      logo: 'https://manhattan-plumbing.pages.dev/manhattan-plumber.png',
     },
     areaServed: {
       '@type': 'City',
       name: 'Manhattan',
     },
-    description: 'Luxury bathroom remodeling services in Manhattan. We transform your bathroom into a spa-like retreat.',
-  };
+    description:
+      'Luxury bathroom remodeling services in Manhattan. We transform your bathroom into a spa-like retreat.',
+  }
 
   return (
     <main className="min-h-screen bg-white dark:bg-slate-900">
       <SEO
         title="Bathroom Remodeling | Manhattan Plumbing"
         description="Transform your bathroom with our premium remodeling services in Manhattan. We offer custom designs and luxury fixtures."
-        keywords={['bathroom remodeling', 'bathroom renovation', 'luxury bathroom', 'Manhattan', 'plumber']}
-        canonical="https://www.manhattanplumbing.com/services/remodeling-service"
+        keywords={[
+          'bathroom remodeling',
+          'bathroom renovation',
+          'luxury bathroom',
+          'Manhattan',
+          'plumber',
+        ]}
+        canonical="https://manhattan-plumbing.pages.dev/services/remodeling-service"
+        ogTitle="Bathroom Remodeling | Manhattan Plumbing"
+        ogDescription="Transform your bathroom with our premium remodeling services in Manhattan. We offer custom designs and luxury fixtures."
         ogImage={bathroomImages.length > 0 ? bathroomImages[0].src.large : ''}
+        ogUrl="https://manhattan-plumbing.pages.dev/services/remodeling-service"
         jsonLd={jsonLd}
       />
       {/* Hero Section with Pexels Background Image */}
@@ -104,7 +114,7 @@ const RemodelingServicePage = () => {
             <div className="mb-6 flex justify-center">
               <Home size={56} className="text-blue-400" />
             </div>
-            <h1 className="mb-6 text-4xl font-bold leading-tight md:text-5xl lg:text-6xl">
+            <h1 className="mb-6 text-4xl leading-tight font-bold md:text-5xl lg:text-6xl">
               Luxury Bathroom Remodeling in Manhattan
             </h1>
             <p className="mb-8 text-xl text-blue-100 md:text-2xl">
@@ -290,7 +300,7 @@ const RemodelingServicePage = () => {
         </div>
       </section>
     </main>
-  );
-};
+  )
+}
 
-export default RemodelingServicePage;
+export default RemodelingServicePage

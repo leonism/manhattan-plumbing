@@ -1,27 +1,27 @@
-import SEO from '../../components/SEO/SEO';
-import SectionHeading from '../../components/UI/SectionHeading';
-import Button from '../../components/UI/Button';
-import { Wrench, ShowerHead, Droplet, Home, CheckCircle } from 'lucide-react';
+import SEO from '../../components/SEO/SEO'
+import SectionHeading from '../../components/UI/SectionHeading'
+import Button from '../../components/UI/Button'
+import { Wrench, ShowerHead, Droplet, Home, CheckCircle } from 'lucide-react'
 
-import fixtureHeroJpg from '../../assets/images/pexels-newyork-010.jpg';
-import fixtureHeroWebp from '../../assets/images/pexels-newyork-010.jpg?format=webp';
-import fixtureHeroAvif from '../../assets/images/pexels-newyork-010.jpg?format=avif';
+import fixtureHeroJpg from '../../assets/images/pexels-newyork-010.jpg'
+import fixtureHeroWebp from '../../assets/images/pexels-newyork-010.jpg?format=webp'
+import fixtureHeroAvif from '../../assets/images/pexels-newyork-010.jpg?format=avif'
 
-import faucetInstallJpg from '../../assets/images/pexels-newyork-011.jpg';
-import faucetInstallWebp from '../../assets/images/pexels-newyork-011.jpg?format=webp';
-import faucetInstallAvif from '../../assets/images/pexels-newyork-011.jpg?format=avif';
+import faucetInstallJpg from '../../assets/images/pexels-newyork-011.jpg'
+import faucetInstallWebp from '../../assets/images/pexels-newyork-011.jpg?format=webp'
+import faucetInstallAvif from '../../assets/images/pexels-newyork-011.jpg?format=avif'
 
-import showerUpgradeJpg from '../../assets/images/pexels-newyork-012.jpg';
-import showerUpgradeWebp from '../../assets/images/pexels-newyork-012.jpg?format=webp';
-import showerUpgradeAvif from '../../assets/images/pexels-newyork-012.jpg?format=avif';
+import showerUpgradeJpg from '../../assets/images/pexels-newyork-012.jpg'
+import showerUpgradeWebp from '../../assets/images/pexels-newyork-012.jpg?format=webp'
+import showerUpgradeAvif from '../../assets/images/pexels-newyork-012.jpg?format=avif'
 
-import waterEfficiencyJpg from '../../assets/images/pexels-newyork-013.jpg';
-import waterEfficiencyWebp from '../../assets/images/pexels-newyork-013.jpg?format=webp';
-import waterEfficiencyAvif from '../../assets/images/pexels-newyork-013.jpg?format=avif';
+import waterEfficiencyJpg from '../../assets/images/pexels-newyork-013.jpg'
+import waterEfficiencyWebp from '../../assets/images/pexels-newyork-013.jpg?format=webp'
+import waterEfficiencyAvif from '../../assets/images/pexels-newyork-013.jpg?format=avif'
 
-import fixtureRepairJpg from '../../assets/images/pexels-newyork-014.jpg';
-import fixtureRepairWebp from '../../assets/images/pexels-newyork-014.jpg?format=webp';
-import fixtureRepairAvif from '../../assets/images/pexels-newyork-014.jpg?format=avif';
+import fixtureRepairJpg from '../../assets/images/pexels-newyork-014.jpg'
+import fixtureRepairWebp from '../../assets/images/pexels-newyork-014.jpg?format=webp'
+import fixtureRepairAvif from '../../assets/images/pexels-newyork-014.jpg?format=avif'
 
 const FixturesServicePage = () => {
   const jsonLd = {
@@ -31,24 +31,34 @@ const FixturesServicePage = () => {
     provider: {
       '@type': 'Organization',
       name: 'Manhattan Plumbing',
-      url: 'https://www.manhattanplumbing.com',
-      logo: 'https://www.manhattanplumbing.com/manhattan-plumber.png',
+      url: 'https://manhattan-plumbing.pages.dev',
+      logo: 'https://manhattan-plumbing.pages.dev/manhattan-plumber.png',
     },
     areaServed: {
       '@type': 'City',
       name: 'Manhattan',
     },
-    description: 'Premium plumbing fixture installation and repair services in Manhattan. We install and repair faucets, showers, and more.',
-  };
+    description:
+      'Premium plumbing fixture installation and repair services in Manhattan. We install and repair faucets, showers, and more.',
+  }
 
   return (
     <main className="min-h-screen bg-white dark:bg-slate-900">
       <SEO
         title="Fixture Installation & Repair | Manhattan Plumbing"
         description="Expert plumbing fixture installation and repair in Manhattan. We specialize in faucets, showers, and water-efficient fixtures."
-        keywords={['fixture installation', 'fixture repair', 'faucet installation', 'shower upgrade', 'Manhattan']}
-        canonical="https://www.manhattanplumbing.com/services/fixture-service"
+        keywords={[
+          'fixture installation',
+          'fixture repair',
+          'faucet installation',
+          'shower upgrade',
+          'Manhattan',
+        ]}
+        canonical="https://manhattan-plumbing.pages.dev/services/fixture-service"
+        ogTitle="Fixture Installation & Repair | Manhattan Plumbing"
+        ogDescription="Expert plumbing fixture installation and repair in Manhattan. We specialize in faucets, showers, and water-efficient fixtures."
         ogImage={fixtureHeroJpg}
+        ogUrl="https://manhattan-plumbing.pages.dev/services/fixture-service"
         jsonLd={jsonLd}
       />
       {/* Hero Section with Modern Fixtures */}
@@ -70,7 +80,7 @@ const FixturesServicePage = () => {
             <div className="mb-6 flex justify-center">
               <ShowerHead size={56} className="text-blue-400" />
             </div>
-            <h1 className="mb-6 text-4xl font-bold leading-tight md:text-5xl lg:text-6xl">
+            <h1 className="mb-6 text-4xl leading-tight font-bold md:text-5xl lg:text-6xl">
               Premium Fixture Installation & Repair
             </h1>
             <p className="mb-8 text-xl text-blue-100">
@@ -265,7 +275,7 @@ const FixturesServicePage = () => {
         </div>
       </section>
     </main>
-  );
-};
+  )
+}
 
-export default FixturesServicePage;
+export default FixturesServicePage

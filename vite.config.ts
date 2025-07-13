@@ -76,6 +76,9 @@ export default defineConfig({
       },
     },
     cssMinify: 'lightningcss',
+    html: {
+      minify: true,
+    },
     cssCodeSplit: true,
     chunkSizeWarningLimit: 1000,
     reportCompressedSize: true,

@@ -1,15 +1,15 @@
-import SEO from '../../components/SEO/SEO';
-import SectionHeading from '../../components/UI/SectionHeading';
-import Button from '../../components/UI/Button';
-import { Flame, Thermometer, Zap, Clock, CheckCircle } from 'lucide-react';
+import SEO from '../../components/SEO/SEO'
+import SectionHeading from '../../components/UI/SectionHeading'
+import Button from '../../components/UI/Button'
+import { Flame, Thermometer, Zap, Clock, CheckCircle } from 'lucide-react'
 
 const WaterHeatersServicePage = () => {
   // Pexels image URLs for water heater services
-  const heroImage = 'https://images.pexels.com/photos/4239013/pexels-photo-4239013.jpeg';
-  const tankInstallation = 'https://images.pexels.com/photos/4239013/pexels-photo-4239013.jpeg';
-  const tanklessSystem = 'https://images.pexels.com/photos/5691636/pexels-photo-5691636.jpeg';
-  const repairService = 'https://images.pexels.com/photos/5691635/pexels-photo-5691635.jpeg';
-  const maintenanceImage = 'https://images.pexels.com/photos/4108795/pexels-photo-4108795.jpeg';
+  const heroImage = 'https://images.pexels.com/photos/4239013/pexels-photo-4239013.jpeg'
+  const tankInstallation = 'https://images.pexels.com/photos/4239013/pexels-photo-4239013.jpeg'
+  const tanklessSystem = 'https://images.pexels.com/photos/5691636/pexels-photo-5691636.jpeg'
+  const repairService = 'https://images.pexels.com/photos/5691635/pexels-photo-5691635.jpeg'
+  const maintenanceImage = 'https://images.pexels.com/photos/4108795/pexels-photo-4108795.jpeg'
 
   const jsonLd = {
     '@context': 'https://schema.org',
@@ -18,24 +18,34 @@ const WaterHeatersServicePage = () => {
     provider: {
       '@type': 'Organization',
       name: 'Manhattan Plumbing',
-      url: 'https://www.manhattanplumbing.com',
-      logo: 'https://www.manhattanplumbing.com/manhattan-plumber.png',
+      url: 'https://manhattan-plumbing.pages.dev',
+      logo: 'https://manhattan-plumbing.pages.dev/manhattan-plumber.png',
     },
     areaServed: {
       '@type': 'City',
       name: 'Manhattan',
     },
-    description: 'Expert water heater installation, repair, and maintenance services in Manhattan. We service both tank and tankless water heaters.',
-  };
+    description:
+      'Expert water heater installation, repair, and maintenance services in Manhattan. We service both tank and tankless water heaters.',
+  }
 
   return (
     <main className="min-h-screen bg-white dark:bg-slate-900">
       <SEO
         title="Water Heater Services | Manhattan Plumbing"
         description="Reliable water heater installation, repair, and maintenance in Manhattan. We offer 24/7 emergency service and a 10-year guarantee."
-        keywords={['water heater', 'tankless water heater', 'water heater repair', 'water heater installation', 'Manhattan']}
-        canonical="https://www.manhattanplumbing.com/services/water-heater-service"
+        keywords={[
+          'water heater',
+          'tankless water heater',
+          'water heater repair',
+          'water heater installation',
+          'Manhattan',
+        ]}
+        canonical="https://manhattan-plumbing.pages.dev/services/water-heater-service"
+        ogTitle="Water Heater Services | Manhattan Plumbing"
+        ogDescription="Reliable water heater installation, repair, and maintenance in Manhattan. We offer 24/7 emergency service and a 10-year guarantee."
         ogImage={heroImage}
+        ogUrl="https://manhattan-plumbing.pages.dev/services/water-heater-service"
         jsonLd={jsonLd}
       />
       {/* Hero Section with Pexels Background Image */}
@@ -53,7 +63,7 @@ const WaterHeatersServicePage = () => {
             <div className="mb-6 flex justify-center">
               <Flame size={56} className="text-blue-400" />
             </div>
-            <h1 className="mb-6 text-4xl font-bold leading-tight md:text-5xl lg:text-6xl">
+            <h1 className="mb-6 text-4xl leading-tight font-bold md:text-5xl lg:text-6xl">
               Expert Water Heater Services in Manhattan
             </h1>
             <p className="mb-8 text-xl text-blue-100 md:text-2xl">
@@ -241,7 +251,7 @@ const WaterHeatersServicePage = () => {
         </div>
       </section>
     </main>
-  );
-};
+  )
+}
 
-export default WaterHeatersServicePage;
+export default WaterHeatersServicePage

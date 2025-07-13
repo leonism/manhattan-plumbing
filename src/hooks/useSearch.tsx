@@ -41,7 +41,7 @@ const services = [
   },
 ]
 
-interface SearchResult {
+export interface SearchResult {
   slug: string
   title: string
   excerpt: string
@@ -49,7 +49,7 @@ interface SearchResult {
   icon?: string
 }
 
-interface CategorizedResults {
+export interface CategorizedResults {
   news: SearchResult[]
   services: SearchResult[]
 }
