@@ -59,8 +59,8 @@ const SearchResultsPage: React.FC = () => {
                 <div className="col-span-full">
                   <h2 className="mb-4 text-2xl font-semibold">Services</h2>
                   <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
-                    {results.services.map((service: SearchResult) => (
-                      <NewsCard key={service.slug} post={service} />
+                    {results.services.map((result: SearchResult) => (
+                      <SearchResultCard key={result.slug} result={result} />
                     ))}
                   </div>
                 </div>
