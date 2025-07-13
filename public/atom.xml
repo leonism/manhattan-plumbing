@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://manhattan-plumbing.pages.dev</id>
     <title>Manhattan Plumbing</title>
-    <updated>2025-07-13T01:34:50.227Z</updated>
+    <updated>2025-07-13T01:37:12.589Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <author>
         <name>Manhattan Plumbing</name>
@@ -19,85 +19,189 @@
         <title type="html"><![CDATA[Manhattan Plumbing Home]]></title>
         <id>https://manhattan-plumbing.pages.dev/</id>
         <link href="https://manhattan-plumbing.pages.dev/"/>
-        <updated>2025-07-13T01:34:50.254Z</updated>
+        <updated>2025-07-13T01:37:12.623Z</updated>
         <summary type="html"><![CDATA[Your trusted local plumber in Manhattan.]]></summary>
     </entry>
     <entry>
         <title type="html"><![CDATA[Manhattan Plumbing News]]></title>
         <id>https://manhattan-plumbing.pages.dev/news</id>
         <link href="https://manhattan-plumbing.pages.dev/news"/>
-        <updated>2025-07-13T01:34:50.254Z</updated>
+        <updated>2025-07-13T01:37:12.623Z</updated>
         <summary type="html"><![CDATA[Latest news and articles from Manhattan Plumbing.]]></summary>
     </entry>
     <entry>
         <title type="html"><![CDATA[Privacy Policy | Manhattan Plumbing]]></title>
         <id>https://manhattan-plumbing.pages.dev/privacy-policy</id>
         <link href="https://manhattan-plumbing.pages.dev/privacy-policy"/>
-        <updated>2025-07-13T01:34:50.254Z</updated>
+        <updated>2025-07-13T01:37:12.623Z</updated>
         <summary type="html"><![CDATA[Manhattan Plumbing Privacy Policy.]]></summary>
     </entry>
     <entry>
         <title type="html"><![CDATA[Terms of Service | Manhattan Plumbing]]></title>
         <id>https://manhattan-plumbing.pages.dev/terms-of-service</id>
         <link href="https://manhattan-plumbing.pages.dev/terms-of-service"/>
-        <updated>2025-07-13T01:34:50.254Z</updated>
+        <updated>2025-07-13T01:37:12.623Z</updated>
         <summary type="html"><![CDATA[Manhattan Plumbing Terms of Service.]]></summary>
     </entry>
     <entry>
         <title type="html"><![CDATA[Cookie Policy | Manhattan Plumbing]]></title>
         <id>https://manhattan-plumbing.pages.dev/cookie-policy</id>
         <link href="https://manhattan-plumbing.pages.dev/cookie-policy"/>
-        <updated>2025-07-13T01:34:50.254Z</updated>
+        <updated>2025-07-13T01:37:12.623Z</updated>
         <summary type="html"><![CDATA[Manhattan Plumbing Cookie Policy.]]></summary>
     </entry>
     <entry>
         <title type="html"><![CDATA[Drain Cleaning Services | Manhattan Plumbing]]></title>
         <id>https://manhattan-plumbing.pages.dev/services/drain-service</id>
         <link href="https://manhattan-plumbing.pages.dev/services/drain-service"/>
-        <updated>2025-07-13T01:34:50.254Z</updated>
+        <updated>2025-07-13T01:37:12.623Z</updated>
         <summary type="html"><![CDATA[Fast and effective drain cleaning services in Manhattan.]]></summary>
     </entry>
     <entry>
         <title type="html"><![CDATA[Emergency Plumbing Services | Manhattan Plumbing]]></title>
         <id>https://manhattan-plumbing.pages.dev/services/emergency-service</id>
         <link href="https://manhattan-plumbing.pages.dev/services/emergency-service"/>
-        <updated>2025-07-13T01:34:50.254Z</updated>
+        <updated>2025-07-13T01:37:12.623Z</updated>
         <summary type="html"><![CDATA[24/7 emergency plumbing services in Manhattan.]]></summary>
     </entry>
     <entry>
         <title type="html"><![CDATA[Fixture Installation & Repair | Manhattan Plumbing]]></title>
         <id>https://manhattan-plumbing.pages.dev/services/fixture-service</id>
         <link href="https://manhattan-plumbing.pages.dev/services/fixture-service"/>
-        <updated>2025-07-13T01:34:50.254Z</updated>
+        <updated>2025-07-13T01:37:12.623Z</updated>
         <summary type="html"><![CDATA[Expert plumbing fixture installation and repair in Manhattan.]]></summary>
     </entry>
     <entry>
         <title type="html"><![CDATA[Pipe Repair & Replacement | Manhattan Plumbing]]></title>
         <id>https://manhattan-plumbing.pages.dev/services/pipe-service</id>
         <link href="https://manhattan-plumbing.pages.dev/services/pipe-service"/>
-        <updated>2025-07-13T01:34:50.254Z</updated>
+        <updated>2025-07-13T01:37:12.623Z</updated>
         <summary type="html"><![CDATA[Durable solutions for leaky, corroded, or damaged pipes in Manhattan.]]></summary>
     </entry>
     <entry>
         <title type="html"><![CDATA[Bathroom Remodeling | Manhattan Plumbing]]></title>
         <id>https://manhattan-plumbing.pages.dev/services/remodeling-service</id>
         <link href="https://manhattan-plumbing.pages.dev/services/remodeling-service"/>
-        <updated>2025-07-13T01:34:50.254Z</updated>
+        <updated>2025-07-13T01:37:12.623Z</updated>
         <summary type="html"><![CDATA[Transform your bathroom with our premium remodeling services in Manhattan.]]></summary>
     </entry>
     <entry>
         <title type="html"><![CDATA[Water Heater Services | Manhattan Plumbing]]></title>
         <id>https://manhattan-plumbing.pages.dev/services/water-heater-service</id>
         <link href="https://manhattan-plumbing.pages.dev/services/water-heater-service"/>
-        <updated>2025-07-13T01:34:50.254Z</updated>
+        <updated>2025-07-13T01:37:12.623Z</updated>
         <summary type="html"><![CDATA[Reliable water heater installation, repair, and maintenance in Manhattan.]]></summary>
     </entry>
     <entry>
         <title type="html"><![CDATA[Our Location | Manhattan Plumbing]]></title>
         <id>https://manhattan-plumbing.pages.dev/location</id>
         <link href="https://manhattan-plumbing.pages.dev/location"/>
-        <updated>2025-07-13T01:34:50.254Z</updated>
+        <updated>2025-07-13T01:37:12.623Z</updated>
         <summary type="html"><![CDATA[Find Manhattan Plumbing at our convenient location in the heart of Manhattan.]]></summary>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[2025 Bathroom Remodeling Trends: Modern Luxury Meets Sustainability]]></title>
+        <id>https://manhattan-plumbing.pages.dev/news/bathroom-remodeling-trendsx</id>
+        <link href="https://manhattan-plumbing.pages.dev/news/bathroom-remodeling-trendsx"/>
+        <updated>2025-05-17T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Explore the latest bathroom remodeling trends of 2025, where luxury meets sustainability. From smart toilets to water-efficient fixtures, discover how modern bathrooms are becoming both more luxurious and environmentally conscious.]]></summary>
+        <content type="html"><![CDATA[
+# 2025 Bathroom Remodeling Trends: Modern Luxury Meets Sustainability
+
+The bathroom has evolved from a purely functional space to a personal sanctuary that reflects both luxury and environmental consciousness. Let's explore the top trends shaping bathroom design in 2025.
+
+## 1. Smart Technology Integration
+
+Modern bathrooms are becoming increasingly connected:
+
+- **Voice-controlled fixtures**
+
+  - Adjustable lighting and temperature
+  - Smart mirrors with built-in displays
+  - Automated shower systems
+
+- **Intelligent toilets**
+  - Self-cleaning capabilities
+  - Bidet functions with customizable settings
+  - Water usage optimization
+
+## 2. Sustainable Luxury
+
+Eco-friendly features that don't compromise on style:
+
+- **Water-efficient fixtures**
+
+  - Dual-flush toilets with modern designs
+  - Smart faucets with flow control
+  - Rainfall showerheads with air-infusion technology
+
+- **Sustainable materials**
+  - Recycled glass tiles
+  - Bamboo vanities
+  - Low-VOC finishes
+
+[Continue with detailed trends and design tips...]
+]]></content>
+        <author>
+            <name>Isabella Chen</name>
+            <uri>https://manhattan-plumbing.pages.dev/news/bathroom-remodeling-trendsx</uri>
+        </author>
+        <category label="bathroom remodeling"/>
+        <category label="interior design"/>
+        <category label="luxury bathrooms"/>
+        <category label="sustainable design"/>
+        <category label="home improvement"/>
+        <category label="modern fixtures"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[10 Common Plumbing Myths Debunked by Experts]]></title>
+        <id>https://manhattan-plumbing.pages.dev/news/common-plumbing-myths-debunkedx</id>
+        <link href="https://manhattan-plumbing.pages.dev/news/common-plumbing-myths-debunkedx"/>
+        <updated>2025-05-12T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Professional plumbers debunk common plumbing myths and misconceptions. Learn the truth about drain cleaners, water heaters, and other plumbing-related beliefs that might be costing you money or damaging your plumbing system.]]></summary>
+        <content type="html"><![CDATA[
+# 10 Common Plumbing Myths Debunked by Experts
+
+As plumbing professionals, we often encounter misconceptions that can lead to costly mistakes or unnecessary worries. Let's separate fact from fiction with expert analysis of common plumbing myths.
+
+## Myth #1: Chemical Drain Cleaners Are Safe and Effective
+
+**The Truth**: Chemical drain cleaners can actually damage your pipes and create more problems than they solve. These harsh chemicals:
+
+- Corrode pipe materials
+- Create harmful fumes
+- May not address the root cause
+- Can make clogs worse
+
+## Myth #2: A Leaky Faucet Isn't a Big Deal
+
+**The Truth**: Even small leaks can waste thousands of gallons of water annually and lead to:
+
+- Higher water bills
+- Water damage
+- Mineral buildup
+- Wasted resources
+
+## Myth #3: Hot Water Helps Grease Go Down Drains
+
+**The Truth**: Hot water actually causes grease to:
+
+- Liquefy temporarily
+- Flow further into pipes
+- Cool and solidify
+- Create stubborn clogs
+
+[Continue with more myths and expert explanations...]
+]]></content>
+        <author>
+            <name>Lisa Rodriguez</name>
+            <uri>https://manhattan-plumbing.pages.dev/news/common-plumbing-myths-debunkedx</uri>
+        </author>
+        <category label="plumbing myths"/>
+        <category label="fact checking"/>
+        <category label="plumbing tips"/>
+        <category label="homeowner education"/>
+        <category label="professional advice"/>
     </entry>
     <entry>
         <title type="html"><![CDATA[Eco-Friendly Plumbing Solutions: 2025 Guide]]></title>
@@ -496,56 +600,6 @@ Sustainable water use is most powerful when shared by all household members. Dis
         <category label="green solutions"/>
     </entry>
     <entry>
-        <title type="html"><![CDATA[10 Common Plumbing Myths Debunked by Experts]]></title>
-        <id>https://manhattan-plumbing.pages.dev/news/common-plumbing-myths-debunkedx</id>
-        <link href="https://manhattan-plumbing.pages.dev/news/common-plumbing-myths-debunkedx"/>
-        <updated>2025-05-12T00:00:00.000Z</updated>
-        <summary type="html"><![CDATA[Professional plumbers debunk common plumbing myths and misconceptions. Learn the truth about drain cleaners, water heaters, and other plumbing-related beliefs that might be costing you money or damaging your plumbing system.]]></summary>
-        <content type="html"><![CDATA[
-# 10 Common Plumbing Myths Debunked by Experts
-
-As plumbing professionals, we often encounter misconceptions that can lead to costly mistakes or unnecessary worries. Let's separate fact from fiction with expert analysis of common plumbing myths.
-
-## Myth #1: Chemical Drain Cleaners Are Safe and Effective
-
-**The Truth**: Chemical drain cleaners can actually damage your pipes and create more problems than they solve. These harsh chemicals:
-
-- Corrode pipe materials
-- Create harmful fumes
-- May not address the root cause
-- Can make clogs worse
-
-## Myth #2: A Leaky Faucet Isn't a Big Deal
-
-**The Truth**: Even small leaks can waste thousands of gallons of water annually and lead to:
-
-- Higher water bills
-- Water damage
-- Mineral buildup
-- Wasted resources
-
-## Myth #3: Hot Water Helps Grease Go Down Drains
-
-**The Truth**: Hot water actually causes grease to:
-
-- Liquefy temporarily
-- Flow further into pipes
-- Cool and solidify
-- Create stubborn clogs
-
-[Continue with more myths and expert explanations...]
-]]></content>
-        <author>
-            <name>Lisa Rodriguez</name>
-            <uri>https://manhattan-plumbing.pages.dev/news/common-plumbing-myths-debunkedx</uri>
-        </author>
-        <category label="plumbing myths"/>
-        <category label="fact checking"/>
-        <category label="plumbing tips"/>
-        <category label="homeowner education"/>
-        <category label="professional advice"/>
-    </entry>
-    <entry>
         <title type="html"><![CDATA[Essential Water Heater Maintenance Tips for Longevity]]></title>
         <id>https://manhattan-plumbing.pages.dev/news/water-heater-maintenance-tipsx</id>
         <link href="https://manhattan-plumbing.pages.dev/news/water-heater-maintenance-tipsx"/>
@@ -594,59 +648,5 @@ Regular maintenance of your water heater:
         <category label="home maintenance"/>
         <category label="cost savings"/>
         <category label="preventive care"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[2025 Bathroom Remodeling Trends: Modern Luxury Meets Sustainability]]></title>
-        <id>https://manhattan-plumbing.pages.dev/news/bathroom-remodeling-trendsx</id>
-        <link href="https://manhattan-plumbing.pages.dev/news/bathroom-remodeling-trendsx"/>
-        <updated>2025-05-17T00:00:00.000Z</updated>
-        <summary type="html"><![CDATA[Explore the latest bathroom remodeling trends of 2025, where luxury meets sustainability. From smart toilets to water-efficient fixtures, discover how modern bathrooms are becoming both more luxurious and environmentally conscious.]]></summary>
-        <content type="html"><![CDATA[
-# 2025 Bathroom Remodeling Trends: Modern Luxury Meets Sustainability
-
-The bathroom has evolved from a purely functional space to a personal sanctuary that reflects both luxury and environmental consciousness. Let's explore the top trends shaping bathroom design in 2025.
-
-## 1. Smart Technology Integration
-
-Modern bathrooms are becoming increasingly connected:
-
-- **Voice-controlled fixtures**
-
-  - Adjustable lighting and temperature
-  - Smart mirrors with built-in displays
-  - Automated shower systems
-
-- **Intelligent toilets**
-  - Self-cleaning capabilities
-  - Bidet functions with customizable settings
-  - Water usage optimization
-
-## 2. Sustainable Luxury
-
-Eco-friendly features that don't compromise on style:
-
-- **Water-efficient fixtures**
-
-  - Dual-flush toilets with modern designs
-  - Smart faucets with flow control
-  - Rainfall showerheads with air-infusion technology
-
-- **Sustainable materials**
-  - Recycled glass tiles
-  - Bamboo vanities
-  - Low-VOC finishes
-
-[Continue with detailed trends and design tips...]
-]]></content>
-        <author>
-            <name>Isabella Chen</name>
-            <uri>https://manhattan-plumbing.pages.dev/news/bathroom-remodeling-trendsx</uri>
-        </author>
-        <category label="bathroom remodeling"/>
-        <category label="interior design"/>
-        <category label="luxury bathrooms"/>
-        <category label="sustainable design"/>
-        <category label="home improvement"/>
-        <category label="modern fixtures"/>
     </entry>
 </feed>

@@ -1,7 +1,10 @@
 export interface Post {
   slug: string
   title: string
+  seoTitle?: string
   date: string
+  lastModified?: string
+  jsonLd?: object
   author: {
     name: string
     role: string

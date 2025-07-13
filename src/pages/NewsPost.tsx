@@ -67,11 +67,12 @@ const NewsPost: React.FC = () => {
         ogUrl={`https://www.manhattanplumbing.com/news/${post.slug}`}
         jsonLd={{
           '@context': 'https://schema.org',
-          '@type': 'BlogPosting',
-          headline: post.title,
+          '@type': 'Article',
+          headline: post.seoTitle || post.title,
           description: post.excerpt,
           image: post.featuredImage.src,
           datePublished: post.date,
+          dateModified: post.lastModified || post.date,
           author: {
             '@type': 'Person',
             name: post.author.name,
@@ -84,6 +85,7 @@ const NewsPost: React.FC = () => {
               url: 'https://www.manhattanplumbing.com/manhattan-plumber.png',
             },
           },
+          ...(post.jsonLd || {}),
         }}
       />
 
