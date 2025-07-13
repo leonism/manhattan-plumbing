@@ -2,13 +2,16 @@ import React from 'react'
 import { useParams, Link } from 'react-router-dom'
 import SEO from '../components/SEO/SEO'
 import { format } from 'date-fns'
-import { Calendar, Clock, Tag, ArrowLeft, ArrowRight, Folder } from 'lucide-react'
+import { Calendar, Clock, Tag, Folder } from 'lucide-react';
 import { MDXProvider } from '@mdx-js/react'
 
 import ShareButtons from '../components/News/ShareButtons'
 import { useNews } from '../hooks/useNews'
 import { Post } from '../types/news'
 import SkeletonLoader from '../components/UI/SkeletonLoader'
+import ArticleNavigation from '../components/News/ArticleNavigation'
+
+
 
 // Helper function to slugify strings
 const slugify = (text: string) => {
@@ -24,9 +27,7 @@ const slugify = (text: string) => {
 }
 
 const components = {
-  // You can add custom components here to override default HTML elements
-  // For example, to style all <h1> tags:
-  // h1: ({ children }) => <h1 className="text-4xl font-bold text-blue-600">{}</h1>,
+  // You can add custom MDX overrides here
 }
 
 const NewsPost: React.FC = () => {
@@ -94,13 +95,6 @@ const NewsPost: React.FC = () => {
 
       <main className="bg-slate-50 py-20 text-slate-800 sm:py-24 dark:bg-slate-900 dark:text-slate-200">
         <article className="container mx-auto px-4 py-8">
-          {/* <Link
-            to="/news"
-            className="inline-flex items-center text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-200 mb-8 transition-colors">
-            <ArrowLeft className="w-4 h-4 mr-2" />
-            Back to News
-          </Link> */}
-
           <header className="mx-auto mb-12 max-w-4xl text-center">
             <h1 className="mb-6 text-4xl leading-tight font-extrabold md:text-5xl">{post.title}</h1>
             <div className="relative mb-8 overflow-hidden rounded-lg shadow-lg">
@@ -178,39 +172,8 @@ const NewsPost: React.FC = () => {
             <ShareButtons post={post} />
           </div>
 
-          <div className="mx-auto mt-16 flex max-w-4xl flex-col items-center justify-between gap-4 border-t border-slate-200 pt-8 sm:flex-row dark:border-slate-700">
-            {previousPost ? (
-              <Link
-                to={`/news/${previousPost.slug}`}
-                className="group flex w-full items-center gap-2 rounded-xl border border-slate-200 p-4 text-blue-600 transition-colors hover:bg-slate-100 hover:text-blue-800 sm:w-auto dark:border-slate-700 dark:text-blue-400 dark:hover:bg-slate-800 dark:hover:text-blue-200"
-              >
-                <ArrowLeft className="h-5 w-5 shrink-0 transition-transform group-hover:-translate-x-1" />
-                <div className="grow">
-                  <div className="text-sm text-slate-500 dark:text-slate-400">Previous Article</div>
-                  <div className="line-clamp-1 font-semibold">{previousPost.title}</div>
-                </div>
-              </Link>
-            ) : (
-              <div className="w-full sm:w-auto" />
-            )}
+          <ArticleNavigation previousPost={previousPost} nextPost={nextPost} />
 
-            {nextPost ? (
-              <Link
-                to={`/news/${nextPost.slug}`}
-                className="ml-auto flex w-full items-center gap-2 rounded-xl border border-slate-200 p-4 text-right text-blue-600 transition-colors hover:bg-slate-100 hover:text-blue-800 sm:w-auto dark:border-slate-700 dark:text-blue-400 dark:hover:bg-slate-800 dark:hover:text-blue-200"
-              >
-                <div className="grow">
-                  <div className="text-sm text-slate-500 dark:text-slate-400">Next Article</div>
-                  <div className="line-clamp-1 font-semibold">{nextPost.title}</div>
-                </div>
-                <ArrowRight className="h-5 w-5 shrink-0 transition-transform group-hover:translate-x-1" />
-              </Link>
-            ) : (
-              <div className="w-full sm:w-auto" />
-            )}
-          </div>
-
-          {/* Related Articles Section */}
           {allPosts.filter((p: Post) => p.slug !== post.slug).length > 0 && (
             <div className="mx-auto mt-16 max-w-4xl">
               <h2 className="mb-8 text-center text-3xl font-bold">More Articles</h2>
