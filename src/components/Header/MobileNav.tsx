@@ -46,6 +46,8 @@ const MobileNav: React.FC<MobileNavProps> = ({
                   <button
                     onClick={() => toggleDropdown(item.label)}
                     className="flex w-full items-center justify-between py-3 text-xl font-medium text-slate-800 transition-colors hover:text-blue-600 dark:text-white dark:hover:text-blue-400"
+                    aria-expanded={activeDropdown === item.label}
+                    aria-haspopup="true"
                   >
                     <span>{item.label}</span>
                     <ChevronDown
