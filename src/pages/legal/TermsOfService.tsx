@@ -236,7 +236,7 @@ const TermsOfService: React.FC = () => {
           '@context': 'https://schema.org',
           '@type': 'WebPage',
           name: 'Terms of Service',
-          description: 'Read our terms of service to understand the conditions for using Manhattan Plumbing's services.',
+          description: `Read our terms of service to understand the conditions for using Manhattan Plumbing's services.`,
           url: 'https://manhattan-plumbing.pages.dev/terms-of-service',
         }}
       />
