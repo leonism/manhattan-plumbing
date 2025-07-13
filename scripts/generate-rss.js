@@ -83,9 +83,7 @@ async function generateRssFeed() {
           const src = $(elem).attr('src')
           if (src) {
             // Decode and re-encode to ensure proper escaping of all characters
-            const decodedSrc = decodeURIComponent(src);
-            const encodedSrc = encodeURIComponent(decodedSrc).replace(/%26/g, '&amp;');
-            $(elem).attr('src', encodedSrc);
+            $(elem).attr('src', src.replace(/&/g, '&amp;'));
           }
         })
         htmlContent = $.html()
