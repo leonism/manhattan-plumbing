@@ -154,7 +154,7 @@ async function generateRssFeed() {
             },
           ],
           date: new Date(data.date),
-          image: data.featuredImage.src,
+          image: encodeURI(data.featuredImage.src),
           enclosure: {
             url: encodeURI(data.featuredImage.src),
             type: 'image/jpeg',
