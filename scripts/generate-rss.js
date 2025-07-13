@@ -9,6 +9,14 @@ const SITE_URL = 'https://manhattan-plumbing.pages.dev' // Ensure no trailing sp
 const SITE_TITLE = 'Manhattan Plumbing'
 const SITE_DESCRIPTION = 'Professional plumbing services in Manhattan, NY'
 
+function escapeXmlAttribute(str) {
+  return str.replace(/&/g, '&amp;')
+            .replace(/</g, '&lt;')
+            .replace(/>/g, '&gt;')
+            .replace(/"/g, '&quot;')
+            .replace(/'/g, '&apos;');
+}
+
 async function generateRssFeed() {
   marked.setOptions({
     gfm: true,

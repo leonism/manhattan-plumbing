@@ -12,7 +12,7 @@ const NewsPost = lazy(() => import('./pages/NewsPost'))
 const SearchResultsPage = lazy(() => import('./pages/SearchResultsPage'))
 const PrivacyPolicy = lazy(() => import('./pages/legal/PrivacyPolicy'))
 const TermsOfService = lazy(() => import('./pages/legal/TermsOfService'))
-const CookiePolicy = lazy(() => import('./pages/legal/CookiePolicy'))
+const CookiesPolicy = lazy(() => import('./pages/legal/CookiesPolicy'))
 const DrainService = lazy(() => import('./pages/services/DrainService'))
 const EmergencyService = lazy(() => import('./pages/services/EmergencyService'))
 const FixtureService = lazy(() => import('./pages/services/FixtureService'))
@@ -95,10 +95,10 @@ function App() {
                 }
               />
               <Route
-                path="/cookie-policy"
+                path="/cookies-policy"
                 element={
                   <LayoutNewsPage>
-                    <CookiePolicy />
+                    <CookiesPolicy />
                   </LayoutNewsPage>
                 }
               />
