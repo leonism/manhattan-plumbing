@@ -1,12 +1,12 @@
 import React from 'react'
 import { useParams, Link } from 'react-router-dom'
-import SEO from '../components/SEO/SEO';
+import SEO from '../components/SEO/SEO'
 import { format } from 'date-fns'
 import { Calendar, Clock, Tag, ArrowLeft, ArrowRight, Folder } from 'lucide-react'
 import { MDXProvider } from '@mdx-js/react'
 
-import ShareButtons from '../components/News/ShareButtons';
-import { useNews } from '../hooks/useNews';
+import ShareButtons from '../components/News/ShareButtons'
+import { useNews } from '../hooks/useNews'
 import { Post } from '../types/news'
 import SkeletonLoader from '../components/UI/SkeletonLoader'
 
@@ -60,11 +60,11 @@ const NewsPost: React.FC = () => {
         title={`${post.title} | Manhattan Plumbing`}
         description={post.excerpt}
         keywords={post.tags}
-        canonical={`https://www.manhattanplumbing.com/news/${post.slug}`}
+        canonical={`https://manhattan-plumbing.pages.dev/news/${post.slug}`}
         ogTitle={post.title}
         ogDescription={post.excerpt}
         ogImage={post.featuredImage.src}
-        ogUrl={`https://www.manhattanplumbing.com/news/${post.slug}`}
+        ogUrl={`https://manhattan-plumbing.pages.dev/news/${post.slug}`}
         jsonLd={{
           '@context': 'https://schema.org',
           '@type': 'Article',
@@ -82,7 +82,7 @@ const NewsPost: React.FC = () => {
             name: 'Manhattan Plumbing',
             logo: {
               '@type': 'ImageObject',
-              url: 'https://www.manhattanplumbing.com/manhattan-plumber.png',
+              url: 'https://manhattan-plumbing.pages.dev/manhattan-plumber.png',
             },
           },
           ...(post.jsonLd || {}),
@@ -129,7 +129,7 @@ const NewsPost: React.FC = () => {
                 </Link>
               ))}
             </div>
-            
+
             <div className="mb-6 flex flex-wrap items-center justify-center gap-4 text-slate-600 dark:text-slate-400">
               <div className="flex items-center">
                 <Calendar className="mr-2 h-4 w-4" />
