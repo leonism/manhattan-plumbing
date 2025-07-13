@@ -7,63 +7,62 @@ interface MDXModule {
   frontmatter: Post
 }
 
-const fetchAllPosts = () => {
-  const postFiles = import.meta.glob<MDXModule>('../content/news/*.mdx', {
-    eager: true,
-  })
+const postFiles = import.meta.glob<MDXModule>('../content/news/*.mdx', {
+  eager: true,
+})
 
-  const allPosts: Post[] = []
-  for (const path in postFiles) {
-    const module = postFiles[path]
-    const data = module.frontmatter
+const allPostsData: Post[] = []
+for (const path in postFiles) {
+  const module = postFiles[path]
+  const data = module.frontmatter
 
-    if (data.status === 'published') {
-      const featuredImage = data.featuredImage.src.startsWith('http')
-        ? {
-            src: data.featuredImage.src,
-            webp: data.featuredImage.src,
-            avif: data.featuredImage.src,
-            alt: data.featuredImage.alt,
-            caption: data.featuredImage.caption,
-          }
-        : {
-            src: `/src/assets/images/${data.featuredImage.src}`,
-            webp: `/src/assets/images/${data.featuredImage.src}?format=webp`,
-            avif: `/src/assets/images/${data.featuredImage.src}?format=avif`,
-            alt: data.featuredImage.alt,
-            caption: data.featuredImage.caption,
-          }
+  if (data.status === 'published') {
+    const featuredImage = data.featuredImage.src.startsWith('http')
+      ? {
+          src: data.featuredImage.src,
+          webp: data.featuredImage.src,
+          avif: data.featuredImage.src,
+          alt: data.featuredImage.alt,
+          caption: data.featuredImage.caption,
+        }
+      : {
+          src: `/src/assets/images/${data.featuredImage.src}`,
+          webp: `/src/assets/images/${data.featuredImage.src}?format=webp`,
+          avif: `/src/assets/images/${data.featuredImage.src}?format=avif`,
+          alt: data.featuredImage.alt,
+          caption: data.featuredImage.caption,
+        }
 
-      const authorImage = data.author.image.startsWith('http')
-        ? {
-            src: data.author.image,
-            webp: data.author.image,
-            avif: data.author.image,
-          }
-        : {
-            src: `/src/assets/images/${data.author.image}`,
-            webp: `/src/assets/images/${data.author.image}?format=webp`,
-            avif: `/src/assets/images/${data.author.image}?format=avif`,
-          }
+    const authorImage = data.author.image.startsWith('http')
+      ? {
+          src: data.author.image,
+          webp: data.author.image,
+          avif: data.author.image,
+        }
+      : {
+          src: `/src/assets/images/${data.author.image}`,
+          webp: `/src/assets/images/${data.author.image}?format=webp`,
+          avif: `/src/assets/images/${data.author.image}?format=avif`,
+          alt: data.author.image.alt,
+          caption: data.author.image.caption,
+        }
 
-      allPosts.push({
-        ...data,
-        featuredImage: featuredImage,
-        author: {
-          ...data.author,
-          image: authorImage,
-        },
-        body: module.default,
-      } as Post)
-    }
+    allPostsData.push({
+      ...data,
+      featuredImage: featuredImage,
+      author: {
+        ...data.author,
+        image: authorImage,
+      },
+      body: module.default,
+    } as Post)
   }
-
-  allPosts.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
-  return allPosts
 }
 
+allPostsData.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
+
 export const useNews = ({ category, tag, page = 1, limit = 9 }: UseNewsOptions = {}) => {
-  const allPosts = useMemo(() => fetchAllPosts(), [])
+  const allPosts = useMemo(() => allPostsData, [])
 
   const [posts, setPosts] = useState<Post[]>([])
   const [categories, setCategories] = useState<string[]>([])
