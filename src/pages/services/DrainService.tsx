@@ -4,24 +4,10 @@ import Button from '../../components/UI/Button';
 import { Droplets, Wrench, Shield, Clock, CheckCircle, Zap } from 'lucide-react';
 
 import drainHeroJpg from '../../assets/images/pexels-newyork-001.jpg';
-import drainHeroWebp from '../../assets/images/pexels-newyork-001.jpg?format=webp';
-import drainHeroAvif from '../../assets/images/pexels-newyork-001.jpg?format=avif';
-
 import kitchenClogJpg from '../../assets/images/pexels-newyork-002.jpg';
-import kitchenClogWebp from '../../assets/images/pexels-newyork-002.jpg?format=webp';
-import kitchenClogAvif from '../../assets/images/pexels-newyork-002.jpg?format=avif';
-
 import bathroomDrainJpg from '../../assets/images/pexels-newyork-003.jpg';
-import bathroomDrainWebp from '../../assets/images/pexels-newyork-003.jpg?format=webp';
-import bathroomDrainAvif from '../../assets/images/pexels-newyork-003.jpg?format=avif';
-
 import sewerLineJpg from '../../assets/images/pexels-newyork-004.jpg';
-import sewerLineWebp from '../../assets/images/pexels-newyork-004.jpg?format=webp';
-import sewerLineAvif from '../../assets/images/pexels-newyork-004.jpg?format=avif';
-
 import outdoorDrainJpg from '../../assets/images/pexels-newyork-005.jpg';
-import outdoorDrainWebp from '../../assets/images/pexels-newyork-005.jpg?format=webp';
-import outdoorDrainAvif from '../../assets/images/pexels-newyork-005.jpg?format=avif';
 
 const DrainsServicePage = () => {
   const jsonLd = {
@@ -55,8 +41,8 @@ const DrainsServicePage = () => {
       <section className="relative bg-slate-900 text-white">
         <div className="absolute inset-0 z-0 bg-cover bg-center bg-blend-multiply brightness-[0.7] after:absolute after:inset-0 after:bg-linear-to-b after:from-transparent after:via-black/30 after:to-black/70">
           <picture>
-            <source srcSet={drainHeroAvif} type="image/avif" />
-            <source srcSet={drainHeroWebp} type="image/webp" />
+            <source srcSet={drainHeroJpg} type="image/avif" />
+            <source srcSet={drainHeroJpg} type="image/webp" />
             <img
               src={drainHeroJpg}
               alt="Professional drain cleaning service"
@@ -152,7 +138,7 @@ const DrainsServicePage = () => {
           <div className="mt-12 grid grid-cols-1 gap-12 lg:grid-cols-2">
             {[
               {
-                image: { jpg: kitchenClogJpg, webp: kitchenClogWebp, avif: kitchenClogAvif },
+                image: { jpg: kitchenClogJpg },
                 title: 'Kitchen Sink Clogs',
                 description:
                   'Grease, food particles, and soap buildup can create stubborn clogs in your kitchen drains. Our hydro jetting technology blasts away even the toughest blockages.',
@@ -163,7 +149,7 @@ const DrainsServicePage = () => {
                 ],
               },
               {
-                image: { jpg: bathroomDrainJpg, webp: bathroomDrainWebp, avif: bathroomDrainAvif },
+                image: { jpg: bathroomDrainJpg },
                 title: 'Bathroom Drain Cleaning',
                 description:
                   'Hair, soap scum, and mineral deposits slow down your drains. We use specialized tools to completely clear your bathroom plumbing.',
@@ -174,14 +160,14 @@ const DrainsServicePage = () => {
                 ],
               },
               {
-                image: { jpg: sewerLineJpg, webp: sewerLineWebp, avif: sewerLineAvif },
+                image: { jpg: sewerLineJpg },
                 title: 'Sewer Line Services',
                 description:
                   'When multiple drains are slow or you notice sewage backups, you may have a main line issue. Our camera inspections pinpoint the exact problem.',
                 features: ['Camera inspections', 'Trenchless repairs', 'Root intrusion removal'],
               },
               {
-                image: { jpg: outdoorDrainJpg, webp: outdoorDrainWebp, avif: outdoorDrainAvif },
+                image: { jpg: outdoorDrainJpg },
                 title: 'Outdoor Drain Solutions',
                 description:
                   'Keep your property dry with professional cleaning of outdoor drains, gutters, and downspouts that protect your foundation from water damage.',
@@ -194,8 +180,8 @@ const DrainsServicePage = () => {
               >
                 <div className="h-64 overflow-hidden">
                   <picture>
-                    <source srcSet={service.image.avif} type="image/avif" />
-                    <source srcSet={service.image.webp} type="image/webp" />
+                    <source srcSet={service.image.jpg} type="image/avif" />
+                    <source srcSet={service.image.jpg} type="image/webp" />
                     <img
                       src={service.image.jpg}
                       alt={service.title}
