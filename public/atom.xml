@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://manhattan-plumbing.pages.dev</id>
     <title>Manhattan Plumbing</title>
-    <updated>2025-07-13T02:21:27.484Z</updated>
+    <updated>2025-07-13T08:04:23.645Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <author>
         <name>Manhattan Plumbing</name>
@@ -19,151 +19,94 @@
         <title type="html"><![CDATA[Manhattan Plumbing Home]]></title>
         <id>https://manhattan-plumbing.pages.dev/</id>
         <link href="https://manhattan-plumbing.pages.dev/"/>
-        <updated>2025-07-13T02:21:27.503Z</updated>
+        <updated>2025-07-13T08:04:23.672Z</updated>
         <summary type="html"><![CDATA[Your trusted local plumber in Manhattan.]]></summary>
     </entry>
     <entry>
         <title type="html"><![CDATA[Manhattan Plumbing News]]></title>
         <id>https://manhattan-plumbing.pages.dev/news</id>
         <link href="https://manhattan-plumbing.pages.dev/news"/>
-        <updated>2025-07-13T02:21:27.503Z</updated>
+        <updated>2025-07-13T08:04:23.672Z</updated>
         <summary type="html"><![CDATA[Latest news and articles from Manhattan Plumbing.]]></summary>
     </entry>
     <entry>
         <title type="html"><![CDATA[Privacy Policy | Manhattan Plumbing]]></title>
         <id>https://manhattan-plumbing.pages.dev/privacy-policy</id>
         <link href="https://manhattan-plumbing.pages.dev/privacy-policy"/>
-        <updated>2025-07-13T02:21:27.503Z</updated>
+        <updated>2025-07-13T08:04:23.672Z</updated>
         <summary type="html"><![CDATA[Manhattan Plumbing Privacy Policy.]]></summary>
     </entry>
     <entry>
         <title type="html"><![CDATA[Terms of Service | Manhattan Plumbing]]></title>
         <id>https://manhattan-plumbing.pages.dev/terms-of-service</id>
         <link href="https://manhattan-plumbing.pages.dev/terms-of-service"/>
-        <updated>2025-07-13T02:21:27.503Z</updated>
+        <updated>2025-07-13T08:04:23.672Z</updated>
         <summary type="html"><![CDATA[Manhattan Plumbing Terms of Service.]]></summary>
     </entry>
     <entry>
         <title type="html"><![CDATA[Cookie Policy | Manhattan Plumbing]]></title>
         <id>https://manhattan-plumbing.pages.dev/cookie-policy</id>
         <link href="https://manhattan-plumbing.pages.dev/cookie-policy"/>
-        <updated>2025-07-13T02:21:27.503Z</updated>
+        <updated>2025-07-13T08:04:23.672Z</updated>
         <summary type="html"><![CDATA[Manhattan Plumbing Cookie Policy.]]></summary>
     </entry>
     <entry>
         <title type="html"><![CDATA[Drain Cleaning Services | Manhattan Plumbing]]></title>
         <id>https://manhattan-plumbing.pages.dev/services/drain-service</id>
         <link href="https://manhattan-plumbing.pages.dev/services/drain-service"/>
-        <updated>2025-07-13T02:21:27.503Z</updated>
+        <updated>2025-07-13T08:04:23.672Z</updated>
         <summary type="html"><![CDATA[Fast and effective drain cleaning services in Manhattan.]]></summary>
     </entry>
     <entry>
         <title type="html"><![CDATA[Emergency Plumbing Services | Manhattan Plumbing]]></title>
         <id>https://manhattan-plumbing.pages.dev/services/emergency-service</id>
         <link href="https://manhattan-plumbing.pages.dev/services/emergency-service"/>
-        <updated>2025-07-13T02:21:27.503Z</updated>
+        <updated>2025-07-13T08:04:23.672Z</updated>
         <summary type="html"><![CDATA[24/7 emergency plumbing services in Manhattan.]]></summary>
     </entry>
     <entry>
         <title type="html"><![CDATA[Fixture Installation & Repair | Manhattan Plumbing]]></title>
         <id>https://manhattan-plumbing.pages.dev/services/fixture-service</id>
         <link href="https://manhattan-plumbing.pages.dev/services/fixture-service"/>
-        <updated>2025-07-13T02:21:27.503Z</updated>
+        <updated>2025-07-13T08:04:23.672Z</updated>
         <summary type="html"><![CDATA[Expert plumbing fixture installation and repair in Manhattan.]]></summary>
     </entry>
     <entry>
         <title type="html"><![CDATA[Pipe Repair & Replacement | Manhattan Plumbing]]></title>
         <id>https://manhattan-plumbing.pages.dev/services/pipe-service</id>
         <link href="https://manhattan-plumbing.pages.dev/services/pipe-service"/>
-        <updated>2025-07-13T02:21:27.503Z</updated>
+        <updated>2025-07-13T08:04:23.672Z</updated>
         <summary type="html"><![CDATA[Durable solutions for leaky, corroded, or damaged pipes in Manhattan.]]></summary>
     </entry>
     <entry>
         <title type="html"><![CDATA[Bathroom Remodeling | Manhattan Plumbing]]></title>
         <id>https://manhattan-plumbing.pages.dev/services/remodeling-service</id>
         <link href="https://manhattan-plumbing.pages.dev/services/remodeling-service"/>
-        <updated>2025-07-13T02:21:27.503Z</updated>
+        <updated>2025-07-13T08:04:23.672Z</updated>
         <summary type="html"><![CDATA[Transform your bathroom with our premium remodeling services in Manhattan.]]></summary>
     </entry>
     <entry>
         <title type="html"><![CDATA[Water Heater Services | Manhattan Plumbing]]></title>
         <id>https://manhattan-plumbing.pages.dev/services/water-heater-service</id>
         <link href="https://manhattan-plumbing.pages.dev/services/water-heater-service"/>
-        <updated>2025-07-13T02:21:27.503Z</updated>
+        <updated>2025-07-13T08:04:23.672Z</updated>
         <summary type="html"><![CDATA[Reliable water heater installation, repair, and maintenance in Manhattan.]]></summary>
     </entry>
     <entry>
         <title type="html"><![CDATA[Our Location | Manhattan Plumbing]]></title>
         <id>https://manhattan-plumbing.pages.dev/location</id>
         <link href="https://manhattan-plumbing.pages.dev/location"/>
-        <updated>2025-07-13T02:21:27.503Z</updated>
+        <updated>2025-07-13T08:04:23.672Z</updated>
         <summary type="html"><![CDATA[Find Manhattan Plumbing at our convenient location in the heart of Manhattan.]]></summary>
     </entry>
     <entry>
-        <title type="html"><![CDATA[2025 Bathroom Remodeling Trends: Modern Luxury Meets Sustainability]]></title>
+        <title type="html"><![CDATA[Eco-Friendly Plumbing Solutions: 2025 Guide]]></title>
         <id>https://manhattan-plumbing.pages.dev/news/bathroom-remodeling-trendsx</id>
         <link href="https://manhattan-plumbing.pages.dev/news/bathroom-remodeling-trendsx"/>
-        <updated>2025-05-17T00:00:00.000Z</updated>
-        <summary type="html"><![CDATA[Explore the latest bathroom remodeling trends of 2025, where luxury meets sustainability. From smart toilets to water-efficient fixtures, discover how modern bathrooms are becoming both more luxurious and environmentally conscious.]]></summary>
-        <content type="html"><![CDATA[<html><head></head><body><h1>2025 Bathroom Remodeling Trends: Modern Luxury Meets Sustainability</h1>
-<p>The bathroom has evolved from a purely functional space to a personal sanctuary that reflects both luxury and environmental consciousness. Let's explore the top trends shaping bathroom design in 2025.</p>
-<h2>1. Smart Technology Integration</h2>
-<p>Modern bathrooms are becoming increasingly connected:</p>
-<ul>
-<li><p><strong>Voice-controlled fixtures</strong></p>
-<ul>
-<li>Adjustable lighting and temperature</li>
-<li>Smart mirrors with built-in displays</li>
-<li>Automated shower systems</li>
-</ul>
-</li>
-<li><p><strong>Intelligent toilets</strong></p>
-<ul>
-<li>Self-cleaning capabilities</li>
-<li>Bidet functions with customizable settings</li>
-<li>Water usage optimization</li>
-</ul>
-</li>
-</ul>
-<h2>2. Sustainable Luxury</h2>
-<p>Eco-friendly features that don't compromise on style:</p>
-<ul>
-<li><p><strong>Water-efficient fixtures</strong></p>
-<ul>
-<li>Dual-flush toilets with modern designs</li>
-<li>Smart faucets with flow control</li>
-<li>Rainfall showerheads with air-infusion technology</li>
-</ul>
-</li>
-<li><p><strong>Sustainable materials</strong></p>
-<ul>
-<li>Recycled glass tiles</li>
-<li>Bamboo vanities</li>
-<li>Low-VOC finishes</li>
-</ul>
-</li>
-</ul>
-<p>[Continue with detailed trends and design tips...]</p>
-</body></html>]]></content>
-        <author>
-            <name>Isabella Chen</name>
-            <uri>https://manhattan-plumbing.pages.dev/news/bathroom-remodeling-trendsx</uri>
-        </author>
-        <category label="bathroom remodeling"/>
-        <category label="interior design"/>
-        <category label="luxury bathrooms"/>
-        <category label="sustainable design"/>
-        <category label="home improvement"/>
-        <category label="modern fixtures"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[Eco-Friendly Plumbing Solutions: 2025 Guide]]></title>
-        <id>https://manhattan-plumbing.pages.dev/news/eco-friendly-plumbing-solutionsx</id>
-        <link href="https://manhattan-plumbing.pages.dev/news/eco-friendly-plumbing-solutionsx"/>
         <updated>2025-05-18T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[Discover the latest in eco-friendly plumbing solutions that help reduce your environmental footprint while saving money on utilities. From water-efficient fixtures to sustainable materials, learn how to make your plumbing system more environmentally friendly.]]></summary>
         <content type="html"><![CDATA[<html><head></head><body><h1>Eco-Friendly Plumbing Solutions: 2025 Guide</h1>
-<p>As environmental consciousness continues to grow, more homeowners are seeking sustainable plumbing solutions that minimize their impact on the planet while maximizing efficiency and cost savings.</p>
+<p>As environmental consciousness continues to grow, more homeowners are seeking sustainable plumbing<br>solutions that minimize their impact on the planet while maximizing efficiency and cost savings.</p>
 <h2>1. Water-Efficient Fixtures</h2>
 <p>Modern eco-friendly fixtures have come a long way in terms of both performance and aesthetics:</p>
 <ul>
@@ -192,11 +135,53 @@
 <li>Laundry to toilet systems</li>
 <li>Kitchen to landscape solutions</li>
 </ul>
-<p>[Continue with detailed sections about each eco-friendly solution...]</p>
+<p>Of course — here’s a continuation of your article in a professional, forward-thinking, and practical<br>tone, fully respecting your existing frontmatters and structure:</p>
+<hr>
+<h2>4. Rainwater Harvesting Systems</h2>
+<p>Integrating rainwater harvesting into residential plumbing is an effective way to reduce dependence<br>on municipal water supplies and lower your utility bills.</p>
+<ul>
+<li><strong>Collection Systems</strong>: Roof catchments connected to above-ground or underground tanks.</li>
+<li><strong>Filtration and Treatment</strong>: Basic sediment filters or advanced UV purification for non-potable<br>or even potable uses.</li>
+<li><strong>Uses</strong>: Garden irrigation, toilet flushing, exterior cleaning, and, with proper treatment,<br>indoor non-potable uses.</li>
+</ul>
+<p>These systems can be tailored to different climates and property sizes, making them an accessible<br>green solution for a wide range of homeowners.</p>
+<h2>5. Tankless and Solar Water Heaters</h2>
+<p>Switching to tankless or solar water heaters significantly improves energy efficiency:</p>
+<ul>
+<li><strong>Tankless Water Heaters</strong>: Provide hot water on demand, reducing standby energy losses and saving<br>space.</li>
+<li><strong>Solar Water Heating Systems</strong>: Utilize rooftop solar collectors to heat water, drastically<br>reducing greenhouse gas emissions and long-term energy costs.</li>
+</ul>
+<p>In 2025, many modern solar systems now integrate smart controllers that optimize energy usage<br>depending on weather conditions and consumption patterns, delivering both environmental and<br>financial benefits.</p>
+<h2>6. Leak Detection and Smart Monitoring</h2>
+<p>One of the most practical advances in eco-friendly plumbing is the rise of smart leak detection<br>systems:</p>
+<ul>
+<li><strong>Automated Shut-Off Valves</strong>: Prevent major water loss by shutting off the supply when a leak is<br>detected.</li>
+<li><strong>Real-Time Monitoring Apps</strong>: Enable homeowners to track water usage, identify inefficiencies,<br>and receive alerts instantly.</li>
+<li><strong>Predictive Maintenance</strong>: AI-powered sensors can now predict potential failures before they<br>happen, helping to avoid wasteful emergencies.</li>
+</ul>
+<p>These systems not only help conserve water but also protect your property from costly damages,<br>reflecting a proactive approach to sustainability.</p>
+<h2>7. Insulation and Pipe Optimization</h2>
+<p>A commonly overlooked but highly impactful strategy is pipe insulation and route optimization:</p>
+<ul>
+<li><strong>Pipe Insulation</strong>: Reduces heat loss in hot water lines, improving energy efficiency and<br>speeding up delivery time.</li>
+<li><strong>Optimized Layouts</strong>: Shorter pipe runs and centralized water heating systems minimize both water<br>and energy waste.</li>
+</ul>
+<p>Incorporating these strategies during new construction or renovations can dramatically improve the<br>overall environmental performance of your home.</p>
+<h2>8. Green Certifications and Incentives</h2>
+<p>Homeowners can leverage various green certifications and local incentives to support eco-friendly<br>plumbing upgrades:</p>
+<ul>
+<li><strong>LEED and WELL Certifications</strong>: Reward efficient water and energy use, promoting healthier<br>living environments.</li>
+<li><strong>Government Rebates</strong>: Many cities offer rebates for installing water-saving fixtures, greywater<br>systems, or rainwater harvesting setups.</li>
+<li><strong>Tax Credits</strong>: Depending on your region, tax incentives may be available for renewable energy<br>water heating systems.</li>
+</ul>
+<p>These programs not only make green upgrades more financially accessible but also increase the<br>long-term value of your property.</p>
+<h2>Conclusion: A Future-Proof Approach</h2>
+<p>Adopting eco-friendly plumbing solutions is no longer a niche lifestyle choice — it is a necessary<br>step toward a sustainable and resilient future. From water-efficient fixtures and greywater<br>recycling to advanced leak detection and solar heating, each choice contributes to a reduced<br>environmental footprint and improved household efficiency.</p>
+<p>As we move forward into 2025 and beyond, embracing these innovations positions your home as a leader<br>in environmental stewardship and future-ready living. By investing in green plumbing today, you<br>support both your household’s well-being and the planet's health for generations to come.</p>
 </body></html>]]></content>
         <author>
             <name>Emily Green</name>
-            <uri>https://manhattan-plumbing.pages.dev/news/eco-friendly-plumbing-solutionsx</uri>
+            <uri>https://manhattan-plumbing.pages.dev/news/bathroom-remodeling-trendsx</uri>
         </author>
         <category label="eco-friendly"/>
         <category label="green plumbing"/>
@@ -248,6 +233,97 @@
         <category label="plumbing tips"/>
         <category label="homeowner education"/>
         <category label="professional advice"/>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Eco-Friendly Plumbing Solutions: 2025 Guide]]></title>
+        <id>https://manhattan-plumbing.pages.dev/news/eco-friendly-plumbing-solutionsx</id>
+        <link href="https://manhattan-plumbing.pages.dev/news/eco-friendly-plumbing-solutionsx"/>
+        <updated>2025-05-18T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Discover the latest in eco-friendly plumbing solutions that help reduce your environmental footprint while saving money on utilities. From water-efficient fixtures to sustainable materials, learn how to make your plumbing system more environmentally friendly.]]></summary>
+        <content type="html"><![CDATA[<html><head></head><body><h1>Eco-Friendly Plumbing Solutions: 2025 Guide</h1>
+<p>As environmental consciousness continues to grow, more homeowners are seeking sustainable plumbing<br>solutions that minimize their impact on the planet while maximizing efficiency and cost savings.</p>
+<h2>1. Water-Efficient Fixtures</h2>
+<p>Modern eco-friendly fixtures have come a long way in terms of both performance and aesthetics:</p>
+<ul>
+<li><strong>Low-Flow Showerheads</strong>: Latest models use air-infusion technology</li>
+<li><strong>Dual-Flush Toilets</strong>: Smart water usage based on need</li>
+<li><strong>Touchless Faucets</strong>: Prevent water waste with precise control</li>
+</ul>
+<h2>2. Sustainable Materials</h2>
+<p>The choice of materials can significantly impact your plumbing system's environmental footprint:</p>
+<h3>Pipe Materials</h3>
+<ul>
+<li>Recycled copper</li>
+<li>PEX (cross-linked polyethylene)</li>
+<li>Bio-based plastics</li>
+</ul>
+<h3>Fixture Materials</h3>
+<ul>
+<li>Bamboo</li>
+<li>Recycled glass</li>
+<li>Sustainable metals</li>
+</ul>
+<h2>3. Greywater Systems</h2>
+<p>Learn how to implement greywater recycling in your home:</p>
+<ul>
+<li>Bathroom to garden irrigation</li>
+<li>Laundry to toilet systems</li>
+<li>Kitchen to landscape solutions</li>
+</ul>
+<p>Of course — here’s a continuation of your article in a professional, forward-thinking, and practical<br>tone, fully respecting your existing frontmatters and structure:</p>
+<hr>
+<h2>4. Rainwater Harvesting Systems</h2>
+<p>Integrating rainwater harvesting into residential plumbing is an effective way to reduce dependence<br>on municipal water supplies and lower your utility bills.</p>
+<ul>
+<li><strong>Collection Systems</strong>: Roof catchments connected to above-ground or underground tanks.</li>
+<li><strong>Filtration and Treatment</strong>: Basic sediment filters or advanced UV purification for non-potable<br>or even potable uses.</li>
+<li><strong>Uses</strong>: Garden irrigation, toilet flushing, exterior cleaning, and, with proper treatment,<br>indoor non-potable uses.</li>
+</ul>
+<p>These systems can be tailored to different climates and property sizes, making them an accessible<br>green solution for a wide range of homeowners.</p>
+<h2>5. Tankless and Solar Water Heaters</h2>
+<p>Switching to tankless or solar water heaters significantly improves energy efficiency:</p>
+<ul>
+<li><strong>Tankless Water Heaters</strong>: Provide hot water on demand, reducing standby energy losses and saving<br>space.</li>
+<li><strong>Solar Water Heating Systems</strong>: Utilize rooftop solar collectors to heat water, drastically<br>reducing greenhouse gas emissions and long-term energy costs.</li>
+</ul>
+<p>In 2025, many modern solar systems now integrate smart controllers that optimize energy usage<br>depending on weather conditions and consumption patterns, delivering both environmental and<br>financial benefits.</p>
+<h2>6. Leak Detection and Smart Monitoring</h2>
+<p>One of the most practical advances in eco-friendly plumbing is the rise of smart leak detection<br>systems:</p>
+<ul>
+<li><strong>Automated Shut-Off Valves</strong>: Prevent major water loss by shutting off the supply when a leak is<br>detected.</li>
+<li><strong>Real-Time Monitoring Apps</strong>: Enable homeowners to track water usage, identify inefficiencies,<br>and receive alerts instantly.</li>
+<li><strong>Predictive Maintenance</strong>: AI-powered sensors can now predict potential failures before they<br>happen, helping to avoid wasteful emergencies.</li>
+</ul>
+<p>These systems not only help conserve water but also protect your property from costly damages,<br>reflecting a proactive approach to sustainability.</p>
+<h2>7. Insulation and Pipe Optimization</h2>
+<p>A commonly overlooked but highly impactful strategy is pipe insulation and route optimization:</p>
+<ul>
+<li><strong>Pipe Insulation</strong>: Reduces heat loss in hot water lines, improving energy efficiency and<br>speeding up delivery time.</li>
+<li><strong>Optimized Layouts</strong>: Shorter pipe runs and centralized water heating systems minimize both water<br>and energy waste.</li>
+</ul>
+<p>Incorporating these strategies during new construction or renovations can dramatically improve the<br>overall environmental performance of your home.</p>
+<h2>8. Green Certifications and Incentives</h2>
+<p>Homeowners can leverage various green certifications and local incentives to support eco-friendly<br>plumbing upgrades:</p>
+<ul>
+<li><strong>LEED and WELL Certifications</strong>: Reward efficient water and energy use, promoting healthier<br>living environments.</li>
+<li><strong>Government Rebates</strong>: Many cities offer rebates for installing water-saving fixtures, greywater<br>systems, or rainwater harvesting setups.</li>
+<li><strong>Tax Credits</strong>: Depending on your region, tax incentives may be available for renewable energy<br>water heating systems.</li>
+</ul>
+<p>These programs not only make green upgrades more financially accessible but also increase the<br>long-term value of your property.</p>
+<h2>Conclusion: A Future-Proof Approach</h2>
+<p>Adopting eco-friendly plumbing solutions is no longer a niche lifestyle choice — it is a necessary<br>step toward a sustainable and resilient future. From water-efficient fixtures and greywater<br>recycling to advanced leak detection and solar heating, each choice contributes to a reduced<br>environmental footprint and improved household efficiency.</p>
+<p>As we move forward into 2025 and beyond, embracing these innovations positions your home as a leader<br>in environmental stewardship and future-ready living. By investing in green plumbing today, you<br>support both your household’s well-being and the planet's health for generations to come.</p>
+</body></html>]]></content>
+        <author>
+            <name>Emily Green</name>
+            <uri>https://manhattan-plumbing.pages.dev/news/eco-friendly-plumbing-solutionsx</uri>
+        </author>
+        <category label="eco-friendly"/>
+        <category label="green plumbing"/>
+        <category label="sustainable solutions"/>
+        <category label="water efficiency"/>
+        <category label="environmental impact"/>
+        <category label="energy savings"/>
     </entry>
     <entry>
         <title type="html"><![CDATA[Preventive Plumbing Maintenance: Your Seasonal Guide]]></title>
