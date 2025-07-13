@@ -138,8 +138,18 @@ async function generateRssFeed() {
         const $ = cheerio.load(htmlContent)
         $('img').each((i, elem) => {
           const src = $(elem).attr('src')
-          if (src) {
-            $(elem).attr('src', escapeXmlAttribute(src))
+          if (src && !src.startsWith('http://') && !src.startsWith('https://') && !src.startsWith('//')) {
+            $(elem).attr('src', SITE_URL + src)
+          } else if (src) {
+            $(elem).attr('src', src)
+          }
+        })
+        $('a').each((i, elem) => {
+          const href = $(elem).attr('href')
+          if (href && !href.startsWith('http://') && !href.startsWith('https://') && !href.startsWith('//') && !href.startsWith('#')) {
+            $(elem).attr('href', SITE_URL + href)
+          } else if (href) {
+            $(elem).attr('href', href)
           }
         })
         htmlContent = $('body').html()
@@ -180,6 +190,8 @@ async function generateRssFeed() {
       fs.writeFile('public/feed.json', feed.json1()),
       fs.writeFile('public/atom.xml', feed.atom1()),
     ])
+
+    
 
     console.log('RSS feeds generated successfully!')
   } catch (error) {
