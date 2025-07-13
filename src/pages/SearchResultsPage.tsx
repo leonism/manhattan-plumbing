@@ -4,13 +4,15 @@ import SectionHeading from '../components/UI/SectionHeading'
 import NewsCard from '../components/News/NewsCard'
 import SearchBar from '../components/UI/SearchBar'
 import { useSearch } from '../hooks/useSearch'
+import { useNews } from '../hooks/useNews'
 import SkeletonLoader from '../components/UI/SkeletonLoader'
 import SEO from '../components/SEO/SEO'
 
 const SearchResultsPage: React.FC = () => {
   const [searchParams] = useSearchParams()
   const query = searchParams.get('q') || ''
-  const { results, isLoading } = useSearch(query)
+  const { allPosts } = useNews({})
+  const { results, isLoading } = useSearch(query, allPosts)
 
   return (
     <React.Fragment>
@@ -33,7 +35,7 @@ const SearchResultsPage: React.FC = () => {
             />
 
           <div className="mt-8 max-w-xl">
-            <SearchBar />
+            <SearchBar onClear={() => {}} onClose={() => {}} />
           </div>
         </header>
 
@@ -41,11 +43,28 @@ const SearchResultsPage: React.FC = () => {
           <section className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
             <SkeletonLoader type="card" count={6} className="col-span-1" />
           </section>
-        ) : results.length > 0 ? (
+        ) : results.news.length > 0 || results.services.length > 0 ? (
           <section className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
-            {results.map((post) => (
-              <NewsCard key={post.slug} post={post} />
-            ))}
+            {results.news.length > 0 && (
+              <div className="col-span-full">
+                <h2 className="mb-4 text-2xl font-semibold">News Articles</h2>
+                <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
+                  {results.news.map((post: any) => (
+                    <NewsCard key={post.slug} post={post} />
+                  ))}
+                </div>
+              </div>
+            )}
+            {results.services.length > 0 && (
+              <div className="col-span-full">
+                <h2 className="mb-4 text-2xl font-semibold">Services</h2>
+                <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
+                  {results.services.map((service: any) => (
+                    <NewsCard key={service.slug} post={service} />
+                  ))}
+                </div>
+              </div>
+            )}
           </section>
         ) : (
           <div className="py-12 text-center">
