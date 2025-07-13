@@ -26,7 +26,7 @@ async function generateRssFeed() {
   marked.setOptions({
     gfm: true,
     breaks: true,
-    escape: false, // Disable HTML escaping by marked
+    escape: true,
   })
   try {
     const feed = new Feed({
