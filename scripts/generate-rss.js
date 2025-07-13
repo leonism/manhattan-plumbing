@@ -131,11 +131,12 @@ async function generateRssFeed() {
         $('img').each((i, elem) => {
           const src = $(elem).attr('src')
           if (src) {
-            // Decode and re-encode to ensure proper escaping of all characters
-            const encodedSrc = src.replace(/&(?!amp;)/g, '&amp;')
+            $(elem).attr('src', encodeURI(src))
           }
         })
-        htmlContent = $.html()
+        htmlContent = $('body').html()
+        // Explicitly remove html, head, body tags if they somehow persist
+        htmlContent = htmlContent.replace(/<\/?(html|head|body)>/g, '')
 
         const slug = file.replace('src/content/news/', '').replace('.md', '').replace('.mdx', '')
         const url = `${SITE_URL}/news/${slug}`
@@ -155,7 +156,7 @@ async function generateRssFeed() {
           date: new Date(data.date),
           image: data.featuredImage.src,
           enclosure: {
-            url: data.featuredImage.src.replace(/&/g, '&amp;'),
+            url: encodeURI(data.featuredImage.src),
             type: 'image/jpeg',
             length: 0,
           },
