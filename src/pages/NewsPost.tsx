@@ -56,40 +56,43 @@ const NewsPost: React.FC = () => {
 
   return (
     <>
-      <SEO
-        title={`${post.title} | Manhattan Plumbing`}
-        description={post.excerpt}
-        keywords={post.tags}
-        canonical={`https://manhattan-plumbing.pages.dev/news/${post.slug}`}
-        ogTitle={post.title}
-        ogDescription={post.excerpt}
-        ogImage={post.featuredImage.src}
-        ogUrl={`https://manhattan-plumbing.pages.dev/news/${post.slug}`}
-        jsonLd={{
-          '@context': 'https://schema.org',
-          '@type': 'Article',
-          headline: post.seoTitle || post.title,
-          description: post.excerpt,
-          image: post.featuredImage.src,
-          datePublished: post.date,
-          dateModified: post.lastModified || post.date,
-          author: {
-            '@type': 'Person',
-            name: post.author.name,
-          },
-          publisher: {
-            '@type': 'Organization',
-            name: 'Manhattan Plumbing',
-            logo: {
-              '@type': 'ImageObject',
-              url: 'https://manhattan-plumbing.pages.dev/manhattan-plumber.png',
+      {post && (
+        <SEO
+          key={post.slug}
+          title={`${post.title} | Manhattan Plumbing`}
+          description={post.excerpt}
+          keywords={post.tags}
+          canonical={`https://manhattan-plumbing.pages.dev/news/${post.slug}`}
+          ogTitle={post.title}
+          ogDescription={post.excerpt}
+          ogImage={post.featuredImage.src}
+          ogUrl={`https://manhattan-plumbing.pages.dev/news/${post.slug}`}
+          jsonLd={{
+            '@context': 'https://schema.org',
+            '@type': 'Article',
+            headline: post.seoTitle || post.title,
+            description: post.excerpt,
+            image: post.featuredImage.src,
+            datePublished: post.date,
+            dateModified: post.lastModified || post.date,
+            author: {
+              '@type': 'Person',
+              name: post.author.name,
             },
-          },
-          ...(post.jsonLd || {}),
-        }}
-      />
+            publisher: {
+              '@type': 'Organization',
+              name: 'Manhattan Plumbing',
+              logo: {
+                '@type': 'ImageObject',
+                url: 'https://manhattan-plumbing.pages.dev/manhattan-plumber.png',
+              },
+            },
+            ...(post.jsonLd || {}),
+          }}
+        />
+      )}
 
-      <main className="min-h-screen bg-slate-50 py-20 text-slate-800 sm:py-24 dark:bg-slate-900 dark:text-slate-200">
+      <main className="bg-slate-50 py-20 text-slate-800 sm:py-24 dark:bg-slate-900 dark:text-slate-200">
         <article className="container mx-auto px-4 py-8">
           {/* <Link
             to="/news"
