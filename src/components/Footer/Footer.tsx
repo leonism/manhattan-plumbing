@@ -9,7 +9,10 @@ import LegalInfo from '../Footer/LegalInfo'
 const currentYear = new Date().getFullYear()
 
 const Footer: React.FC = () => (
-  <footer className="bg-slate-900 pt-16 pb-8 text-white" role="contentinfo">
+  <footer
+    className="border-t border-slate-800 bg-slate-900 pt-16 pb-8 text-white"
+    role="contentinfo"
+  >
     <div className="container mx-auto px-4 md:px-6">
       <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-6">
         <CompanyInfo className="lg:col-span-2" />
