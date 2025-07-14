@@ -3,63 +3,68 @@
   
   <url>
     <loc>https://manhattan-plumbing.pages.dev/</loc>
-    <lastmod>2025-07-13T23:46:58.981Z</lastmod>
+    <lastmod>2025-07-14T00:27:02.304Z</lastmod>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://manhattan-plumbing.pages.dev/news</loc>
-    <lastmod>2025-07-13T23:46:58.981Z</lastmod>
+    <lastmod>2025-07-14T00:27:02.304Z</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://manhattan-plumbing.pages.dev/privacy-policy</loc>
-    <lastmod>2025-07-13T23:46:58.981Z</lastmod>
+    <lastmod>2025-07-14T00:27:02.304Z</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://manhattan-plumbing.pages.dev/terms-of-service</loc>
-    <lastmod>2025-07-13T23:46:58.981Z</lastmod>
+    <lastmod>2025-07-14T00:27:02.304Z</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://manhattan-plumbing.pages.dev/cookie-policy</loc>
-    <lastmod>2025-07-13T23:46:58.981Z</lastmod>
+    <lastmod>2025-07-14T00:27:02.304Z</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://manhattan-plumbing.pages.dev/services/drain-service</loc>
-    <lastmod>2025-07-13T23:46:58.981Z</lastmod>
+    <lastmod>2025-07-14T00:27:02.304Z</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://manhattan-plumbing.pages.dev/services/emergency-service</loc>
-    <lastmod>2025-07-13T23:46:58.981Z</lastmod>
+    <lastmod>2025-07-14T00:27:02.304Z</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://manhattan-plumbing.pages.dev/services/fixture-service</loc>
-    <lastmod>2025-07-13T23:46:58.981Z</lastmod>
+    <lastmod>2025-07-14T00:27:02.304Z</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://manhattan-plumbing.pages.dev/services/pipe-service</loc>
-    <lastmod>2025-07-13T23:46:58.981Z</lastmod>
+    <lastmod>2025-07-14T00:27:02.304Z</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://manhattan-plumbing.pages.dev/services/remodeling-service</loc>
-    <lastmod>2025-07-13T23:46:58.981Z</lastmod>
+    <lastmod>2025-07-14T00:27:02.304Z</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://manhattan-plumbing.pages.dev/services/water-heater-service</loc>
-    <lastmod>2025-07-13T23:46:58.981Z</lastmod>
+    <lastmod>2025-07-14T00:27:02.304Z</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://manhattan-plumbing.pages.dev/location</loc>
-    <lastmod>2025-07-13T23:46:58.981Z</lastmod>
+    <lastmod>2025-07-14T00:27:02.304Z</lastmod>
     <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://manhattan-plumbing.pages.dev/news/bathroom-remodeling-plumbing-2025-guide</loc>
+    <lastmod>2025-02-20T00:00:00.000Z</lastmod>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://manhattan-plumbing.pages.dev/news/bathroom-remodeling-trends</loc>
@@ -72,8 +77,23 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://manhattan-plumbing.pages.dev/news/eco-friendly-plumbing-2025-guide</loc>
+    <lastmod>2025-05-05T00:00:00.000Z</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://manhattan-plumbing.pages.dev/news/eco-friendly-plumbing-solutions</loc>
     <lastmod>2025-05-18T00:00:00.000Z</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://manhattan-plumbing.pages.dev/news/emergency-plumbing-services-2025-guide</loc>
+    <lastmod>2025-04-25T00:00:00.000Z</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://manhattan-plumbing.pages.dev/news/emergency-plumbing-services-guide-2025</loc>
+    <lastmod>2025-07-14T00:00:00.000Z</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
@@ -82,13 +102,28 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://manhattan-plumbing.pages.dev/news/leak-detection-technology-2025-guide</loc>
+    <lastmod>2025-04-08T00:00:00.000Z</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://manhattan-plumbing.pages.dev/news/preventive-maintenance</loc>
     <lastmod>2025-05-19T00:00:00.000Z</lastmod>
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://manhattan-plumbing.pages.dev/news/sewer-line-repair-2025-guide</loc>
+    <lastmod>2025-03-15T00:00:00.000Z</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://manhattan-plumbing.pages.dev/news/smart-home-plumbing</loc>
     <lastmod>2025-05-15T00:00:00.000Z</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://manhattan-plumbing.pages.dev/news/tankless-water-heaters-2025-guide</loc>
+    <lastmod>2025-01-26T00:00:00.000Z</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
@@ -102,218 +137,428 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://manhattan-plumbing.pages.dev/news/water-heater-installation-2025-guide</loc>
+    <lastmod>2025-05-10T00:00:00.000Z</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://manhattan-plumbing.pages.dev/news/water-heater-maintenance-tips</loc>
     <lastmod>2025-05-14T00:00:00.000Z</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://manhattan-plumbing.pages.dev/news/category/maintenance</loc>
-    <lastmod>2025-07-13T23:46:58.981Z</lastmod>
+    <loc>https://manhattan-plumbing.pages.dev/news/category/renovation</loc>
+    <lastmod>2025-07-14T00:27:02.306Z</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://manhattan-plumbing.pages.dev/news/category/sustainability</loc>
-    <lastmod>2025-07-13T23:46:58.981Z</lastmod>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://manhattan-plumbing.pages.dev/news/category/emergency-services</loc>
-    <lastmod>2025-07-13T23:46:58.981Z</lastmod>
+    <lastmod>2025-07-14T00:27:02.306Z</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://manhattan-plumbing.pages.dev/news/category/education</loc>
-    <lastmod>2025-07-13T23:46:58.981Z</lastmod>
+    <lastmod>2025-07-14T00:27:02.306Z</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://manhattan-plumbing.pages.dev/news/category/diy</loc>
-    <lastmod>2025-07-13T23:46:58.981Z</lastmod>
+    <loc>https://manhattan-plumbing.pages.dev/news/category/plumbing</loc>
+    <lastmod>2025-07-14T00:27:02.306Z</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://manhattan-plumbing.pages.dev/news/category/emergency-services</loc>
+    <lastmod>2025-07-14T00:27:02.306Z</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://manhattan-plumbing.pages.dev/news/category/smart-home</loc>
+    <lastmod>2025-07-14T00:27:02.306Z</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://manhattan-plumbing.pages.dev/news/category/maintenance</loc>
+    <lastmod>2025-07-14T00:27:02.306Z</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://manhattan-plumbing.pages.dev/news/category/home-efficiency</loc>
+    <lastmod>2025-07-14T00:27:02.306Z</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://manhattan-plumbing.pages.dev/news/category/technology</loc>
-    <lastmod>2025-07-13T23:46:58.981Z</lastmod>
+    <lastmod>2025-07-14T00:27:02.306Z</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://manhattan-plumbing.pages.dev/news/tag/preventive-maintenance</loc>
-    <lastmod>2025-07-13T23:46:58.981Z</lastmod>
+    <loc>https://manhattan-plumbing.pages.dev/news/category/diy</loc>
+    <lastmod>2025-07-14T00:27:02.306Z</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://manhattan-plumbing.pages.dev/news/tag/seasonal-care</loc>
-    <lastmod>2025-07-13T23:46:58.981Z</lastmod>
+    <loc>https://manhattan-plumbing.pages.dev/news/tag/bathroom-plumbing</loc>
+    <lastmod>2025-07-14T00:27:02.306Z</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://manhattan-plumbing.pages.dev/news/tag/home-maintenance</loc>
-    <lastmod>2025-07-13T23:46:58.981Z</lastmod>
+    <loc>https://manhattan-plumbing.pages.dev/news/tag/remodeling</loc>
+    <lastmod>2025-07-14T00:27:02.306Z</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://manhattan-plumbing.pages.dev/news/tag/plumbing-tips</loc>
-    <lastmod>2025-07-13T23:46:58.981Z</lastmod>
+    <loc>https://manhattan-plumbing.pages.dev/news/tag/modern-bathrooms</loc>
+    <lastmod>2025-07-14T00:27:02.306Z</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://manhattan-plumbing.pages.dev/news/tag/winterization</loc>
-    <lastmod>2025-07-13T23:46:58.981Z</lastmod>
+    <loc>https://manhattan-plumbing.pages.dev/news/tag/plumbing-upgrades</loc>
+    <lastmod>2025-07-14T00:27:02.306Z</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://manhattan-plumbing.pages.dev/news/tag/spring-cleaning</loc>
-    <lastmod>2025-07-13T23:46:58.981Z</lastmod>
+    <loc>https://manhattan-plumbing.pages.dev/news/tag/smart-plumbing</loc>
+    <lastmod>2025-07-14T00:27:02.306Z</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://manhattan-plumbing.pages.dev/news/tag/eco-friendly</loc>
-    <lastmod>2025-07-13T23:46:58.981Z</lastmod>
+    <loc>https://manhattan-plumbing.pages.dev/news/tag/luxury-bathroom-design</loc>
+    <lastmod>2025-07-14T00:27:02.306Z</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://manhattan-plumbing.pages.dev/news/tag/green-plumbing</loc>
-    <lastmod>2025-07-13T23:46:58.981Z</lastmod>
+    <loc>https://manhattan-plumbing.pages.dev/news/tag/eco-friendly-plumbing</loc>
+    <lastmod>2025-07-14T00:27:02.306Z</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://manhattan-plumbing.pages.dev/news/tag/sustainable-solutions</loc>
-    <lastmod>2025-07-13T23:46:58.981Z</lastmod>
+    <loc>https://manhattan-plumbing.pages.dev/news/tag/sustainable-plumbing</loc>
+    <lastmod>2025-07-14T00:27:02.306Z</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://manhattan-plumbing.pages.dev/news/tag/water-efficiency</loc>
-    <lastmod>2025-07-13T23:46:58.981Z</lastmod>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://manhattan-plumbing.pages.dev/news/tag/environmental-impact</loc>
-    <lastmod>2025-07-13T23:46:58.981Z</lastmod>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://manhattan-plumbing.pages.dev/news/tag/energy-savings</loc>
-    <lastmod>2025-07-13T23:46:58.981Z</lastmod>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://manhattan-plumbing.pages.dev/news/tag/emergency-plumbing</loc>
-    <lastmod>2025-07-13T23:46:58.981Z</lastmod>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://manhattan-plumbing.pages.dev/news/tag/water-damage</loc>
-    <lastmod>2025-07-13T23:46:58.981Z</lastmod>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://manhattan-plumbing.pages.dev/news/tag/leak-repair</loc>
-    <lastmod>2025-07-13T23:46:58.981Z</lastmod>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://manhattan-plumbing.pages.dev/news/tag/247-service</loc>
-    <lastmod>2025-07-13T23:46:58.981Z</lastmod>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://manhattan-plumbing.pages.dev/news/tag/plumbing-myths</loc>
-    <lastmod>2025-07-13T23:46:58.981Z</lastmod>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://manhattan-plumbing.pages.dev/news/tag/fact-checking</loc>
-    <lastmod>2025-07-13T23:46:58.981Z</lastmod>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://manhattan-plumbing.pages.dev/news/tag/homeowner-education</loc>
-    <lastmod>2025-07-13T23:46:58.981Z</lastmod>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://manhattan-plumbing.pages.dev/news/tag/professional-advice</loc>
-    <lastmod>2025-07-13T23:46:58.981Z</lastmod>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://manhattan-plumbing.pages.dev/news/tag/leaky-faucets</loc>
-    <lastmod>2025-07-13T23:46:58.981Z</lastmod>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://manhattan-plumbing.pages.dev/news/tag/diy-repairs</loc>
-    <lastmod>2025-07-13T23:46:58.981Z</lastmod>
+    <loc>https://manhattan-plumbing.pages.dev/news/tag/green-home-solutions</loc>
+    <lastmod>2025-07-14T00:27:02.306Z</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://manhattan-plumbing.pages.dev/news/tag/water-conservation</loc>
-    <lastmod>2025-07-13T23:46:58.981Z</lastmod>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://manhattan-plumbing.pages.dev/news/tag/cost-savings</loc>
-    <lastmod>2025-07-13T23:46:58.981Z</lastmod>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://manhattan-plumbing.pages.dev/news/tag/sustainable-living</loc>
-    <lastmod>2025-07-13T23:46:58.981Z</lastmod>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://manhattan-plumbing.pages.dev/news/tag/home-improvement</loc>
-    <lastmod>2025-07-13T23:46:58.981Z</lastmod>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://manhattan-plumbing.pages.dev/news/tag/green-solutions</loc>
-    <lastmod>2025-07-13T23:46:58.981Z</lastmod>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://manhattan-plumbing.pages.dev/news/tag/smart-home</loc>
-    <lastmod>2025-07-13T23:46:58.981Z</lastmod>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://manhattan-plumbing.pages.dev/news/tag/automation</loc>
-    <lastmod>2025-07-13T23:46:58.981Z</lastmod>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://manhattan-plumbing.pages.dev/news/tag/water-management</loc>
-    <lastmod>2025-07-13T23:46:58.981Z</lastmod>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://manhattan-plumbing.pages.dev/news/tag/iot</loc>
-    <lastmod>2025-07-13T23:46:58.981Z</lastmod>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://manhattan-plumbing.pages.dev/news/tag/technology-trends</loc>
-    <lastmod>2025-07-13T23:46:58.981Z</lastmod>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://manhattan-plumbing.pages.dev/news/tag/water-heater</loc>
-    <lastmod>2025-07-13T23:46:58.981Z</lastmod>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://manhattan-plumbing.pages.dev/news/tag/maintenance</loc>
-    <lastmod>2025-07-13T23:46:58.981Z</lastmod>
+    <lastmod>2025-07-14T00:27:02.306Z</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://manhattan-plumbing.pages.dev/news/tag/energy-efficiency</loc>
-    <lastmod>2025-07-13T23:46:58.981Z</lastmod>
+    <lastmod>2025-07-14T00:27:02.306Z</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://manhattan-plumbing.pages.dev/news/tag/low-impact-living</loc>
+    <lastmod>2025-07-14T00:27:02.306Z</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://manhattan-plumbing.pages.dev/news/tag/plumbing-myths</loc>
+    <lastmod>2025-07-14T00:27:02.306Z</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://manhattan-plumbing.pages.dev/news/tag/fact-checking</loc>
+    <lastmod>2025-07-14T00:27:02.306Z</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://manhattan-plumbing.pages.dev/news/tag/plumbing-tips</loc>
+    <lastmod>2025-07-14T00:27:02.306Z</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://manhattan-plumbing.pages.dev/news/tag/homeowner-education</loc>
+    <lastmod>2025-07-14T00:27:02.306Z</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://manhattan-plumbing.pages.dev/news/tag/professional-advice</loc>
+    <lastmod>2025-07-14T00:27:02.306Z</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://manhattan-plumbing.pages.dev/news/tag/eco-friendly</loc>
+    <lastmod>2025-07-14T00:27:02.306Z</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://manhattan-plumbing.pages.dev/news/tag/green-plumbing</loc>
+    <lastmod>2025-07-14T00:27:02.306Z</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://manhattan-plumbing.pages.dev/news/tag/sustainable-solutions</loc>
+    <lastmod>2025-07-14T00:27:02.306Z</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://manhattan-plumbing.pages.dev/news/tag/water-efficiency</loc>
+    <lastmod>2025-07-14T00:27:02.306Z</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://manhattan-plumbing.pages.dev/news/tag/environmental-impact</loc>
+    <lastmod>2025-07-14T00:27:02.306Z</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://manhattan-plumbing.pages.dev/news/tag/energy-savings</loc>
+    <lastmod>2025-07-14T00:27:02.306Z</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://manhattan-plumbing.pages.dev/news/tag/emergency-plumbing</loc>
+    <lastmod>2025-07-14T00:27:02.306Z</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://manhattan-plumbing.pages.dev/news/tag/247-plumbing</loc>
+    <lastmod>2025-07-14T00:27:02.306Z</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://manhattan-plumbing.pages.dev/news/tag/rapid-response</loc>
+    <lastmod>2025-07-14T00:27:02.306Z</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://manhattan-plumbing.pages.dev/news/tag/urgent-repairs</loc>
+    <lastmod>2025-07-14T00:27:02.306Z</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://manhattan-plumbing.pages.dev/news/tag/pipe-bursts</loc>
+    <lastmod>2025-07-14T00:27:02.306Z</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://manhattan-plumbing.pages.dev/news/tag/plumbing-services</loc>
+    <lastmod>2025-07-14T00:27:02.306Z</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://manhattan-plumbing.pages.dev/news/tag/water-damage</loc>
+    <lastmod>2025-07-14T00:27:02.306Z</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://manhattan-plumbing.pages.dev/news/tag/leak-repair</loc>
+    <lastmod>2025-07-14T00:27:02.306Z</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://manhattan-plumbing.pages.dev/news/tag/247-service</loc>
+    <lastmod>2025-07-14T00:27:02.306Z</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://manhattan-plumbing.pages.dev/news/tag/home-maintenance</loc>
+    <lastmod>2025-07-14T00:27:02.306Z</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://manhattan-plumbing.pages.dev/news/tag/247-plumber</loc>
+    <lastmod>2025-07-14T00:27:02.306Z</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://manhattan-plumbing.pages.dev/news/tag/water-damage-prevention</loc>
+    <lastmod>2025-07-14T00:27:02.306Z</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://manhattan-plumbing.pages.dev/news/tag/home-safety</loc>
+    <lastmod>2025-07-14T00:27:02.306Z</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://manhattan-plumbing.pages.dev/news/tag/plumbing-repair</loc>
+    <lastmod>2025-07-14T00:27:02.306Z</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://manhattan-plumbing.pages.dev/news/tag/leak-detection</loc>
+    <lastmod>2025-07-14T00:27:02.306Z</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://manhattan-plumbing.pages.dev/news/tag/water-safety</loc>
+    <lastmod>2025-07-14T00:27:02.306Z</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://manhattan-plumbing.pages.dev/news/tag/home-monitoring</loc>
+    <lastmod>2025-07-14T00:27:02.306Z</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://manhattan-plumbing.pages.dev/news/tag/plumbing-technology</loc>
+    <lastmod>2025-07-14T00:27:02.306Z</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://manhattan-plumbing.pages.dev/news/tag/preventive-maintenance</loc>
+    <lastmod>2025-07-14T00:27:02.306Z</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://manhattan-plumbing.pages.dev/news/tag/seasonal-care</loc>
+    <lastmod>2025-07-14T00:27:02.306Z</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://manhattan-plumbing.pages.dev/news/tag/winterization</loc>
+    <lastmod>2025-07-14T00:27:02.306Z</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://manhattan-plumbing.pages.dev/news/tag/spring-cleaning</loc>
+    <lastmod>2025-07-14T00:27:02.306Z</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://manhattan-plumbing.pages.dev/news/tag/sewer-line-repair</loc>
+    <lastmod>2025-07-14T00:27:02.306Z</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://manhattan-plumbing.pages.dev/news/tag/trenchless-technology</loc>
+    <lastmod>2025-07-14T00:27:02.306Z</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://manhattan-plumbing.pages.dev/news/tag/pipe-repair</loc>
+    <lastmod>2025-07-14T00:27:02.306Z</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://manhattan-plumbing.pages.dev/news/tag/underground-plumbing</loc>
+    <lastmod>2025-07-14T00:27:02.306Z</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://manhattan-plumbing.pages.dev/news/tag/cost-effective-solutions</loc>
+    <lastmod>2025-07-14T00:27:02.306Z</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://manhattan-plumbing.pages.dev/news/tag/tankless-water-heaters</loc>
+    <lastmod>2025-07-14T00:27:02.306Z</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://manhattan-plumbing.pages.dev/news/tag/on-demand-water-heating</loc>
+    <lastmod>2025-07-14T00:27:02.307Z</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://manhattan-plumbing.pages.dev/news/tag/home-upgrades</loc>
+    <lastmod>2025-07-14T00:27:02.307Z</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://manhattan-plumbing.pages.dev/news/tag/sustainability</loc>
+    <lastmod>2025-07-14T00:27:02.307Z</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://manhattan-plumbing.pages.dev/news/tag/utility-savings</loc>
+    <lastmod>2025-07-14T00:27:02.307Z</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://manhattan-plumbing.pages.dev/news/tag/smart-home</loc>
+    <lastmod>2025-07-14T00:27:02.307Z</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://manhattan-plumbing.pages.dev/news/tag/automation</loc>
+    <lastmod>2025-07-14T00:27:02.307Z</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://manhattan-plumbing.pages.dev/news/tag/water-management</loc>
+    <lastmod>2025-07-14T00:27:02.307Z</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://manhattan-plumbing.pages.dev/news/tag/iot</loc>
+    <lastmod>2025-07-14T00:27:02.307Z</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://manhattan-plumbing.pages.dev/news/tag/technology-trends</loc>
+    <lastmod>2025-07-14T00:27:02.307Z</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://manhattan-plumbing.pages.dev/news/tag/home-improvement</loc>
+    <lastmod>2025-07-14T00:27:02.307Z</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://manhattan-plumbing.pages.dev/news/tag/sustainable-living</loc>
+    <lastmod>2025-07-14T00:27:02.307Z</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://manhattan-plumbing.pages.dev/news/tag/green-solutions</loc>
+    <lastmod>2025-07-14T00:27:02.307Z</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://manhattan-plumbing.pages.dev/news/tag/water-heater-installation</loc>
+    <lastmod>2025-07-14T00:27:02.307Z</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://manhattan-plumbing.pages.dev/news/tag/energy-efficient-water-heaters</loc>
+    <lastmod>2025-07-14T00:27:02.307Z</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://manhattan-plumbing.pages.dev/news/tag/residential-plumbing</loc>
+    <lastmod>2025-07-14T00:27:02.307Z</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://manhattan-plumbing.pages.dev/news/tag/2025-plumbing-trends</loc>
+    <lastmod>2025-07-14T00:27:02.307Z</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://manhattan-plumbing.pages.dev/news/tag/water-heater</loc>
+    <lastmod>2025-07-14T00:27:02.307Z</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://manhattan-plumbing.pages.dev/news/tag/maintenance</loc>
+    <lastmod>2025-07-14T00:27:02.307Z</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://manhattan-plumbing.pages.dev/news/tag/cost-savings</loc>
+    <lastmod>2025-07-14T00:27:02.307Z</lastmod>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://manhattan-plumbing.pages.dev/news/tag/preventive-care</loc>
-    <lastmod>2025-07-13T23:46:58.981Z</lastmod>
+    <lastmod>2025-07-14T00:27:02.307Z</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://manhattan-plumbing.pages.dev/news/tag/leaky-faucets</loc>
+    <lastmod>2025-07-14T00:27:02.307Z</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://manhattan-plumbing.pages.dev/news/tag/diy-repairs</loc>
+    <lastmod>2025-07-14T00:27:02.307Z</lastmod>
     <priority>0.7</priority>
   </url>
 </urlset>

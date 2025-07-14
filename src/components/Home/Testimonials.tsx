@@ -1,8 +1,40 @@
 import React from 'react'
 import SectionHeading from '../UI/SectionHeading'
 import TestimonialCard from '../UI/TestimonialCard'
+import Slider from 'react-slick'
+import 'slick-carousel/slick/slick.css'
+import 'slick-carousel/slick/slick-theme.css'
 
 const Testimonials: React.FC = () => {
+  const settings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 3,
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 5000,
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 1,
+          infinite: true,
+          dots: true
+        }
+      },
+      {
+        breakpoint: 600,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          initialSlide: 0
+        }
+      }
+    ]
+  }
+
   const testimonials = [
     {
       name: 'Sarah Johnson',
@@ -31,6 +63,33 @@ const Testimonials: React.FC = () => {
       imgSrc:
         'https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg?auto=compress&cs=tinysrgb&w=120',
     },
+    {
+      name: 'David Lee',
+      occupation: 'Small Business Owner',
+      testimonial:
+        'Manhattan Plumbing saved our business from a major flood. Their quick response and efficient work were truly impressive. Professional and reliable!',
+      rating: 5,
+      imgSrc:
+        'https://images.pexels.com/photos/1043474/pexels-photo-1043474.jpeg?auto=compress&cs=tinysrgb&w=120',
+    },
+    {
+      name: 'Jessica Brown',
+      occupation: 'Apartment Resident',
+      testimonial:
+        'I had a persistent leaky faucet that other plumbers couldn\'t fix. Manhattan Plumbing diagnosed the problem quickly and fixed it perfectly. So grateful for their expertise!',
+      rating: 5,
+      imgSrc:
+        'https://images.pexels.com/photos/1183266/pexels-photo-1183266.jpeg?auto=compress&cs=tinysrgb&w=120',
+    },
+    {
+      name: 'Robert Davis',
+      occupation: 'Building Superintendent',
+      testimonial:
+        'Their team handles all our building\'s plumbing needs, from routine maintenance to complex installations. Always on time, always professional, and their work is top-notch.',
+      rating: 5,
+      imgSrc:
+        'https://images.pexels.com/photos/1222271/pexels-photo-1222271.jpeg?auto=compress&cs=tinysrgb&w=120',
+    },
   ]
 
   return (
@@ -42,18 +101,19 @@ const Testimonials: React.FC = () => {
           centered
         />
 
-        <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
+        <Slider {...settings}>
           {testimonials.map((testimonial, index) => (
-            <TestimonialCard
-              key={index}
-              name={testimonial.name}
-              occupation={testimonial.occupation}
-              testimonial={testimonial.testimonial}
-              rating={testimonial.rating}
-              imgSrc={testimonial.imgSrc}
-            />
+            <div key={index} className="px-2">
+              <TestimonialCard
+                name={testimonial.name}
+                occupation={testimonial.occupation}
+                testimonial={testimonial.testimonial}
+                rating={testimonial.rating}
+                imgSrc={testimonial.imgSrc}
+              />
+            </div>
           ))}
-        </div>
+        </Slider>
       </div>
     </section>
   )

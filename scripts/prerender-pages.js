@@ -4,12 +4,41 @@ import * as cheerio from 'cheerio';
 import { getNewsData } from './get-news-data.js'; // Note the .js extension for ES modules
 import { fileURLToPath } from 'url';
 import { dirname } from 'path';
+import { gzip, brotliCompress } from 'zlib';
+import { promisify } from 'util';
+
+const gzipPromise = promisify(gzip);
+const brotliPromise = promisify(brotliCompress);
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
 const TEMPLATE_PATH = path.resolve(__dirname, '../index.html');
 const DIST_DIR = path.resolve(__dirname, '../dist');
+
+async function compressAndWriteFile(filePath, content) {
+  fs.writeFileSync(filePath, content);
+  console.log(`Pre-rendered: ${filePath}`);
+
+  const gzipPath = `${filePath}.gz`;
+  const brotliPath = `${filePath}.br`;
+
+  try {
+    const gzippedContent = await gzipPromise(Buffer.from(content));
+    fs.writeFileSync(gzipPath, gzippedContent);
+    console.log(`Compressed (gzip): ${gzipPath}`);
+  } catch (error) {
+    console.error(`Error gzipping ${filePath}:`, error);
+  }
+
+  try {
+    const brotliContent = await brotliPromise(Buffer.from(content));
+    fs.writeFileSync(brotliPath, brotliContent);
+    console.log(`Compressed (brotli): ${brotliPath}`);
+  } catch (error) {
+    console.error(`Error brotli compressing ${filePath}:`, error);
+  }
+}
 
 async function extractSEOInfo(filePath) {
   const fileContent = fs.readFileSync(filePath, 'utf-8');
@@ -49,8 +78,7 @@ async function prerenderStaticPage(pagePath, title, description, contentHtml = '
     fs.mkdirSync(outputDirPath, { recursive: true });
   }
 
-  fs.writeFileSync(outputFilePath, $.html());
-  console.log(`Pre-rendered: ${outputFilePath}`);
+  await compressAndWriteFile(outputFilePath, $.html());
 }
 
 async function prerenderPages() {
@@ -122,8 +150,7 @@ async function prerenderPages() {
     }
 
     const outputFilePath = path.join(postPath, 'index.html');
-    fs.writeFileSync(outputFilePath, $.html());
-    console.log(`Pre-rendered: ${outputFilePath}`);
+    await compressAndWriteFile(outputFilePath, $.html());
   }
 
   // Prerender Legal Pages
