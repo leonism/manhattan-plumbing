@@ -1,24 +1,24 @@
-import fs from 'fs';
-import path from 'path';
-import matter from 'gray-matter';
-import { slugify } from '../src/utils/slugify.js';
-import { fileURLToPath } from 'url';
-import { dirname } from 'path';
+import fs from 'fs'
+import path from 'path'
+import matter from 'gray-matter'
+import { slugify } from '../src/utils/slugify.js'
+import { fileURLToPath } from 'url'
+import { dirname } from 'path'
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
+const __filename = fileURLToPath(import.meta.url)
+const __dirname = dirname(__filename)
 
-const NEWS_CONTENT_DIR = path.resolve(__dirname, '../src/content/news');
+const NEWS_CONTENT_DIR = path.resolve(__dirname, '../src/content/news')
 
 export const getNewsData = () => {
-  const allPosts = [];
-  const files = fs.readdirSync(NEWS_CONTENT_DIR);
+  const allPosts = []
+  const files = fs.readdirSync(NEWS_CONTENT_DIR)
 
   for (const file of files) {
     if (file.endsWith('.mdx')) {
-      const filePath = path.join(NEWS_CONTENT_DIR, file);
-      const fileContent = fs.readFileSync(filePath, 'utf-8');
-      const { data, content } = matter(fileContent);
+      const filePath = path.join(NEWS_CONTENT_DIR, file)
+      const fileContent = fs.readFileSync(filePath, 'utf-8')
+      const { data, content } = matter(fileContent)
 
       // Ensure all necessary fields are present and handle defaults
       const post = {
@@ -27,7 +27,11 @@ export const getNewsData = () => {
         seoTitle: data.seoTitle || data.title,
         date: data.date || '',
         lastModified: data.lastModified || data.date,
-        author: data.author || { name: 'Manhattan Plumbing', role: '', image: { src: '', webp: '', avif: '' } },
+        author: data.author || {
+          name: 'Manhattan Plumbing',
+          role: '',
+          image: { src: '', webp: '', avif: '' },
+        },
         category: data.category || '',
         tags: data.tags || [],
         featuredImage: data.featuredImage || { src: '', alt: '', caption: '', webp: '', avif: '' },
@@ -37,14 +41,14 @@ export const getNewsData = () => {
         featured: data.featured || false,
         jsonLd: data.jsonLd || null,
         body: content, // Store the MDX content as a string
-      };
+      }
 
       if (post.status === 'published') {
-        allPosts.push(post);
+        allPosts.push(post)
       }
     }
   }
 
-  allPosts.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
-  return allPosts;
-};
+  allPosts.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
+  return allPosts
+}

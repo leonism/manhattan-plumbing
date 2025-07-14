@@ -10,11 +10,12 @@ const SITE_TITLE = 'Manhattan Plumbing'
 const SITE_DESCRIPTION = 'Professional plumbing services in Manhattan, NY'
 
 function escapeXmlAttribute(str) {
-  return str.replace(/&/g, '&amp;')
-            .replace(/</g, '&lt;')
-            .replace(/>/g, '&gt;')
-            .replace(/"/g, '&quot;')
-            .replace(/'/g, '&apos;');
+  return str
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&apos;')
 }
 
 async function generateRssFeed() {
@@ -138,7 +139,12 @@ async function generateRssFeed() {
         const $ = cheerio.load(htmlContent)
         $('img').each((i, elem) => {
           const src = $(elem).attr('src')
-          if (src && !src.startsWith('http://') && !src.startsWith('https://') && !src.startsWith('//')) {
+          if (
+            src &&
+            !src.startsWith('http://') &&
+            !src.startsWith('https://') &&
+            !src.startsWith('//')
+          ) {
             $(elem).attr('src', SITE_URL + src)
           } else if (src) {
             $(elem).attr('src', src)
@@ -146,7 +152,13 @@ async function generateRssFeed() {
         })
         $('a').each((i, elem) => {
           const href = $(elem).attr('href')
-          if (href && !href.startsWith('http://') && !href.startsWith('https://') && !href.startsWith('//') && !href.startsWith('#')) {
+          if (
+            href &&
+            !href.startsWith('http://') &&
+            !href.startsWith('https://') &&
+            !href.startsWith('//') &&
+            !href.startsWith('#')
+          ) {
             $(elem).attr('href', SITE_URL + href)
           } else if (href) {
             $(elem).attr('href', href)
@@ -190,8 +202,6 @@ async function generateRssFeed() {
       fs.writeFile('public/feed.json', feed.json1()),
       fs.writeFile('public/atom.xml', feed.atom1()),
     ])
-
-    
 
     console.log('RSS feeds generated successfully!')
   } catch (error) {

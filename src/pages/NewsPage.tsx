@@ -1,9 +1,8 @@
-import React, { useState } from 'react'
-import { useParams, Link } from 'react-router-dom'
-import { ChevronLeft, ChevronRight } from 'lucide-react'
+import React from 'react'
+import { useParams, Link, useNavigate } from 'react-router-dom'
 import SectionHeading from '../components/UI/SectionHeading'
 import NewsCard from '../components/News/NewsCard'
-import Button from '../components/UI/Button'
+import PaginationControls from '../components/UI/PaginationControls'
 import { useNews } from '../hooks/useNews'
 import SkeletonLoader from '../components/UI/SkeletonLoader'
 import SEO from '../components/SEO/SEO'
@@ -22,13 +21,9 @@ const slugify = (text: string) => {
 }
 
 const NewsPage: React.FC = () => {
-  const { category, tag } = useParams()
-  const [currentPage, setCurrentPage] = useState(1)
-  const { posts, categories, totalPages, isLoading } = useNews({
-    category,
-    tag,
-    page: currentPage,
-  })
+  const { category, tag, page: pageParam } = useParams()
+  const navigate = useNavigate()
+  const currentPage = Number(pageParam) || 1
 
   const pageTitle = category
     ? `${category} News | Manhattan Plumbing`
@@ -46,6 +41,24 @@ const NewsPage: React.FC = () => {
       ? `https://manhattan-plumbing.pages.dev/news/tag/${slugify(tag)}`
       : 'https://manhattan-plumbing.pages.dev/news'
   const ogImage = 'https://manhattan-plumbing.pages.dev/manhattan-plumber.png' // Generic image for news page
+
+  const handlePageChange = (page: number) => {
+    const path = category
+      ? `/news/category/${slugify(category)}`
+      : tag
+        ? `/news/tag/${slugify(tag)}`
+        : '/news'
+    if (page > 1) {
+      navigate(`${path}/${page}`)
+    } else {
+      navigate(path)
+    }
+  }
+  const { posts, categories, totalPages, isLoading } = useNews({
+    category,
+    tag,
+    page: currentPage,
+  })
 
   return (
     <React.Fragment>
@@ -103,37 +116,12 @@ const NewsPage: React.FC = () => {
           </section>
 
           {totalPages > 1 && (
-            <nav className="mt-12 flex justify-center gap-2">
-              <Button
-                variant="outline"
-                size="sm"
-                onClick={() => setCurrentPage((p) => Math.max(1, p - 1))}
-                isDisabled={currentPage === 1}
-              >
-                <ChevronLeft className="mr-1 h-5 w-5" />
-                Previous
-              </Button>
-
-              {Array.from({ length: totalPages }, (_, i) => (
-                <Button
-                  key={i + 1}
-                  variant={currentPage === i + 1 ? 'primary' : 'outline-solid'}
-                  size="sm"
-                  onClick={() => setCurrentPage(i + 1)}
-                >
-                  {i + 1}
-                </Button>
-              ))}
-
-              <Button
-                variant="outline"
-                size="sm"
-                onClick={() => setCurrentPage((p) => Math.min(totalPages, p + 1))}
-                isDisabled={currentPage === totalPages}
-              >
-                Next
-                <ChevronRight className="ml-1 h-5 w-5" />
-              </Button>
+            <nav className="mt-12 flex items-center justify-center space-x-2">
+              <PaginationControls
+                currentPage={currentPage}
+                totalPages={totalPages}
+                setCurrentPage={handlePageChange}
+              />
             </nav>
           )}
         </div>

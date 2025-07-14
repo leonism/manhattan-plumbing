@@ -39,7 +39,7 @@ function App() {
                 }
               />
               <Route
-                path="/news"
+                path="/news/:page?"
                 element={
                   <LayoutNewsPage>
                     <NewsPage />
@@ -55,7 +55,7 @@ function App() {
                 }
               />
               <Route
-                path="/news/category/:category"
+                path="/news/category/:category/:page?"
                 element={
                   <LayoutNewsPage>
                     <NewsPage />
@@ -63,7 +63,7 @@ function App() {
                 }
               />
               <Route
-                path="/news/tag/:tag"
+                path="/news/tag/:tag/:page?"
                 element={
                   <LayoutNewsPage>
                     <NewsPage />

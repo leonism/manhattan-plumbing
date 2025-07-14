@@ -98,18 +98,14 @@ const SearchBar: React.FC<SearchBarProps> = ({ onClear, onClose }) => {
       </div>
 
       <div className="max-h-[60vh] overflow-y-auto">
-        <div
-          aria-live="polite"
-          role="status"
-          className="sr-only"
-        >
+        <div aria-live="polite" role="status" className="sr-only">
           {isLoading
             ? `Searching for ${query}...`
             : query && allResults.length > 0
-            ? `${allResults.length} results found.`
-            : query && allResults.length === 0
-            ? `No results found for ${query}.`
-            : ''}
+              ? `${allResults.length} results found.`
+              : query && allResults.length === 0
+                ? `No results found for ${query}.`
+                : ''}
         </div>
         {query && !isLoading && allResults.length === 0 && (
           <div className="py-12 text-center text-slate-500">

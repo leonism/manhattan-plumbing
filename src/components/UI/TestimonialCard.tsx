@@ -19,7 +19,9 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({
   className = '',
 }) => {
   return (
-    <div className={`flex h-full flex-col rounded-lg bg-white p-6 shadow-md dark:bg-slate-800 min-h-[300px] max-h-[400px] min-w-[280px] max-w-[350px] ${className}`}>
+    <div
+      className={`flex h-full max-h-[400px] min-h-[300px] max-w-[350px] min-w-[280px] flex-col rounded-lg bg-white p-6 shadow-md dark:bg-slate-800 ${className}`}
+    >
       {/* Stars */}
       <div className="mb-4 flex text-yellow-400">
         {[...Array(5)].map((_, i) => (
