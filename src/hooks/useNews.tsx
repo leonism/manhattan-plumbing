@@ -17,6 +17,8 @@ for (const path in postFiles) {
   const data = module.frontmatter
 
   if (data.status === 'published') {
+    const slug = slugify(data.title) // Or create from filename: slugify(path.split('/').pop().replace('.mdx', ''))
+
     const featuredImage = data.featuredImage.src.startsWith('http')
       ? {
           src: data.featuredImage.src,
@@ -49,6 +51,7 @@ for (const path in postFiles) {
 
     allPostsData.push({
       ...data,
+      slug,
       featuredImage: featuredImage,
       author: {
         ...data.author,
