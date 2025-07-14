@@ -47,7 +47,15 @@ function App() {
                 }
               />
               <Route
-                path="/news/:page?"
+                path="/news"
+                element={
+                  <LayoutNewsPage>
+                    <NewsPage />
+                  </LayoutNewsPage>
+                }
+              />
+              <Route
+                path="/news/page/:page"
                 element={
                   <LayoutNewsPage>
                     <NewsPage />

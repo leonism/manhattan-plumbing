@@ -21,9 +21,9 @@ const slugify = (text: string) => {
 }
 
 const NewsPage: React.FC = () => {
-  const { category, tag, page: pageParam } = useParams()
+  const { category, tag, page: pageParam } = useParams<{ category?: string; tag?: string; page?: string }>()
   const navigate = useNavigate()
-  const currentPage = Number(pageParam) || 1
+  const currentPage = pageParam ? parseInt(pageParam, 10) : 1
 
   const pageTitle = category
     ? `${category} News${currentPage > 1 ? ` - Page ${currentPage}` : ''} | Manhattan Plumbing`
@@ -39,17 +39,19 @@ const NewsPage: React.FC = () => {
     ? `https://manhattan-plumbing.pages.dev/news/category/${slugify(category)}${currentPage > 1 ? `/${currentPage}` : ''}`
     : tag
       ? `https://manhattan-plumbing.pages.dev/news/tag/${slugify(tag)}${currentPage > 1 ? `/${currentPage}` : ''}`
-      : `https://manhattan-plumbing.pages.dev/news${currentPage > 1 ? `/${currentPage}` : ''}`
+      : `https://manhattan-plumbing.pages.dev/news${currentPage > 1 ? `/page/${currentPage}` : ''}`
   const ogImage = 'https://manhattan-plumbing.pages.dev/manhattan-plumber.png' // Generic image for news page
 
   const handlePageChange = (page: number) => {
-    const path = category
-      ? `/news/category/${slugify(category)}`
-      : tag
-        ? `/news/tag/${slugify(tag)}`
-        : '/news'
+    let path = '/news'
+    if (category) {
+      path = `/news/category/${slugify(category)}`
+    } else if (tag) {
+      path = `/news/tag/${slugify(tag)}`
+    }
+
     if (page > 1) {
-      navigate(`${path}/${page}`)
+      navigate(category || tag ? `${path}/${page}` : `/news/page/${page}`)
     } else {
       navigate(path)
     }
