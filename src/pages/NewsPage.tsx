@@ -26,20 +26,20 @@ const NewsPage: React.FC = () => {
   const currentPage = Number(pageParam) || 1
 
   const pageTitle = category
-    ? `${category} News | Manhattan Plumbing`
+    ? `${category} News${currentPage > 1 ? ` - Page ${currentPage}` : ''} | Manhattan Plumbing`
     : tag
-      ? `${tag} Articles | Manhattan Plumbing`
-      : 'Latest News | Manhattan Plumbing'
+      ? `${tag} Articles${currentPage > 1 ? ` - Page ${currentPage}` : ''} | Manhattan Plumbing`
+      : `Latest News${currentPage > 1 ? ` - Page ${currentPage}` : ''} | Manhattan Plumbing`
   const pageDescription = category
-    ? `Explore all news articles categorized under ${category} from Manhattan Plumbing.`
+    ? `Explore all news articles categorized under ${category} from Manhattan Plumbing.${currentPage > 1 ? ` Page ${currentPage}.` : ''}`
     : tag
-      ? `Read articles tagged with ${tag} from Manhattan Plumbing.`
-      : 'Stay informed about the latest plumbing news, tips, and company updates from Manhattan Plumbing.'
+      ? `Read articles tagged with ${tag} from Manhattan Plumbing.${currentPage > 1 ? ` Page ${currentPage}.` : ''}`
+      : `Stay informed about the latest plumbing news, tips, and company updates from Manhattan Plumbing.${currentPage > 1 ? ` Page ${currentPage}.` : ''}`
   const pageCanonical = category
-    ? `https://manhattan-plumbing.pages.dev/news/category/${slugify(category)}`
+    ? `https://manhattan-plumbing.pages.dev/news/category/${slugify(category)}${currentPage > 1 ? `/${currentPage}` : ''}`
     : tag
-      ? `https://manhattan-plumbing.pages.dev/news/tag/${slugify(tag)}`
-      : 'https://manhattan-plumbing.pages.dev/news'
+      ? `https://manhattan-plumbing.pages.dev/news/tag/${slugify(tag)}${currentPage > 1 ? `/${currentPage}` : ''}`
+      : `https://manhattan-plumbing.pages.dev/news${currentPage > 1 ? `/${currentPage}` : ''}`
   const ogImage = 'https://manhattan-plumbing.pages.dev/manhattan-plumber.png' // Generic image for news page
 
   const handlePageChange = (page: number) => {
