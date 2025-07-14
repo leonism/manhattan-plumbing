@@ -126,7 +126,11 @@ const NewsPage: React.FC = () => {
               <PaginationControls
                 currentPage={currentPage}
                 totalPages={totalPages}
-                setCurrentPage={handlePageChange}
+                basePath={(() => {
+                  if (category) return `/news/category/${slugify(category)}`
+                  if (tag) return `/news/tag/${slugify(tag)}`
+                  return '/news/page'
+                })()}
               />
             </nav>
           )}
