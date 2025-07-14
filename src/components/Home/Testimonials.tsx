@@ -22,7 +22,7 @@ const NextArrow = (props: ArrowProps) => {
   return (
     <button
       className={`${className} custom-arrow next-arrow absolute top-1/2 -translate-y-1/2 z-10 bg-transparent border border-blue-600 text-blue-600 rounded-full p-4 shadow-md hover:bg-blue-100 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2`}
-      style={{ ...style, display: "block", right: "5px" }}
+      style={{ ...style, display: "flex", alignItems: "center", justifyContent: "center", right: "5px" }}
       onClick={onClick}
       aria-label="Next testimonial"
     >
@@ -36,7 +36,7 @@ const PrevArrow = (props: ArrowProps) => {
   return (
     <button
       className={`${className} custom-arrow prev-arrow absolute top-1/2 -translate-y-1/2 z-10 bg-transparent border border-blue-600 text-blue-600 rounded-full p-4 shadow-md hover:bg-blue-100 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2`}
-      style={{ ...style, display: "block", left: "5px" }}
+      style={{ ...style, display: "flex", alignItems: "center", justifyContent: "center", left: "5px" }}
       onClick={onClick}
       aria-label="Previous testimonial"
     >
