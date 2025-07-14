@@ -54,7 +54,7 @@ for (const path in postFiles) {
         ...data.author,
         image: authorImage,
       },
-      body: module.default,
+      body: module.default, // Ensure this is the React component
     } as Post)
   }
 }

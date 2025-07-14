@@ -6,6 +6,9 @@ import { fileURLToPath } from 'url'
 import { dirname } from 'path'
 import { gzip, brotliCompress } from 'zlib'
 import { promisify } from 'util'
+import { remark } from 'remark'
+import remarkRehype from 'remark-rehype'
+import rehypeStringify from 'rehype-stringify'
 
 const gzipPromise = promisify(gzip)
 const brotliPromise = promisify(brotliCompress)
@@ -117,12 +120,14 @@ async function prerenderPages() {
     $('meta[property^="og:"]').remove()
     $('meta[name^="twitter:"]').remove()
 
+    const postHtml = await mdxToHtml(post.body)
+
     $('#root').html(`
       <div id="news-post-container">
         <h1>${post.title}</h1>
         <p>${post.excerpt}</p>
         <div class="mdx-content">
-          ${post.body}
+          ${postHtml}
         </div>
       </div>
     `)
@@ -177,7 +182,7 @@ async function prerenderPages() {
     const start = (i - 1) * postsPerPage
     const paginatedPosts = allPosts.slice(start, start + postsPerPage)
 
-    let newsCardsHtml = ''
+    let newsCardsHtml = '';
     for (const post of paginatedPosts) {
       // This is a simplified representation. In a real scenario, you'd render the NewsCard component here.
       // For static prerendering, you might need to duplicate some of the NewsCard's HTML structure.
@@ -187,12 +192,12 @@ async function prerenderPages() {
           <p>${post.excerpt}</p>
           <p>Date: ${new Date(post.date).toLocaleDateString()}</p>
         </div>
-      `
+      `;
     }
 
-    let paginationControlsHtml = ''
+    let paginationControlsHtml = '';
     if (totalPages > 1) {
-      paginationControlsHtml += '<nav class="mt-12 flex items-center justify-center space-x-2">'
+      paginationControlsHtml += '<nav class="mt-12 flex items-center justify-center space-x-2">';
       // Previous button
       paginationControlsHtml += `
         <button class="inline-flex items-center justify-center font-medium transition-all duration-200 focus:outline-hidden focus:ring-2 focus:ring-offset-2 rounded-md hover:bg-blue-50 dark:hover:bg-blue-950 text-slate-800 dark:text-white focus:ring-blue-500 text-sm px-3 py-1.5"
@@ -201,17 +206,17 @@ async function prerenderPages() {
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-left h-4 w-4"><path d="m15 18-6-6 6-6"/></svg>
           Previous
         </button>
-      `
+      `;
 
       // Page number buttons
       for (let p = 1; p <= totalPages; p++) {
-        const isActive = i === p
+        const isActive = i === p;
         paginationControlsHtml += `
           <button class="inline-flex items-center justify-center font-medium transition-all duration-200 focus:outline-hidden focus:ring-2 focus:ring-offset-2 rounded-full h-8 w-8 ${isActive ? 'bg-blue-600 hover:bg-blue-700 text-white hover:text-white focus:ring-blue-500' : 'border border-slate-300 dark:border-slate-600 bg-transparent hover:bg-blue-50 dark:hover:bg-blue-950 text-slate-800 dark:text-white focus:ring-blue-500'}"
                   onclick="window.location.href='/${p === 1 ? 'news' : `news/${p}`}'">
             ${p}
           </button>
-        `
+        `;
       }
 
       // Next button
@@ -222,8 +227,8 @@ async function prerenderPages() {
           Next
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-right h-4 w-4"><path d="m9 18 6-6-6-6"/></svg>
         </button>
-      `
-      paginationControlsHtml += '</nav>'
+      `;
+      paginationControlsHtml += '</nav>';
     }
 
     $('#root').html(`
@@ -235,67 +240,31 @@ async function prerenderPages() {
         ${newsCardsHtml}
       </section>
       ${paginationControlsHtml}
-    `)
+    `);
 
     // Set SEO for pagination pages
-    const pageTitle =
-      i === 1 ? 'Latest News | Manhattan Plumbing' : `News Page ${i} | Manhattan Plumbing`
-    const pageDescription =
-      i === 1
-        ? 'Stay informed about the latest plumbing news, tips, and company updates from Manhattan Plumbing.'
-        : `Page ${i} of latest news articles from Manhattan Plumbing.`
-    const pageCanonical =
-      i === 1
-        ? 'https://manhattan-plumbing.pages.dev/news'
-        : `https://manhattan-plumbing.pages.dev/news/${i}`
-    const ogImage = 'https://manhattan-plumbing.pages.dev/manhattan-plumber.png'
+    const pageTitle = i === 1 ? 'Latest News | Manhattan Plumbing' : `News Page ${i} | Manhattan Plumbing`;
+    const pageDescription = i === 1 ? 'Stay informed about the latest plumbing news, tips, and company updates from Manhattan Plumbing.' : `Page ${i} of latest news articles from Manhattan Plumbing.`;
+    const pageCanonical = i === 1 ? 'https://manhattan-plumbing.pages.dev/news' : `https://manhattan-plumbing.pages.dev/news/${i}`;
+    const ogImage = 'https://manhattan-plumbing.pages.dev/manhattan-plumber.png';
 
-    $('title').remove()
-    $('meta[name="description"]').remove()
-    $('meta[property^="og:"]').remove()
-    $('meta[name^="twitter:"]').remove()
+    $('title').remove();
+    $('meta[name="description"]').remove();
+    $('meta[property^="og:"]').remove();
+    $('meta[name^="twitter:"]').remove();
 
-    $('head').append(`<title>${pageTitle}</title>`)
-    $('head').append(`<meta name="description" content="${pageDescription}">`)
-    $('head').append(`<meta property="og:title" content="${pageTitle}">`)
-    $('head').append(`<meta property="og:description" content="${pageDescription}">`)
-    $('head').append(`<meta property="og:url" content="${pageCanonical}">`)
-    $('head').append(`<meta property="og:image" content="${ogImage}">`)
-    $('head').append(`<meta property="og:type" content="website">`)
-    $('head').append(`<meta name="twitter:card" content="summary_large_image">`)
-    $('head').append(`<meta name="twitter:title" content="${pageTitle}">`)
-    $('head').append(`<meta name="twitter:description" content="${pageDescription}">`)
-    $('head').append(`<meta name="twitter:image" content="${ogImage}">`)
+    $('head').append(`<title>${pageTitle}</title>`);
+    $('head').append(`<meta name="description" content="${pageDescription}">`);
+    $('head').append(`<meta property="og:title" content="${pageTitle}">`);
+    $('head').append(`<meta property="og:description" content="${pageDescription}">`);
+    $('head').append(`<meta property="og:url" content="${pageCanonical}">`);
+    $('head').append(`<meta property="og:image" content="${ogImage}">`);
+    $('head').append(`<meta property="og:type" content="website">`);
+    $('head').append(`<meta name="twitter:card" content="summary_large_image">`);
+    $('head').append(`<meta name="twitter:title" content="${pageTitle}">`);
+    $('head').append(`<meta name="twitter:description" content="${pageDescription}">`);
+    $('head').append(`<meta name="twitter:image" content="${ogImage}">`);
 
     const outputFilePath = path.join(outputDirPath, 'index.html')
     await compressAndWriteFile(outputFilePath, $.html())
   }
-
-  // Prerender Legal Pages
-  const legalPagesDir = path.resolve(__dirname, '../src/pages/legal')
-  const legalFiles = fs.readdirSync(legalPagesDir).filter((file) => file.endsWith('.tsx'))
-
-  for (const file of legalFiles) {
-    const filePath = path.join(legalPagesDir, file)
-    const pageSlug = file.replace(/\.tsx$/, '').toLowerCase()
-    const pagePath = `legal/${pageSlug}`
-    const seoInfo = await extractSEOInfo(filePath)
-    await prerenderStaticPage(pagePath, seoInfo.title, seoInfo.description)
-  }
-
-  // Prerender Services Pages
-  const servicesPagesDir = path.resolve(__dirname, '../src/pages/services')
-  const servicesFiles = fs.readdirSync(servicesPagesDir).filter((file) => file.endsWith('.tsx'))
-
-  for (const file of servicesFiles) {
-    const filePath = path.join(servicesPagesDir, file)
-    const pageSlug = file.replace(/\.tsx$/, '').toLowerCase()
-    const pagePath = `services/${pageSlug}`
-    const seoInfo = await extractSEOInfo(filePath)
-    await prerenderStaticPage(pagePath, seoInfo.title, seoInfo.description)
-  }
-
-  console.log('All page pre-rendering complete.')
-}
-
-prerenderPages().catch(console.error)

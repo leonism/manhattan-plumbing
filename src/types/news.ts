@@ -27,7 +27,7 @@ export interface Post {
   readingTime: string
   status: string
   featured: boolean
-  body: React.ComponentType<object> // MDX content as a React component
+  body: string | React.ComponentType<object> // MDX content as a React component or string
 }
 
 export interface UseNewsOptions {

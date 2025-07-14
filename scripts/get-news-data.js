@@ -41,6 +41,8 @@ export const getNewsData = () => {
         featured: data.featured || false,
         jsonLd: data.jsonLd || null,
         body: content, // Store the MDX content as a string
+        // Note: For client-side rendering, the MDX component itself is passed via module.default
+        // This `body` field is primarily for prerendering raw MDX content.
       }
 
       if (post.status === 'published') {
