@@ -4,7 +4,7 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
+    "dev": "vite && npm run generate",
     "build": "vite build && npm run generate && npm run prerender:pages",
     "lint:fix": "eslint . --ext css,.js,.jsx,.ts,.tsx --fix && prettier --write .",
     "format": "prettier --write \"*.{css,js,ts,jsx,tsx,md}\" \"src/**/*.{js,ts,jsx,tsx,md}\" \"src/components/**/*.{js,ts,jsx,tsx,md}\" --ignore-path .prettierignore",
