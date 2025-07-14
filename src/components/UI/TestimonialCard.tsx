@@ -7,6 +7,7 @@ interface TestimonialCardProps {
   testimonial: string
   rating: number
   imgSrc: string
+  className?: string
 }
 
 const TestimonialCard: React.FC<TestimonialCardProps> = ({
@@ -15,9 +16,10 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({
   testimonial,
   rating,
   imgSrc,
+  className = '',
 }) => {
   return (
-    <div className="flex h-full flex-col rounded-lg bg-white p-6 shadow-md dark:bg-slate-800">
+    <div className={`flex h-full flex-col rounded-lg bg-white p-6 shadow-md dark:bg-slate-800 min-h-[300px] max-h-[400px] min-w-[280px] max-w-[350px] ${className}`}>
       {/* Stars */}
       <div className="mb-4 flex text-yellow-400">
         {[...Array(5)].map((_, i) => (

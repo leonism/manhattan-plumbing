@@ -10,12 +10,12 @@ const NextArrow = (props: any) => {
   const { className, style, onClick } = props;
   return (
     <button
-      className={`${className} custom-arrow next-arrow`}
-      style={{ ...style, display: "block", right: "-25px" }}
+      className={`${className} custom-arrow next-arrow absolute top-1/2 -translate-y-1/2 z-10 bg-blue-600 text-white rounded-full p-4 shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2`}
+      style={{ ...style, display: "block", right: "-20px" }}
       onClick={onClick}
       aria-label="Next testimonial"
     >
-      <ChevronRight size={32} className="text-blue-600 hover:text-blue-800" />
+      <ChevronRight size={32} className="text-white" />
     </button>
   );
 };
@@ -24,12 +24,12 @@ const PrevArrow = (props: any) => {
   const { className, style, onClick } = props;
   return (
     <button
-      className={`${className} custom-arrow prev-arrow`}
-      style={{ ...style, display: "block", left: "-25px" }}
+      className={`${className} custom-arrow prev-arrow absolute top-1/2 -translate-y-1/2 z-10 bg-blue-600 text-white rounded-full p-4 shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2`}
+      style={{ ...style, display: "block", left: "-20px" }}
       onClick={onClick}
       aria-label="Previous testimonial"
     >
-      <ChevronLeft size={32} className="text-blue-600 hover:text-blue-800" />
+      <ChevronLeft size={32} className="text-white" />
     </button>
   );
 };
@@ -60,6 +60,8 @@ const Testimonials: React.FC = () => {
     slidesToScroll: 1,
     autoplay: true,
     autoplaySpeed: 5000,
+    centerMode: true,
+    centerPadding: '0px',
     nextArrow: <NextArrow />,
     prevArrow: <PrevArrow />,
     appendDots: (dots: any) => (
@@ -159,13 +161,14 @@ const Testimonials: React.FC = () => {
 
         <Slider {...settings}>
           {testimonials.map((testimonial, index) => (
-            <div key={index} className="px-2">
+            <div key={index}>
               <TestimonialCard
                 name={testimonial.name}
                 occupation={testimonial.occupation}
                 testimonial={testimonial.testimonial}
                 rating={testimonial.rating}
                 imgSrc={testimonial.imgSrc}
+                className="px-4"
               />
             </div>
           ))}

@@ -19,3 +19,37 @@
     border-color: var(--color-gray-200, currentcolor);
   }
 }
+
+/* Hide default slick-carousel arrows */
+.slick-prev:before,
+.slick-next:before {
+  display: none !important;
+}
+
+/* Adjust custom arrow positioning */
+.slick-prev,
+.slick-next {
+  width: 48px; /* Increased size */
+  height: 48px; /* Increased size */
+  z-index: 10; /* Ensure they are on top */
+  display: flex !important; /* Ensure flexbox for centering content */
+  align-items: center; /* Center vertically */
+  justify-content: center; /* Center horizontally */
+}
+
+.slick-prev {
+  left: -24px; /* Adjust position */
+}
+
+.slick-next {
+  right: -24px; /* Adjust position */
+}
+
+@media (max-width: 768px) {
+  .slick-prev {
+    left: 0px; /* Adjust position for mobile */
+  }
+  .slick-next {
+    right: 0px; /* Adjust position for mobile */
+  }
+}
