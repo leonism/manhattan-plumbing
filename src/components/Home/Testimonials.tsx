@@ -4,6 +4,52 @@ import TestimonialCard from '../UI/TestimonialCard'
 import Slider from 'react-slick'
 import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
+import { ChevronLeft, ChevronRight } from 'lucide-react'
+
+const NextArrow = (props: any) => {
+  const { className, style, onClick } = props;
+  return (
+    <button
+      className={`${className} custom-arrow next-arrow`}
+      style={{ ...style, display: "block", right: "-25px" }}
+      onClick={onClick}
+      aria-label="Next testimonial"
+    >
+      <ChevronRight size={32} className="text-blue-600 hover:text-blue-800" />
+    </button>
+  );
+};
+
+const PrevArrow = (props: any) => {
+  const { className, style, onClick } = props;
+  return (
+    <button
+      className={`${className} custom-arrow prev-arrow`}
+      style={{ ...style, display: "block", left: "-25px" }}
+      onClick={onClick}
+      aria-label="Previous testimonial"
+    >
+      <ChevronLeft size={32} className="text-blue-600 hover:text-blue-800" />
+    </button>
+  );
+};
+
+const CustomDot = (props: any) => {
+  const { onClick, onKeyDown, index, className } = props;
+  const isActive = className && className.includes('slick-active');
+  return (
+    <li key={index} className={className}>
+      <button
+        onClick={onClick}
+        onKeyDown={onKeyDown}
+        aria-label={`Go to slide ${index + 1}`}
+        className={`w-4 h-4 rounded-full mx-1 transition-all duration-300 ${isActive ? 'bg-blue-600 w-6' : 'bg-slate-300 hover:bg-slate-400'}`}
+      >
+        <span className="sr-only">{`Go to slide ${index + 1}`}</span>
+      </button>
+    </li>
+  );
+};
 
 const Testimonials: React.FC = () => {
   const settings = {
@@ -14,6 +60,16 @@ const Testimonials: React.FC = () => {
     slidesToScroll: 1,
     autoplay: true,
     autoplaySpeed: 5000,
+    nextArrow: <NextArrow />,
+    prevArrow: <PrevArrow />,
+    appendDots: (dots: any) => (
+      <div style={{ position: "absolute", bottom: "-30px", width: "100%" }}>
+        <ul style={{ margin: "0px", display: "flex", justifyContent: "center" }}> {dots} </ul>
+      </div>
+    ),
+    customPaging: (i: number) => (
+      <CustomDot index={i} />
+    ),
     responsive: [
       {
         breakpoint: 1024,
