@@ -7,6 +7,8 @@ import { dirname } from 'path'
 import { gzip, brotliCompress } from 'zlib'
 import { promisify } from 'util'
 import { remark } from 'remark'
+import remarkGfm from 'remark-gfm'
+import remarkMdxFrontmatter from 'remark-mdx-frontmatter'
 import remarkRehype from 'remark-rehype'
 import rehypeStringify from 'rehype-stringify'
 
@@ -55,7 +57,12 @@ async function extractSEOInfo(filePath) {
 }
 
 async function mdxToHtml(mdxContent) {
-  const file = await remark().use(remarkRehype).use(rehypeStringify).process(mdxContent)
+  const file = await remark()
+    .use(remarkMdxFrontmatter)
+    .use(remarkGfm)
+    .use(remarkRehype, { allowDangerousHtml: true })
+    .use(rehypeStringify, { allowDangerousHtml: true })
+    .process(mdxContent)
   return String(file)
 }
 
