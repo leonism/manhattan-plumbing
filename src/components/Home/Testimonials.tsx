@@ -1,6 +1,7 @@
 import React from 'react'
 import SectionHeading from '../UI/SectionHeading'
 import TestimonialCard from '../UI/TestimonialCard'
+<<<<<<< HEAD
 import Slider from 'react-slick'
 import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
@@ -102,6 +103,10 @@ const Testimonials: React.FC = () => {
     ],
   }
 
+=======
+
+const Testimonials: React.FC = () => {
+>>>>>>> dev
   const testimonials = [
     {
       name: 'Sarah Johnson',
@@ -130,6 +135,7 @@ const Testimonials: React.FC = () => {
       imgSrc:
         'https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg?auto=compress&cs=tinysrgb&w=120',
     },
+<<<<<<< HEAD
     {
       name: 'David Lee',
       occupation: 'Small Business Owner',
@@ -157,6 +163,8 @@ const Testimonials: React.FC = () => {
       imgSrc:
         'https://images.pexels.com/photos/1222271/pexels-photo-1222271.jpeg?auto=compress&cs=tinysrgb&w=120',
     },
+=======
+>>>>>>> dev
   ]
 
   return (
@@ -168,8 +176,9 @@ const Testimonials: React.FC = () => {
           centered
         />
 
-        <Slider {...settings}>
+        <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
           {testimonials.map((testimonial, index) => (
+<<<<<<< HEAD
             <div key={index}>
               <TestimonialCard
                 name={testimonial.name}
@@ -180,8 +189,18 @@ const Testimonials: React.FC = () => {
                 className="px-4"
               />
             </div>
+=======
+            <TestimonialCard
+              key={index}
+              name={testimonial.name}
+              occupation={testimonial.occupation}
+              testimonial={testimonial.testimonial}
+              rating={testimonial.rating}
+              imgSrc={testimonial.imgSrc}
+            />
+>>>>>>> dev
           ))}
-        </Slider>
+        </div>
       </div>
     </section>
   )
