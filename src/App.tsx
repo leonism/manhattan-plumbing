@@ -39,18 +39,18 @@ function App() {
                 }
               />
               <Route
-                path="/news/:page?"
-                element={
-                  <LayoutNewsPage>
-                    <NewsPage />
-                  </LayoutNewsPage>
-                }
-              />
-              <Route
                 path="/news/:slug"
                 element={
                   <LayoutNewsPage>
                     <NewsPost />
+                  </LayoutNewsPage>
+                }
+              />
+              <Route
+                path="/news/:page?"
+                element={
+                  <LayoutNewsPage>
+                    <NewsPage />
                   </LayoutNewsPage>
                 }
               />
