@@ -137,7 +137,7 @@ const NewsPost: React.FC = () => {
               <div className="flex items-center">
                 <Folder className="mr-2 h-4 w-4" />
                 <Link
-                  to={`/news/category/${post.category}`}
+                  to={`/news/category/${slugify(post.category)}`}
                   className="transition-colors hover:text-blue-600 dark:hover:text-blue-400"
                 >
                   {post.category}

@@ -87,14 +87,9 @@ async function prerenderStaticPage(pagePath, title, description, contentHtml = '
   await compressAndWriteFile(outputFilePath, $.html())
 }
 
-async function prerenderPages() {
-  console.log('Starting page pre-rendering...')
 
-  // Ensure dist directory exists
-  if (!fs.existsSync(DIST_DIR)) {
-    fs.mkdirSync(DIST_DIR, { recursive: true })
-  }
 
+<<<<<<< HEAD
   // Prerender News Pages
   const NEWS_DIST_DIR = path.join(DIST_DIR, 'news')
   if (!fs.existsSync(NEWS_DIST_DIR)) {
@@ -268,3 +263,5 @@ async function prerenderPages() {
     const outputFilePath = path.join(outputDirPath, 'index.html')
     await compressAndWriteFile(outputFilePath, $.html())
   }
+=======
+>>>>>>> dev

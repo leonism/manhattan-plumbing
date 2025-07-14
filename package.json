@@ -4,7 +4,7 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
+    "dev": "vite && npm run generate",
     "build": "vite build && npm run generate && npm run prerender:pages",
     "lint:fix": "eslint . --ext css,.js,.jsx,.ts,.tsx --fix && prettier --write .",
     "format": "prettier --write \"*.{css,js,ts,jsx,tsx,md}\" \"src/**/*.{js,ts,jsx,tsx,md}\" \"src/components/**/*.{js,ts,jsx,tsx,md}\" --ignore-path .prettierignore",
@@ -39,6 +39,7 @@
     "react-helmet-async": "^2.0.4",
     "react-router-dom": "^6.22.2",
     "react-slick": "^0.30.3",
+    "rehype-raw": "^7.0.0",
     "rehype-react": "^8.0.0",
     "rehype-stringify": "^10.0.1",
     "remark": "^15.0.1",

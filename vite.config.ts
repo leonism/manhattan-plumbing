@@ -6,8 +6,6 @@ import mdx from '@mdx-js/rollup'
 import remarkFrontmatter from 'remark-frontmatter'
 import remarkMdxFrontmatter from 'remark-mdx-frontmatter'
 import remarkGfm from 'remark-gfm'
-import rehypeReact from 'rehype-react'
-import React from 'react'
 import { createHtmlPlugin } from 'vite-plugin-html'
 
 export default defineConfig({
@@ -15,9 +13,6 @@ export default defineConfig({
     react(),
     mdx({
       remarkPlugins: [remarkFrontmatter, remarkMdxFrontmatter, remarkGfm],
-      rehypePlugins: [
-        [rehypeReact, { createElement: React.createElement, Fragment: React.Fragment }],
-      ],
     }),
     ViteImageOptimizer({
       png: { quality: 80 },
