@@ -29,6 +29,8 @@ const Button: React.FC<ButtonProps> = ({
     danger: 'bg-red-900 text-white hover:bg-slate-900 focus:ring-salte-500',
     outline:
       'border border-slate-300 dark:border-slate-600 bg-transparent hover:bg-blue-50 dark:hover:bg-blue-950 text-slate-800 dark:text-white focus:ring-blue-500',
+    'outline-solid':
+      'border border-blue-600 bg-blue-600 text-white hover:bg-blue-700 hover:border-blue-700 focus:ring-blue-500',
     ghost:
       'hover:bg-blue-50 dark:hover:bg-blue-950 text-slate-800 dark:text-white focus:ring-blue-500',
   }

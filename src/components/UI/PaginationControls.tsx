@@ -5,30 +5,34 @@ import PaginationButton from './PaginationButton'
 interface PaginationControlsProps {
   currentPage: number
   totalPages: number
-  setCurrentPage: (page: number) => void
+  basePath: string
 }
 
 const PaginationControls: React.FC<PaginationControlsProps> = ({
   currentPage,
   totalPages,
-  setCurrentPage,
+  basePath,
 }) => {
+  const getPageUrl = (page: number) => {
+    return `${basePath}?page=${page}`
+  }
+
   return (
     <>
       <PaginationButton
-        onClick={() => setCurrentPage(Math.max(1, currentPage - 1))}
+        to={getPageUrl(Math.max(1, currentPage - 1))}
         isDisabled={currentPage === 1}
         size="sm"
         className="flex items-center gap-1 px-3"
       >
         <ChevronLeft className="h-4 w-4" />
-        Previous
+        Prev
       </PaginationButton>
 
       {Array.from({ length: totalPages }, (_, i) => (
         <PaginationButton
           key={i + 1}
-          onClick={() => setCurrentPage(i + 1)}
+          to={getPageUrl(i + 1)}
           isActive={currentPage === i + 1}
           size="icon"
         >
@@ -37,7 +41,7 @@ const PaginationControls: React.FC<PaginationControlsProps> = ({
       ))}
 
       <PaginationButton
-        onClick={() => setCurrentPage(Math.min(totalPages, currentPage + 1))}
+        to={getPageUrl(Math.min(totalPages, currentPage + 1))}
         isDisabled={currentPage === totalPages}
         size="sm"
         className="flex items-center gap-1 px-3"

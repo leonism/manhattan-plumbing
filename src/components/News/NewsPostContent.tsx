@@ -2,6 +2,7 @@ import React from 'react'
 import { MDXProvider } from '@mdx-js/react'
 import { Helmet } from 'react-helmet-async'
 import SectionHeading from '../UI/SectionHeading'
+import TagButton from '../UI/TagButton'
 
 // Custom components for MDX content
 const components = {
@@ -129,9 +130,7 @@ const NewsPostContent: React.FC<NewsPostContentProps> = ({ frontmatter, content 
       <footer className="mt-12 border-t border-gray-200 pt-8">
         <div className="flex flex-wrap gap-2">
           {frontmatter.tags.map((tag) => (
-            <span key={tag} className="rounded-full bg-gray-100 px-3 py-1 text-sm text-gray-600">
-              #{tag}
-            </span>
+            <TagButton key={tag} tag={tag} />
           ))}
         </div>
       </footer>

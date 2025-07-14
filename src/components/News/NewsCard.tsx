@@ -2,6 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { format } from 'date-fns'
 import { slugify } from '../../utils/slugify' // Assuming slugify is in a utils file
+import TagButton from '../UI/TagButton'
 
 import type { Post } from '../../types/news'
 
@@ -59,12 +60,8 @@ const NewsCard: React.FC<NewsCardProps> = ({ post }) => {
         <p className="mb-4 line-clamp-3 text-slate-600 dark:text-slate-400">{post.excerpt}</p>
         <div className="flex flex-wrap gap-2">
           {post.tags.slice(0, 3).map((tag) => (
-            <Link
-              key={tag}
-              to={`/news/tag/${slugify(tag)}`}
-              className="rounded-full bg-blue-100 px-3 py-1 text-sm text-blue-700 transition-colors hover:text-blue-900 dark:bg-blue-900 dark:text-blue-200 dark:hover:text-blue-50"
-            >
-              #{tag}
+            <Link key={tag} to={`/news/tag/${slugify(tag)}`}>
+              <TagButton tag={tag} />
             </Link>
           ))}
         </div>

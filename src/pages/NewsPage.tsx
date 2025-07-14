@@ -21,7 +21,11 @@ const slugify = (text: string) => {
 }
 
 const NewsPage: React.FC = () => {
-  const { category, tag, page: pageParam } = useParams<{ category?: string; tag?: string; page?: string }>()
+  const {
+    category,
+    tag,
+    page: pageParam,
+  } = useParams<{ category?: string; tag?: string; page?: string }>()
   const navigate = useNavigate()
   const currentPage = pageParam ? parseInt(pageParam, 10) : 1
 
@@ -75,7 +79,7 @@ const NewsPage: React.FC = () => {
       />
       <main className="min-h-screen py-16">
         <div className="container mx-auto px-4">
-          <header className="mb-12 text-center">
+          <header className="mt-12 mb-12 text-center">
             <SectionHeading
               title={category ? `${category} News` : tag ? `${tag} Articles` : 'Latest News'}
               subtitle="Stay informed about the latest updates and insights"
@@ -122,7 +126,11 @@ const NewsPage: React.FC = () => {
               <PaginationControls
                 currentPage={currentPage}
                 totalPages={totalPages}
-                setCurrentPage={handlePageChange}
+                basePath={(() => {
+                  if (category) return `/news/category/${slugify(category)}`
+                  if (tag) return `/news/tag/${slugify(tag)}`
+                  return '/news/page'
+                })()}
               />
             </nav>
           )}

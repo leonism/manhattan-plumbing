@@ -20,6 +20,7 @@ const PipeService = lazy(() => import('./pages/services/PipeService'))
 const RemodelingService = lazy(() => import('./pages/services/RemodelingService'))
 const WaterHeaterService = lazy(() => import('./pages/services/WaterHeaterService'))
 const LocationPage = lazy(() => import('./pages/LocationPage'))
+const NotFoundPage = lazy(() => import('./pages/NotFoundPage'))
 
 import LoadingSpinner from './components/UI/LoadingSpinner'
 
@@ -163,6 +164,14 @@ function App() {
                 element={
                   <LayoutNewsPage>
                     <LocationPage />
+                  </LayoutNewsPage>
+                }
+              />
+              <Route
+                path="*"
+                element={
+                  <LayoutNewsPage>
+                    <NotFoundPage />
                   </LayoutNewsPage>
                 }
               />
