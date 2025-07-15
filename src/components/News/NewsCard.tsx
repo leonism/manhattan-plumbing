@@ -60,9 +60,7 @@ const NewsCard: React.FC<NewsCardProps> = ({ post }) => {
         <p className="mb-4 line-clamp-3 text-slate-600 dark:text-slate-400">{post.excerpt}</p>
         <div className="flex flex-wrap gap-2">
           {post.tags.slice(0, 3).map((tag) => (
-            <Link key={tag} to={`/news/tag/${slugify(tag)}`}>
-              <TagButton tag={tag} />
-            </Link>
+            <TagButton key={tag} tag={tag} />
           ))}
         </div>
       </div>
