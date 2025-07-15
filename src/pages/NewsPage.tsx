@@ -1,5 +1,5 @@
 import React from 'react'
-import { useParams, Link, useNavigate } from 'react-router-dom'
+import { useParams, Link } from 'react-router-dom'
 import SectionHeading from '../components/UI/SectionHeading'
 import NewsCard from '../components/News/NewsCard'
 import PaginationControls from '../components/UI/PaginationControls'
@@ -26,7 +26,7 @@ const NewsPage: React.FC = () => {
     tag,
     page: pageParam,
   } = useParams<{ category?: string; tag?: string; page?: string }>()
-  const navigate = useNavigate()
+
   const currentPage = pageParam ? parseInt(pageParam, 10) : 1
 
   const pageTitle = category
@@ -46,20 +46,6 @@ const NewsPage: React.FC = () => {
       : `https://manhattan-plumbing.pages.dev/news${currentPage > 1 ? `/page/${currentPage}` : ''}`
   const ogImage = 'https://manhattan-plumbing.pages.dev/manhattan-plumber.png' // Generic image for news page
 
-  const handlePageChange = (page: number) => {
-    let path = '/news'
-    if (category) {
-      path = `/news/category/${slugify(category)}`
-    } else if (tag) {
-      path = `/news/tag/${slugify(tag)}`
-    }
-
-    if (page > 1) {
-      navigate(category || tag ? `${path}/${page}` : `/news/page/${page}`)
-    } else {
-      navigate(path)
-    }
-  }
   const { posts, categories, totalPages, isLoading } = useNews({
     category,
     tag,

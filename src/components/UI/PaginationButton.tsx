@@ -22,7 +22,7 @@ const PaginationButton: React.FC<PaginationButtonProps> = ({
 
   const variantStyles = isActive
     ? 'bg-blue-600 hover:bg-blue-700 text-white hover:text-white focus:ring-blue-500'
-    : 'border border-slate-300 dark:border-slate-600 bg-transparent hover:bg-blue-50 dark:hover:bg-blue-950 text-slate-800 dark:text-white focus:ring-blue-500'
+    : 'border border-slate-300 dark:border-slate-600 bg-transparent hover:bg-blue-600 dark:hover:bg-blue-600 text-slate-800 dark:text-white focus:ring-blue-500'
 
   const sizeStyles = {
     sm: 'text-sm px-3 py-1.5',
