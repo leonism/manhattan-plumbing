@@ -1,11 +1,12 @@
-import React from 'react'
-import { useParams, Link } from 'react-router-dom'
-import SectionHeading from '../components/UI/SectionHeading'
-import NewsCard from '../components/News/NewsCard'
-import PaginationControls from '../components/UI/PaginationControls'
-import { useNews } from '../hooks/useNews'
-import SkeletonLoader from '../components/UI/SkeletonLoader'
-import SEO from '../components/SEO/SEO'
+import React from 'react';
+import { useParams } from 'react-router-dom';
+import SectionHeading from '../components/UI/SectionHeading';
+import NewsCard from '../components/News/NewsCard';
+import PaginationControls from '../components/UI/PaginationControls';
+import { useNews } from '../hooks/useNews';
+import SkeletonLoader from '../components/UI/SkeletonLoader';
+import SEO from '../components/SEO/SEO';
+import CategoryList from '../components/News/CategoryList';
 
 // Helper function to slugify strings
 const slugify = (text: string) => {
@@ -72,31 +73,7 @@ const NewsPage: React.FC = () => {
               centered={true}
             />
 
-            <div className="mt-6 flex flex-wrap justify-center gap-3">
-              <Link
-                to="/news"
-                className={`text-sm ${
-                  !category && !tag
-                    ? 'bg-blue-600 text-white dark:bg-blue-400'
-                    : 'bg-slate-100 text-slate-700 dark:bg-slate-700 dark:text-slate-200'
-                } rounded-full px-4 py-2 transition-colors hover:bg-blue-600 hover:text-white dark:hover:bg-blue-400 dark:hover:text-white`}
-              >
-                All
-              </Link>
-              {categories.map((cat) => (
-                <Link
-                  key={cat}
-                  to={`/news/category/${slugify(cat)}`}
-                  className={`text-sm ${
-                    category === cat
-                      ? 'bg-blue-600 text-white dark:bg-blue-400'
-                      : 'bg-slate-100 text-slate-700 dark:bg-slate-700 dark:text-slate-200'
-                  } rounded-full px-4 py-2 transition-colors hover:bg-blue-600 hover:text-white dark:hover:bg-blue-400 dark:hover:text-white`}
-                >
-                  {cat}
-                </Link>
-              ))}
-            </div>
+            <CategoryList categories={categories} currentCategory={category} slugify={slugify} />
           </header>
 
           <section className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
