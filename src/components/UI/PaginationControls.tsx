@@ -14,7 +14,15 @@ const PaginationControls: React.FC<PaginationControlsProps> = ({
   basePath,
 }) => {
   const getPageUrl = (page: number) => {
-    return `${basePath}?page=${page}`
+    if (page === 1) {
+      // For page 1, we want to go to the base path without the page number
+      // If basePath is '/news/page', it should go to '/news'
+      if (basePath === '/news/page') {
+        return '/news'
+      }
+      return basePath
+    }
+    return `${basePath}/${page}`
   }
 
   return (
