@@ -2,8 +2,9 @@ import React from 'react'
 import { useParams, Link } from 'react-router-dom'
 import SEO from '../components/SEO/SEO'
 import { format } from 'date-fns'
-import { Calendar, Clock, Tag, Folder } from 'lucide-react';
+import { Calendar, Clock, Folder, Tag } from 'lucide-react';
 import BackToBlogButton from '../components/News/BackToBlogButton';
+import TagList from '../components/News/TagList';
 import { MDXProvider } from '@mdx-js/react'
 
 import ShareButtons from '../components/News/ShareButtons'
@@ -113,18 +114,7 @@ const NewsPost: React.FC = () => {
                 </div>
               )}
             </div>
-            <div className="mb-8 flex flex-wrap justify-center gap-2">
-              {post.tags.map((tag: string) => (
-                <Link
-                  key={tag}
-                  to={`/news/tag/${slugify(tag)}`}
-                  className="inline-flex items-center rounded-full bg-blue-100 px-3 py-1 text-sm text-blue-700 transition-colors hover:bg-blue-200 dark:bg-blue-900 dark:text-blue-200 dark:hover:bg-blue-800"
-                >
-                  <Tag className="mr-1 h-4 w-4" />
-                  {tag}
-                </Link>
-              ))}
-            </div>
+            <TagList tags={post.tags} slugify={slugify} />
 
             <div className="mb-6 flex flex-wrap items-center justify-center gap-4 text-slate-600 dark:text-slate-400">
               <div className="flex items-center">
