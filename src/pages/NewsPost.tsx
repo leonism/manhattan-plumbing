@@ -2,7 +2,8 @@ import React from 'react'
 import { useParams, Link } from 'react-router-dom'
 import SEO from '../components/SEO/SEO'
 import { format } from 'date-fns'
-import { Calendar, Clock, Tag, Folder } from 'lucide-react'
+import { Calendar, Clock, Tag, Folder } from 'lucide-react';
+import BackToBlogButton from '../components/News/BackToBlogButton';
 import { MDXProvider } from '@mdx-js/react'
 
 import ShareButtons from '../components/News/ShareButtons'
@@ -175,6 +176,8 @@ const NewsPost: React.FC = () => {
           </div>
 
           <ArticleNavigation previousPost={previousPost} nextPost={nextPost} />
+
+          <BackToBlogButton />
 
           {allPosts.filter((p: Post) => p.slug !== post.slug).length > 0 && (
             <div className="mx-auto mt-16 max-w-4xl">
