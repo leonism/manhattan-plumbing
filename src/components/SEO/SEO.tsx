@@ -19,7 +19,15 @@ interface SEOProps {
   ogDescription?: string
   ogImage?: string
   ogUrl?: string
-  jsonLd?: ArticleSchemaProps
+  ogType?: string
+  twitterCard?: string
+  twitterSite?: string
+  twitterCreator?: string
+  twitterTitle?: string
+  twitterDescription?: string
+  twitterImage?: string
+  robots?: string
+  article?: ArticleSchemaProps // Changed from jsonLd to article
   localBusiness?: LocalBusinessSchemaProps
   breadcrumbs?: BreadcrumbItem[]
   review?: ReviewSchemaProps
@@ -36,7 +44,8 @@ const SEO: React.FC<SEOProps> = ({
   ogDescription,
   ogImage,
   ogUrl,
-  jsonLd,
+  ogType = 'website', // Default to 'website'
+  article, // Changed from jsonLd to article
   localBusiness,
   breadcrumbs,
   review,
@@ -56,10 +65,28 @@ const SEO: React.FC<SEOProps> = ({
         <meta property="og:description" content={ogDescription || description} />
         {ogImage && <meta property="og:image" content={ogImage} />}
         {ogUrl && <meta property="og:url" content={ogUrl} />}
-        <meta property="og:type" content="website" />
+        <meta property="og:type" content={ogType} />
+        {article && (
+          <>
+            {article.datePublished && (
+              <meta property="article:published_time" content={article.datePublished} />
+            )}
+            {article.dateModified && (
+              <meta property="article:modified_time" content={article.dateModified} />
+            )}
+            {article.author && <meta property="article:author" content={article.author.name} />}
+            {article.articleSection && (
+              <meta property="article:section" content={article.articleSection} />
+            )}
+            {article.keywords &&
+              article.keywords.map((tag: string, index: number) => (
+                <meta property="article:tag" content={tag} key={index} />
+              ))}
+            </>
+          )}
       </Helmet>
       <JsonLD
-        article={jsonLd as ArticleSchemaProps}
+        article={article} // Pass article directly
         localBusiness={localBusiness}
         breadcrumbs={breadcrumbs}
         review={review}

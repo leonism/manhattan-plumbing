@@ -6,9 +6,13 @@ export interface ArticleSchemaProps {
   image: string
   datePublished: string
   dateModified: string
-  authorName: string
+  author: {
+    name: string
+  }
   publisherName: string
   publisherLogo: string
+  articleSection?: string
+  keywords?: string[]
 }
 
 export interface BreadcrumbItem {
@@ -124,7 +128,7 @@ const JsonLD: React.FC<JsonLDProps> = ({
       dateModified: article.dateModified,
       author: {
         '@type': 'Person',
-        name: article.authorName,
+        name: article.author.name,
       },
       publisher: {
         '@type': 'Organization',

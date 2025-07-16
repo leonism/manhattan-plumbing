@@ -1,6 +1,6 @@
 import React from 'react'
 import { useParams } from 'react-router-dom'
-import NewsOgMeta from '../components/News/NewsOgMeta'
+import SEO from '../components/SEO/SEO'
 import BackToBlogButton from '../components/News/BackToBlogButton'
 import NewsPostHeader from '../components/News/NewsPostHeader'
 import NewsPostMeta from '../components/News/NewsPostMeta'
@@ -53,6 +53,26 @@ const NewsPost: React.FC = () => {
 
   return (
     <>
+      <SEO
+        title={post.title}
+        description={post.description}
+        keywords={post.tags}
+        canonical={`http://localhost:5173/news/${post.slug}`}
+        ogTitle={post.title}
+        ogDescription={post.description}
+        ogImage={post.image}
+        ogUrl={`http://localhost:5173/news/${post.slug}`}
+        ogType="article"
+        article={{
+          datePublished: post.date,
+          dateModified: post.date, // Assuming no separate modified date for now
+          author: {
+            name: post.author,
+          },
+          articleSection: post.category,
+          keywords: post.tags,
+        }}
+      />
       <main className="bg-slate-50 py-20 text-slate-800 sm:py-24 dark:bg-slate-900 dark:text-slate-200">
         <article className="container mx-auto px-4 py-8">
           <header className="mx-auto mb-12 max-w-4xl">
