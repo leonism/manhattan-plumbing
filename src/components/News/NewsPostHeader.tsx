@@ -1,17 +1,15 @@
-import React from 'react';
-import { Post } from '../../types/news';
+import React from 'react'
+import { Post } from '../../types/news'
 
 interface NewsPostHeaderProps {
-  post: Post;
+  post: Post
 }
 
 const NewsPostHeader: React.FC<NewsPostHeaderProps> = ({ post }) => {
   return (
-    <header className="mx-auto mb-12 max-w-4xl text-center">
-      <h1 className="mb-6 text-4xl leading-tight font-extrabold md:text-5xl">
-        {post.title}
-      </h1>
-      <div className="relative mb-8 overflow-hidden rounded-lg shadow-lg">
+    <header className="mx-auto mb-5 max-w-4xl text-center">
+      <h1 className="mb-3 text-4xl leading-tight font-extrabold md:text-5xl">{post.title}</h1>
+      <div className="relative mb-4 overflow-hidden rounded-lg shadow-lg">
         <picture>
           <source srcSet={post.featuredImage.avif} type="image/avif" />
           <source srcSet={post.featuredImage.webp} type="image/webp" />
@@ -29,7 +27,7 @@ const NewsPostHeader: React.FC<NewsPostHeaderProps> = ({ post }) => {
         )}
       </div>
     </header>
-  );
-};
+  )
+}
 
-export default NewsPostHeader;
+export default NewsPostHeader

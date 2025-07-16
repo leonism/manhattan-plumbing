@@ -26,9 +26,7 @@ const slugify = (text: string) => {
     .replace(/--+/g, '-')
 }
 
-const components = {
-  h1: () => null,
-}
+
 
 const NewsPost: React.FC = () => {
   const { slug } = useParams()
@@ -104,14 +102,11 @@ const NewsPost: React.FC = () => {
             <NewsPostHeader post={post} />
             <NewsPostMeta post={post} slugify={slugify} />
           </header>
-
           <NewsPostBody body={post.body} />
-
           <div className="mx-auto mt-8 max-w-4xl">
             <ShareButtons post={post} />
             <ArticleNavigation previousPost={previousPost} nextPost={nextPost} />
           </div>
-
           <RelatedArticles allPosts={allPosts} currentPostSlug={post.slug} />
         </article>
       </main>

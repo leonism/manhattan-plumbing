@@ -5,14 +5,15 @@ import { Tag } from 'lucide-react';
 interface TagListProps {
   tags: string[];
   slugify: (text: string) => string;
+  className?: string;
 }
 
-const TagList: React.FC<TagListProps> = ({ tags, slugify }) => {
+const TagList: React.FC<TagListProps> = ({ tags, slugify, className }) => {
   const [showAllTags, setShowAllTags] = useState(false);
   const visibleTags = showAllTags ? tags : tags.slice(0, 3);
 
   return (
-    <div className="mb-8 flex flex-wrap justify-center gap-2">
+    <div className={`mb-8 flex flex-wrap justify-center gap-2 ${className || ''}`}>
       {visibleTags.map((tag: string) => (
         <Link
           key={tag}
