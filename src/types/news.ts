@@ -19,7 +19,8 @@ export interface Post {
   featuredImage: {
     src: string
     alt: string
-    caption: string
+    width?: number
+    height?: number
     webp: string
     avif: string
   }
@@ -27,7 +28,7 @@ export interface Post {
   readingTime: string
   status: string
   featured: boolean
-  body: string | React.ComponentType<object> // MDX content as a React component or string
+  body: string | React.ComponentType<Record<string, unknown>> // MDX content as a React component or string
 }
 
 export interface UseNewsOptions {

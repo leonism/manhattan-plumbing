@@ -54,21 +54,31 @@ const NewsPost: React.FC = () => {
   return (
     <>
       <SEO
-        title={post.title}
-        description={post.description}
+        title={post.seoTitle || post.title}
+        description={post.excerpt}
         keywords={post.tags}
         canonical={`http://localhost:5173/news/${post.slug}`}
-        ogTitle={post.title}
-        ogDescription={post.description}
-        ogImage={post.image}
+        ogTitle={post.seoTitle || post.title}
+        ogDescription={post.excerpt}
+        ogImage={post.featuredImage.src}
         ogUrl={`http://localhost:5173/news/${post.slug}`}
         ogType="article"
+        ogImageAlt={post.featuredImage.alt}
+        ogImageWidth={post.featuredImage.width}
+        ogImageHeight={post.featuredImage.height}
+        twitterSite="@ManhattanPlumb"
+        twitterCreator={post.author.name ? `@${post.author.name.replace(/\s/g, '')}` : undefined}
         article={{
+          headline: post.title,
+          description: post.excerpt,
+          image: post.featuredImage.src,
           datePublished: post.date,
-          dateModified: post.date, // Assuming no separate modified date for now
+          dateModified: post.lastModified || post.date,
           author: {
-            name: post.author,
+            name: post.author.name,
           },
+          publisherName: 'Manhattan Plumbing',
+          publisherLogo: 'http://localhost:5173/logo.png',
           articleSection: post.category,
           keywords: post.tags,
         }}
