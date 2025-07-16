@@ -275,7 +275,7 @@ const EmergencyServicePage = () => {
           </div>
         </section>
       </main>
-
+    </Layout>
   )
 }
 

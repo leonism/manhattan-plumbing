@@ -1,4 +1,4 @@
-import SEO from '../../components/SEO/SEO'
+import Layout from '../../components/Layout/Layout'
 import SectionHeading from '../../components/UI/SectionHeading'
 import Button from '../../components/UI/Button'
 import { Droplets, Wrench, Shield, Clock, CheckCircle, Zap } from 'lucide-react'
@@ -28,30 +28,7 @@ const DrainsServicePage = () => {
       'Expert drain cleaning services in Manhattan. We handle kitchen clogs, bathroom drains, sewer lines, and more.',
   }
 
-  return (
-    import Layout from '../../components/Layout/Layout'
-import SectionHeading from '../../components/UI/SectionHeading'
-import Button from '../../components/UI/Button'
-import { Droplets, Wrench, Shield, Clock, CheckCircle, Zap } from 'lucide-react'
-
-import drainHeroJpg from '../../assets/images/pexels-newyork-001.jpg'
-import kitchenClogJpg from '../../assets/images/pexels-newyork-002.jpg'
-import bathroomDrainJpg from '../../assets/images/pexels-newyork-003.jpg'
-import sewerLineJpg from '../../assets/images/pexels-newyork-004.jpg'
-import outdoorDrainJpg from '../../assets/images/pexels-newyork-005.jpg'
-
-import Layout from '../../components/Layout/Layout'
-import SectionHeading from '../../components/UI/SectionHeading'
-import Button from '../../components/UI/Button'
-import { Droplets, Wrench, Shield, Clock, CheckCircle, Zap } from 'lucide-react'
-
-import drainHeroJpg from '../../assets/images/pexels-newyork-001.jpg'
-import kitchenClogJpg from '../../assets/images/pexels-newyork-002.jpg'
-import bathroomDrainJpg from '../../assets/images/pexels-newyork-003.jpg'
-import sewerLineJpg from '../../assets/images/pexels-newyork-004.jpg'
-import outdoorDrainJpg from '../../assets/images/pexels-newyork-005.jpg'
-
-const DrainsServicePage = () => {
+  const DrainsServicePage = () => {
   const jsonLd = {
     '@context': 'https://schema.org',
     '@type': 'Service',
@@ -160,7 +137,7 @@ const DrainsServicePage = () => {
                   className="rounded-xl bg-white p-8 shadow-lg transition-shadow duration-300 hover:shadow-xl dark:bg-slate-700"
                 >
                   <div className="mb-6 flex justify-center">{feature.icon}</div>
-                  <h3 className="mb-4 text-center text-2xl font-bold text-slate-800 dark:text-white">
+                  <h3 className="mb-4 text-2xl font-bold text-slate-800 dark:text-white">
                     {feature.title}
                   </h3>
                   <p className="text-center text-lg text-slate-600 dark:text-slate-300">

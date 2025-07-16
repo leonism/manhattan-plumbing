@@ -68,6 +68,31 @@ import fixtureRepairJpg from '../../assets/images/pexels-newyork-014.jpg'
 import fixtureRepairWebp from '../../assets/images/pexels-newyork-014.jpg?format=webp'
 import fixtureRepairAvif from '../../assets/images/pexels-newyork-014.jpg?format=avif'
 
+import Layout from '../../components/Layout/Layout'
+import SectionHeading from '../../components/UI/SectionHeading'
+import Button from '../../components/UI/Button'
+import { Wrench, ShowerHead, Droplet, Home, CheckCircle } from 'lucide-react'
+
+import fixtureHeroJpg from '../../assets/images/pexels-newyork-010.jpg'
+import fixtureHeroWebp from '../../assets/images/pexels-newyork-010.jpg?format=webp'
+import fixtureHeroAvif from '../../assets/images/pexels-newyork-010.jpg?format=avif'
+
+import faucetInstallJpg from '../../assets/images/pexels-newyork-011.jpg'
+import faucetInstallWebp from '../../assets/images/pexels-newyork-011.jpg?format=webp'
+import faucetInstallAvif from '../../assets/images/pexels-newyork-011.jpg?format=avif'
+
+import showerUpgradeJpg from '../../assets/images/pexels-newyork-012.jpg'
+import showerUpgradeWebp from '../../assets/images/pexels-newyork-012.jpg?format=webp'
+import showerUpgradeAvif from '../../assets/images/pexels-newyork-012.jpg?format=avif'
+
+import waterEfficiencyJpg from '../../assets/images/pexels-newyork-013.jpg'
+import waterEfficiencyWebp from '../../assets/images/pexels-newyork-013.jpg?format=webp'
+import waterEfficiencyAvif from '../../assets/images/pexels-newyork-013.jpg?format=avif'
+
+import fixtureRepairJpg from '../../assets/images/pexels-newyork-014.jpg'
+import fixtureRepairWebp from '../../assets/images/pexels-newyork-014.jpg?format=webp'
+import fixtureRepairAvif from '../../assets/images/pexels-newyork-014.jpg?format=avif'
+
 const FixturesServicePage = () => {
   const jsonLd = {
     '@context': 'https://schema.org',
@@ -210,7 +235,11 @@ const FixturesServicePage = () => {
                   title: 'Faucet Installation & Repair',
                   description:
                     'Professional installation of kitchen and bathroom faucets from leading brands like Moen, Delta, and Kohler.',
-                  features: ['Precision installation', 'Leak prevention', 'Water flow optimization'],
+                  features: [
+                    'Precision installation',
+                    'Leak prevention',
+                    'Water flow optimization',
+                  ],
                 },
                 {
                   image: { jpg: showerUpgradeJpg, webp: showerUpgradeWebp, avif: showerUpgradeAvif },
@@ -257,7 +286,7 @@ const FixturesServicePage = () => {
                   key={index}
                   className="overflow-hidden rounded-xl bg-white shadow-lg transition-shadow duration-300 hover:shadow-xl dark:bg-slate-800"
                 >
-                  <div className="relative h-64 overflow-hidden">
+                  <div className="h-64 overflow-hidden">
                     <picture>
                       <source srcSet={service.image.avif} type="image/avif" />
                       <source srcSet={service.image.webp} type="image/webp" />
