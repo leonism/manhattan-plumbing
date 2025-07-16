@@ -1,17 +1,18 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import { ArrowLeft } from 'lucide-react';
+import React from 'react'
+import { Link } from 'react-router-dom'
+import { ArrowLeft } from 'lucide-react'
 
 const BackToBlogButton: React.FC = () => {
   return (
     <Link
       to="/news"
-      className="fixed bottom-4 right-4 z-50 flex h-12 w-12 items-center justify-center rounded-full bg-blue-600 p-4 text-white shadow-lg transition-colors hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 dark:bg-blue-500 dark:hover:bg-blue-600"
+      className="mb-1 inline-flex text-left text-blue-600 transition-colors duration-200 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-200"
       aria-label="Back to Blog"
     >
-      <ArrowLeft className="h-6 w-6" />
+      <ArrowLeft className="mr-2 h-5 w-5" />
+      Back to Blog
     </Link>
-  );
-};
+  )
+}
 
-export default BackToBlogButton;
+export default BackToBlogButton
