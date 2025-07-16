@@ -20,6 +20,10 @@ interface SEOProps {
   ogImage?: string
   ogUrl?: string
   ogType?: string
+  ogImageAlt?: string
+  ogImageWidth?: string | number
+  ogImageHeight?: string | number
+  ogLocale?: string
   twitterCard?: string
   twitterSite?: string
   twitterCreator?: string
@@ -45,6 +49,17 @@ const SEO: React.FC<SEOProps> = ({
   ogImage,
   ogUrl,
   ogType = 'website', // Default to 'website'
+  ogImageAlt,
+  ogImageWidth,
+  ogImageHeight,
+  ogLocale,
+  twitterCard,
+  twitterSite,
+  twitterCreator,
+  twitterTitle,
+  twitterDescription,
+  twitterImage,
+  robots,
   article, // Changed from jsonLd to article
   localBusiness,
   breadcrumbs,
@@ -66,6 +81,14 @@ const SEO: React.FC<SEOProps> = ({
         {ogImage && <meta property="og:image" content={ogImage} />}
         {ogUrl && <meta property="og:url" content={ogUrl} />}
         <meta property="og:type" content={ogType} />
+        {ogImage && (
+          <>
+            {ogImageAlt && <meta property="og:image:alt" content={ogImageAlt} />}
+            {ogImageWidth && <meta property="og:image:width" content={String(ogImageWidth)} />}
+            {ogImageHeight && <meta property="og:image:height" content={String(ogImageHeight)} />}
+          </>
+        )}
+        {ogLocale && <meta property="og:locale" content={ogLocale} />}
         {article && (
           <>
             {article.datePublished && (
@@ -82,8 +105,18 @@ const SEO: React.FC<SEOProps> = ({
               article.keywords.map((tag: string, index: number) => (
                 <meta property="article:tag" content={tag} key={index} />
               ))}
-            </>
-          )}
+          </>
+        )}
+        {/* Twitter Card Meta Tags */}
+        <meta name="twitter:card" content={twitterCard || (ogImage ? 'summary_large_image' : 'summary')} />
+        {twitterSite && <meta name="twitter:site" content={twitterSite} />}
+        {twitterCreator && <meta name="twitter:creator" content={twitterCreator} />}
+        <meta name="twitter:title" content={twitterTitle || ogTitle || title} />
+        <meta name="twitter:description" content={twitterDescription || ogDescription || description} />
+        {twitterImage && <meta name="twitter:image" content={twitterImage} />}
+
+        {/* Robots Meta Tag */}
+        {robots && <meta name="robots" content={robots} />}
       </Helmet>
       <JsonLD
         article={article} // Pass article directly
