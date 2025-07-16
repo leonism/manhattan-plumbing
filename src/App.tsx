@@ -1,4 +1,5 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import SkipToContent from './components/UI/SkipToContent'
 import { HelmetProvider } from 'react-helmet-async'
 import { ThemeProvider } from './context/ThemeContext'
 import LayoutHomePage from './components/Layout/LayoutHomePage'
@@ -28,6 +29,7 @@ function App() {
   return (
     <HelmetProvider>
       <ThemeProvider>
+        <SkipToContent />
         <BrowserRouter future={{ v7_startTransition: true }}>
           <Suspense fallback={<LoadingSpinner />}>
             <Routes>

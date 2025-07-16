@@ -30,7 +30,7 @@ const Layout: React.FC<LayoutProps> = ({ children, title, description, keywords,
         ogImage={ogImage}
         ogUrl={ogUrl}
       />
-      <main className="grow">{children}</main>
+      <main id="main-content" className="grow">{children}</main>
       <Footer />
       <BackToTop />
     </div>
