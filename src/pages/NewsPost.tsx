@@ -164,7 +164,9 @@ const NewsPost: React.FC = () => {
               />
             ) : (
               <MDXProvider components={components}>
-                {React.createElement(post.body, { components })}
+                {React.createElement(post.body as React.ComponentType<typeof components>, {
+                  components,
+                })}
               </MDXProvider>
             )}
           </div>
