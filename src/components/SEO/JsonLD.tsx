@@ -1,5 +1,4 @@
-import React from 'react'
-import { Helmet } from 'react-helmet'
+import React from 'react';
 
 export interface ArticleSchemaProps {
   headline: string
@@ -110,6 +109,7 @@ const JsonLD: React.FC<JsonLDProps> = ({
    localBusiness,
    image,
    review,
+   aggregateRating,
    faqPage,
 }) => {
   const schemas: JsonSchema[] = []
@@ -256,13 +256,13 @@ const JsonLD: React.FC<JsonLDProps> = ({
   }
 
   return (
-    <Helmet>
+    <>
       {schemas.map((schema, index) => (
         <script key={index} type="application/ld+json">
           {JSON.stringify(schema)}
         </script>
       ))}
-    </Helmet>
+    </>
   )
 }
 

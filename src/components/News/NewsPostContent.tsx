@@ -1,6 +1,5 @@
 import React from 'react'
 import { MDXProvider } from '@mdx-js/react'
-import { Helmet } from 'react-helmet-async'
 import SectionHeading from '../UI/SectionHeading'
 import TagButton from '../UI/TagButton'
 
@@ -75,14 +74,6 @@ const NewsPostContent: React.FC<NewsPostContentProps> = ({ frontmatter, content 
 
   return (
     <article className="mx-auto max-w-4xl px-4 py-12">
-      <Helmet>
-        <title>{frontmatter.seoTitle} | Manhattan Plumbing</title>
-        <meta name="description" content={frontmatter.description} />
-        <meta property="og:title" content={frontmatter.seoTitle} />
-        <meta property="og:description" content={frontmatter.description} />
-        {frontmatter.image && <meta property="og:image" content={frontmatter.image.src} />}
-      </Helmet>
-
       <header className="mb-12">
         <SectionHeading
           title={frontmatter.title}
