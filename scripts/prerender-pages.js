@@ -68,6 +68,9 @@ async function prerenderStaticPage(pagePath, title, description, contentHtml = '
   $('head').append(`<meta name="description" content="${description}">`)
   // Add other meta tags as needed, similar to news prerendering
 
+  // Remove existing footer to avoid duplication
+  $('footer').remove()
+
   // Inject content into the #root div
   $('#root').html(
     contentHtml ||
@@ -113,6 +116,7 @@ async function prerenderPages() {
     $('meta[name="author"]').remove()
     $('meta[property^="og:"]').remove()
     $('meta[name^="twitter:"]').remove()
+    $('footer').remove()
 
     $('#root').html(`
       <div id="news-post-container">

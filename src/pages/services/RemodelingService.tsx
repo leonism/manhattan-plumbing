@@ -37,7 +37,7 @@ const RemodelingServicePage = () => {
       try {
         setLoading(true)
         const response = await fetch(
-          'https://api.pexels.com/v1/search?query=luxury+bathroom+remodel&per_page=6',
+          'https://api.pexels.com/v1/search?query=luxury+bathroom+remodel&per_page=7',
           {
             headers: {
               Authorization: '5bXehp9eT0tv7vpIsJCgLsRK5cKOm5liuVdUphgYKfeJco8Hv2cE1h14', // Replace with your actual API key

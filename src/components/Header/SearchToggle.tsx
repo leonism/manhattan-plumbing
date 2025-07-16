@@ -20,13 +20,17 @@ const SearchToggle: React.FC<SearchToggleProps> = ({ theme, scrolled, isHomePage
 
   return (
     <>
-      <button
-        onClick={() => setIsSearchOpen(true)}
-        className={`rounded-full p-1 transition-colors md:p-3 ${iconColorClass}`}
+      <a
+        href="#"
+        onClick={(e) => {
+          e.preventDefault()
+          setIsSearchOpen(true)
+        }}
+        className={`inline-flex items-center justify-center rounded-full p-1 transition-colors md:p-3 ${iconColorClass}`}
         aria-label="Search"
       >
         <Search size={20} />
-      </button>
+      </a>
       <SearchModal isOpen={isSearchOpen} onClose={() => setIsSearchOpen(false)} />
     </>
   )

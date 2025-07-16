@@ -19,13 +19,25 @@ const ThemeToggle: React.FC<ThemeToggleProps> = ({ theme, scrolled, isHomePage }
         : 'text-white hover:bg-slate-100 dark:hover:bg-slate-700'
 
   return (
-    <button
-      onClick={toggleTheme}
+    <a
+      href="#"
+      onClick={(e) => {
+        e.preventDefault()
+        toggleTheme()
+      }}
+      role="button"
+      tabIndex={0}
+      onKeyDown={(e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault()
+          toggleTheme()
+        }
+      }}
       className={`rounded-full p-1 transition-colors md:mr-3 md:p-3 ${iconColorClass}`}
       aria-label={theme === 'light' ? 'Switch to dark theme' : 'Switch to light theme'}
     >
       {theme === 'light' ? <Moon size={20} /> : <Sun size={20} />}
-    </button>
+    </a>
   )
 }
 

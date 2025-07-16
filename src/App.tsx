@@ -44,7 +44,15 @@ function App() {
               <Route
                 path="/news/:slug"
                 element={
-                  <LayoutNewsPage>
+                  <LayoutNewsPage
+                    title="News Post"
+                    description="Read our latest plumbing news and updates"
+                    ogTitle="News Post"
+                    ogDescription="Read our latest plumbing news and updates"
+                    ogImage="/images/og-news.jpg"
+                    canonical="https://manhattan-plumbing.pages.dev/news"
+                    ogUrl="https://manhattan-plumbing.pages.dev/news"
+                  >
                     <NewsPost />
                   </LayoutNewsPage>
                 }
@@ -52,7 +60,14 @@ function App() {
               <Route
                 path="/news"
                 element={
-                  <LayoutNewsPage>
+                  <LayoutNewsPage
+                    title="News"
+                    description="Stay updated with the latest plumbing news and industry insights"
+                    ogTitle="Plumbing News & Updates"
+                    ogDescription="Stay updated with the latest plumbing news and industry insights"
+                    ogImage="/images/og-news.jpg"
+                    canonical="https://manhattan-plumbing.pages.dev/news"
+                  >
                     <NewsPage />
                   </LayoutNewsPage>
                 }
@@ -60,7 +75,14 @@ function App() {
               <Route
                 path="/news/page/:page"
                 element={
-                  <LayoutNewsPage>
+                  <LayoutNewsPage
+                    title="News"
+                    description="Stay updated with the latest plumbing news and industry insights"
+                    ogTitle="Plumbing News & Updates"
+                    ogDescription="Stay updated with the latest plumbing news and industry insights"
+                    ogImage="/images/og-news.jpg"
+                    canonical="https://manhattan-plumbing.pages.dev/news"
+                  >
                     <NewsPage />
                   </LayoutNewsPage>
                 }
@@ -68,7 +90,14 @@ function App() {
               <Route
                 path="/news/category/:category/:page?"
                 element={
-                  <LayoutNewsPage>
+                  <LayoutNewsPage
+                    title="Category News"
+                    description="Browse our plumbing news by category"
+                    ogTitle="News Post"
+                    ogDescription="Read our latest plumbing news and updates"
+                    ogImage="/images/og-news.jpg"
+                    canonical="https://manhattan-plumbing.pages.dev/news"
+                  >
                     <NewsPage />
                   </LayoutNewsPage>
                 }
@@ -76,7 +105,14 @@ function App() {
               <Route
                 path="/news/tag/:tag/:page?"
                 element={
-                  <LayoutNewsPage>
+                  <LayoutNewsPage
+                    title="Tagged News"
+                    description="Browse our plumbing news by tag"
+                    ogTitle="Tagged News"
+                    ogDescription="Browse our plumbing news by tag"
+                    ogImage="/images/og-news.jpg"
+                    canonical="https://manhattan-plumbing.pages.dev/news"
+                  >
                     <NewsPage />
                   </LayoutNewsPage>
                 }
@@ -84,7 +120,14 @@ function App() {
               <Route
                 path="/search"
                 element={
-                  <LayoutNewsPage>
+                  <LayoutNewsPage
+                    title="Search Results"
+                    description="Search results for plumbing services and information"
+                    ogTitle="Search Results"
+                    ogDescription="Search results for plumbing services and information"
+                    ogImage="/images/og-search.jpg"
+                    canonical="https://manhattan-plumbing.pages.dev/search"
+                  >
                     <SearchResultsPage />
                   </LayoutNewsPage>
                 }
@@ -92,7 +135,14 @@ function App() {
               <Route
                 path="/privacy-policy"
                 element={
-                  <LayoutNewsPage>
+                  <LayoutNewsPage
+                    title="Privacy Policy"
+                    description="Our privacy policy and data protection practices"
+                    ogTitle="Privacy Policy"
+                    ogDescription="Our privacy policy and data protection practices"
+                    ogImage="/images/og-privacy.jpg"
+                    canonical="https://manhattan-plumbing.pages.dev/privacy-policy"
+                  >
                     <PrivacyPolicy />
                   </LayoutNewsPage>
                 }
@@ -100,7 +150,14 @@ function App() {
               <Route
                 path="/terms-of-service"
                 element={
-                  <LayoutNewsPage>
+                  <LayoutNewsPage
+                    title="Terms of Service"
+                    description="Our terms of service and usage conditions"
+                    ogTitle="Terms of Service"
+                    ogDescription="Our terms of service and usage conditions"
+                    ogImage="/images/og-terms.jpg"
+                    canonical="https://manhattan-plumbing.pages.dev/terms-of-service"
+                  >
                     <TermsOfService />
                   </LayoutNewsPage>
                 }
@@ -108,7 +165,15 @@ function App() {
               <Route
                 path="/cookies-policy"
                 element={
-                  <LayoutNewsPage>
+                  <LayoutNewsPage
+                    title="Cookie Policy | Manhattan Plumbing"
+                    description="Learn about how Manhattan Plumbing uses cookies and similar technologies on our website."
+                    canonical="https://manhattan-plumbing.pages.dev/cookie-policy"
+                    ogTitle="Cookie Policy | Manhattan Plumbing"
+                    ogDescription="Learn about how Manhattan Plumbing uses cookies and similar technologies on our website."
+                    ogImage="https://manhattan-plumbing.pages.dev/manhattan-plumber.png"
+                    ogUrl="https://manhattan-plumbing.pages.dev/cookie-policy"
+                  >
                     <CookiesPolicy />
                   </LayoutNewsPage>
                 }
@@ -116,7 +181,15 @@ function App() {
               <Route
                 path="/services/drain-service"
                 element={
-                  <LayoutNewsPage>
+                  <LayoutNewsPage
+                    title="Drain Cleaning Services | Manhattan Plumbing"
+                    description="Fast and effective drain cleaning services in Manhattan. We clear clogged drains in kitchens, bathrooms, and sewer lines using the latest technology."
+                    canonical="https://manhattan-plumbing.pages.dev/services/drain-service"
+                    ogTitle="Drain Cleaning Services | Manhattan Plumbing"
+                    ogDescription="Fast and effective drain cleaning services in Manhattan. We clear clogged drains in kitchens, bathrooms, and sewer lines using the latest technology."
+                    ogImage="/images/og-services.jpg"
+                    ogUrl="https://manhattan-plumbing.pages.dev/services/drain-service"
+                  >
                     <DrainService />
                   </LayoutNewsPage>
                 }
@@ -124,7 +197,15 @@ function App() {
               <Route
                 path="/services/emergency-service"
                 element={
-                  <LayoutNewsPage>
+                  <LayoutNewsPage
+                    title="24/7 Emergency Plumbing Services | Manhattan Plumbing"
+                    description="Immediate response for plumbing emergencies in Manhattan. Our certified plumbers are available 24/7 for burst pipes, sewer backups, and more."
+                    canonical="https://manhattan-plumbing.pages.dev/services/emergency-service"
+                    ogTitle="24/7 Emergency Plumbing Services | Manhattan Plumbing"
+                    ogDescription="Immediate response for plumbing emergencies in Manhattan. Our certified plumbers are available 24/7 for burst pipes, sewer backups, and more."
+                    ogImage="/images/og-services.jpg"
+                    ogUrl="https://manhattan-plumbing.pages.dev/services/emergency-service"
+                  >
                     <EmergencyService />
                   </LayoutNewsPage>
                 }
@@ -132,7 +213,15 @@ function App() {
               <Route
                 path="/services/fixture-service"
                 element={
-                  <LayoutNewsPage>
+                  <LayoutNewsPage
+                    title="Fixture Installation & Repair | Manhattan Plumbing"
+                    description="Expert plumbing fixture installation and repair in Manhattan. We specialize in faucets, showers, and water-efficient fixtures."
+                    canonical="https://manhattan-plumbing.pages.dev/services/fixture-service"
+                    ogTitle="Fixture Installation & Repair | Manhattan Plumbing"
+                    ogDescription="Expert plumbing fixture installation and repair in Manhattan. We specialize in faucets, showers, and water-efficient fixtures."
+                    ogImage="/images/og-services.jpg"
+                    ogUrl="https://manhattan-plumbing.pages.dev/services/fixture-service"
+                  >
                     <FixtureService />
                   </LayoutNewsPage>
                 }
@@ -140,7 +229,15 @@ function App() {
               <Route
                 path="/services/pipe-service"
                 element={
-                  <LayoutNewsPage>
+                  <LayoutNewsPage
+                    title="Pipe Repair & Replacement | Manhattan Plumbing"
+                    description="Durable solutions for leaky, corroded, or damaged pipes in Manhattan. We offer advanced leak detection and trenchless pipe replacement."
+                    canonical="https://manhattan-plumbing.pages.dev/services/pipe-service"
+                    ogTitle="Pipe Repair & Replacement | Manhattan Plumbing"
+                    ogDescription="Durable solutions for leaky, corroded, or damaged pipes in Manhattan. We offer advanced leak detection and trenchless pipe replacement."
+                    ogImage="/images/og-services.jpg"
+                    ogUrl="https://manhattan-plumbing.pages.dev/services/pipe-service"
+                  >
                     <PipeService />
                   </LayoutNewsPage>
                 }
@@ -148,7 +245,15 @@ function App() {
               <Route
                 path="/services/remodeling-service"
                 element={
-                  <LayoutNewsPage>
+                  <LayoutNewsPage
+                    title="Bathroom Remodeling | Manhattan Plumbing"
+                    description="Transform your bathroom with our premium remodeling services in Manhattan. We offer custom designs and luxury fixtures."
+                    canonical="https://manhattan-plumbing.pages.dev/services/remodeling-service"
+                    ogTitle="Bathroom Remodeling | Manhattan Plumbing"
+                    ogDescription="Transform your bathroom with our premium remodeling services in Manhattan. We offer custom designs and luxury fixtures."
+                    ogImage="/images/og-services.jpg"
+                    ogUrl="https://manhattan-plumbing.pages.dev/services/remodeling-service"
+                  >
                     <RemodelingService />
                   </LayoutNewsPage>
                 }
@@ -156,7 +261,15 @@ function App() {
               <Route
                 path="/services/water-heater-service"
                 element={
-                  <LayoutNewsPage>
+                  <LayoutNewsPage
+                    title="Water Heater Services | Manhattan Plumbing"
+                    description="Reliable water heater installation, repair, and maintenance in Manhattan. We offer 24/7 emergency service and a 10-year guarantee."
+                    canonical="https://manhattan-plumbing.pages.dev/services/water-heater-service"
+                    ogTitle="Water Heater Services | Manhattan Plumbing"
+                    ogDescription="Reliable water heater installation, repair, and maintenance in Manhattan. We offer 24/7 emergency service and a 10-year guarantee."
+                    ogImage="/images/og-services.jpg"
+                    ogUrl="https://manhattan-plumbing.pages.dev/services/water-heater-service"
+                  >
                     <WaterHeaterService />
                   </LayoutNewsPage>
                 }
@@ -164,7 +277,15 @@ function App() {
               <Route
                 path="/location"
                 element={
-                  <LayoutNewsPage>
+                  <LayoutNewsPage
+                    title="Our Service Area | Manhattan Plumbing"
+                    description="Explore the areas in Manhattan where we provide our expert plumbing services. Find reliable plumbers near you."
+                    canonical="https://manhattan-plumbing.pages.dev/location"
+                    ogTitle="Our Service Area | Manhattan Plumbing"
+                    ogDescription="Explore the areas in Manhattan where we provide our expert plumbing services. Find reliable plumbers near you."
+                    ogImage="https://manhattan-plumbing.pages.dev/manhattan-plumber.png"
+                    ogUrl="https://manhattan-plumbing.pages.dev/location"
+                  >
                     <LocationPage />
                   </LayoutNewsPage>
                 }
@@ -172,7 +293,15 @@ function App() {
               <Route
                 path="*"
                 element={
-                  <LayoutNewsPage>
+                  <LayoutNewsPage
+                    title="Page Not Found | Manhattan Plumbing"
+                    description="The page you are looking for could not be found. Please check the URL or return to our homepage."
+                    canonical="https://manhattan-plumbing.pages.dev/404"
+                    ogTitle="Page Not Found | Manhattan Plumbing"
+                    ogDescription="The page you are looking for could not be found. Please check the URL or return to our homepage."
+                    ogImage="https://manhattan-plumbing.pages.dev/manhattan-plumber.png"
+                    ogUrl="https://manhattan-plumbing.pages.dev/404"
+                  >
                     <NotFoundPage />
                   </LayoutNewsPage>
                 }

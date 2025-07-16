@@ -73,7 +73,7 @@ const NewsPage: React.FC = () => {
                 centered={true}
               />
             ) : (
-              <h1 className="mb-4 text-center text-4xl font-bold text-gray-800 dark:text-white">
+              <h1 className="mb-4 text-5xl font-bold tracking-tight text-blue-600 md:text-5xl dark:text-blue-400">
                 Latest News
               </h1>
             )}
