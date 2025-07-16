@@ -16,7 +16,7 @@ const RelatedArticles: React.FC<RelatedArticlesProps> = ({ allPosts, currentPost
 
   return (
     <div className="mx-auto mt-16 max-w-4xl">
-      <h2 className="mb-8 text-center text-3xl font-bold">More Articles</h2>
+      <h2 className="mb-8 text-center text-4xl font-bold">Related Articles</h2>
       <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
         {relatedPosts.map((relatedPost: Post) => (
           <div
@@ -39,12 +39,12 @@ const RelatedArticles: React.FC<RelatedArticlesProps> = ({ allPosts, currentPost
               <h3 className="mb-2 text-lg font-bold">
                 <Link
                   to={`/news/${relatedPost.slug}`}
-                  className="transition-colors hover:text-blue-600 dark:hover:text-blue-400"
+                  className="line-clamp-2 transition-colors hover:text-blue-600 dark:hover:text-blue-400"
                 >
                   {relatedPost.title}
                 </Link>
               </h3>
-              <p className="line-clamp-2 text-sm text-slate-600 dark:text-slate-400">
+              <p className="line-clamp-4 text-sm text-slate-600 dark:text-slate-400">
                 {relatedPost.excerpt}
               </p>
             </div>

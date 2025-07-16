@@ -292,19 +292,7 @@ function App() {
               />
               <Route
                 path="*"
-                element={
-                  <LayoutNewsPage
-                    title="Page Not Found | Manhattan Plumbing"
-                    description="The page you are looking for could not be found. Please check the URL or return to our homepage."
-                    canonical="https://manhattan-plumbing.pages.dev/404"
-                    ogTitle="Page Not Found | Manhattan Plumbing"
-                    ogDescription="The page you are looking for could not be found. Please check the URL or return to our homepage."
-                    ogImage="https://manhattan-plumbing.pages.dev/manhattan-plumber.png"
-                    ogUrl="https://manhattan-plumbing.pages.dev/404"
-                  >
-                    <NotFoundPage />
-                  </LayoutNewsPage>
-                }
+                element={<NotFoundPage />}
               />
             </Routes>
           </Suspense>
