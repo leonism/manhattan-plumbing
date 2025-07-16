@@ -1,12 +1,12 @@
-import React from 'react';
-import { useParams } from 'react-router-dom';
-import SectionHeading from '../components/UI/SectionHeading';
-import NewsCard from '../components/News/NewsCard';
-import PaginationControls from '../components/UI/PaginationControls';
-import { useNews } from '../hooks/useNews';
-import SkeletonLoader from '../components/UI/SkeletonLoader';
-import LayoutNewsPage from '../components/Layout/LayoutNewsPage';
-import CategoryList from '../components/News/CategoryList';
+import React from 'react'
+import { useParams } from 'react-router-dom'
+import SectionHeading from '../components/UI/SectionHeading'
+import NewsCard from '../components/News/NewsCard'
+import PaginationControls from '../components/UI/PaginationControls'
+import { useNews } from '../hooks/useNews'
+import SkeletonLoader from '../components/UI/SkeletonLoader'
+import LayoutNewsPage from '../components/Layout/LayoutNewsPage'
+import CategoryList from '../components/News/CategoryList'
 
 // Helper function to slugify strings
 const slugify = (text: string) => {
@@ -66,12 +66,17 @@ const NewsPage: React.FC = () => {
       <main className="min-h-screen py-16">
         <div className="container mx-auto px-4">
           <header className="mt-12 mb-12 text-center">
-            <SectionHeading
-              title={category ? `${category} News` : tag ? `${tag} Articles` : 'Latest News'}
-              subtitle="Stay informed about the latest updates and insights"
-              centered={true}
-            />
-
+            {category || tag ? (
+              <SectionHeading
+                title={category ? `${category} News` : tag ? `${tag} Articles` : ''}
+                subtitle="Stay informed about the latest updates and insights"
+                centered={true}
+              />
+            ) : (
+              <h1 className="mb-4 text-center text-4xl font-bold text-gray-800 dark:text-white">
+                Latest News
+              </h1>
+            )}
             <CategoryList categories={categories} currentCategory={category} slugify={slugify} />
           </header>
 
@@ -103,4 +108,3 @@ const NewsPage: React.FC = () => {
 }
 
 export default NewsPage
-
