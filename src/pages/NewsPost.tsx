@@ -1,11 +1,11 @@
 import React from 'react'
-import { useParams, Link } from 'react-router-dom'
+import { useParams } from 'react-router-dom'
 import SEO from '../components/SEO/SEO'
-import { format } from 'date-fns'
-import { Calendar, Clock, Folder } from 'lucide-react'
 import BackToBlogButton from '../components/News/BackToBlogButton'
-import TagList from '../components/News/TagList'
-import { MDXProvider } from '@mdx-js/react'
+import NewsPostHeader from '../components/News/NewsPostHeader'
+import NewsPostMeta from '../components/News/NewsPostMeta'
+import NewsPostBody from '../components/News/NewsPostBody'
+import RelatedArticles from '../components/News/RelatedArticles'
 
 import ShareButtons from '../components/News/ShareButtons'
 import { useNews } from '../hooks/useNews'
@@ -101,125 +101,18 @@ const NewsPost: React.FC = () => {
         <article className="container mx-auto px-4 py-8">
           <header className="mx-auto mb-12 max-w-4xl">
             <BackToBlogButton />
-            <div className="relative mb-8 overflow-hidden rounded-lg shadow-lg">
-              <picture>
-                <source srcSet={post.featuredImage.avif} type="image/avif" />
-                <source srcSet={post.featuredImage.webp} type="image/webp" />
-                <img
-                  src={post.featuredImage.src}
-                  alt={post.featuredImage.alt}
-                  className="h-full max-h-96 w-full object-cover"
-                  loading="lazy"
-                />
-              </picture>
-              {post.featuredImage.caption && (
-                <div className="absolute right-0 bottom-0 left-0 bg-black/60 p-4 text-sm text-white">
-                  {post.featuredImage.caption}
-                </div>
-              )}
-            </div>
-            <h1 className="mb-6 text-center text-4xl leading-tight font-extrabold md:text-5xl">
-              {post.title}
-            </h1>
-            <div className="mb-6 flex flex-wrap items-center justify-center gap-4 text-slate-600 dark:text-slate-400">
-              <div className="flex items-center">
-                <Calendar className="mr-2 h-4 w-4" />
-                <time dateTime={post.date}>{format(new Date(post.date), 'MMMM d, yyyy')}</time>
-              </div>
-              <div className="flex items-center">
-                <Clock className="mr-2 h-4 w-4" />
-                {post.readingTime}
-              </div>
-              <div className="flex items-center">
-                <Folder className="mr-2 h-4 w-4" />
-                <Link
-                  to={`/news/category/${slugify(post.category)}`}
-                  className="transition-colors hover:text-blue-600 dark:hover:text-blue-400"
-                >
-                  {post.category}
-                </Link>
-              </div>
-            </div>
-            <div className="mb-8 flex items-center justify-center gap-4">
-              <picture>
-                <source srcSet={post.author.image.avif} type="image/avif" />
-                <source srcSet={post.author.image.webp} type="image/webp" />
-                <img
-                  src={post.author.image.src}
-                  alt={post.author.name}
-                  className="h-12 w-12 rounded-full border-2 border-blue-400"
-                  loading="lazy"
-                />
-              </picture>
-              <div>
-                <div className="font-medium text-slate-900 dark:text-white">{post.author.name}</div>
-                <div className="text-sm text-slate-600 dark:text-slate-400">{post.author.role}</div>
-              </div>
-            </div>
-            <TagList tags={post.tags} slugify={slugify} />
+            <NewsPostHeader post={post} />
+            <NewsPostMeta post={post} slugify={slugify} />
           </header>
 
-          <div className="prose prose-lg prose-slate dark:prose-invert prose-h1:text-4xl prose-h2:text-3xl prose-h3:text-2xl prose-h4:text-xl prose-h1:font-extrabold prose-h2:font-bold prose-h3:font-semibold prose-h4:font-medium prose-a:text-blue-600 dark:prose-a:text-blue-400 prose-a:no-underline prose-a:hover:underline prose-img:rounded-lg prose-img:shadow-md prose-blockquote:border-l-4 prose-blockquote:border-blue-500 prose-blockquote:pl-4 prose-blockquote:italic prose-p:leading-relaxed prose-li:leading-relaxed prose-li:marker:text-blue-500 prose-code:bg-slate-100 dark:prose-code:bg-slate-800 prose-code:px-1 prose-code:rounded-sm prose-strong:font-bold prose-table:w-full prose-table:table-auto prose-table:border-collapse prose-table:rounded-lg prose-table:overflow-hidden prose-th:bg-slate-200 dark:prose-th:bg-slate-700 prose-th:p-3 prose-th:text-left prose-th:font-semibold prose-td:p-3 prose-td:border-b prose-td:border-slate-200 dark:prose-td:border-slate-700 prose-ul:list-disc prose-ul:pl-5 prose-ol:list-decimal prose-ol:pl-5 mx-auto max-w-4xl">
-            {typeof post.body === 'string' ? (
-              <div
-                dangerouslySetInnerHTML={{ __html: post.body.replace(/<h1[\s\S]*?<\/h1>/g, '') }}
-              />
-            ) : (
-              <MDXProvider components={components}>
-                {React.createElement(post.body as React.ComponentType<typeof components>, {
-                  components,
-                })}
-              </MDXProvider>
-            )}
-          </div>
+          <NewsPostBody body={post.body} />
 
           <div className="mx-auto mt-8 max-w-4xl">
             <ShareButtons post={post} />
             <ArticleNavigation previousPost={previousPost} nextPost={nextPost} />
           </div>
 
-          {allPosts.filter((p: Post) => p.slug !== post.slug).length > 0 && (
-            <div className="mx-auto mt-16 max-w-4xl">
-              <h2 className="mb-8 text-center text-3xl font-bold">More Articles</h2>
-              <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
-                {allPosts
-                  .filter((p: Post) => p.slug !== post.slug)
-                  .slice(0, 3)
-                  .map((relatedPost: Post) => (
-                    <div
-                      key={relatedPost.slug}
-                      className="transform overflow-hidden rounded-lg bg-white shadow-lg transition-transform duration-300 hover:scale-105 dark:bg-slate-800"
-                    >
-                      <Link to={`/news/${relatedPost.slug}`}>
-                        <picture>
-                          <source srcSet={relatedPost.featuredImage.avif} type="image/avif" />
-                          <source srcSet={relatedPost.featuredImage.webp} type="image/webp" />
-                          <img
-                            src={relatedPost.featuredImage.src}
-                            alt={relatedPost.featuredImage.alt}
-                            className="h-48 w-full object-cover"
-                            loading="lazy"
-                          />
-                        </picture>
-                      </Link>
-                      <div className="p-4">
-                        <h3 className="mb-2 text-lg font-bold">
-                          <Link
-                            to={`/news/${relatedPost.slug}`}
-                            className="transition-colors hover:text-blue-600 dark:hover:text-blue-400"
-                          >
-                            {relatedPost.title}
-                          </Link>
-                        </h3>
-                        <p className="line-clamp-2 text-sm text-slate-600 dark:text-slate-400">
-                          {relatedPost.excerpt}
-                        </p>
-                      </div>
-                    </div>
-                  ))}
-              </div>
-            </div>
-          )}
+          <RelatedArticles allPosts={allPosts} currentPostSlug={post.slug} />
         </article>
       </main>
     </>

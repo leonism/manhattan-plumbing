@@ -196,9 +196,11 @@ const PrivacyPolicy: React.FC = () => {
     <Layout
       title="Privacy Policy | Manhattan Plumbing"
       description="Learn about how Manhattan Plumbing collects, uses, and protects your personal information."
+      keywords={['privacy policy', 'data privacy', 'information security']}
       canonical="https://manhattan-plumbing.pages.dev/privacy-policy"
       ogTitle="Privacy Policy | Manhattan Plumbing"
       ogDescription="Learn about how Manhattan Plumbing collects, uses, and protects your personal information."
+      ogImage="https://manhattan-plumbing.pages.dev/manhattan-plumber.png"
       ogUrl="https://manhattan-plumbing.pages.dev/privacy-policy"
       jsonLd={{
         '@context': 'https://schema.org',

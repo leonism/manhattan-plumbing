@@ -227,9 +227,11 @@ const TermsOfService: React.FC = () => {
     <Layout
       title="Terms of Service | Manhattan Plumbing"
       description="Read our terms of service to understand the conditions for using Manhattan Plumbing's services."
+      keywords={['terms of service', 'terms and conditions', 'legal', 'service agreement']}
       canonical="https://manhattan-plumbing.pages.dev/terms-of-service"
       ogTitle="Terms of Service | Manhattan Plumbing"
       ogDescription="Read our terms of service to understand the conditions for using Manhattan Plumbing's services."
+      ogImage="https://manhattan-plumbing.pages.dev/manhattan-plumber.png"
       ogUrl="https://manhattan-plumbing.pages.dev/terms-of-service"
       jsonLd={{
         '@context': 'https://schema.org',

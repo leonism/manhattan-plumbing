@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import StaticHeading from '../../components/UI/StaticHeading'
-import SEO from '../../components/SEO/SEO'
+import Layout from '../../components/Layout/Layout'
 import { ChevronDownIcon, ChevronUpIcon } from '@heroicons/react/24/outline'
 import ContactForm from '../../components/UI/ContactForm'
 import HeroBackground from '../../components/Hero/HeroBackground'
@@ -214,9 +214,11 @@ const CookiePolicy: React.FC = () => {
     <Layout
       title="Cookie Policy | Manhattan Plumbing"
       description="Learn about how Manhattan Plumbing uses cookies and similar technologies on our website."
+      keywords={['cookies', 'cookie policy', 'privacy', 'data privacy']}
       canonical="https://manhattan-plumbing.pages.dev/cookie-policy"
       ogTitle="Cookie Policy | Manhattan Plumbing"
       ogDescription="Learn about how Manhattan Plumbing uses cookies and similar technologies on our website."
+      ogImage="https://manhattan-plumbing.pages.dev/manhattan-plumber.png"
       ogUrl="https://manhattan-plumbing.pages.dev/cookie-policy"
       jsonLd={{
         '@context': 'https://schema.org',
