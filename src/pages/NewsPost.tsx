@@ -122,7 +122,6 @@ const NewsPost: React.FC = () => {
               {post.title}
             </h1>
             <TagList tags={post.tags} slugify={slugify} />
-
             <div className="mb-6 flex flex-wrap items-center justify-center gap-4 text-slate-600 dark:text-slate-400">
               <div className="flex items-center">
                 <Calendar className="mr-2 h-4 w-4" />
