@@ -1,15 +1,14 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import SEO from '../components/SEO/SEO'
+import Layout from '../components/Layout/Layout'
 
 const NotFoundPage: React.FC = () => {
   return (
-    <>
-      <SEO
-        title="404 Not Found | Manhattan Plumbing"
-        description="The page you are looking for does not exist."
-        canonical="https://manhattan-plumbing.pages.dev/404"
-      />
+    <Layout
+      title="404 Not Found | Manhattan Plumbing"
+      description="The page you are looking for does not exist."
+      canonical="https://manhattan-plumbing.pages.dev/404"
+    >
       <main className="flex min-h-screen items-center justify-center bg-slate-50 py-20 text-slate-800 dark:bg-slate-900 dark:text-slate-200">
         <div className="container mx-auto px-4 text-center">
           <h1 className="mb-4 text-6xl font-extrabold text-blue-600 dark:text-blue-400">404</h1>
@@ -26,7 +25,7 @@ const NotFoundPage: React.FC = () => {
           </Link>
         </div>
       </main>
-    </>
+    </Layout>
   )
 }
 

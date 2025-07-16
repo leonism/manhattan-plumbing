@@ -211,24 +211,22 @@ const CookiePolicy: React.FC = () => {
   }
 
   return (
-    <>
-      <SEO
-        title="Cookie Policy | Manhattan Plumbing"
-        description="Learn about how Manhattan Plumbing uses cookies and similar technologies on our website."
-        canonical="https://manhattan-plumbing.pages.dev/cookie-policy"
-        ogTitle="Cookie Policy | Manhattan Plumbing"
-        ogDescription="Learn about how Manhattan Plumbing uses cookies and similar technologies on our website."
-        ogUrl="https://manhattan-plumbing.pages.dev/cookie-policy"
-        jsonLd={{
-          '@context': 'https://schema.org',
-          '@type': 'WebPage',
-          name: 'Cookie Policy',
-          description:
-            'Learn about how Manhattan Plumbing uses cookies and similar technologies on our website.',
-          url: 'https://manhattan-plumbing.pages.dev/cookie-policy',
-        }}
-      />
-
+    <Layout
+      title="Cookie Policy | Manhattan Plumbing"
+      description="Learn about how Manhattan Plumbing uses cookies and similar technologies on our website."
+      canonical="https://manhattan-plumbing.pages.dev/cookie-policy"
+      ogTitle="Cookie Policy | Manhattan Plumbing"
+      ogDescription="Learn about how Manhattan Plumbing uses cookies and similar technologies on our website."
+      ogUrl="https://manhattan-plumbing.pages.dev/cookie-policy"
+      jsonLd={{
+        '@context': 'https://schema.org',
+        '@type': 'WebPage',
+        name: 'Cookie Policy',
+        description:
+          'Learn about how Manhattan Plumbing uses cookies and similar technologies on our website.',
+        url: 'https://manhattan-plumbing.pages.dev/cookie-policy',
+      }}
+    >
       <div className="relative min-h-screen">
         {/* Hero Background with NYC skyline */}
         <HeroBackground />
@@ -285,7 +283,7 @@ const CookiePolicy: React.FC = () => {
           </div>
         </main>
       </div>
-    </>
+    </Layout>
   )
 }
 

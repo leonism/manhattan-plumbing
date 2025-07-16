@@ -15,6 +15,8 @@ interface Service {
   path: string
   icon: React.ReactNode
   component?: React.ComponentType | React.LazyExoticComponent<React.ComponentType>
+  title?: string
+  description?: string
 }
 
 const serviceIconMap: { [key: string]: React.ReactNode } = {
@@ -74,9 +76,11 @@ const IndividualServicePage: React.FC = () => {
 
         if (foundService && foundService.component) {
           setCurrentServiceComponent(foundService.component)
+          setServiceData(foundService)
         } else {
           setError(`Service not found for slug: ${slug}`)
           setCurrentServiceComponent(null)
+          setServiceData(null)
         }
       } catch (err) {
         console.error('Failed to load service component:', err)
@@ -89,9 +93,27 @@ const IndividualServicePage: React.FC = () => {
     loadIndividualService()
   }, [slug])
 
+  const jsonLd = serviceData ? {
+    '@context': 'https://schema.org',
+    '@type': 'Service',
+    name: serviceData.name,
+    description: serviceData.description,
+    url: `https://manhattan-plumbing.pages.dev/services/${slug}`,
+    provider: {
+      '@type': 'Organization',
+      name: 'Manhattan Plumbing',
+      url: 'https://manhattan-plumbing.pages.dev',
+      logo: 'https://manhattan-plumbing.pages.dev/manhattan-plumber.png',
+    },
+  } : {};
+
   if (loading) {
     return (
-      <LayoutNewsPage>
+      <LayoutNewsPage
+        title="Loading Service..."
+        description="Loading service details..."
+        jsonLd={jsonLd}
+      >
         <div className="container mx-auto mt-20 py-8 text-center">
           <p>Loading service details...</p>
         </div>
@@ -101,7 +123,11 @@ const IndividualServicePage: React.FC = () => {
 
   if (error) {
     return (
-      <LayoutNewsPage>
+      <LayoutNewsPage
+        title="Service Not Found"
+        description={error}
+        jsonLd={jsonLd}
+      >
         <div className="container mx-auto mt-20 py-8 text-center text-red-500">
           <p>{error}</p>
           <p>
@@ -116,18 +142,31 @@ const IndividualServicePage: React.FC = () => {
     )
   }
 
-  if (CurrentServiceComponent) {
+  if (CurrentServiceComponent && serviceData) {
     return (
       <Suspense
         fallback={
-          <LayoutNewsPage>
+          <LayoutNewsPage
+            title={`Loading ${serviceData.name}...`}
+            description={`Loading ${serviceData.name} content...`}
+            jsonLd={jsonLd}
+          >
             <div className="container mx-auto mt-20 py-8 text-center">
               <p>Loading service content...</p>
             </div>
           </LayoutNewsPage>
         }
       >
-        <LayoutNewsPage>
+        <LayoutNewsPage
+          title={serviceData.title || serviceData.name}
+          description={serviceData.description || `Learn more about our ${serviceData.name} services.`}
+          canonical={`https://manhattan-plumbing.pages.dev/services/${slug}`}
+          ogTitle={serviceData.title || serviceData.name}
+          ogDescription={serviceData.description || `Learn more about our ${serviceData.name} services.`}
+          ogImage="https://manhattan-plumbing.pages.dev/manhattan-plumber.png"
+          ogUrl={`https://manhattan-plumbing.pages.dev/services/${slug}`}
+          jsonLd={jsonLd}
+        >
           <CurrentServiceComponent />
         </LayoutNewsPage>
       </Suspense>
@@ -135,7 +174,11 @@ const IndividualServicePage: React.FC = () => {
   }
 
   return (
-    <LayoutNewsPage>
+    <LayoutNewsPage
+      title="No Service Content"
+      description="No service content to display."
+      jsonLd={jsonLd}
+    >
       <div className="container mx-auto mt-20 py-8 text-center">
         <p>No service content to display.</p>
       </div>

@@ -6,7 +6,7 @@ import SearchBar from '../components/UI/SearchBar'
 import { useSearch, SearchResult } from '../hooks/useSearch'
 import { useNews } from '../hooks/useNews'
 import SkeletonLoader from '../components/UI/SkeletonLoader'
-import SEO from '../components/SEO/SEO'
+import Layout from '../components/Layout/Layout'
 
 const SearchResultsPage: React.FC = () => {
   const [searchParams] = useSearchParams()
@@ -15,16 +15,15 @@ const SearchResultsPage: React.FC = () => {
   const { results, isLoading } = useSearch(query, allPosts)
 
   return (
-    <React.Fragment>
-      <SEO
-        title={`Search Results for "${query}" | Manhattan Plumbing`}
-        description={`Displaying search results for your query: "${query}". Find relevant news and services from Manhattan Plumbing.`}
-        keywords={['search results', query, 'Manhattan Plumbing']}
-        canonical={`https://manhattan-plumbing.pages.dev/search?q=${encodeURIComponent(query)}`}
-        ogTitle={`Search Results for "${query}" | Manhattan Plumbing`}
-        ogDescription={`Displaying search results for your query: "${query}". Find relevant news and services from Manhattan Plumbing.`}
-        ogUrl={`https://manhattan-plumbing.pages.dev/search?q=${encodeURIComponent(query)}`}
-      />
+    <Layout
+      title={`Search Results for "${query}" | Manhattan Plumbing`}
+      description={`Displaying search results for your query: "${query}". Find relevant news and services from Manhattan Plumbing.`}
+      keywords={['search results', query, 'Manhattan Plumbing']}
+      canonical={`https://manhattan-plumbing.pages.dev/search?q=${encodeURIComponent(query)}`}
+      ogTitle={`Search Results for "${query}" | Manhattan Plumbing`}
+      ogDescription={`Displaying search results for your query: "${query}". Find relevant news and services from Manhattan Plumbing.`}
+      ogUrl={`https://manhattan-plumbing.pages.dev/search?q=${encodeURIComponent(query)}`}
+    >
       <main className="min-h-screen py-16">
         <div className="container mx-auto px-4">
           <header className="mb-12">
@@ -79,7 +78,7 @@ const SearchResultsPage: React.FC = () => {
           )}
         </div>
       </main>
-    </React.Fragment>
+    </Layout>
   )
 }
 

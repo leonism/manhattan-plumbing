@@ -73,7 +73,7 @@ const NewsPost: React.FC = () => {
             '@type': 'Article',
             headline: post.seoTitle || post.title,
             description: post.excerpt,
-            image: post.featuredImage.src,
+            image: [post.featuredImage.src],
             datePublished: post.date,
             dateModified: post.lastModified || post.date,
             author: {
@@ -87,6 +87,10 @@ const NewsPost: React.FC = () => {
                 '@type': 'ImageObject',
                 url: 'https://manhattan-plumbing.pages.dev/manhattan-plumber.png',
               },
+            },
+            mainEntityOfPage: {
+              '@type': 'WebPage',
+              '@id': `https://manhattan-plumbing.pages.dev/news/${post.slug}`,
             },
             ...(post.jsonLd || {}),
           }}

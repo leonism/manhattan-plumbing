@@ -5,7 +5,7 @@ import NewsCard from '../components/News/NewsCard';
 import PaginationControls from '../components/UI/PaginationControls';
 import { useNews } from '../hooks/useNews';
 import SkeletonLoader from '../components/UI/SkeletonLoader';
-import SEO from '../components/SEO/SEO';
+import LayoutNewsPage from '../components/Layout/LayoutNewsPage';
 import CategoryList from '../components/News/CategoryList';
 
 // Helper function to slugify strings
@@ -54,16 +54,15 @@ const NewsPage: React.FC = () => {
   })
 
   return (
-    <React.Fragment>
-      <SEO
-        title={pageTitle}
-        description={pageDescription}
-        canonical={pageCanonical}
-        ogTitle={pageTitle}
-        ogDescription={pageDescription}
-        ogImage={ogImage}
-        ogUrl={pageCanonical}
-      />
+    <LayoutNewsPage
+      title={pageTitle}
+      description={pageDescription}
+      canonical={pageCanonical}
+      ogTitle={pageTitle}
+      ogDescription={pageDescription}
+      ogImage={ogImage}
+      ogUrl={pageCanonical}
+    >
       <main className="min-h-screen py-16">
         <div className="container mx-auto px-4">
           <header className="mt-12 mb-12 text-center">
@@ -99,8 +98,9 @@ const NewsPage: React.FC = () => {
           )}
         </div>
       </main>
-    </React.Fragment>
+    </LayoutNewsPage>
   )
 }
 
 export default NewsPage
+

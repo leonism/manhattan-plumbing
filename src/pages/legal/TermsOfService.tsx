@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import StaticHeading from '../../components/UI/StaticHeading'
-import SEO from '../../components/SEO/SEO'
+import Layout from '../../components/Layout/Layout'
 import { ChevronDownIcon, ChevronUpIcon } from '@heroicons/react/24/outline'
 import ContactForm from '../../components/UI/ContactForm'
 import HeroBackground from '../../components/Hero/HeroBackground'
@@ -224,23 +224,21 @@ const TermsOfService: React.FC = () => {
   }
 
   return (
-    <>
-      <SEO
-        title="Terms of Service | Manhattan Plumbing"
-        description="Read our terms of service to understand the conditions for using Manhattan Plumbing's services."
-        canonical="https://manhattan-plumbing.pages.dev/terms-of-service"
-        ogTitle="Terms of Service | Manhattan Plumbing"
-        ogDescription="Read our terms of service to understand the conditions for using Manhattan Plumbing's services."
-        ogUrl="https://manhattan-plumbing.pages.dev/terms-of-service"
-        jsonLd={{
-          '@context': 'https://schema.org',
-          '@type': 'WebPage',
-          name: 'Terms of Service',
-          description: `Read our terms of service to understand the conditions for using Manhattan Plumbing's services.`,
-          url: 'https://manhattan-plumbing.pages.dev/terms-of-service',
-        }}
-      />
-
+    <Layout
+      title="Terms of Service | Manhattan Plumbing"
+      description="Read our terms of service to understand the conditions for using Manhattan Plumbing's services."
+      canonical="https://manhattan-plumbing.pages.dev/terms-of-service"
+      ogTitle="Terms of Service | Manhattan Plumbing"
+      ogDescription="Read our terms of service to understand the conditions for using Manhattan Plumbing's services."
+      ogUrl="https://manhattan-plumbing.pages.dev/terms-of-service"
+      jsonLd={{
+        '@context': 'https://schema.org',
+        '@type': 'WebPage',
+        name: 'Terms of Service',
+        description: `Read our terms of service to understand the conditions for using Manhattan Plumbing's services.`,
+        url: 'https://manhattan-plumbing.pages.dev/terms-of-service',
+      }}
+    >
       <div className="relative min-h-screen">
         {/* Hero Background with NYC skyline */}
         <HeroBackground />
@@ -301,7 +299,7 @@ const TermsOfService: React.FC = () => {
           </div>
         </main>
       </div>
-    </>
+    </Layout>
   )
 }
 

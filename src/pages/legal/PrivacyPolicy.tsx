@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import StaticHeading from '../../components/UI/StaticHeading'
-import SEO from '../../components/SEO/SEO'
+import Layout from '../../components/Layout/Layout'
 import { ChevronDownIcon, ChevronUpIcon } from '@heroicons/react/24/outline'
 import ContactForm from '../../components/UI/ContactForm'
 import HeroBackground from '../../components/Hero/HeroBackground'
@@ -193,24 +193,22 @@ const PrivacyPolicy: React.FC = () => {
   }
 
   return (
-    <>
-      <SEO
-        title="Privacy Policy | Manhattan Plumbing"
-        description="Learn about how Manhattan Plumbing collects, uses, and protects your personal information."
-        canonical="https://manhattan-plumbing.pages.dev/privacy-policy"
-        ogTitle="Privacy Policy | Manhattan Plumbing"
-        ogDescription="Learn about how Manhattan Plumbing collects, uses, and protects your personal information."
-        ogUrl="https://manhattan-plumbing.pages.dev/privacy-policy"
-        jsonLd={{
-          '@context': 'https://schema.org',
-          '@type': 'WebPage',
-          name: 'Privacy Policy',
-          description:
-            'Learn about how Manhattan Plumbing collects, uses, and protects your personal information.',
-          url: 'https://manhattan-plumbing.pages.dev/privacy-policy',
-        }}
-      />
-
+    <Layout
+      title="Privacy Policy | Manhattan Plumbing"
+      description="Learn about how Manhattan Plumbing collects, uses, and protects your personal information."
+      canonical="https://manhattan-plumbing.pages.dev/privacy-policy"
+      ogTitle="Privacy Policy | Manhattan Plumbing"
+      ogDescription="Learn about how Manhattan Plumbing collects, uses, and protects your personal information."
+      ogUrl="https://manhattan-plumbing.pages.dev/privacy-policy"
+      jsonLd={{
+        '@context': 'https://schema.org',
+        '@type': 'WebPage',
+        name: 'Privacy Policy',
+        description:
+          'Learn about how Manhattan Plumbing collects, uses, and protects your personal information.',
+        url: 'https://manhattan-plumbing.pages.dev/privacy-policy',
+      }}
+    >
       <div className="relative min-h-screen">
         {/* Add HeroBackground with reduced opacity for better text readability */}
         <HeroBackground />
@@ -268,7 +266,7 @@ const PrivacyPolicy: React.FC = () => {
           </div>
         </main>
       </div>
-    </>
+    </Layout>
   )
 }
 
