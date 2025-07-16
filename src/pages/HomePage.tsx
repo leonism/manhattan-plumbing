@@ -11,14 +11,19 @@ import SEO from '../components/SEO/SEO'
 const HomePage: React.FC = () => {
   const jsonLd = {
     '@context': 'https://schema.org',
-    '@type': 'Organization',
+    '@type': 'LocalBusiness',
     name: 'Manhattan Plumbing',
+    description: 'Manhattan Plumbing offers reliable and affordable plumbing services in New York City. From leaky faucets to emergency repairs, our expert plumbers are here to help.',
     url: 'https://manhattan-plumbing.pages.dev',
-    logo: 'https://manhattan-plumbing.pages.dev/manhattan-plumber.png',
-    contactPoint: {
-      '@type': 'ContactPoint',
-      telephone: '+1-212-555-1234',
-      contactType: 'Customer Service',
+    telephone: '+1-212-555-1234',
+    image: 'https://manhattan-plumbing.pages.dev/manhattan-plumber.png',
+    address: {
+      '@type': 'PostalAddress',
+      streetAddress: '123 Main St',
+      addressLocality: 'New York',
+      addressRegion: 'NY',
+      postalCode: '10001',
+      addressCountry: 'US',
     },
   }
 
@@ -33,7 +38,7 @@ const HomePage: React.FC = () => {
         ogDescription="Manhattan Plumbing offers reliable and affordable plumbing services in New York City. From leaky faucets to emergency repairs, our expert plumbers are here to help."
         ogImage="https://manhattan-plumbing.pages.dev/manhattan-plumber.png"
         ogUrl="https://manhattan-plumbing.pages.dev"
-        jsonLd={jsonLd}
+        localBusiness={jsonLd}
       />
       <Hero />
       <Services />

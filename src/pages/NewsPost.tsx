@@ -1,6 +1,6 @@
 import React from 'react'
 import { useParams } from 'react-router-dom'
-import SEO from '../components/SEO/SEO'
+import NewsOgMeta from '../components/News/NewsOgMeta';
 import BackToBlogButton from '../components/News/BackToBlogButton'
 import NewsPostHeader from '../components/News/NewsPostHeader'
 import NewsPostMeta from '../components/News/NewsPostMeta'
@@ -53,47 +53,52 @@ const NewsPost: React.FC = () => {
     )
   }
 
+  const breadcrumbs = [
+    { position: 1, name: 'Home', item: 'https://manhattan-plumbing.pages.dev/' },
+    { position: 2, name: 'News', item: 'https://manhattan-plumbing.pages.dev/news' },
+    { position: 3, name: post.category, item: `https://manhattan-plumbing.pages.dev/news/category/${slugify(post.category)}` },
+    { position: 4, name: post.title, item: `https://manhattan-plumbing.pages.dev/news/${post.slug}` },
+  ];
+
+  const localBusinessData = {
+    name: 'Manhattan Plumbing',
+    url: 'https://manhattan-plumbing.pages.dev/',
+    logo: 'https://manhattan-plumbing.pages.dev/manhattan-plumber.png',
+    telephone: '+1-212-555-1234',
+    address: {
+      streetAddress: '123 Main St',
+      addressLocality: 'New York',
+      addressRegion: 'NY',
+      postalCode: '10001',
+      addressCountry: 'US',
+    },
+  };
+
+  const reviewData = {
+    itemReviewed: { name: post.title },
+    reviewRating: { ratingValue: '5', bestRating: '5', worstRating: '1' },
+    author: { name: 'Manhattan Plumbing' },
+    datePublished: post.date,
+    reviewBody: post.excerpt,
+  };
+
+  const aggregateRatingData = {
+    ratingValue: '4.5',
+    reviewCount: '100',
+  };
+
+  const imageSchemaData = {
+    contentUrl: post.featuredImage.src,
+    creator: {
+      type: 'Person',
+      name: post.author.name,
+    },
+    creditText: post.featuredImage.caption,
+  };
+
   return (
     <>
-      {post && (
-        <SEO
-          key={post.slug}
-          title={`${post.title} | Manhattan Plumbing`}
-          description={post.excerpt}
-          keywords={post.tags}
-          canonical={`https://manhattan-plumbing.pages.dev/news/${post.slug}`}
-          ogTitle={post.title}
-          ogDescription={post.excerpt}
-          ogImage={post.featuredImage.src}
-          ogUrl={`https://manhattan-plumbing.pages.dev/news/${post.slug}`}
-          jsonLd={{
-            '@context': 'https://schema.org',
-            '@type': 'Article',
-            headline: post.seoTitle || post.title,
-            description: post.excerpt,
-            image: [post.featuredImage.src],
-            datePublished: post.date,
-            dateModified: post.lastModified || post.date,
-            author: {
-              '@type': 'Person',
-              name: post.author.name,
-            },
-            publisher: {
-              '@type': 'Organization',
-              name: 'Manhattan Plumbing',
-              logo: {
-                '@type': 'ImageObject',
-                url: 'https://manhattan-plumbing.pages.dev/manhattan-plumber.png',
-              },
-            },
-            mainEntityOfPage: {
-              '@type': 'WebPage',
-              '@id': `https://manhattan-plumbing.pages.dev/news/${post.slug}`,
-            },
-            ...(post.jsonLd || {}),
-          }}
-        />
-      )}
+      {post && <NewsOgMeta post={post} breadcrumbs={breadcrumbs} localBusiness={localBusinessData} review={reviewData} aggregateRating={aggregateRatingData} imageSchema={imageSchemaData} />}
 
       <main className="bg-slate-50 py-20 text-slate-800 sm:py-24 dark:bg-slate-900 dark:text-slate-200">
         <article className="container mx-auto px-4 py-8">
