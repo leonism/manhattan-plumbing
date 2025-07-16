@@ -6,7 +6,7 @@ const BackToBlogButton: React.FC = () => {
   return (
     <Link
       to="/news"
-      className="mb-1 inline-flex text-left text-blue-600 transition-colors duration-200 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-200"
+      className="mb-3 inline-flex text-left text-xs text-blue-600 transition-colors duration-200 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-200"
       aria-label="Back to Blog"
     >
       <ArrowLeft className="mr-2 h-5 w-5" />

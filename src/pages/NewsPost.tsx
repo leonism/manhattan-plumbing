@@ -99,8 +99,8 @@ const NewsPost: React.FC = () => {
 
       <main className="bg-slate-50 py-20 text-slate-800 sm:py-24 dark:bg-slate-900 dark:text-slate-200">
         <article className="container mx-auto px-4 py-8">
-          <header className="mx-auto mb-12 max-w-4xl text-center">
-            <h1 className="mb-6 text-4xl leading-tight font-extrabold md:text-5xl">{post.title}</h1>
+          <header className="mx-auto mb-12 max-w-4xl">
+            <BackToBlogButton />
             <div className="relative mb-8 overflow-hidden rounded-lg shadow-lg">
               <picture>
                 <source srcSet={post.featuredImage.avif} type="image/avif" />
@@ -118,6 +118,9 @@ const NewsPost: React.FC = () => {
                 </div>
               )}
             </div>
+            <h1 className="mb-6 text-center text-4xl leading-tight font-extrabold md:text-5xl">
+              {post.title}
+            </h1>
             <TagList tags={post.tags} slugify={slugify} />
 
             <div className="mb-6 flex flex-wrap items-center justify-center gap-4 text-slate-600 dark:text-slate-400">
@@ -173,11 +176,8 @@ const NewsPost: React.FC = () => {
 
           <div className="mx-auto mt-8 max-w-4xl">
             <ShareButtons post={post} />
+            <ArticleNavigation previousPost={previousPost} nextPost={nextPost} />
           </div>
-
-          <ArticleNavigation previousPost={previousPost} nextPost={nextPost} />
-
-          <BackToBlogButton />
 
           {allPosts.filter((p: Post) => p.slug !== post.slug).length > 0 && (
             <div className="mx-auto mt-16 max-w-4xl">
