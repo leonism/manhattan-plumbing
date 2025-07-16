@@ -28,25 +28,6 @@ const DrainsServicePage = () => {
       'Expert drain cleaning services in Manhattan. We handle kitchen clogs, bathroom drains, sewer lines, and more.',
   }
 
-  const DrainsServicePage = () => {
-  const jsonLd = {
-    '@context': 'https://schema.org',
-    '@type': 'Service',
-    serviceType: 'Drain Cleaning',
-    provider: {
-      '@type': 'Organization',
-      name: 'Manhattan Plumbing',
-      url: 'https://manhattan-plumbing.pages.dev',
-      logo: 'https://manhattan-plumbing.pages.dev/manhattan-plumber.png',
-    },
-    areaServed: {
-      '@type': 'City',
-      name: 'Manhattan',
-    },
-    description:
-      'Expert drain cleaning services in Manhattan. We handle kitchen clogs, bathroom drains, sewer lines, and more.',
-  }
-
   return (
     <Layout
       title="Drain Cleaning Services | Manhattan Plumbing"

@@ -300,7 +300,8 @@ const RemodelingServicePage = () => {
         </div>
       </section>
     </main>
-  )
-}
+  </Layout>
+  );
+};
 
 export default RemodelingServicePage
