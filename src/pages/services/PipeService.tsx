@@ -153,7 +153,11 @@ const PipesServicePage = () => {
             <div className="mt-12 grid grid-cols-1 gap-12 lg:grid-cols-2">
               {[
                 {
-                  image: { jpg: leakDetectionJpg, webp: leakDetectionWebp, avif: leakDetectionAvif },
+                  image: {
+                    jpg: leakDetectionJpg,
+                    webp: leakDetectionWebp,
+                    avif: leakDetectionAvif,
+                  },
                   title: 'Advanced Leak Detection',
                   description:
                     'Using infrared technology and acoustic sensors to pinpoint hidden leaks without unnecessary demolition.',

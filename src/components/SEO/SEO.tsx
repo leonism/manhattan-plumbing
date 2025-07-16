@@ -46,16 +46,18 @@ const SEO: React.FC<SEOProps> = ({
   const keywordsString = Array.isArray(keywords) ? keywords.join(', ') : keywords
 
   return (
-    <Helmet>
-      <title>{title}</title>
-      <meta name="description" content={description} />
-      {keywordsString && <meta name="keywords" content={keywordsString} />}
-      {canonical && <link rel="canonical" href={canonical} />}
-      <meta property="og:title" content={ogTitle || title} />
-      <meta property="og:description" content={ogDescription || description} />
-      {ogImage && <meta property="og:image" content={ogImage} />}
-      {ogUrl && <meta property="og:url" content={ogUrl} />}
-      <meta property="og:type" content="website" />
+    <>
+      <Helmet>
+        <title>{title}</title>
+        <meta name="description" content={description} />
+        {keywordsString && <meta name="keywords" content={keywordsString} />}
+        {canonical && <link rel="canonical" href={canonical} />}
+        <meta property="og:title" content={ogTitle || title} />
+        <meta property="og:description" content={ogDescription || description} />
+        {ogImage && <meta property="og:image" content={ogImage} />}
+        {ogUrl && <meta property="og:url" content={ogUrl} />}
+        <meta property="og:type" content="website" />
+      </Helmet>
       <JsonLD
         article={jsonLd as ArticleSchemaProps}
         localBusiness={localBusiness}
@@ -65,7 +67,7 @@ const SEO: React.FC<SEOProps> = ({
         image={imageSchema}
         faqPage={undefined} // Assuming no FAQPage for now
       />
-    </Helmet>
+    </>
   )
 }
 

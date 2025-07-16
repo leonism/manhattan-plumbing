@@ -93,19 +93,21 @@ const IndividualServicePage: React.FC = () => {
     loadIndividualService()
   }, [slug])
 
-  const jsonLd = serviceData ? {
-    '@context': 'https://schema.org',
-    '@type': 'Service',
-    name: serviceData.name,
-    description: serviceData.description,
-    url: `https://manhattan-plumbing.pages.dev/services/${slug}`,
-    provider: {
-      '@type': 'Organization',
-      name: 'Manhattan Plumbing',
-      url: 'https://manhattan-plumbing.pages.dev',
-      logo: 'https://manhattan-plumbing.pages.dev/manhattan-plumber.png',
-    },
-  } : {};
+  const jsonLd = serviceData
+    ? {
+        '@context': 'https://schema.org',
+        '@type': 'Service',
+        name: serviceData.name,
+        description: serviceData.description,
+        url: `https://manhattan-plumbing.pages.dev/services/${slug}`,
+        provider: {
+          '@type': 'Organization',
+          name: 'Manhattan Plumbing',
+          url: 'https://manhattan-plumbing.pages.dev',
+          logo: 'https://manhattan-plumbing.pages.dev/manhattan-plumber.png',
+        },
+      }
+    : {}
 
   if (loading) {
     return (
@@ -123,11 +125,7 @@ const IndividualServicePage: React.FC = () => {
 
   if (error) {
     return (
-      <LayoutNewsPage
-        title="Service Not Found"
-        description={error}
-        jsonLd={jsonLd}
-      >
+      <LayoutNewsPage title="Service Not Found" description={error} jsonLd={jsonLd}>
         <div className="container mx-auto mt-20 py-8 text-center text-red-500">
           <p>{error}</p>
           <p>
@@ -159,10 +157,14 @@ const IndividualServicePage: React.FC = () => {
       >
         <LayoutNewsPage
           title={serviceData.title || serviceData.name}
-          description={serviceData.description || `Learn more about our ${serviceData.name} services.`}
+          description={
+            serviceData.description || `Learn more about our ${serviceData.name} services.`
+          }
           canonical={`https://manhattan-plumbing.pages.dev/services/${slug}`}
           ogTitle={serviceData.title || serviceData.name}
-          ogDescription={serviceData.description || `Learn more about our ${serviceData.name} services.`}
+          ogDescription={
+            serviceData.description || `Learn more about our ${serviceData.name} services.`
+          }
           ogImage="https://manhattan-plumbing.pages.dev/manhattan-plumber.png"
           ogUrl={`https://manhattan-plumbing.pages.dev/services/${slug}`}
           jsonLd={jsonLd}

@@ -1,7 +1,7 @@
-import SEO from '../../components/SEO/SEO'
 import SectionHeading from '../../components/UI/SectionHeading'
 import Button from '../../components/UI/Button'
 import { Wrench, ShowerHead, Droplet, Home, CheckCircle } from 'lucide-react'
+import Layout from '../../components/Layout/Layout'
 
 import fixtureHeroJpg from '../../assets/images/pexels-newyork-010.jpg'
 import fixtureHeroWebp from '../../assets/images/pexels-newyork-010.jpg?format=webp'
@@ -47,12 +47,12 @@ const FixturesServicePage = () => {
       title="Fixture Installation & Repair | Manhattan Plumbing"
       description="Expert plumbing fixture installation and repair in Manhattan. We specialize in faucets, showers, and water-efficient fixtures."
       keywords={[
-          'fixture installation',
-          'fixture repair',
-          'faucet installation',
-          'shower upgrade',
-          'Manhattan',
-        ]}
+        'fixture installation',
+        'fixture repair',
+        'faucet installation',
+        'shower upgrade',
+        'Manhattan',
+      ]}
       canonical="https://manhattan-plumbing.pages.dev/services/fixture-service"
       ogTitle="Fixture Installation & Repair | Manhattan Plumbing"
       ogDescription="Expert plumbing fixture installation and repair in Manhattan. We specialize in faucets, showers, and water-efficient fixtures."
@@ -160,7 +160,11 @@ const FixturesServicePage = () => {
             <div className="mt-12 grid grid-cols-1 gap-12 lg:grid-cols-2">
               {[
                 {
-                  image: { jpg: faucetInstallJpg, webp: faucetInstallWebp, avif: faucetInstallAvif },
+                  image: {
+                    jpg: faucetInstallJpg,
+                    webp: faucetInstallWebp,
+                    avif: faucetInstallAvif,
+                  },
                   icon: <Droplet size={32} className="text-blue-600 dark:text-blue-400" />,
                   title: 'Faucet Installation & Repair',
                   description:
@@ -172,7 +176,11 @@ const FixturesServicePage = () => {
                   ],
                 },
                 {
-                  image: { jpg: showerUpgradeJpg, webp: showerUpgradeWebp, avif: showerUpgradeAvif },
+                  image: {
+                    jpg: showerUpgradeJpg,
+                    webp: showerUpgradeWebp,
+                    avif: showerUpgradeAvif,
+                  },
                   icon: <ShowerHead size={32} className="text-blue-600 dark:text-blue-400" />,
                   title: 'Shower System Upgrades',
                   description:
@@ -200,7 +208,11 @@ const FixturesServicePage = () => {
                   ],
                 },
                 {
-                  image: { jpg: fixtureRepairJpg, webp: fixtureRepairWebp, avif: fixtureRepairAvif },
+                  image: {
+                    jpg: fixtureRepairJpg,
+                    webp: fixtureRepairWebp,
+                    avif: fixtureRepairAvif,
+                  },
                   icon: <Wrench size={32} className="text-blue-600 dark:text-blue-400" />,
                   title: 'Fixture Maintenance & Repair',
                   description:

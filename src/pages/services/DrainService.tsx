@@ -64,7 +64,8 @@ const DrainsServicePage = () => {
                 Expert Drain Cleaning Services in Manhattan
               </h1>
               <p className="mb-8 text-xl text-blue-100 md:text-2xl">
-                Fast, effective solutions for clogged drains that keep your plumbing flowing smoothly
+                Fast, effective solutions for clogged drains that keep your plumbing flowing
+                smoothly
               </p>
               <div className="flex flex-col justify-center gap-4 sm:flex-row">
                 <Button href="tel:+12125551234" variant="primary" className="group">
@@ -175,7 +176,11 @@ const DrainsServicePage = () => {
                   title: 'Outdoor Drain Solutions',
                   description:
                     'Keep your property dry with professional cleaning of outdoor drains, gutters, and downspouts that protect your foundation from water damage.',
-                  features: ['Leaf and debris removal', 'French drain cleaning', 'Flood prevention'],
+                  features: [
+                    'Leaf and debris removal',
+                    'French drain cleaning',
+                    'Flood prevention',
+                  ],
                 },
               ].map((service, index) => (
                 <div
@@ -224,8 +229,8 @@ const DrainsServicePage = () => {
           <div className="container mx-auto px-4 text-center md:px-6">
             <h2 className="mb-6 text-3xl font-bold md:text-4xl">Ready for Free-Flowing Drains?</h2>
             <p className="mx-auto mb-8 max-w-3xl text-xl text-blue-100">
-              Don't let slow drains become a major problem. Contact Manhattan Plumbing today for fast,
-              reliable service.
+              Don't let slow drains become a major problem. Contact Manhattan Plumbing today for
+              fast, reliable service.
             </p>
             <div className="flex flex-col justify-center gap-4 sm:flex-row">
               <Button href="tel:+12125551234" variant="primary" className="group">

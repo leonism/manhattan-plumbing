@@ -12,13 +12,13 @@ const postFiles = import.meta.glob<MDXModule>('../content/news/*.mdx', {
 })
 
 const allPostsData: Post[] = (() => {
-  const posts: Post[] = [];
+  const posts: Post[] = []
   for (const path in postFiles) {
-    const module = postFiles[path];
-    const data = module.frontmatter;
+    const module = postFiles[path]
+    const data = module.frontmatter
 
     if (data.status === 'published') {
-      const slug = slugify(data.title);
+      const slug = slugify(data.title)
 
       const featuredImage = data.featuredImage.src.startsWith('http')
         ? {
@@ -34,7 +34,7 @@ const allPostsData: Post[] = (() => {
             avif: `/src/assets/images/${data.featuredImage.src}?format=avif`,
             alt: data.featuredImage.alt,
             caption: data.featuredImage.caption,
-          };
+          }
 
       const authorImage = data.author.image.startsWith('http')
         ? {
@@ -48,7 +48,7 @@ const allPostsData: Post[] = (() => {
             avif: `/src/assets/images/${data.author.image}?format=avif`,
             alt: data.author.image.alt,
             caption: data.author.image.caption,
-          };
+          }
 
       posts.push({
         ...data,
@@ -59,12 +59,12 @@ const allPostsData: Post[] = (() => {
           image: authorImage,
         },
         body: module.default,
-      } as Post);
+      } as Post)
     }
   }
-  posts.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
-  return posts;
-})();
+  posts.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
+  return posts
+})()
 
 export const useNews = ({ category, tag, page = 1, limit = 9 }: UseNewsOptions = {}) => {
   const allPosts = useMemo(() => allPostsData, [])

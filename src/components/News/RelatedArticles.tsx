@@ -1,20 +1,17 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import { Post } from '../../types/news';
+import React from 'react'
+import { Link } from 'react-router-dom'
+import { Post } from '../../types/news'
 
 interface RelatedArticlesProps {
-  allPosts: Post[];
-  currentPostSlug: string;
+  allPosts: Post[]
+  currentPostSlug: string
 }
 
-const RelatedArticles: React.FC<RelatedArticlesProps> = ({
-  allPosts,
-  currentPostSlug,
-}) => {
-  const relatedPosts = allPosts.filter((p: Post) => p.slug !== currentPostSlug).slice(0, 3);
+const RelatedArticles: React.FC<RelatedArticlesProps> = ({ allPosts, currentPostSlug }) => {
+  const relatedPosts = allPosts.filter((p: Post) => p.slug !== currentPostSlug).slice(0, 3)
 
   if (relatedPosts.length === 0) {
-    return null;
+    return null
   }
 
   return (
@@ -55,7 +52,7 @@ const RelatedArticles: React.FC<RelatedArticlesProps> = ({
         ))}
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default RelatedArticles;
+export default RelatedArticles

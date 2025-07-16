@@ -13,7 +13,8 @@ const HomePage: React.FC = () => {
     '@context': 'https://schema.org',
     '@type': 'LocalBusiness',
     name: 'Manhattan Plumbing',
-    description: 'Manhattan Plumbing offers reliable and affordable plumbing services in New York City. From leaky faucets to emergency repairs, our expert plumbers are here to help.',
+    description:
+      'Manhattan Plumbing offers reliable and affordable plumbing services in New York City. From leaky faucets to emergency repairs, our expert plumbers are here to help.',
     url: 'https://manhattan-plumbing.pages.dev',
     telephone: '+1-212-555-1234',
     image: 'https://manhattan-plumbing.pages.dev/manhattan-plumber.png',

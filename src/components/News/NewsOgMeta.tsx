@@ -1,44 +1,51 @@
-import React from 'react';
-import SEO from '../SEO/SEO';
-import { Post } from '../../types/news';
+import React from 'react'
+import SEO from '../SEO/SEO'
+import { Post } from '../../types/news'
 
 interface NewsOgMetaProps {
-  post: Post;
-  breadcrumbs?: { position: number; name: string; item: string; }[];
+  post: Post
+  breadcrumbs?: { position: number; name: string; item: string }[]
   localBusiness?: {
-    name: string;
-    url: string;
-    logo: string;
-    telephone?: string;
+    name: string
+    url: string
+    logo: string
+    telephone?: string
     address?: {
-      streetAddress: string;
-      addressLocality: string;
-      addressRegion: string;
-      postalCode: string;
-      addressCountry: string;
-    };
-  };
+      streetAddress: string
+      addressLocality: string
+      addressRegion: string
+      postalCode: string
+      addressCountry: string
+    }
+  }
   review?: {
-    itemReviewed: { name: string };
-    reviewRating: { ratingValue: string; bestRating: string; worstRating: string };
-    author: { name: string };
-    datePublished: string;
-    reviewBody: string;
-  };
+    itemReviewed: { name: string }
+    reviewRating: { ratingValue: string; bestRating: string; worstRating: string }
+    author: { name: string }
+    datePublished: string
+    reviewBody: string
+  }
   aggregateRating?: {
-    ratingValue: string;
-    reviewCount: string;
-  };
+    ratingValue: string
+    reviewCount: string
+  }
   imageSchema?: {
-    contentUrl: string;
-    creator?: { type: string; name: string; };
-    creditText?: string;
-    copyrightNotice?: string;
-    license?: string;
-  };
+    contentUrl: string
+    creator?: { type: string; name: string }
+    creditText?: string
+    copyrightNotice?: string
+    license?: string
+  }
 }
 
-const NewsOgMeta: React.FC<NewsOgMetaProps> = ({ post, breadcrumbs, localBusiness, review, aggregateRating, imageSchema }) => {
+const NewsOgMeta: React.FC<NewsOgMetaProps> = ({
+  post,
+  breadcrumbs,
+  localBusiness,
+  review,
+  aggregateRating,
+  imageSchema,
+}) => {
   return (
     <SEO
       key={post.slug}
@@ -82,7 +89,7 @@ const NewsOgMeta: React.FC<NewsOgMetaProps> = ({ post, breadcrumbs, localBusines
       aggregateRating={aggregateRating}
       imageSchema={imageSchema}
     />
-  );
-};
+  )
+}
 
-export default NewsOgMeta;
+export default NewsOgMeta

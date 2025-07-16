@@ -1,15 +1,15 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState } from 'react'
+import { Link } from 'react-router-dom'
 
 interface CategoryListProps {
-  categories: string[];
-  currentCategory?: string;
-  slugify: (text: string) => string;
+  categories: string[]
+  currentCategory?: string
+  slugify: (text: string) => string
 }
 
 const CategoryList: React.FC<CategoryListProps> = ({ categories, currentCategory, slugify }) => {
-  const [showAllCategories, setShowAllCategories] = useState(false);
-  const visibleCategories = showAllCategories ? categories : categories.slice(0, 3);
+  const [showAllCategories, setShowAllCategories] = useState(false)
+  const visibleCategories = showAllCategories ? categories : categories.slice(0, 3)
 
   return (
     <div className="mt-6 flex flex-wrap justify-center gap-3">
@@ -39,13 +39,13 @@ const CategoryList: React.FC<CategoryListProps> = ({ categories, currentCategory
       {categories.length > 3 && (
         <button
           onClick={() => setShowAllCategories(!showAllCategories)}
-          className="text-sm text-blue-600 dark:text-blue-400 hover:underline"
+          className="text-sm text-blue-600 hover:underline dark:text-blue-400"
         >
           {showAllCategories ? 'Show Less' : `+ ${categories.length - 3} More`}
         </button>
       )}
     </div>
-  );
-};
+  )
+}
 
-export default CategoryList;
+export default CategoryList

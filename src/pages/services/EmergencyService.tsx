@@ -173,7 +173,11 @@ const EmergencyServicePage = () => {
                   title: 'Burst Pipe Repairs',
                   description:
                     'Immediate shut-off and repair to prevent catastrophic water damage to your property.',
-                  features: ['Instant water shut-off', 'Pipe replacement', 'Water damage mitigation'],
+                  features: [
+                    'Instant water shut-off',
+                    'Pipe replacement',
+                    'Water damage mitigation',
+                  ],
                 },
                 {
                   image: { jpg: sewerBackupJpg, webp: sewerBackupWebp, avif: sewerBackupAvif },
@@ -251,8 +255,8 @@ const EmergencyServicePage = () => {
             <AlertTriangle size={48} className="mx-auto mb-6 animate-pulse" />
             <h2 className="mb-6 text-3xl font-bold md:text-4xl">Plumbing Emergency? Don't Wait!</h2>
             <p className="mx-auto mb-8 max-w-3xl text-xl text-red-100">
-              Every minute counts when dealing with water or gas emergencies. Our team is standing by
-              24/7.
+              Every minute counts when dealing with water or gas emergencies. Our team is standing
+              by 24/7.
             </p>
             <div className="flex flex-col justify-center gap-4 sm:flex-row">
               <Button href="tel:+12125551234" variant="danger">

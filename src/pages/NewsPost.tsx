@@ -1,6 +1,6 @@
 import React from 'react'
 import { useParams } from 'react-router-dom'
-import NewsOgMeta from '../components/News/NewsOgMeta';
+import NewsOgMeta from '../components/News/NewsOgMeta'
 import BackToBlogButton from '../components/News/BackToBlogButton'
 import NewsPostHeader from '../components/News/NewsPostHeader'
 import NewsPostMeta from '../components/News/NewsPostMeta'
@@ -25,8 +25,6 @@ const slugify = (text: string) => {
     .replace(/[^\w-]+/g, '')
     .replace(/--+/g, '-')
 }
-
-
 
 const NewsPost: React.FC = () => {
   const { slug } = useParams()
@@ -56,9 +54,17 @@ const NewsPost: React.FC = () => {
   const breadcrumbs = [
     { position: 1, name: 'Home', item: 'https://manhattan-plumbing.pages.dev/' },
     { position: 2, name: 'News', item: 'https://manhattan-plumbing.pages.dev/news' },
-    { position: 3, name: post.category, item: `https://manhattan-plumbing.pages.dev/news/category/${slugify(post.category)}` },
-    { position: 4, name: post.title, item: `https://manhattan-plumbing.pages.dev/news/${post.slug}` },
-  ];
+    {
+      position: 3,
+      name: post.category,
+      item: `https://manhattan-plumbing.pages.dev/news/category/${slugify(post.category)}`,
+    },
+    {
+      position: 4,
+      name: post.title,
+      item: `https://manhattan-plumbing.pages.dev/news/${post.slug}`,
+    },
+  ]
 
   const localBusinessData = {
     name: 'Manhattan Plumbing',
@@ -72,7 +78,7 @@ const NewsPost: React.FC = () => {
       postalCode: '10001',
       addressCountry: 'US',
     },
-  };
+  }
 
   const reviewData = {
     itemReviewed: { name: post.title },
@@ -80,12 +86,12 @@ const NewsPost: React.FC = () => {
     author: { name: 'Manhattan Plumbing' },
     datePublished: post.date,
     reviewBody: post.excerpt,
-  };
+  }
 
   const aggregateRatingData = {
     ratingValue: '4.5',
     reviewCount: '100',
-  };
+  }
 
   const imageSchemaData = {
     contentUrl: post.featuredImage.src,
@@ -94,11 +100,20 @@ const NewsPost: React.FC = () => {
       name: post.author.name,
     },
     creditText: post.featuredImage.caption,
-  };
+  }
 
   return (
     <>
-      {post && <NewsOgMeta post={post} breadcrumbs={breadcrumbs} localBusiness={localBusinessData} review={reviewData} aggregateRating={aggregateRatingData} imageSchema={imageSchemaData} />}
+      {post && (
+        <NewsOgMeta
+          post={post}
+          breadcrumbs={breadcrumbs}
+          localBusiness={localBusinessData}
+          review={reviewData}
+          aggregateRating={aggregateRatingData}
+          imageSchema={imageSchemaData}
+        />
+      )}
 
       <main className="bg-slate-50 py-20 text-slate-800 sm:py-24 dark:bg-slate-900 dark:text-slate-200">
         <article className="container mx-auto px-4 py-8">

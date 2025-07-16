@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'
 
 export interface ArticleSchemaProps {
   headline: string
@@ -104,13 +104,12 @@ export interface JsonLDProps {
 type JsonSchema = Record<string, unknown>
 
 const JsonLD: React.FC<JsonLDProps> = ({
-   article,
-   breadcrumbs,
-   localBusiness,
-   image,
-   review,
-   aggregateRating,
-   faqPage,
+  article,
+  breadcrumbs,
+  localBusiness,
+  image,
+  review,
+  faqPage,
 }) => {
   const schemas: JsonSchema[] = []
 

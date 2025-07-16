@@ -14,10 +14,21 @@ interface LayoutProps {
   ogDescription: string
   ogImage: string
   ogUrl: string
-  jsonLd?: object;
+  jsonLd?: object
 }
 
-const Layout: React.FC<LayoutProps> = ({ children, title, description, keywords, canonical, ogTitle, ogDescription, ogImage, ogUrl, jsonLd }) => {
+const Layout: React.FC<LayoutProps> = ({
+  children,
+  title,
+  description,
+  keywords,
+  canonical,
+  ogTitle,
+  ogDescription,
+  ogImage,
+  ogUrl,
+  jsonLd,
+}) => {
   return (
     <div className="flex min-h-screen flex-col bg-white/90 transition-colors duration-300 dark:bg-slate-900">
       <Header />
@@ -32,7 +43,9 @@ const Layout: React.FC<LayoutProps> = ({ children, title, description, keywords,
         ogUrl={ogUrl}
         jsonLd={jsonLd}
       />
-      <main id="main-content" className="grow">{children}</main>
+      <main id="main-content" className="grow">
+        {children}
+      </main>
       <Footer />
       <BackToTop />
     </div>
