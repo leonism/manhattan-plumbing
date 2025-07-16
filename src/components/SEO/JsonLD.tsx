@@ -93,12 +93,24 @@ interface ReviewSchemaProps {
   aggregateRating?: AggregateRating;
 }
 
+interface Question {
+  name: string;
+  acceptedAnswer: {
+    text: string;
+  };
+}
+
+interface FAQPageSchemaProps {
+  mainEntity: Question[];
+}
+
 interface JsonLDProps {
   article?: ArticleSchemaProps;
   breadcrumbs?: BreadcrumbItem[];
   localBusiness?: LocalBusinessSchemaProps;
   image?: ImageSchemaProps;
   review?: ReviewSchemaProps;
+  faqPage?: FAQPageSchemaProps;
 }
 
 const JsonLD: React.FC<JsonLDProps> = ({ article, breadcrumbs }) => {
@@ -227,6 +239,21 @@ const JsonLD: React.FC<JsonLDProps> = ({ article, breadcrumbs }) => {
           "reviewCount": review.aggregateRating.reviewCount
         }
       })
+    });
+  }
+
+  if (faqPage) {
+    schemas.push({
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": faqPage.mainEntity.map(item => ({
+        "@type": "Question",
+        "name": item.name,
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": item.acceptedAnswer.text
+        }
+      }))
     });
   }
 
