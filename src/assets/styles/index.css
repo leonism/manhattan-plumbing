@@ -20,6 +20,10 @@
   }
 }
 
+.prose h1 {
+  display: none;
+}
+
 /* Hide default slick-carousel arrows */
 .slick-prev:before,
 .slick-next:before {

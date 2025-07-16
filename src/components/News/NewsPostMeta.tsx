@@ -21,7 +21,7 @@ const NewsPostMeta: React.FC<NewsPostMetaProps> = ({ post, slugify }) => {
           <img
             src={post.author.image.src}
             alt={post.author.name}
-            className="h-12 w-12 rounded-full border-2 border-blue-400"
+            className="h-12 w-12 rounded-full border-3 border-blue-400"
             loading="lazy"
           />
         </picture>
@@ -32,7 +32,7 @@ const NewsPostMeta: React.FC<NewsPostMetaProps> = ({ post, slugify }) => {
       </div>
 
       {/* Meta Info (Date, Reading Time, Category) */}
-      <div className="my-3 flex flex-wrap items-center justify-center gap-4 text-xs text-slate-600 dark:text-slate-400">
+      <div className="my-3 flex flex-wrap items-center justify-center gap-4 text-sm text-slate-600 dark:text-slate-400">
         <div className="flex items-center">
           <Calendar className="mr-2 h-4 w-4" />
           <time dateTime={post.date}>{format(new Date(post.date), 'MMMM d, yyyy')}</time>
@@ -53,7 +53,7 @@ const NewsPostMeta: React.FC<NewsPostMetaProps> = ({ post, slugify }) => {
       </div>
 
       {/* TagList */}
-      <TagList tags={post.tags} slugify={slugify} className="mt-4" />
+      <TagList tags={post.tags} slugify={slugify} className="mt-3" />
     </div>
   )
 }
