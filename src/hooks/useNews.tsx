@@ -11,58 +11,60 @@ const postFiles = import.meta.glob<MDXModule>('../content/news/*.mdx', {
   eager: true,
 })
 
-const allPostsData: Post[] = []
-for (const path in postFiles) {
-  const module = postFiles[path]
-  const data = module.frontmatter
+const allPostsData: Post[] = (() => {
+  const posts: Post[] = [];
+  for (const path in postFiles) {
+    const module = postFiles[path];
+    const data = module.frontmatter;
 
-  if (data.status === 'published') {
-    const slug = slugify(data.title) // Or create from filename: slugify(path.split('/').pop().replace('.mdx', ''))
+    if (data.status === 'published') {
+      const slug = slugify(data.title);
 
-    const featuredImage = data.featuredImage.src.startsWith('http')
-      ? {
-          src: data.featuredImage.src,
-          webp: data.featuredImage.src,
-          avif: data.featuredImage.src,
-          alt: data.featuredImage.alt,
-          caption: data.featuredImage.caption,
-        }
-      : {
-          src: `/src/assets/images/${data.featuredImage.src}`,
-          webp: `/src/assets/images/${data.featuredImage.src}?format=webp`,
-          avif: `/src/assets/images/${data.featuredImage.src}?format=avif`,
-          alt: data.featuredImage.alt,
-          caption: data.featuredImage.caption,
-        }
+      const featuredImage = data.featuredImage.src.startsWith('http')
+        ? {
+            src: data.featuredImage.src,
+            webp: data.featuredImage.src,
+            avif: data.featuredImage.src,
+            alt: data.featuredImage.alt,
+            caption: data.featuredImage.caption,
+          }
+        : {
+            src: `/src/assets/images/${data.featuredImage.src}`,
+            webp: `/src/assets/images/${data.featuredImage.src}?format=webp`,
+            avif: `/src/assets/images/${data.featuredImage.src}?format=avif`,
+            alt: data.featuredImage.alt,
+            caption: data.featuredImage.caption,
+          };
 
-    const authorImage = data.author.image.startsWith('http')
-      ? {
-          src: data.author.image,
-          webp: data.author.image,
-          avif: data.author.image,
-        }
-      : {
-          src: `/src/assets/images/${data.author.image}`,
-          webp: `/src/assets/images/${data.author.image}?format=webp`,
-          avif: `/src/assets/images/${data.author.image}?format=avif`,
-          alt: data.author.image.alt,
-          caption: data.author.image.caption,
-        }
+      const authorImage = data.author.image.startsWith('http')
+        ? {
+            src: data.author.image,
+            webp: data.author.image,
+            avif: data.author.image,
+          }
+        : {
+            src: `/src/assets/images/${data.author.image}`,
+            webp: `/src/assets/images/${data.author.image}?format=webp`,
+            avif: `/src/assets/images/${data.author.image}?format=avif`,
+            alt: data.author.image.alt,
+            caption: data.author.image.caption,
+          };
 
-    allPostsData.push({
-      ...data,
-      slug,
-      featuredImage: featuredImage,
-      author: {
-        ...data.author,
-        image: authorImage,
-      },
-      body: module.default, // Ensure this is the React component
-    } as Post)
+      posts.push({
+        ...data,
+        slug,
+        featuredImage: featuredImage,
+        author: {
+          ...data.author,
+          image: authorImage,
+        },
+        body: module.default,
+      } as Post);
+    }
   }
-}
-
-allPostsData.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
+  posts.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+  return posts;
+})();
 
 export const useNews = ({ category, tag, page = 1, limit = 9 }: UseNewsOptions = {}) => {
   const allPosts = useMemo(() => allPostsData, [])
