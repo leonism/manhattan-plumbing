@@ -4,30 +4,11 @@ import Button from '../../components/UI/Button'
 import { Flame, Thermometer, Zap, Clock, CheckCircle } from 'lucide-react'
 
 const WaterHeatersServicePage = () => {
-  // Pexels image URLs for water heater services
   const heroImage = 'https://images.pexels.com/photos/4239013/pexels-photo-4239013.jpeg'
   const tankInstallation = 'https://images.pexels.com/photos/4239013/pexels-photo-4239013.jpeg'
   const tanklessSystem = 'https://images.pexels.com/photos/5691636/pexels-photo-5691636.jpeg'
   const repairService = 'https://images.pexels.com/photos/5691635/pexels-photo-5691635.jpeg'
   const maintenanceImage = 'https://images.pexels.com/photos/4108795/pexels-photo-4108795.jpeg'
-
-  const jsonLd = {
-    '@context': 'https://schema.org',
-    '@type': 'Service',
-    serviceType: 'Water Heater Services',
-    provider: {
-      '@type': 'Organization',
-      name: 'Manhattan Plumbing',
-      url: 'https://manhattan-plumbing.pages.dev',
-      logo: 'https://manhattan-plumbing.pages.dev/manhattan-plumber.png',
-    },
-    areaServed: {
-      '@type': 'City',
-      name: 'Manhattan',
-    },
-    description:
-      'Expert water heater installation, repair, and maintenance services in Manhattan. We service both tank and tankless water heaters.',
-  }
 
   return (
     <main className="min-h-screen bg-white dark:bg-slate-900">
@@ -46,43 +27,42 @@ const WaterHeatersServicePage = () => {
         ogDescription="Reliable water heater installation, repair, and maintenance in Manhattan. We offer 24/7 emergency service and a 10-year guarantee."
         ogImage={heroImage}
         ogUrl="https://manhattan-plumbing.pages.dev/services/water-heater-service"
-        jsonLd={jsonLd}
+        // structuredData removed if not defined in your SEOProps
       />
-      {/* Hero Section with Pexels Background Image */}
+
+      {/* Hero Section */}
       <section className="relative bg-slate-900 text-white">
-        <div className="absolute inset-0 z-0 bg-cover bg-center bg-blend-multiply brightness-[0.6] after:absolute after:inset-0 after:bg-linear-to-b after:from-transparent after:via-black/30 after:to-black/70">
+        <div className="absolute inset-0 z-0">
           <img
             src={heroImage}
             alt="Professional water heater installation"
-            className="h-full w-full object-cover"
+            className="h-full w-full object-cover brightness-[0.6]"
             loading="lazy"
           />
         </div>
-        <div className="relative z-10 container mx-auto px-4 py-32 md:px-6">
-          <div className="mx-auto max-w-3xl text-center">
-            <div className="mb-6 flex justify-center">
-              <Flame size={56} className="text-blue-400" />
-            </div>
-            <h1 className="mb-6 text-4xl leading-tight font-bold md:text-5xl lg:text-6xl">
-              Expert Water Heater Services in Manhattan
-            </h1>
-            <p className="mb-8 text-xl text-blue-100 md:text-2xl">
-              Reliable hot water solutions with 24/7 emergency service and 10-year guarantees
-            </p>
-            <div className="flex flex-col justify-center gap-4 sm:flex-row">
-              <Button href="tel:+12125551234" variant="primary" className="group">
-                <div className="flex items-center">
-                  <Zap className="mr-3 group-hover:animate-pulse" size={20} />
-                  <span>Emergency Call: (212) 555-1234</span>
-                </div>
-              </Button>
-              <Button href="/#contact" variant="secondary">
-                <div className="flex items-center">
-                  <Clock className="mr-3" size={20} />
-                  <span>Schedule Service</span>
-                </div>
-              </Button>
-            </div>
+        <div className="relative z-10 container mx-auto px-4 py-32 text-center md:px-6">
+          <div className="mb-6 flex justify-center">
+            <Flame size={56} className="text-blue-400" />
+          </div>
+          <h1 className="mb-6 text-4xl font-bold md:text-5xl lg:text-6xl">
+            Expert Water Heater Services in Manhattan
+          </h1>
+          <p className="mb-8 text-xl text-blue-100 md:text-2xl">
+            Reliable hot water solutions with 24/7 emergency service and 10-year guarantees
+          </p>
+          <div className="flex flex-col justify-center gap-4 sm:flex-row">
+            <Button href="tel:+12125551234" variant="primary" className="group">
+              <div className="flex items-center">
+                <Zap className="mr-3 group-hover:animate-pulse" size={20} />
+                <span>Emergency Call: (212) 555-1234</span>
+              </div>
+            </Button>
+            <Button href="/#contact" variant="secondary">
+              <div className="flex items-center">
+                <Clock className="mr-3" size={20} />
+                <span>Schedule Service</span>
+              </div>
+            </Button>
           </div>
         </div>
       </section>
@@ -105,19 +85,6 @@ const WaterHeatersServicePage = () => {
               },
               {
                 icon: <CheckCircle size={40} className="text-blue-600 dark:text-blue-400" />,
-          serviceType: 'Bathroom Remodeling',
-          provider: {
-            '@type': 'Organization',
-            name: 'Manhattan Plumbing',
-            url: 'https://manhattan-plumbing.pages.dev',
-            logo: 'https://manhattan-plumbing.pages.dev/manhattan-plumber.png',
-          },
-          areaServed: {
-            '@type': 'City',
-            name: 'Manhattan',
-          },
-          description: 'Luxury bathroom remodeling services in Manhattan. We transform your bathroom into a spa-like retreat.',
-        }}
                 title: '10-Year Guarantee',
                 description:
                   'Industry-leading warranties on all installations and repairs for your peace of mind.',
@@ -131,7 +98,7 @@ const WaterHeatersServicePage = () => {
             ].map((feature, index) => (
               <div
                 key={index}
-                className="rounded-xl bg-white p-8 shadow-lg transition-shadow duration-300 hover:shadow-xl dark:bg-slate-700"
+                className="rounded-xl bg-white p-8 shadow-lg transition-shadow hover:shadow-xl dark:bg-slate-700"
               >
                 <div className="mb-6 flex justify-center">{feature.icon}</div>
                 <h3 className="mb-4 text-center text-2xl font-bold text-slate-800 dark:text-white">
@@ -146,7 +113,7 @@ const WaterHeatersServicePage = () => {
         </div>
       </section>
 
-      {/* Services Section with Pexels Images */}
+      {/* Services Section */}
       <section className="py-16">
         <div className="container mx-auto px-4 md:px-6">
           <SectionHeading
@@ -154,7 +121,6 @@ const WaterHeatersServicePage = () => {
             subtitle="Tailored services for every home and business"
             centered
           />
-
           <div className="mt-12 grid grid-cols-1 gap-12 lg:grid-cols-2">
             {[
               {
@@ -204,7 +170,7 @@ const WaterHeatersServicePage = () => {
             ].map((service, index) => (
               <div
                 key={index}
-                className="overflow-hidden rounded-xl bg-white shadow-lg transition-shadow duration-300 hover:shadow-xl dark:bg-slate-800"
+                className="overflow-hidden rounded-xl bg-white shadow-lg transition-shadow hover:shadow-xl dark:bg-slate-800"
               >
                 <div className="h-64 overflow-hidden">
                   <img
@@ -239,8 +205,8 @@ const WaterHeatersServicePage = () => {
         </div>
       </section>
 
-      {/* Energy Efficiency CTA */}
-      <section className="bg-linear-to-r from-blue-600 to-blue-800 py-16 text-white">
+      {/* CTA */}
+      <section className="bg-gradient-to-r from-blue-600 to-blue-800 py-16 text-white">
         <div className="container mx-auto px-4 text-center md:px-6">
           <h2 className="mb-6 text-3xl font-bold md:text-4xl">Save Up To 34% On Energy Bills</h2>
           <p className="mx-auto mb-8 max-w-3xl text-xl text-blue-100">
