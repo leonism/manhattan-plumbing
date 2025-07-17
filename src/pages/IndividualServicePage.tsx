@@ -1,6 +1,6 @@
 import React, { useEffect, useState, Suspense, lazy } from 'react'
 import { useParams } from 'react-router-dom'
-import LayoutNewsPage from '../components/Layout/LayoutNewsPage'
+import Layout from '../components/Layout/Layout'
 import {
   Wrench, // General service icon
   Droplet, // For DrainService, PipeService
@@ -111,7 +111,7 @@ const IndividualServicePage: React.FC = () => {
 
   if (loading) {
     return (
-      <LayoutNewsPage
+      <Layout
         title="Loading Service..."
         description="Loading service details..."
         jsonLd={jsonLd}
@@ -125,7 +125,7 @@ const IndividualServicePage: React.FC = () => {
 
   if (error) {
     return (
-      <LayoutNewsPage title="Service Not Found" description={error} jsonLd={jsonLd}>
+      <Layout title="Service Not Found" description={error} jsonLd={jsonLd}>
         <div className="container mx-auto mt-20 py-8 text-center text-red-500">
           <p>{error}</p>
           <p>
@@ -144,7 +144,7 @@ const IndividualServicePage: React.FC = () => {
     return (
       <Suspense
         fallback={
-          <LayoutNewsPage
+          <Layout
             title={`Loading ${serviceData.name}...`}
             description={`Loading ${serviceData.name} content...`}
             jsonLd={jsonLd}
@@ -155,7 +155,7 @@ const IndividualServicePage: React.FC = () => {
           </LayoutNewsPage>
         }
       >
-        <LayoutNewsPage
+        <Layout
           title={serviceData.title || serviceData.name}
           description={
             serviceData.description || `Learn more about our ${serviceData.name} services.`

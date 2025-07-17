@@ -1,71 +1,87 @@
 import { useState, useEffect, useMemo } from 'react'
 import type { Post, UseNewsOptions } from '../types/news'
-import { slugify } from '../utils/slugify.js'
+import { slugify } from '../utils/slugify'
 
 interface MDXModule {
   default: React.ComponentType<object>
   frontmatter: Post
 }
 
-const postFiles = import.meta.glob<MDXModule>('../content/news/*.mdx', {
-  eager: true,
-})
-
-const allPostsData: Post[] = (() => {
-  const posts: Post[] = []
-  for (const path in postFiles) {
-    const module = postFiles[path]
-    const data = module.frontmatter
-
-    if (data.status === 'published') {
-      const slug = slugify(data.title)
-
-      const featuredImage = data.featuredImage.src.startsWith('http')
-        ? {
-            src: data.featuredImage.src,
-            webp: data.featuredImage.src,
-            avif: data.featuredImage.src,
-            alt: data.featuredImage.alt,
-            caption: data.featuredImage.caption,
-          }
-        : {
-            src: `/src/assets/images/${data.featuredImage.src}`,
-            webp: `/src/assets/images/${data.featuredImage.src}?format=webp`,
-            avif: `/src/assets/images/${data.featuredImage.src}?format=avif`,
-            alt: data.featuredImage.alt,
-            caption: data.featuredImage.caption,
-          }
-
-      const authorImage = data.author.image.startsWith('http')
-        ? {
-            src: data.author.image,
-            webp: data.author.image,
-            avif: data.author.image,
-          }
-        : {
-            src: `/src/assets/images/${data.author.image}`,
-            webp: `/src/assets/images/${data.author.image}?format=webp`,
-            avif: `/src/assets/images/${data.author.image}?format=avif`,
-            alt: data.author.image.alt,
-            caption: data.author.image.caption,
-          }
-
-      posts.push({
-        ...data,
-        slug,
-        featuredImage: featuredImage,
-        author: {
-          ...data.author,
-          image: authorImage,
-        },
-        body: module.default,
-      } as Post)
+type AuthorImage =
+  | string
+  | {
+      src: string
+      alt?: string
+      caption?: string
     }
-  }
-  posts.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
-  return posts
-})()
 
+const postFiles = import.meta.glob<MDXModule>('../content/news/*.mdx', { eager: true })
+
+// --- Utilities ---
+const formatFeaturedImage = (image: Post['featuredImage']) => {
+  const isRemote = image.src.startsWith('http')
+  const base = isRemote ? image.src : `/src/assets/images/${image.src}`
+
+  return {
+    src: base,
+    webp: isRemote ? base : `${base}?format=webp`,
+    avif: isRemote ? base : `${base}?format=avif`,
+    alt: image.alt,
+    caption: image.caption,
+  }
+}
+
+const formatAuthorImage = (img: AuthorImage) => {
+  const getBase = (src: string) => ({
+    src,
+    webp: src,
+    avif: src,
+  })
+
+  if (typeof img === 'string') {
+    return img.startsWith('http')
+      ? getBase(img)
+      : {
+          src: `/src/assets/images/${img}`,
+          webp: `/src/assets/images/${img}?format=webp`,
+          avif: `/src/assets/images/${img}?format=avif`,
+          alt: '',
+        }
+  }
+
+  const src = img?.src || ''
+  const base = src.startsWith('http') ? src : `/src/assets/images/${src}`
+  return {
+    src: base,
+    webp: `${base}?format=webp`,
+    avif: `${base}?format=avif`,
+    alt: img.alt || '',
+    caption: img.caption,
+  }
+}
+
+// --- Static All Posts Loader ---
+const allPostsData: Post[] = Object.entries(postFiles)
+  .map(([, module]) => {
+    const { frontmatter: data, default: body } = module
+
+    if (data.status !== 'published') return null
+
+    return {
+      ...data,
+      slug: slugify(data.title),
+      featuredImage: formatFeaturedImage(data.featuredImage),
+      author: {
+        ...data.author,
+        image: formatAuthorImage(data.author.image),
+      },
+      body,
+    } as Post
+  })
+  .filter(Boolean)
+  .sort((a, b) => new Date(b!.date).getTime() - new Date(a!.date).getTime()) as Post[]
+
+// --- Main Hook ---
 export const useNews = ({ category, tag, page = 1, limit = 9 }: UseNewsOptions = {}) => {
   const allPosts = useMemo(() => allPostsData, [])
 
@@ -77,22 +93,19 @@ export const useNews = ({ category, tag, page = 1, limit = 9 }: UseNewsOptions =
   useEffect(() => {
     setIsLoading(true)
 
-    let filteredPosts = allPosts
+    let filtered = allPosts
     if (category) {
-      filteredPosts = allPosts.filter((post) => slugify(post.category) === category)
+      filtered = allPosts.filter((post) => slugify(post.category) === category)
     } else if (tag) {
-      filteredPosts = allPosts.filter((post) => post.tags.map((t) => slugify(t)).includes(tag))
+      filtered = allPosts.filter((post) => post.tags.map(slugify).includes(tag))
     }
 
-    const allCategories = [...new Set(allPosts.map((p) => p.category))]
-    const totalPosts = filteredPosts.length
-    setTotalPages(Math.ceil(totalPosts / limit))
-
     const start = (page - 1) * limit
-    const paginatedPosts = filteredPosts.slice(start, start + limit)
+    const paginated = filtered.slice(start, start + limit)
 
-    setPosts(paginatedPosts)
-    setCategories(allCategories)
+    setPosts(paginated)
+    setCategories([...new Set(allPosts.map((p) => p.category))])
+    setTotalPages(Math.ceil(filtered.length / limit))
     setIsLoading(false)
   }, [category, tag, page, limit, allPosts])
 

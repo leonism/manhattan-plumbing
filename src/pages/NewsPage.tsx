@@ -58,15 +58,18 @@ const NewsPage: React.FC = () => {
     'plumbing articles',
     category ? `${category} plumbing` : '',
     tag ? `${tag} plumbing` : '',
-  ].filter(Boolean).join(', ')
+  ]
+    .filter(Boolean)
+    .join(', ')
 
-  const canonicalUrl = currentPage > 1
-    ? `http://localhost:5173/news/page/${currentPage}`
-    : category
-      ? `http://localhost:5173/news/category/${slugify(category)}`
-      : tag
-        ? `http://localhost:5173/news/tag/${slugify(tag)}`
-        : 'http://localhost:5173/news'
+  const canonicalUrl =
+    currentPage > 1
+      ? `http://localhost:5173/news/page/${currentPage}`
+      : category
+        ? `http://localhost:5173/news/category/${slugify(category)}`
+        : tag
+          ? `http://localhost:5173/news/tag/${slugify(tag)}`
+          : 'http://localhost:5173/news'
 
   return (
     <>

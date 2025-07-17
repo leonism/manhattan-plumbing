@@ -1,3 +1,29 @@
+export interface RawFrontmatter {
+  title: string
+  seoTitle?: string
+  date: string
+  lastModified?: string
+  jsonLd?: object
+  author: {
+    name: string
+    role: string
+    image: string
+  }
+  category: string
+  tags: string[]
+  featuredImage: {
+    src: string
+    alt: string
+    width?: number
+    height?: number
+    caption?: string
+  }
+  excerpt: string
+  readingTime: string
+  status: string
+  featured: boolean
+}
+
 export interface Post {
   slug: string
   title: string
@@ -23,6 +49,7 @@ export interface Post {
     height?: number
     webp: string
     avif: string
+    caption?: string
   }
   excerpt: string
   readingTime: string

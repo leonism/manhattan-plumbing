@@ -108,11 +108,17 @@ const SEO: React.FC<SEOProps> = ({
           </>
         )}
         {/* Twitter Card Meta Tags */}
-        <meta name="twitter:card" content={twitterCard || (ogImage ? 'summary_large_image' : 'summary')} />
+        <meta
+          name="twitter:card"
+          content={twitterCard || (ogImage ? 'summary_large_image' : 'summary')}
+        />
         {twitterSite && <meta name="twitter:site" content={twitterSite} />}
         {twitterCreator && <meta name="twitter:creator" content={twitterCreator} />}
         <meta name="twitter:title" content={twitterTitle || ogTitle || title} />
-        <meta name="twitter:description" content={twitterDescription || ogDescription || description} />
+        <meta
+          name="twitter:description"
+          content={twitterDescription || ogDescription || description}
+        />
         {twitterImage && <meta name="twitter:image" content={twitterImage} />}
 
         {/* Robots Meta Tag */}

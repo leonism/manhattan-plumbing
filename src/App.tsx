@@ -290,10 +290,7 @@ function App() {
                   </LayoutNewsPage>
                 }
               />
-              <Route
-                path="*"
-                element={<NotFoundPage />}
-              />
+              <Route path="*" element={<NotFoundPage />} />
             </Routes>
           </Suspense>
         </BrowserRouter>
