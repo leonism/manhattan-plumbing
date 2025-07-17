@@ -105,6 +105,19 @@ const WaterHeatersServicePage = () => {
               },
               {
                 icon: <CheckCircle size={40} className="text-blue-600 dark:text-blue-400" />,
+          serviceType: 'Bathroom Remodeling',
+          provider: {
+            '@type': 'Organization',
+            name: 'Manhattan Plumbing',
+            url: 'https://manhattan-plumbing.pages.dev',
+            logo: 'https://manhattan-plumbing.pages.dev/manhattan-plumber.png',
+          },
+          areaServed: {
+            '@type': 'City',
+            name: 'Manhattan',
+          },
+          description: 'Luxury bathroom remodeling services in Manhattan. We transform your bathroom into a spa-like retreat.',
+        }}
                 title: '10-Year Guarantee',
                 description:
                   'Industry-leading warranties on all installations and repairs for your peace of mind.',

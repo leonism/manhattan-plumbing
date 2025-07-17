@@ -66,7 +66,13 @@ const FixturesServicePage = () => {
         ogDescription="Expert plumbing fixture installation and repair in Manhattan. We specialize in faucets, showers, and water-efficient fixtures."
         ogImage={fixtureHeroJpg}
         ogUrl="https://manhattan-plumbing.pages.dev/services/fixture-service"
-        localBusiness={jsonLd}
+        localBusiness={{
+          ...jsonLd,
+          name: 'Manhattan Plumbing',
+          url: 'https://manhattan-plumbing.pages.dev',
+          telephone: '+12125551234',
+          image: 'https://manhattan-plumbing.pages.dev/manhattan-plumber.png'
+        }}
       />
         {/* Hero Section with Modern Fixtures */}
         <section className="relative bg-slate-900 text-white">
