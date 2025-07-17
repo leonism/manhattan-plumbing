@@ -1,7 +1,11 @@
 import SectionHeading from '../../components/UI/SectionHeading'
 import Button from '../../components/UI/Button'
+import SEO from '../../components/SEO/SEO'
+import SEO from '../../components/SEO/SEO'
 import { Wrench, ShowerHead, Droplet, Home, CheckCircle } from 'lucide-react'
-import Layout from '../../components/Layout/Layout'
+import SEO from '../../components/SEO/SEO'
+import SEO from '../../components/SEO/SEO'
+
 
 import fixtureHeroJpg from '../../assets/images/pexels-newyork-010.jpg'
 import fixtureHeroWebp from '../../assets/images/pexels-newyork-010.jpg?format=webp'
@@ -40,27 +44,35 @@ const FixturesServicePage = () => {
     },
     description:
       'Premium plumbing fixture installation and repair services in Manhattan. We install and repair faucets, showers, and more.',
+    address: {
+      '@type': 'PostalAddress',
+      streetAddress: '123 Main St',
+      addressLocality: 'New York',
+      addressRegion: 'NY',
+      postalCode: '10001',
+      addressCountry: 'US',
+    },
   }
 
   return (
-    <Layout
-      title="Fixture Installation & Repair | Manhattan Plumbing"
-      description="Expert plumbing fixture installation and repair in Manhattan. We specialize in faucets, showers, and water-efficient fixtures."
-      keywords={[
-        'fixture installation',
-        'fixture repair',
-        'faucet installation',
-        'shower upgrade',
-        'Manhattan',
-      ]}
-      canonical="https://manhattan-plumbing.pages.dev/services/fixture-service"
-      ogTitle="Fixture Installation & Repair | Manhattan Plumbing"
-      ogDescription="Expert plumbing fixture installation and repair in Manhattan. We specialize in faucets, showers, and water-efficient fixtures."
-      ogImage={fixtureHeroJpg}
-      ogUrl="https://manhattan-plumbing.pages.dev/services/fixture-service"
-      jsonLd={jsonLd}
-    >
-      <main className="min-h-screen bg-white dark:bg-slate-900">
+    <main className="min-h-screen bg-white dark:bg-slate-900">
+      <SEO
+        title="Fixture Installation & Repair | Manhattan Plumbing"
+        description="Expert plumbing fixture installation and repair in Manhattan. We specialize in faucets, showers, and water-efficient fixtures."
+        keywords={[
+          'fixture installation',
+          'fixture repair',
+          'faucet installation',
+          'shower upgrade',
+          'Manhattan',
+        ]}
+        canonical="https://manhattan-plumbing.pages.dev/services/fixture-service"
+        ogTitle="Fixture Installation & Repair | Manhattan Plumbing"
+        ogDescription="Expert plumbing fixture installation and repair in Manhattan. We specialize in faucets, showers, and water-efficient fixtures."
+        ogImage={fixtureHeroJpg}
+        ogUrl="https://manhattan-plumbing.pages.dev/services/fixture-service"
+        localBusiness={jsonLd}
+      />
         {/* Hero Section with Modern Fixtures */}
         <section className="relative bg-slate-900 text-white">
           <div className="absolute inset-0 z-0 bg-cover bg-center bg-blend-multiply brightness-[0.9] after:absolute after:inset-0 after:bg-linear-to-b after:from-transparent after:via-black/30 after:to-black/70">
@@ -291,7 +303,6 @@ const FixturesServicePage = () => {
           </div>
         </section>
       </main>
-    </Layout>
   )
 }
 

@@ -5,7 +5,6 @@ import NewsCard from '../components/News/NewsCard'
 import PaginationControls from '../components/UI/PaginationControls'
 import { useNews } from '../hooks/useNews'
 import SkeletonLoader from '../components/UI/SkeletonLoader'
-
 import CategoryList from '../components/News/CategoryList'
 import SEO from '../components/SEO/SEO'
 

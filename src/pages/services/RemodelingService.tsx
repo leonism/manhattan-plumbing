@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import Layout from '../../components/Layout/Layout'
+
 import SectionHeading from '../../components/UI/SectionHeading'
 import Button from '../../components/UI/Button'
 import { Home, Bath, Hammer, Zap, CheckCircle } from 'lucide-react'
@@ -75,24 +75,24 @@ const RemodelingServicePage = () => {
   }
 
   return (
-    <Layout
-      title="Bathroom Remodeling | Manhattan Plumbing"
-      description="Transform your bathroom with our premium remodeling services in Manhattan. We offer custom designs and luxury fixtures."
-      keywords={[
-        'bathroom remodeling',
-        'bathroom renovation',
-        'luxury bathroom',
-        'Manhattan',
-        'plumber',
-      ]}
-      canonical="https://manhattan-plumbing.pages.dev/services/remodeling-service"
-      ogTitle="Bathroom Remodeling | Manhattan Plumbing"
-      ogDescription="Transform your bathroom with our premium remodeling services in Manhattan. We offer custom designs and luxury fixtures."
-      ogImage={bathroomImages.length > 0 ? bathroomImages[0].src.large : ''}
-      ogUrl="https://manhattan-plumbing.pages.dev/services/remodeling-service"
-      jsonLd={jsonLd}
-    >
-      <main className="min-h-screen bg-white dark:bg-slate-900">
+    <main className="min-h-screen bg-white dark:bg-slate-900">
+      <SEO
+        title="Bathroom Remodeling | Manhattan Plumbing"
+        description="Transform your bathroom with our premium remodeling services in Manhattan. We offer custom designs and luxury fixtures."
+        keywords={[
+          'bathroom remodeling',
+          'bathroom renovation',
+          'luxury bathroom',
+          'Manhattan',
+          'plumber',
+        ]}
+        canonical="https://manhattan-plumbing.pages.dev/services/remodeling-service"
+        ogTitle="Bathroom Remodeling | Manhattan Plumbing"
+        ogDescription="Transform your bathroom with our premium remodeling services in Manhattan. We offer custom designs and luxury fixtures."
+        ogImage={bathroomImages.length > 0 ? bathroomImages[0].src.large : ''}
+        ogUrl="https://manhattan-plumbing.pages.dev/services/remodeling-service"
+        jsonLd={jsonLd}
+      />
         {/* Hero Section with Pexels Background Image */}
         <section className="relative bg-slate-900 text-white">
           <div className="absolute inset-0 z-0 bg-cover bg-center bg-blend-multiply brightness-[0.6] after:absolute after:inset-0 after:bg-linear-to-b after:from-transparent after:via-black/30 after:to-black/70">
@@ -300,7 +300,6 @@ const RemodelingServicePage = () => {
           </div>
         </section>
       </main>
-    </Layout>
   )
 }
 

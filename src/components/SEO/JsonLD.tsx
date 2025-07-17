@@ -102,7 +102,6 @@ export interface JsonLDProps {
   localBusiness?: LocalBusinessSchemaProps
   image?: ImageSchemaProps
   review?: ReviewSchemaProps
-  aggregateRating?: AggregateRating
   faqPage?: FAQPageSchemaProps
 }
 type JsonSchema = Record<string, unknown>

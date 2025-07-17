@@ -1,7 +1,8 @@
-import Layout from '../../components/Layout/Layout'
+
 import SectionHeading from '../../components/UI/SectionHeading'
 import Button from '../../components/UI/Button'
 import { Droplets, Wrench, Shield, Clock, CheckCircle, Zap } from 'lucide-react'
+import SEO from '../../components/SEO/SEO'
 
 import drainHeroJpg from '../../assets/images/pexels-newyork-001.jpg'
 import kitchenClogJpg from '../../assets/images/pexels-newyork-002.jpg'
@@ -26,21 +27,29 @@ const DrainsServicePage = () => {
     },
     description:
       'Expert drain cleaning services in Manhattan. We handle kitchen clogs, bathroom drains, sewer lines, and more.',
+    address: {
+      '@type': 'PostalAddress',
+      streetAddress: '123 Main St',
+      addressLocality: 'New York',
+      addressRegion: 'NY',
+      postalCode: '10001',
+      addressCountry: 'US',
+    },
   }
 
   return (
-    <Layout
-      title="Drain Cleaning Services | Manhattan Plumbing"
-      description="Fast and effective drain cleaning services in Manhattan. We clear clogged drains in kitchens, bathrooms, and sewer lines using the latest technology."
-      keywords={['drain cleaning', 'clogged drain', 'sewer cleaning', 'Manhattan', 'plumber']}
-      canonical="https://manhattan-plumbing.pages.dev/services/drain-service"
-      ogTitle="Drain Cleaning Services | Manhattan Plumbing"
-      ogDescription="Fast and effective drain cleaning services in Manhattan. We clear clogged drains in kitchens, bathrooms, and sewer lines using the latest technology."
-      ogImage={drainHeroJpg}
-      ogUrl="https://manhattan-plumbing.pages.dev/services/drain-service"
-      jsonLd={jsonLd}
-    >
-      <main className="min-h-screen bg-white dark:bg-slate-900">
+    <main className="min-h-screen bg-white dark:bg-slate-900">
+      <SEO
+        title="Drain Cleaning Services | Manhattan Plumbing"
+        description="Fast and effective drain cleaning services in Manhattan. We clear clogged drains in kitchens, bathrooms, and sewer lines using the latest technology."
+        keywords={['drain cleaning', 'clogged drain', 'sewer cleaning', 'Manhattan', 'plumber']}
+        canonical="https://manhattan-plumbing.pages.dev/services/drain-service"
+        ogTitle="Drain Cleaning Services | Manhattan Plumbing"
+        ogDescription="Fast and effective drain cleaning services in Manhattan. We clear clogged drains in kitchens, bathrooms, and sewer lines using the latest technology."
+        ogImage={drainHeroJpg}
+        ogUrl="https://manhattan-plumbing.pages.dev/services/drain-service"
+        localBusiness={jsonLd}
+      />
         {/* Hero Section with Background Image */}
         <section className="relative bg-slate-900 text-white">
           <div className="absolute inset-0 z-0 bg-cover bg-center bg-blend-multiply brightness-[0.7] after:absolute after:inset-0 after:bg-linear-to-b after:from-transparent after:via-black/30 after:to-black/70">
@@ -249,7 +258,6 @@ const DrainsServicePage = () => {
           </div>
         </section>
       </main>
-    </Layout>
   )
 }
 

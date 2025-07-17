@@ -5,6 +5,11 @@ import Layout from '../components/Layout/Layout'
 const NotFoundPage: React.FC = () => {
   return (
     <Layout
+      keywords={['404', 'page not found', 'error page', 'manhattan plumbing']}
+      ogTitle="404 Not Found | Manhattan Plumbing"
+      ogDescription="The page you are looking for does not exist."
+      ogImage="https://manhattan-plumbing.pages.dev/logo.png"
+      ogUrl="https://manhattan-plumbing.pages.dev/404"
       title="404 Not Found | Manhattan Plumbing"
       description="The page you are looking for does not exist."
       canonical="https://manhattan-plumbing.pages.dev/404"

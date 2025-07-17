@@ -1,6 +1,8 @@
-import Layout from '../../components/Layout/Layout'
+
 import SectionHeading from '../../components/UI/SectionHeading'
 import Button from '../../components/UI/Button'
+import SEO from '../../components/SEO/SEO'
+import SEO from '../../components/SEO/SEO'
 import { Wrench, Shield, CheckCircle, Zap, Clock } from 'lucide-react'
 
 import pipeHeroJpg from '../../assets/images/pexels-newyork-001.jpg'
@@ -40,21 +42,29 @@ const PipesServicePage = () => {
     },
     description:
       'Expert pipe repair and replacement services in Manhattan. We handle leak detection, corrosion, and pressure issues.',
+    address: {
+      '@type': 'PostalAddress',
+      streetAddress: '123 Main St',
+      addressLocality: 'New York',
+      addressRegion: 'NY',
+      postalCode: '10001',
+      addressCountry: 'US',
+    },
   }
 
   return (
-    <Layout
-      title="Pipe Repair & Replacement | Manhattan Plumbing"
-      description="Durable solutions for leaky, corroded, or damaged pipes in Manhattan. We offer advanced leak detection and trenchless pipe replacement."
-      keywords={['pipe repair', 'pipe replacement', 'leak detection', 'repipe', 'Manhattan']}
-      canonical="https://manhattan-plumbing.pages.dev/services/pipe-service"
-      ogTitle="Pipe Repair & Replacement | Manhattan Plumbing"
-      ogDescription="Durable solutions for leaky, corroded, or damaged pipes in Manhattan. We offer advanced leak detection and trenchless pipe replacement."
-      ogImage={pipeHeroJpg}
-      ogUrl="https://manhattan-plumbing.pages.dev/services/pipe-service"
-      jsonLd={jsonLd}
-    >
-      <main className="min-h-screen bg-white dark:bg-slate-900">
+    <main className="min-h-screen bg-white dark:bg-slate-900">
+      <SEO
+        title="Pipe Repair & Replacement | Manhattan Plumbing"
+        description="Durable solutions for leaky, corroded, or damaged pipes in Manhattan. We offer advanced leak detection and trenchless pipe replacement."
+        keywords={['pipe repair', 'pipe replacement', 'leak detection', 'repipe', 'Manhattan']}
+        canonical="https://manhattan-plumbing.pages.dev/services/pipe-service"
+        ogTitle="Pipe Repair & Replacement | Manhattan Plumbing"
+        ogDescription="Durable solutions for leaky, corroded, or damaged pipes in Manhattan. We offer advanced leak detection and trenchless pipe replacement."
+        ogImage={pipeHeroJpg}
+        ogUrl="https://manhattan-plumbing.pages.dev/services/pipe-service"
+        localBusiness={jsonLd}
+      />
         {/* Hero Section */}
         <section className="relative bg-slate-900 text-white">
           <div className="absolute inset-0 z-0 bg-cover bg-center bg-blend-multiply brightness-[0.6] after:absolute after:inset-0 after:bg-linear-to-b after:from-transparent after:via-black/30 after:to-black/70">
@@ -273,7 +283,6 @@ const PipesServicePage = () => {
           </div>
         </section>
       </main>
-    </Layout>
   )
 }
 
