@@ -22,7 +22,6 @@ const LocationPage: React.FC = () => {
     '@type': 'LocalBusiness',
     name: 'Manhattan Plumbing',
     address: {
-      '@type': 'PostalAddress',
       streetAddress: '123 Plumbing Ave',
       addressLocality: 'Manhattan',
       addressRegion: 'NY',

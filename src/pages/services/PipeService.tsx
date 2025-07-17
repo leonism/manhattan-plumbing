@@ -2,7 +2,6 @@
 import SectionHeading from '../../components/UI/SectionHeading'
 import Button from '../../components/UI/Button'
 import SEO from '../../components/SEO/SEO'
-import SEO from '../../components/SEO/SEO'
 import { Wrench, Shield, CheckCircle, Zap, Clock } from 'lucide-react'
 
 import pipeHeroJpg from '../../assets/images/pexels-newyork-001.jpg'
@@ -43,7 +42,6 @@ const PipesServicePage = () => {
     description:
       'Expert pipe repair and replacement services in Manhattan. We handle leak detection, corrosion, and pressure issues.',
     address: {
-      '@type': 'PostalAddress',
       streetAddress: '123 Main St',
       addressLocality: 'New York',
       addressRegion: 'NY',

@@ -34,6 +34,10 @@ const EmergencyServicePage = () => {
     '@context': 'https://schema.org',
     '@type': 'Service',
     serviceType: 'Emergency Plumbing',
+    name: 'Manhattan Plumbing', // ✅ required
+    url: 'https://manhattan-plumbing.pages.dev', // ✅ required
+    telephone: '+1-212-555-1234', // ✅ required
+    image: 'https://manhattan-plumbing.pages.dev/manhattan-plumber.png', // ✅ required
     provider: {
       '@type': 'Organization',
       name: 'Manhattan Plumbing',
@@ -46,6 +50,13 @@ const EmergencyServicePage = () => {
     },
     description:
       '24/7 emergency plumbing services in Manhattan. We handle burst pipes, sewer backups, water heater failures, and gas leaks.',
+    address: {
+      streetAddress: '123 Main St',
+      addressLocality: 'New York',
+      addressRegion: 'NY',
+      postalCode: '10001',
+      addressCountry: 'US',
+    },
   }
 
   return (
@@ -62,7 +73,6 @@ const EmergencyServicePage = () => {
         localBusiness={{
           ...jsonLd,
           address: {
-            '@type': 'PostalAddress',
             streetAddress: '123 Main St',
             addressLocality: 'New York',
             addressRegion: 'NY',

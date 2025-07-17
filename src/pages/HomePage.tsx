@@ -19,7 +19,6 @@ const HomePage: React.FC = () => {
     telephone: '+1-212-555-1234',
     image: 'https://manhattan-plumbing.pages.dev/manhattan-plumber.png',
     address: {
-      '@type': 'PostalAddress',
       streetAddress: '123 Main St',
       addressLocality: 'New York',
       addressRegion: 'NY',

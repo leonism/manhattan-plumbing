@@ -1,11 +1,7 @@
 import SectionHeading from '../../components/UI/SectionHeading'
 import Button from '../../components/UI/Button'
 import SEO from '../../components/SEO/SEO'
-import SEO from '../../components/SEO/SEO'
 import { Wrench, ShowerHead, Droplet, Home, CheckCircle } from 'lucide-react'
-import SEO from '../../components/SEO/SEO'
-import SEO from '../../components/SEO/SEO'
-
 
 import fixtureHeroJpg from '../../assets/images/pexels-newyork-010.jpg'
 import fixtureHeroWebp from '../../assets/images/pexels-newyork-010.jpg?format=webp'
@@ -45,7 +41,6 @@ const FixturesServicePage = () => {
     description:
       'Premium plumbing fixture installation and repair services in Manhattan. We install and repair faucets, showers, and more.',
     address: {
-      '@type': 'PostalAddress',
       streetAddress: '123 Main St',
       addressLocality: 'New York',
       addressRegion: 'NY',

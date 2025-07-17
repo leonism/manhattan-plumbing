@@ -28,7 +28,6 @@ const DrainsServicePage = () => {
     description:
       'Expert drain cleaning services in Manhattan. We handle kitchen clogs, bathroom drains, sewer lines, and more.',
     address: {
-      '@type': 'PostalAddress',
       streetAddress: '123 Main St',
       addressLocality: 'New York',
       addressRegion: 'NY',
