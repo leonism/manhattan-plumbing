@@ -49,7 +49,7 @@ function App() {
                     description="Read our latest plumbing news and updates"
                     ogTitle="News Post"
                     ogDescription="Read our latest plumbing news and updates"
-                    ogImage="/images/og-news.jpg"
+                    ogImage="/images/manhattan-plumber.png"
                     canonical="https://manhattan-plumbing.pages.dev/news"
                     ogUrl="https://manhattan-plumbing.pages.dev/news"
                   >
@@ -65,7 +65,7 @@ function App() {
                     description="Stay updated with the latest plumbing news and industry insights"
                     ogTitle="Plumbing News & Updates"
                     ogDescription="Stay updated with the latest plumbing news and industry insights"
-                    ogImage="/images/og-news.jpg"
+                    ogImage="/images/manhattan-plumber.png"
                     canonical="https://manhattan-plumbing.pages.dev/news"
                   >
                     <NewsPage />
@@ -80,7 +80,7 @@ function App() {
                     description="Stay updated with the latest plumbing news and industry insights"
                     ogTitle="Plumbing News & Updates"
                     ogDescription="Stay updated with the latest plumbing news and industry insights"
-                    ogImage="/images/og-news.jpg"
+                    ogImage="/images/manhattan-plumber.png"
                     canonical="https://manhattan-plumbing.pages.dev/news"
                   >
                     <NewsPage />
@@ -95,7 +95,7 @@ function App() {
                     description="Browse our plumbing news by category"
                     ogTitle="News Post"
                     ogDescription="Read our latest plumbing news and updates"
-                    ogImage="/images/og-news.jpg"
+                    ogImage="/images/manhattan-plumber.png"
                     canonical="https://manhattan-plumbing.pages.dev/news"
                   >
                     <NewsPage />
@@ -110,7 +110,7 @@ function App() {
                     description="Browse our plumbing news by tag"
                     ogTitle="Tagged News"
                     ogDescription="Browse our plumbing news by tag"
-                    ogImage="/images/og-news.jpg"
+                    ogImage="/images/manhattan-plumber.png"
                     canonical="https://manhattan-plumbing.pages.dev/news"
                   >
                     <NewsPage />

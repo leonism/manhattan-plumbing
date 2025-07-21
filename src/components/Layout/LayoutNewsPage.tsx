@@ -11,7 +11,7 @@ interface LayoutNewsPageProps {
   ogTitle: string
   ogDescription: string
   ogImage: string
-  ogUrl: string
+  ogUrl?: string
 }
 
 import SEO from '../SEO/SEO'
@@ -36,7 +36,7 @@ const LayoutNewsPage: React.FC<LayoutNewsPageProps> = ({
         ogTitle={ogTitle}
         ogDescription={ogDescription}
         ogImage={ogImage}
-        ogUrl={ogUrl}
+        ogUrl={ogUrl || canonical}
       />
       <main className="grow">{children}</main>
       <Footer />
