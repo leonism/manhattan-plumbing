@@ -17,6 +17,7 @@ interface Service {
   component?: React.ComponentType | React.LazyExoticComponent<React.ComponentType>
   title?: string
   description?: string
+  keywords?: string[]
 }
 
 const serviceIconMap: { [key: string]: React.ReactNode } = {
@@ -34,6 +35,7 @@ const IndividualServicePage: React.FC = () => {
   const [CurrentServiceComponent, setCurrentServiceComponent] = useState<
     React.ComponentType | React.LazyExoticComponent<React.ComponentType> | null
   >(null)
+  const [serviceData, setServiceData] = useState<Service | null>(null)
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
 
@@ -114,18 +116,34 @@ const IndividualServicePage: React.FC = () => {
       <Layout
         title="Loading Service..."
         description="Loading service details..."
+        keywords={['plumbing', 'manhattan', 'nyc']}
+        canonical={`https://manhattan-plumbing.pages.dev/services/${slug}`}
+        ogTitle="Loading Service..."
+        ogDescription="Loading service details..."
+        ogImage="https://manhattan-plumbing.pages.dev/manhattan-plumber.png"
+        ogUrl={`https://manhattan-plumbing.pages.dev/services/${slug}`}
         jsonLd={jsonLd}
       >
         <div className="container mx-auto mt-20 py-8 text-center">
           <p>Loading service details...</p>
         </div>
-      </LayoutNewsPage>
+      </Layout>
     )
   }
 
   if (error) {
     return (
-      <Layout title="Service Not Found" description={error} jsonLd={jsonLd}>
+      <Layout
+        title="Service Not Found"
+        description={error}
+        keywords={['plumbing', 'manhattan', 'nyc', 'error']}
+        canonical={`https://manhattan-plumbing.pages.dev/services/${slug}`}
+        ogTitle="Service Not Found"
+        ogDescription={error}
+        ogImage="https://manhattan-plumbing.pages.dev/manhattan-plumber.png"
+        ogUrl={`https://manhattan-plumbing.pages.dev/services/${slug}`}
+        jsonLd={jsonLd}
+      >
         <div className="container mx-auto mt-20 py-8 text-center text-red-500">
           <p>{error}</p>
           <p>
@@ -136,7 +154,7 @@ const IndividualServicePage: React.FC = () => {
             .
           </p>
         </div>
-      </LayoutNewsPage>
+      </Layout>
     )
   }
 
@@ -147,12 +165,18 @@ const IndividualServicePage: React.FC = () => {
           <Layout
             title={`Loading ${serviceData.name}...`}
             description={`Loading ${serviceData.name} content...`}
+            keywords={serviceData.keywords || ['plumbing', 'manhattan', 'nyc']}
+            canonical={`https://manhattan-plumbing.pages.dev/services/${slug}`}
+            ogTitle={`Loading ${serviceData.name}...`}
+            ogDescription={`Loading ${serviceData.name} content...`}
+            ogImage="https://manhattan-plumbing.pages.dev/manhattan-plumber.png"
+            ogUrl={`https://manhattan-plumbing.pages.dev/services/${slug}`}
             jsonLd={jsonLd}
           >
             <div className="container mx-auto mt-20 py-8 text-center">
               <p>Loading service content...</p>
             </div>
-          </LayoutNewsPage>
+          </Layout>
         }
       >
         <Layout
@@ -160,6 +184,7 @@ const IndividualServicePage: React.FC = () => {
           description={
             serviceData.description || `Learn more about our ${serviceData.name} services.`
           }
+          keywords={serviceData.keywords || ['plumbing', 'manhattan', 'nyc']}
           canonical={`https://manhattan-plumbing.pages.dev/services/${slug}`}
           ogTitle={serviceData.title || serviceData.name}
           ogDescription={
@@ -170,21 +195,27 @@ const IndividualServicePage: React.FC = () => {
           jsonLd={jsonLd}
         >
           <CurrentServiceComponent />
-        </LayoutNewsPage>
+        </Layout>
       </Suspense>
     )
   }
 
   return (
-    <LayoutNewsPage
+    <Layout
       title="No Service Content"
       description="No service content to display."
+      keywords={['plumbing', 'manhattan', 'nyc', 'error']}
+      canonical={`https://manhattan-plumbing.pages.dev/services/${slug}`}
+      ogTitle="No Service Content"
+      ogDescription="No service content to display."
+      ogImage="https://manhattan-plumbing.pages.dev/manhattan-plumber.png"
+      ogUrl={`https://manhattan-plumbing.pages.dev/services/${slug}`}
       jsonLd={jsonLd}
     >
       <div className="container mx-auto mt-20 py-8 text-center">
         <p>No service content to display.</p>
       </div>
-    </LayoutNewsPage>
+    </Layout>
   )
 }
 
