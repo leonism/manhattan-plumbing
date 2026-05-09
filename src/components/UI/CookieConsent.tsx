@@ -1,17 +1,15 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import { X } from 'lucide-react'
 
 const COOKIE_CONSENT_KEY = 'manhattan_plumbing_cookie_consent'
 
 const CookieConsent: React.FC = () => {
-  const [isVisible, setIsVisible] = useState(false)
-
-  useEffect(() => {
-    const consent = localStorage.getItem(COOKIE_CONSENT_KEY)
-    if (!consent) {
-      setIsVisible(true)
+  const [isVisible, setIsVisible] = useState(() => {
+    if (typeof window !== 'undefined') {
+      return !localStorage.getItem(COOKIE_CONSENT_KEY)
     }
-  }, [])
+    return false
+  })
 
   const handleAccept = () => {
     localStorage.setItem(COOKIE_CONSENT_KEY, 'accepted')

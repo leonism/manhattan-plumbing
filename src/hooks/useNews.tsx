@@ -1,4 +1,4 @@
-import { useState, useEffect, useMemo } from 'react'
+import { useMemo } from 'react'
 import type { Post, UseNewsOptions } from '../types/news'
 import { slugify } from '../utils/slugify'
 
@@ -85,14 +85,7 @@ const allPostsData: Post[] = Object.entries(postFiles)
 export const useNews = ({ category, tag, page = 1, limit = 9 }: UseNewsOptions = {}) => {
   const allPosts = useMemo(() => allPostsData, [])
 
-  const [posts, setPosts] = useState<Post[]>([])
-  const [categories, setCategories] = useState<string[]>([])
-  const [totalPages, setTotalPages] = useState(1)
-  const [isLoading, setIsLoading] = useState(true)
-
-  useEffect(() => {
-    setIsLoading(true)
-
+  const { paginated, categories, totalPages } = useMemo(() => {
     let filtered = allPosts
     if (category) {
       filtered = allPosts.filter((post) => slugify(post.category) === category)
@@ -102,18 +95,17 @@ export const useNews = ({ category, tag, page = 1, limit = 9 }: UseNewsOptions =
 
     const start = (page - 1) * limit
     const paginated = filtered.slice(start, start + limit)
+    const categories = [...new Set(allPosts.map((p) => p.category))]
+    const totalPages = Math.ceil(filtered.length / limit)
 
-    setPosts(paginated)
-    setCategories([...new Set(allPosts.map((p) => p.category))])
-    setTotalPages(Math.ceil(filtered.length / limit))
-    setIsLoading(false)
+    return { filtered, paginated, categories, totalPages }
   }, [category, tag, page, limit, allPosts])
 
   return {
-    posts,
+    posts: paginated,
     categories,
     totalPages,
-    isLoading,
+    isLoading: false,
     allPosts,
   }
 }

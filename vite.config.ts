@@ -49,10 +49,22 @@ export default defineConfig({
   build: {
     rollupOptions: {
       output: {
-        manualChunks: {
-          vendor: ['react', 'react-dom', 'react-router-dom'],
-          ui: ['lucide-react'],
-          utils: ['date-fns', 'gray-matter'],
+        manualChunks(id) {
+          if (id.includes('node_modules')) {
+            if (
+              id.includes('react') ||
+              id.includes('react-dom') ||
+              id.includes('react-router-dom')
+            ) {
+              return 'vendor'
+            }
+            if (id.includes('lucide-react')) {
+              return 'ui'
+            }
+            if (id.includes('date-fns') || id.includes('gray-matter')) {
+              return 'utils'
+            }
+          }
         },
       },
     },
