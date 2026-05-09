@@ -5,7 +5,8 @@
   "type": "module",
   "scripts": {
     "dev": "vite && npm run generate",
-    "build": "vite build && npm run generate && npm run prerender:pages",
+    "build": "vite build && npm run generate && npm run prerender:pages && node scripts/optimize-build.js",
+    "optimize": "node scripts/optimize-build.js",
     "lint:fix": "eslint . --fix && prettier --write .",
     "format": "prettier --write \"**/*.{css,js,ts,jsx,tsx,md}\" --ignore-path .prettierignore",
     "check:code": "npm run format && npm run lint:fix",
@@ -80,6 +81,7 @@
     "typescript-eslint": "^8.59.2",
     "vite": "^8.0.11",
     "vite-plugin-compression": "^0.5.1",
+    "vite-plugin-css-injected-by-js": "^5.0.1",
     "vite-plugin-ejs": "^1.7.0",
     "vite-plugin-html": "^3.2.2",
     "vite-plugin-html-minifier": "^1.0.5",

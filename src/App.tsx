@@ -5,34 +5,33 @@ import { ThemeProvider } from './context/ThemeContext'
 import LayoutHomePage from './components/Layout/LayoutHomePage'
 import LayoutNewsPage from './components/Layout/LayoutNewsPage'
 import CookieConsent from './components/UI/CookieConsent'
-import { lazy, Suspense } from 'react'
 
-const HomePage = lazy(() => import('./pages/HomePage'))
-const NewsPage = lazy(() => import('./pages/NewsPage'))
-const NewsPost = lazy(() => import('./pages/NewsPost'))
-const SearchResultsPage = lazy(() => import('./pages/SearchResultsPage'))
-const PrivacyPolicy = lazy(() => import('./pages/legal/PrivacyPolicy'))
-const TermsOfService = lazy(() => import('./pages/legal/TermsOfService'))
-const CookiesPolicy = lazy(() => import('./pages/legal/CookiesPolicy'))
-const DrainService = lazy(() => import('./pages/services/DrainService'))
-const EmergencyService = lazy(() => import('./pages/services/EmergencyService'))
-const FixtureService = lazy(() => import('./pages/services/FixtureService'))
-const PipeService = lazy(() => import('./pages/services/PipeService'))
-const RemodelingService = lazy(() => import('./pages/services/RemodelingService'))
-const WaterHeaterService = lazy(() => import('./pages/services/WaterHeaterService'))
-const LocationPage = lazy(() => import('./pages/LocationPage'))
-const NotFoundPage = lazy(() => import('./pages/NotFoundPage'))
 
-import LoadingSpinner from './components/UI/LoadingSpinner'
+import HomePage from './pages/HomePage'
+import NewsPage from './pages/NewsPage'
+import NewsPost from './pages/NewsPost'
+import SearchResultsPage from './pages/SearchResultsPage'
+import PrivacyPolicy from './pages/legal/PrivacyPolicy'
+import TermsOfService from './pages/legal/TermsOfService'
+import CookiesPolicy from './pages/legal/CookiesPolicy'
+import DrainService from './pages/services/DrainService'
+import EmergencyService from './pages/services/EmergencyService'
+import FixtureService from './pages/services/FixtureService'
+import PipeService from './pages/services/PipeService'
+import RemodelingService from './pages/services/RemodelingService'
+import WaterHeaterService from './pages/services/WaterHeaterService'
+import LocationPage from './pages/LocationPage'
+import NotFoundPage from './pages/NotFoundPage'
+
+
 
 function App() {
   return (
     <HelmetProvider>
       <ThemeProvider>
         <SkipToContent />
-        <BrowserRouter future={{ v7_startTransition: true }}>
-          <Suspense fallback={<LoadingSpinner />}>
-            <Routes>
+        <BrowserRouter>
+          <Routes>
               <Route
                 path="/"
                 element={
@@ -292,7 +291,6 @@ function App() {
               />
               <Route path="*" element={<NotFoundPage />} />
             </Routes>
-          </Suspense>
         </BrowserRouter>
         <CookieConsent />
       </ThemeProvider>

@@ -13,7 +13,7 @@ const brotliPromise = promisify(brotliCompress)
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = dirname(__filename)
 
-const TEMPLATE_PATH = path.resolve(__dirname, '../index.html')
+const TEMPLATE_PATH = path.resolve(__dirname, '../dist/index.html')
 const DIST_DIR = path.resolve(__dirname, '../dist')
 
 async function compressAndWriteFile(filePath, content) {

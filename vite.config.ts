@@ -1,12 +1,11 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 import { ViteImageOptimizer } from 'vite-plugin-image-optimizer'
-import viteCompression from 'vite-plugin-compression'
+import cssInjectedByJsPlugin from 'vite-plugin-css-injected-by-js'
 import mdx from '@mdx-js/rollup'
 import remarkFrontmatter from 'remark-frontmatter'
 import remarkMdxFrontmatter from 'remark-mdx-frontmatter'
 import remarkGfm from 'remark-gfm'
-import { createHtmlPlugin } from 'vite-plugin-html'
 
 export default defineConfig({
   plugins: [
@@ -20,21 +19,7 @@ export default defineConfig({
       webp: { quality: 80 },
       avif: { quality: 70 },
     }),
-    createHtmlPlugin({
-      minify: true,
-    }),
-    viteCompression({
-      algorithm: 'gzip',
-      ext: '.gz',
-      filter: /\.(js|mjs|json|css|html|xml)$/i,
-      threshold: 1025,
-    }),
-    viteCompression({
-      algorithm: 'brotliCompress',
-      ext: '.br',
-      filter: /\.(js|mjs|json|css|html|xml)$/i,
-      threshold: 1025,
-    }),
+    cssInjectedByJsPlugin(),
   ],
   resolve: {
     alias: {},
@@ -49,23 +34,7 @@ export default defineConfig({
   build: {
     rollupOptions: {
       output: {
-        manualChunks(id) {
-          if (id.includes('node_modules')) {
-            if (
-              id.includes('react') ||
-              id.includes('react-dom') ||
-              id.includes('react-router-dom')
-            ) {
-              return 'vendor'
-            }
-            if (id.includes('lucide-react')) {
-              return 'ui'
-            }
-            if (id.includes('date-fns') || id.includes('gray-matter')) {
-              return 'utils'
-            }
-          }
-        },
+        manualChunks: undefined,
       },
     },
     minify: 'terser',
@@ -76,8 +45,8 @@ export default defineConfig({
       },
     },
     cssMinify: 'lightningcss',
-    cssCodeSplit: true,
-    chunkSizeWarningLimit: 1000,
+    cssCodeSplit: false,
+    chunkSizeWarningLimit: 2000,
     reportCompressedSize: true,
     modulePreload: {
       polyfill: true,
