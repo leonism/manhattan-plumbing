@@ -200,7 +200,7 @@ const RemodelingServicePage = () => {
                     className="h-64 w-full object-cover transition-transform duration-500 group-hover:scale-110"
                     loading="lazy"
                   />
-                  <div className="absolute inset-0 flex items-end bg-gradient-to-t from-black/70 via-transparent to-transparent p-6">
+                  <div className="absolute inset-0 flex items-end bg-linear-to-t from-black/70 via-transparent to-transparent p-6">
                     <div>
                       <p className="text-lg font-semibold text-white">
                         {image.photographer && `Photo by ${image.photographer}`}
@@ -269,7 +269,7 @@ const RemodelingServicePage = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="bg-gradient-to-r from-blue-600 to-blue-800 py-16 text-white">
+      <section className="bg-linear-to-r from-blue-600 to-blue-800 py-16 text-white">
         <div className="container mx-auto px-4 text-center md:px-6">
           <h2 className="mb-6 text-3xl font-bold md:text-4xl">Ready for Your Dream Bathroom?</h2>
           <p className="mx-auto mb-8 max-w-3xl text-xl text-blue-100">

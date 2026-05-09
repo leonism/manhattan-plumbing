@@ -206,7 +206,7 @@ const WaterHeatersServicePage = () => {
       </section>
 
       {/* CTA */}
-      <section className="bg-gradient-to-r from-blue-600 to-blue-800 py-16 text-white">
+      <section className="bg-linear-to-r from-blue-600 to-blue-800 py-16 text-white">
         <div className="container mx-auto px-4 text-center md:px-6">
           <h2 className="mb-6 text-3xl font-bold md:text-4xl">Save Up To 34% On Energy Bills</h2>
           <p className="mx-auto mb-8 max-w-3xl text-xl text-blue-100">

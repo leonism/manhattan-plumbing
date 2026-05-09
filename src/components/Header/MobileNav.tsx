@@ -38,7 +38,7 @@ const MobileNav: React.FC<MobileNavProps> = ({
           </button>
         </div>
 
-        <nav className="flex-grow space-y-4">
+        <nav className="grow space-y-4">
           {navItems.map((item) => (
             <div key={item.label}>
               {item.children && item.children.length > 0 ? (
