@@ -6,12 +6,12 @@ import { useRouter } from 'next/navigation'
 import { Search, Loader, Newspaper, Wrench, X } from 'lucide-react'
 import Logo from '@/components/ui/Logo'
 
-export interface SearchBarProps {
+interface SearchBarProps {
   onClear?: () => void
   onClose?: () => void
 }
 
-interface SearchResultItem {
+interface SearchResult {
   slug: string
   title: string
   excerpt: string
@@ -54,7 +54,7 @@ const SearchBar: React.FC<SearchBarProps> = ({ onClear, onClose }) => {
     return () => window.removeEventListener('keydown', handleKeyDown)
   }, [activeIndex, allResults, router, onClose])
 
-  const getIcon = (item: SearchResultItem) => {
+  const getIcon = (item: SearchResult) => {
     if (item.featuredImage) {
       return (
         <img

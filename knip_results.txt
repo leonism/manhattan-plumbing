@@ -1,0 +1,134 @@
+Unused files (74)
+out/_next/static/a7gnUAL8VUvvPXGGqweiZ/_buildManifest.js           
+out/_next/static/a7gnUAL8VUvvPXGGqweiZ/_clientMiddlewareManifest.js
+out/_next/static/a7gnUAL8VUvvPXGGqweiZ/_ssgManifest.js             
+out/_next/static/chunks/0_twe6-048u-~.js                           
+out/_next/static/chunks/01xlw8hd842-c.js                           
+out/_next/static/chunks/03~yq9q893hmn.js                           
+out/_next/static/chunks/03j.2kmw04qgd.js                           
+out/_next/static/chunks/03wl6yoiu475d.js                           
+out/_next/static/chunks/078zl5tuz~lxe.js                           
+out/_next/static/chunks/08~mdtbzo3wns.js                           
+out/_next/static/chunks/0eewamb49pw7k.js                           
+out/_next/static/chunks/0iil6vuqny3so.css                          
+out/_next/static/chunks/0mmdhz817e4c6.js                           
+out/_next/static/chunks/0osup1r1fvr8_.js                           
+out/_next/static/chunks/0u89s92my8548.js                           
+out/_next/static/chunks/0y868oa02d73w.js                           
+out/_next/static/chunks/11b_8vmr~y95m.js                           
+out/_next/static/chunks/13_uyka1i0hju.js                           
+out/_next/static/chunks/16~6cxmw7ssa_.js                           
+out/_next/static/chunks/turbopack-0orjb8lck6zuf.js                 
+scripts/generate-rss.js                                            
+scripts/generate-sitemap.js                                        
+scripts/get-news-data.js                                           
+scripts/optimize-build.js                                          
+scripts/prerender-pages.js                                         
+src/components/Hero/HeroSection.tsx                                
+src/components/Layout/Layout.tsx                                   
+src/components/Layout/LayoutHomePage.tsx                           
+src/components/Layout/LayoutNewsPage.tsx                           
+src/components/News/ArticleNavigation.tsx                          
+src/components/News/BackToBlogButton.tsx                           
+src/components/News/NewsPostContent.tsx                            
+src/components/News/NewsPostHeader.tsx                             
+src/components/News/NewsPostMeta.tsx                               
+src/components/News/RelatedArticles.tsx                            
+src/components/News/ShareButtons.tsx                               
+src/components/News/TagList.tsx                                    
+src/components/Search/SearchResultCard.tsx                         
+src/components/SEO/JsonLD.tsx                                      
+src/components/SEO/SEO.tsx                                         
+src/components/ui/card.tsx                                         
+src/components/ui/CookieConsent.tsx                                
+src/components/ui/field.tsx                                        
+src/components/ui/LoadingSpinner.tsx                               
+src/components/ui/PaginationButton.tsx                             
+src/components/ui/PaginationControls.tsx                           
+src/components/ui/separator.tsx                                    
+src/components/ui/SkeletonLoader.tsx                               
+src/components/ui/SkipToContent.tsx                                
+src/components/ui/typography.tsx                                   
+src/content/news/bathroom-remodeling-plumbing-2025-guide.mdx       
+src/content/news/bathroom-remodeling-trends.mdx                    
+src/content/news/commercial-plumbing-solutions-2025-guide.mdx      
+src/content/news/common-plumbing-myths-debunked.mdx                
+src/content/news/eco-friendly-plumbing-2025-guide.mdx              
+src/content/news/eco-friendly-plumbing-solutions.mdx               
+src/content/news/emergency-plumbing-services-2025-guide.mdx        
+src/content/news/emergency-plumbing-services-guide-2025.mdx        
+src/content/news/first-news-post.mdx                               
+src/content/news/kitchen-plumbing-upgrades-2025-guide.mdx          
+src/content/news/leak-detection-technology-2025-guide.mdx          
+src/content/news/outdoor-plumbing-systems-2025-guide.mdx           
+src/content/news/pipe-insulation-energy-savings-2025-guide.mdx     
+src/content/news/preventive-maintenance.mdx                        
+src/content/news/remote-plumbing-monitoring-iot-2025-guide.mdx     
+src/content/news/sewer-line-repair-2025-guide.mdx                  
+src/content/news/sewer-line-repair-replacement-2025-guide.mdx      
+src/content/news/smart-bathroom-plumbing-2025-guide.mdx            
+src/content/news/smart-home-plumbing.mdx                           
+src/content/news/tankless-water-heaters-2025-guide.mdx             
+src/content/news/ultimate-guide-fixing-leaky-faucets.mdx           
+src/content/news/water-conservation-tips.mdx                       
+src/content/news/water-heater-installation-2025-guide.mdx          
+src/content/news/water-heater-maintenance-tips.mdx                 
+Unused dependencies (19)
+@mdx-js/rollup          package.json:25:6
+@radix-ui/react-select  package.json:27:6
+@types/react-helmet     package.json:30:6
+buffer                  package.json:32:6
+front-matter            package.json:36:6
+iltorb                  package.json:38:6
+react-helmet            package.json:44:6
+react-helmet-async      package.json:45:6
+react-router-dom        package.json:47:6
+react-slick             package.json:48:6
+rehype-raw              package.json:49:6
+rehype-react            package.json:50:6
+rehype-stringify        package.json:51:6
+remark                  package.json:52:6
+remark-frontmatter      package.json:53:6
+remark-gfm              package.json:54:6
+remark-mdx-frontmatter  package.json:55:6
+remark-rehype           package.json:56:6
+slick-carousel          package.json:58:6
+Unused devDependencies (15)
+@types/react-slick  package.json:69:6
+cheerio             package.json:70:6
+feed                package.json:74:6
+fs-extra            package.json:75:6
+globby              package.json:77:6
+imagemin            package.json:78:6
+imagemin-mozjpeg    package.json:79:6
+imagemin-pngquant   package.json:80:6
+imagemin-svgo       package.json:81:6
+imagemin-webp       package.json:82:6
+lightningcss        package.json:84:6
+marked              package.json:86:6
+sharp               package.json:90:6
+svgo                package.json:91:6
+terser              package.json:93:6
+Unresolved imports (3)
+@/types/news  src/components/News/NewsCard.tsx:7:27
+@/types/news  src/hooks/useNews.tsx:4:43           
+@/types/news  src/hooks/useSearch.tsx:2:27         
+Unused exports (9)
+Button                  src/components/ui/Button.tsx:69:10
+buttonVariants          src/components/ui/Button.tsx:69:18
+useFormField            src/components/ui/form.tsx:170:3  
+FormDescription         src/components/ui/form.tsx:175:3  
+SelectGroup             src/components/ui/select.tsx:193:3
+SelectLabel             src/components/ui/select.tsx:195:3
+SelectScrollDownButton  src/components/ui/select.tsx:196:3
+SelectScrollUpButton    src/components/ui/select.tsx:197:3
+SelectSeparator         src/components/ui/select.tsx:198:3
+Unused exported types (6)
+ButtonProps     interface  src/components/ui/Button.tsx:43:18  
+SearchBarProps  interface  src/components/ui/SearchBar.tsx:9:18
+SearchResult    interface  src/hooks/useSearch.tsx:44:18       
+UseNewsOptions  interface  src/types/index.ts:39:18            
+BreadcrumbItem  interface  src/types/index.ts:46:18            
+Service         interface  src/types/index.ts:52:18            
+Configuration hints (1)
+. (root)    .  Create knip.json configuration file, and add entry and/or refine project files (74 unused files)

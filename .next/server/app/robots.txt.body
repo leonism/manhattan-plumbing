@@ -1,6 +1,0 @@
-User-Agent: *
-Allow: /
-Disallow: /api/
-Disallow: /search?*
-
-Sitemap: https://manhattan-plumbing.pages.dev/sitemap.xml

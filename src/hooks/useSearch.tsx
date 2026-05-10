@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import type { Post } from '@/types/news'
+import { Post } from '@/types'
 
 // Define services data statically with icons
 const services = [
@@ -41,7 +41,7 @@ const services = [
   },
 ]
 
-export interface SearchResult {
+interface SearchResult {
   slug: string
   title: string
   excerpt: string
@@ -49,7 +49,7 @@ export interface SearchResult {
   icon?: string
 }
 
-export interface CategorizedResults {
+interface CategorizedResults {
   news: SearchResult[]
   services: SearchResult[]
 }

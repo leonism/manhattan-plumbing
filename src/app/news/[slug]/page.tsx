@@ -5,6 +5,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { Calendar, User, ChevronLeft } from 'lucide-react'
 import Button from '@/components/ui/Button'
+import NewsPostBody from '@/components/News/NewsPostBody'
 import { format } from 'date-fns'
 
 interface Props {
@@ -98,15 +99,11 @@ export default async function NewsPostPage({ params }: Props) {
 
       <div className="container mx-auto px-4 mt-12">
         <div className="flex flex-col lg:flex-row gap-12">
-          {/* Main Content */}
           <article className="lg:w-2/3">
-            <div className="prose prose-lg dark:prose-invert max-w-none prose-blue">
-              {/* In a real app, we would use MDXRemote or similar to render post.content */}
-              {/* For now, I'll just show a placeholder since I haven't set up MDX rendering in Next.js yet */}
-              <div dangerouslySetInnerHTML={{ __html: post.content || '' }} />
-              
-              {/* Note: In Next.js, we should use next-mdx-remote or similar for safe MDX rendering */}
-              <p className="text-slate-500 italic mt-8 border-t pt-8">
+            <NewsPostBody content={post.content || ''} />
+
+            <div className="prose prose-lg dark:prose-invert max-w-none prose-blue mt-8">
+              <p className="text-slate-500 italic border-t pt-8">
                 This article was originally published in our news section. For more tips and updates, follow us on social media.
               </p>
             </div>
