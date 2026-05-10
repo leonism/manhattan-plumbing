@@ -6,6 +6,11 @@ import mdx from '@mdx-js/rollup'
 import remarkFrontmatter from 'remark-frontmatter'
 import remarkMdxFrontmatter from 'remark-mdx-frontmatter'
 import remarkGfm from 'remark-gfm'
+import path from 'path'
+import { fileURLToPath } from 'url'
+
+const __filename = fileURLToPath(import.meta.url)
+const __dirname = path.dirname(__filename)
 
 export default defineConfig({
   plugins: [
@@ -22,7 +27,9 @@ export default defineConfig({
     cssInjectedByJsPlugin(),
   ],
   resolve: {
-    alias: {},
+    alias: {
+      "@": path.resolve(__dirname, "./src"),
+    },
   },
   define: {
     global: 'window',
