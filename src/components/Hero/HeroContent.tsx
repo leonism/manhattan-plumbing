@@ -1,4 +1,4 @@
-import HeroButton from './HeroButton'
+import HeroButton from "@/components/Hero/HeroButton"
 import { PhoneCall, CheckCircle } from 'lucide-react'
 
 const HeroContent = () => {

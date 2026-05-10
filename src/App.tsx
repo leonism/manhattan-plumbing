@@ -1,27 +1,27 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import SkipToContent from './components/UI/SkipToContent'
+import SkipToContent from "@/components/ui/SkipToContent"
 import { HelmetProvider } from 'react-helmet-async'
-import { ThemeProvider } from './context/ThemeContext'
-import LayoutHomePage from './components/Layout/LayoutHomePage'
-import LayoutNewsPage from './components/Layout/LayoutNewsPage'
-import CookieConsent from './components/UI/CookieConsent'
+import { ThemeProvider } from "@/context/ThemeContext"
+import LayoutHomePage from "@/components/Layout/LayoutHomePage"
+import LayoutNewsPage from "@/components/Layout/LayoutNewsPage"
+import CookieConsent from "@/components/ui/CookieConsent"
 
 
-import HomePage from './pages/HomePage'
-import NewsPage from './pages/NewsPage'
-import NewsPost from './pages/NewsPost'
-import SearchResultsPage from './pages/SearchResultsPage'
-import PrivacyPolicy from './pages/legal/PrivacyPolicy'
-import TermsOfService from './pages/legal/TermsOfService'
-import CookiesPolicy from './pages/legal/CookiesPolicy'
-import DrainService from './pages/services/DrainService'
-import EmergencyService from './pages/services/EmergencyService'
-import FixtureService from './pages/services/FixtureService'
-import PipeService from './pages/services/PipeService'
-import RemodelingService from './pages/services/RemodelingService'
-import WaterHeaterService from './pages/services/WaterHeaterService'
-import LocationPage from './pages/LocationPage'
-import NotFoundPage from './pages/NotFoundPage'
+import HomePage from "@/pages/HomePage"
+import NewsPage from "@/pages/NewsPage"
+import NewsPost from "@/pages/NewsPost"
+import SearchResultsPage from "@/pages/SearchResultsPage"
+import PrivacyPolicy from "@/pages/legal/PrivacyPolicy"
+import TermsOfService from "@/pages/legal/TermsOfService"
+import CookiesPolicy from "@/pages/legal/CookiesPolicy"
+import DrainService from "@/pages/services/DrainService"
+import EmergencyService from "@/pages/services/EmergencyService"
+import FixtureService from "@/pages/services/FixtureService"
+import PipeService from "@/pages/services/PipeService"
+import RemodelingService from "@/pages/services/RemodelingService"
+import WaterHeaterService from "@/pages/services/WaterHeaterService"
+import LocationPage from "@/pages/LocationPage"
+import NotFoundPage from "@/pages/NotFoundPage"
 
 
 

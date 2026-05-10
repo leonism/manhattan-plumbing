@@ -1,6 +1,6 @@
-import SectionHeading from '../../components/UI/SectionHeading'
-import Button from '../../components/UI/Button'
-import SEO from '../../components/SEO/SEO'
+import SectionHeading from "@/components/ui/SectionHeading"
+import Button from "@/components/ui/Button"
+import SEO from "@/components/SEO/SEO"
 import {
   Shield,
   CheckCircle,
@@ -13,21 +13,21 @@ import {
   Bath,
 } from 'lucide-react'
 
-import emergencyHeroJpg from '../../assets/images/pexels-newyork-005.jpg'
-import emergencyHeroWebp from '../../assets/images/pexels-newyork-005.jpg?format=webp'
-import emergencyHeroAvif from '../../assets/images/pexels-newyork-005.jpg?format=avif'
-import burstPipeJpg from '../../assets/images/pexels-newyork-006.jpg'
-import burstPipeWebp from '../../assets/images/pexels-newyork-006.jpg?format=webp'
-import burstPipeAvif from '../../assets/images/pexels-newyork-006.jpg?format=avif'
-import sewerBackupJpg from '../../assets/images/pexels-newyork-007.jpg'
-import sewerBackupWebp from '../../assets/images/pexels-newyork-007.jpg?format=webp'
-import sewerBackupAvif from '../../assets/images/pexels-newyork-007.jpg?format=avif'
-import waterHeaterJpg from '../../assets/images/pexels-newyork-008.jpg'
-import waterHeaterWebp from '../../assets/images/pexels-newyork-008.jpg?format=webp'
-import waterHeaterAvif from '../../assets/images/pexels-newyork-008.jpg?format=avif'
-import gasLeakJpg from '../../assets/images/pexels-newyork-009.jpg'
-import gasLeakWebp from '../../assets/images/pexels-newyork-009.jpg?format=webp'
-import gasLeakAvif from '../../assets/images/pexels-newyork-009.jpg?format=avif'
+import emergencyHeroJpg from "@/assets/images/pexels-newyork-005.jpg"
+import emergencyHeroWebp from "@/assets/images/pexels-newyork-005.jpg?format=webp"
+import emergencyHeroAvif from "@/assets/images/pexels-newyork-005.jpg?format=avif"
+import burstPipeJpg from "@/assets/images/pexels-newyork-006.jpg"
+import burstPipeWebp from "@/assets/images/pexels-newyork-006.jpg?format=webp"
+import burstPipeAvif from "@/assets/images/pexels-newyork-006.jpg?format=avif"
+import sewerBackupJpg from "@/assets/images/pexels-newyork-007.jpg"
+import sewerBackupWebp from "@/assets/images/pexels-newyork-007.jpg?format=webp"
+import sewerBackupAvif from "@/assets/images/pexels-newyork-007.jpg?format=avif"
+import waterHeaterJpg from "@/assets/images/pexels-newyork-008.jpg"
+import waterHeaterWebp from "@/assets/images/pexels-newyork-008.jpg?format=webp"
+import waterHeaterAvif from "@/assets/images/pexels-newyork-008.jpg?format=avif"
+import gasLeakJpg from "@/assets/images/pexels-newyork-009.jpg"
+import gasLeakWebp from "@/assets/images/pexels-newyork-009.jpg?format=webp"
+import gasLeakAvif from "@/assets/images/pexels-newyork-009.jpg?format=avif"
 
 const EmergencyServicePage = () => {
   const jsonLd = {

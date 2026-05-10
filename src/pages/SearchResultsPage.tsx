@@ -1,12 +1,12 @@
 import React from 'react'
 import { useSearchParams } from 'react-router-dom'
-import SectionHeading from '../components/UI/SectionHeading'
-import SearchResultCard from '../components/Search/SearchResultCard'
-import SearchBar from '../components/UI/SearchBar'
-import { useSearch, SearchResult } from '../hooks/useSearch'
-import { useNews } from '../hooks/useNews'
-import SkeletonLoader from '../components/UI/SkeletonLoader'
-import Layout from '../components/Layout/Layout'
+import SectionHeading from "@/components/ui/SectionHeading"
+import SearchResultCard from "@/components/Search/SearchResultCard"
+import SearchBar from "@/components/ui/SearchBar"
+import { useSearch, SearchResult } from "@/hooks/useSearch"
+import { useNews } from "@/hooks/useNews"
+import SkeletonLoader from "@/components/ui/SkeletonLoader"
+import Layout from "@/components/Layout/Layout"
 
 const SearchResultsPage: React.FC = () => {
   const [searchParams] = useSearchParams()

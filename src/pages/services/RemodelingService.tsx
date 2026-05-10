@@ -1,9 +1,9 @@
 import { useState, useEffect } from 'react'
-import SEO from '../../components/SEO/SEO'
-import SectionHeading from '../../components/UI/SectionHeading'
-import Button from '../../components/UI/Button'
+import SEO from "@/components/SEO/SEO"
+import SectionHeading from "@/components/ui/SectionHeading"
+import Button from "@/components/ui/Button"
 import { Home, Bath, Hammer, Zap, CheckCircle } from 'lucide-react'
-import SkeletonLoader from '../../components/UI/SkeletonLoader'
+import SkeletonLoader from "@/components/ui/SkeletonLoader"
 
 interface PexelsImage {
   id: number

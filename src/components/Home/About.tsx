@@ -1,9 +1,9 @@
 import React from 'react'
-import SectionHeading from '../UI/SectionHeading'
-import Button from '../UI/Button'
-import Paragraph from '../About/Paragraph'
-import BenefitsList from '../About/BenefitsList'
-import AboutImage from '../About/AboutImage'
+import SectionHeading from "@/components/ui/SectionHeading"
+import Button from "@/components/ui/Button"
+import Paragraph from "@/components/About/Paragraph"
+import BenefitsList from "@/components/About/BenefitsList"
+import AboutImage from "@/components/About/AboutImage"
 import { Phone } from 'lucide-react'
 
 const benefits = [

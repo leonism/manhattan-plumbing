@@ -1,6 +1,6 @@
-import SEO from '../../components/SEO/SEO'
-import SectionHeading from '../../components/UI/SectionHeading'
-import Button from '../../components/UI/Button'
+import SEO from "@/components/SEO/SEO"
+import SectionHeading from "@/components/ui/SectionHeading"
+import Button from "@/components/ui/Button"
 import { Flame, Thermometer, Zap, Clock, CheckCircle } from 'lucide-react'
 
 const WaterHeatersServicePage = () => {

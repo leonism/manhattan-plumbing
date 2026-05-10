@@ -1,6 +1,6 @@
 import React from 'react'
 import { Facebook, Twitter, Linkedin, Mail, Send, Link as LinkIcon } from 'lucide-react'
-import { Post } from '../../types/news'
+import { Post } from "@/types/news"
 
 interface ShareButtonsProps {
   post: Post

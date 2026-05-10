@@ -1,6 +1,6 @@
 import React from 'react'
 import { MapPin } from 'lucide-react'
-import ContactDetail from './ContactDetail'
+import ContactDetail from "@/components/Contact/ContactDetail"
 
 const Address: React.FC = () => (
   <ContactDetail icon={<MapPin size={24} />} title="Address">

@@ -1,27 +1,27 @@
-import SectionHeading from '../../components/UI/SectionHeading'
-import Button from '../../components/UI/Button'
-import SEO from '../../components/SEO/SEO'
+import SectionHeading from "@/components/ui/SectionHeading"
+import Button from "@/components/ui/Button"
+import SEO from "@/components/SEO/SEO"
 import { Wrench, Shield, CheckCircle, Zap, Clock } from 'lucide-react'
 
-import pipeHeroJpg from '../../assets/images/pexels-newyork-001.jpg'
-import pipeHeroWebp from '../../assets/images/pexels-newyork-001.jpg?format=webp'
-import pipeHeroAvif from '../../assets/images/pexels-newyork-001.jpg?format=avif'
+import pipeHeroJpg from "@/assets/images/pexels-newyork-001.jpg"
+import pipeHeroWebp from "@/assets/images/pexels-newyork-001.jpg?format=webp"
+import pipeHeroAvif from "@/assets/images/pexels-newyork-001.jpg?format=avif"
 
-import leakDetectionJpg from '../../assets/images/pexels-newyork-001.jpg'
-import leakDetectionWebp from '../../assets/images/pexels-newyork-001.jpg?format=webp'
-import leakDetectionAvif from '../../assets/images/pexels-newyork-001.jpg?format=avif'
+import leakDetectionJpg from "@/assets/images/pexels-newyork-001.jpg"
+import leakDetectionWebp from "@/assets/images/pexels-newyork-001.jpg?format=webp"
+import leakDetectionAvif from "@/assets/images/pexels-newyork-001.jpg?format=avif"
 
-import pipeReplacementJpg from '../../assets/images/pexels-newyork-002.jpg'
-import pipeReplacementWebp from '../../assets/images/pexels-newyork-002.jpg?format=webp'
-import pipeReplacementAvif from '../../assets/images/pexels-newyork-002.jpg?format=avif'
+import pipeReplacementJpg from "@/assets/images/pexels-newyork-002.jpg"
+import pipeReplacementWebp from "@/assets/images/pexels-newyork-002.jpg?format=webp"
+import pipeReplacementAvif from "@/assets/images/pexels-newyork-002.jpg?format=avif"
 
-import corrosionJpg from '../../assets/images/pexels-newyork-003.jpg'
-import corrosionWebp from '../../assets/images/pexels-newyork-003.jpg?format=webp'
-import corrosionAvif from '../../assets/images/pexels-newyork-003.jpg?format=avif'
+import corrosionJpg from "@/assets/images/pexels-newyork-003.jpg"
+import corrosionWebp from "@/assets/images/pexels-newyork-003.jpg?format=webp"
+import corrosionAvif from "@/assets/images/pexels-newyork-003.jpg?format=avif"
 
-import pressureJpg from '../../assets/images/pexels-newyork-004.jpg'
-import pressureWebp from '../../assets/images/pexels-newyork-004.jpg?format=webp'
-import pressureAvif from '../../assets/images/pexels-newyork-004.jpg?format=avif'
+import pressureJpg from "@/assets/images/pexels-newyork-004.jpg"
+import pressureWebp from "@/assets/images/pexels-newyork-004.jpg?format=webp"
+import pressureAvif from "@/assets/images/pexels-newyork-004.jpg?format=avif"
 
 const PipesServicePage = () => {
   const jsonLd = {

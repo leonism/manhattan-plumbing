@@ -1,8 +1,8 @@
 import React from 'react'
-import { useNews } from '../../hooks/useNews'
-import NewsCard from '../News/NewsCard'
-import SectionHeading from '../UI/SectionHeading'
-import Button from '../UI/Button'
+import { useNews } from "@/hooks/useNews"
+import NewsCard from "@/components/News/NewsCard"
+import SectionHeading from "@/components/ui/SectionHeading"
+import Button from "@/components/ui/Button"
 import { ArrowRight } from 'lucide-react'
 
 const NewsSection: React.FC = () => {

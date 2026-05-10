@@ -1,6 +1,6 @@
 import React from 'react'
-import Button from './Button'
-import useContactForm from '../../hooks/useContactForm'
+import Button from "@/components/ui/Button"
+import useContactForm from "@/hooks/useContactForm"
 import { PaperAirplaneIcon } from '@heroicons/react/24/outline'
 
 interface ContactFormProps {

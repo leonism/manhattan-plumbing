@@ -1,6 +1,6 @@
 import React from 'react'
 import { Phone } from 'lucide-react'
-import ContactDetail from './ContactDetail'
+import ContactDetail from "@/components/Contact/ContactDetail"
 
 const PhoneComponent: React.FC = () => (
   <ContactDetail icon={<Phone size={24} />} title="Phone">

@@ -1,16 +1,16 @@
 import React from 'react'
 import { useParams } from 'react-router-dom'
-import SEO from '../components/SEO/SEO'
-import BackToBlogButton from '../components/News/BackToBlogButton'
-import NewsPostHeader from '../components/News/NewsPostHeader'
-import NewsPostMeta from '../components/News/NewsPostMeta'
-import NewsPostBody from '../components/News/NewsPostBody'
-import RelatedArticles from '../components/News/RelatedArticles'
-import ShareButtons from '../components/News/ShareButtons'
-import SkeletonLoader from '../components/UI/SkeletonLoader'
-import ArticleNavigation from '../components/News/ArticleNavigation'
-import { useNews } from '../hooks/useNews'
-import { Post } from '../types/news'
+import SEO from "@/components/SEO/SEO"
+import BackToBlogButton from "@/components/News/BackToBlogButton"
+import NewsPostHeader from "@/components/News/NewsPostHeader"
+import NewsPostMeta from "@/components/News/NewsPostMeta"
+import NewsPostBody from "@/components/News/NewsPostBody"
+import RelatedArticles from "@/components/News/RelatedArticles"
+import ShareButtons from "@/components/News/ShareButtons"
+import SkeletonLoader from "@/components/ui/SkeletonLoader"
+import ArticleNavigation from "@/components/News/ArticleNavigation"
+import { useNews } from "@/hooks/useNews"
+import { Post } from "@/types/news"
 
 // Util: slugify
 const slugify = (text: string) =>

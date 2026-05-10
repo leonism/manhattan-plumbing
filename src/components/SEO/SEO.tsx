@@ -7,7 +7,7 @@ import JsonLD, {
   LocalBusinessSchemaProps,
   ImageSchemaProps,
   ReviewSchemaProps,
-} from './JsonLD'
+} from "@/components/SEO/JsonLD"
 
 interface SEOProps {
   title: string

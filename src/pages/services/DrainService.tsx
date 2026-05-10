@@ -1,13 +1,13 @@
-import SectionHeading from '../../components/UI/SectionHeading'
-import Button from '../../components/UI/Button'
+import SectionHeading from "@/components/ui/SectionHeading"
+import Button from "@/components/ui/Button"
 import { Droplets, Wrench, Shield, Clock, CheckCircle, Zap } from 'lucide-react'
-import SEO from '../../components/SEO/SEO'
+import SEO from "@/components/SEO/SEO"
 
-import drainHeroJpg from '../../assets/images/pexels-newyork-001.jpg'
-import kitchenClogJpg from '../../assets/images/pexels-newyork-002.jpg'
-import bathroomDrainJpg from '../../assets/images/pexels-newyork-003.jpg'
-import sewerLineJpg from '../../assets/images/pexels-newyork-004.jpg'
-import outdoorDrainJpg from '../../assets/images/pexels-newyork-005.jpg'
+import drainHeroJpg from "@/assets/images/pexels-newyork-001.jpg"
+import kitchenClogJpg from "@/assets/images/pexels-newyork-002.jpg"
+import bathroomDrainJpg from "@/assets/images/pexels-newyork-003.jpg"
+import sewerLineJpg from "@/assets/images/pexels-newyork-004.jpg"
+import outdoorDrainJpg from "@/assets/images/pexels-newyork-005.jpg"
 
 const DrainsServicePage = () => {
   const jsonLd = {

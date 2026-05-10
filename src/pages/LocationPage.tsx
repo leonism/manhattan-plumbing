@@ -1,20 +1,20 @@
 import React from 'react'
-import SectionHeading from '../components/UI/SectionHeading'
-import Button from '../components/UI/Button'
+import SectionHeading from "@/components/ui/SectionHeading"
+import Button from "@/components/ui/Button"
 import { MapPin, Phone, Mail, Clock, Zap, CheckCircle, Home } from 'lucide-react'
-import SEO from '../components/SEO/SEO'
+import SEO from "@/components/SEO/SEO"
 
-import locationHeroJpg from '../assets/images/pexels-newyork-001.jpg'
-import locationHeroWebp from '../assets/images/pexels-newyork-001.jpg?format=webp'
-import locationHeroAvif from '../assets/images/pexels-newyork-001.jpg?format=avif'
+import locationHeroJpg from "@/assets/images/pexels-newyork-001.jpg"
+import locationHeroWebp from "@/assets/images/pexels-newyork-001.jpg?format=webp"
+import locationHeroAvif from "@/assets/images/pexels-newyork-001.jpg?format=avif"
 
-import mapImageJpg from '../assets/images/pexels-newyork-001.jpg' // Reusing for map
-import mapImageWebp from '../assets/images/pexels-newyork-001.jpg?format=webp'
-import mapImageAvif from '../assets/images/pexels-newyork-001.jpg?format=avif'
+import mapImageJpg from "@/assets/images/pexels-newyork-001.jpg" // Reusing for map
+import mapImageWebp from "@/assets/images/pexels-newyork-001.jpg?format=webp"
+import mapImageAvif from "@/assets/images/pexels-newyork-001.jpg?format=avif"
 
-import contactImageJpg from '../assets/images/pexels-newyork-002.jpg' // Reusing for contact
-import contactImageWebp from '../assets/images/pexels-newyork-002.jpg?format=webp'
-import contactImageAvif from '../assets/images/pexels-newyork-002.jpg?format=avif'
+import contactImageJpg from "@/assets/images/pexels-newyork-002.jpg" // Reusing for contact
+import contactImageWebp from "@/assets/images/pexels-newyork-002.jpg?format=webp"
+import contactImageAvif from "@/assets/images/pexels-newyork-002.jpg?format=avif"
 
 const LocationPage: React.FC = () => {
   const jsonLd = {
