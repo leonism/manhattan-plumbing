@@ -8,6 +8,7 @@ import NewsPostCTA from '@/components/News/NewsPostCTA'
 import NewsPostJSONLD from '@/components/News/NewsPostJSONLD'
 import { ArticleNavigation } from '@/components/News/ArticleNavigation'
 import TableOfContents from '@/components/News/TableOfContents'
+import { SocialShare } from '@/components/News/SocialShare'
 import Link from 'next/link'
 
 interface Props {
@@ -69,9 +70,7 @@ export default async function NewsPostPage({ params }: Props) {
         <div className="flex flex-col gap-12 lg:flex-row">
           <article className="lg:w-2/3">
             {/* Mobile TOC */}
-            <div className="lg:hidden">
-              <TableOfContents content={post.content || ''} />
-            </div>
+            <TableOfContents content={post.content || ''} className="lg:hidden" />
 
             <NewsPostBody content={post.content || ''} />
 
@@ -82,12 +81,14 @@ export default async function NewsPostPage({ params }: Props) {
               </p>
             </div>
 
+            <SocialShare title={post.title} url={`https://manhattan-plumbing.pages.dev/news/${slug}`} />
+
             <div className="mt-12 flex flex-wrap gap-2">
               {post.tags.map((tag) => (
                 <Link
                   key={tag}
                   href={`/news?tag=${tag}`}
-                  className="rounded-lg bg-slate-100 px-4 py-1 text-sm font-medium text-slate-600 hover:bg-primary-100 hover:text-primary-700 transition-colors dark:bg-slate-800 dark:text-slate-400"
+                  className="rounded-lg bg-slate-100 px-4 py-1 text-sm font-medium text-slate-600 hover:bg-blue-100 hover:text-blue-700 transition-colors dark:bg-slate-800 dark:text-slate-400"
                 >
                   #{tag}
                 </Link>
@@ -98,9 +99,7 @@ export default async function NewsPostPage({ params }: Props) {
           </article>
 
           <div className="lg:w-1/3 space-y-12">
-            <div className="hidden lg:block">
-              <TableOfContents content={post.content || ''} />
-            </div>
+            <TableOfContents content={post.content || ''} className="hidden lg:block" />
             <NewsPostSidebar post={post} />
           </div>
         </div>

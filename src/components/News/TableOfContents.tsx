@@ -11,9 +11,10 @@ interface TOCItem {
 
 interface TableOfContentsProps {
   content: string
+  className?: string
 }
 
-const TableOfContents: React.FC<TableOfContentsProps> = ({ content }) => {
+const TableOfContents: React.FC<TableOfContentsProps> = ({ content, className }) => {
   const [toc, setToc] = useState<TOCItem[]>([])
 
   useEffect(() => {
@@ -38,13 +39,13 @@ const TableOfContents: React.FC<TableOfContentsProps> = ({ content }) => {
   if (toc.length === 0) return null
 
   return (
-    <div className="my-8">
+    <div className={`my-8 ${className || ''}`}>
       <div className="rounded-2xl border border-slate-100 bg-white p-6 shadow-sm dark:border-slate-800 dark:bg-slate-900">
         <div className="mb-4 flex items-center gap-2 font-bold text-slate-900 dark:text-white">
           <List size={20} className="text-blue-600" />
           <span>Table of Contents</span>
         </div>
-        <nav className="space-y-1">
+        <nav className="space-y-1" aria-label="Table of Contents">
           {toc.map((item, index) => (
             <a
               key={index}

@@ -10,9 +10,7 @@ interface NewsPostSidebarProps {
 
 const NewsPostSidebar: React.FC<NewsPostSidebarProps> = ({ post }) => {
   return (
-    <aside className="space-y-12 lg:w-1/3">
-      {/* Table of Contents - Only shown on desktop */}
-      <TableOfContents content={post.content || ''} />
+    <div className="space-y-12">
 
       {/* Author Bio */}
       <div className="rounded-2xl border border-slate-100 bg-slate-50 p-8 dark:border-slate-800 dark:bg-slate-800/50">
@@ -47,7 +45,7 @@ const NewsPostSidebar: React.FC<NewsPostSidebarProps> = ({ post }) => {
         </p>
         <NewsletterForm />
       </div>
-    </aside>
+    </div>
   )
 }
 

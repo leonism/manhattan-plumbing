@@ -5,6 +5,8 @@ import { Calendar, User, ChevronLeft } from 'lucide-react'
 import { format } from 'date-fns'
 import { Post } from '@/types'
 
+import { slugify } from '@/utils/slugify'
+
 interface NewsPostHeroProps {
   post: Post
 }
@@ -36,7 +38,7 @@ const NewsPostHero: React.FC<NewsPostHeroProps> = ({ post }) => {
             </h1>
             <div className="mb-4 flex flex-wrap items-center gap-4 text-sm text-blue-200">
               <Link 
-                href={`/news?category=${post.category.toLowerCase()}`}
+                href={`/news?category=${slugify(post.category)}`}
                 className="rounded-full bg-blue-600 px-3 py-1 font-semibold text-white transition-colors hover:bg-blue-700"
               >
                 {post.category}

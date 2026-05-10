@@ -10,7 +10,17 @@ interface CategoryListProps {
 
 const CategoryList: React.FC<CategoryListProps> = ({ categories, currentCategory }) => {
   const [showAllCategories, setShowAllCategories] = useState(false)
+  const [mounted, setMounted] = useState(false)
+
+  React.useEffect(() => {
+    setMounted(true)
+  }, [])
+
   const visibleCategories = showAllCategories ? categories : categories.slice(0, 3)
+
+  if (!mounted) {
+    return <div className="mt-6 h-[44px]" /> // Fixed height placeholder
+  }
 
   return (
     <div className="mt-6 flex flex-wrap justify-center gap-3">

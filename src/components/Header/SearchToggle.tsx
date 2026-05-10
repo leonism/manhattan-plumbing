@@ -12,6 +12,11 @@ interface SearchToggleProps {
 
 const SearchToggle: React.FC<SearchToggleProps> = ({ theme, scrolled, isHomePage }) => {
   const [isSearchOpen, setIsSearchOpen] = useState(false)
+  const [mounted, setMounted] = useState(false)
+
+  React.useEffect(() => {
+    setMounted(true)
+  }, [])
 
   const iconColorClass =
     isHomePage && !scrolled
@@ -19,6 +24,8 @@ const SearchToggle: React.FC<SearchToggleProps> = ({ theme, scrolled, isHomePage
       : theme === 'light'
         ? 'text-slate-800 hover:bg-slate-200'
         : 'text-white hover:bg-slate-100 dark:hover:bg-slate-700'
+
+  if (!mounted) return <div className="p-3 w-[44px] h-[44px]" />
 
   return (
     <>

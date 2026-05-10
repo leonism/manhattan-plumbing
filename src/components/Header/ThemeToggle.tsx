@@ -12,6 +12,11 @@ interface ThemeToggleProps {
 
 const ThemeToggle: React.FC<ThemeToggleProps> = ({ theme, scrolled, isHomePage }) => {
   const { toggleTheme } = useTheme()
+  const [mounted, setMounted] = React.useState(false)
+
+  React.useEffect(() => {
+    setMounted(true)
+  }, [])
 
   const iconColorClass =
     isHomePage && !scrolled
@@ -19,6 +24,8 @@ const ThemeToggle: React.FC<ThemeToggleProps> = ({ theme, scrolled, isHomePage }
       : theme === 'light'
         ? 'text-slate-800 hover:bg-slate-200'
         : 'text-white hover:bg-slate-100 dark:hover:bg-slate-700'
+
+  if (!mounted) return <div className="p-3 w-[44px] h-[44px]" /> // Placeholder
 
   return (
     <a
