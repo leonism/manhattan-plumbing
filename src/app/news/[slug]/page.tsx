@@ -10,6 +10,7 @@ import { ArticleNavigation } from '@/components/News/ArticleNavigation'
 import TableOfContents from '@/components/News/TableOfContents'
 import { SocialShare } from '@/components/News/SocialShare'
 import Link from 'next/link'
+import { slugify } from '@/utils/slugify'
 
 interface Props {
   params: Promise<{ slug: string }>
@@ -87,7 +88,7 @@ export default async function NewsPostPage({ params }: Props) {
               {post.tags.map((tag) => (
                 <Link
                   key={tag}
-                  href={`/news?tag=${tag}`}
+                  href={`/news/tag/${slugify(tag)}`}
                   className="rounded-lg bg-slate-100 px-4 py-1 text-sm font-medium text-slate-600 hover:bg-blue-100 hover:text-blue-700 transition-colors dark:bg-slate-800 dark:text-slate-400"
                 >
                   #{tag}

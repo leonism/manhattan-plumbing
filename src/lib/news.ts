@@ -90,6 +90,18 @@ export function getAllPosts(): Post[] {
 }
 
 /**
+ * Retrieves all unique tags from all published posts.
+ */
+export function getAllTags(): string[] {
+  const allPosts = getAllPosts()
+  const tags = new Set<string>()
+  allPosts.forEach((post) => {
+    post.tags.forEach((tag) => tags.add(tag))
+  })
+  return Array.from(tags)
+}
+
+/**
  * Gets all slugs for static generation.
  */
 export function getAllPostSlugs() {
