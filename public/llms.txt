@@ -1,0 +1,21 @@
+# Manhattan Plumbing
+Professional plumbing services in New York City.
+
+## Core Services
+- Emergency Plumbing (24/7)
+- Drain Cleaning
+- Water Heater Installation & Repair
+- Kitchen & Bathroom Remodeling
+- Fixture Installation (Faucets, Toilets, etc.)
+- Pipe Repair & Leak Detection
+
+## Key Pages
+- [Home](https://manhattan-plumbing.pages.dev/)
+- [Services](https://manhattan-plumbing.pages.dev/services/)
+- [News & Blog](https://manhattan-plumbing.pages.dev/news/)
+- [Location & Contact](https://manhattan-plumbing.pages.dev/location/)
+
+## LLM Discovery
+- Full Content: https://manhattan-plumbing.pages.dev/llms-full.txt
+- Feed: https://manhattan-plumbing.pages.dev/feed.json
+- Sitemap: https://manhattan-plumbing.pages.dev/sitemap.xml
