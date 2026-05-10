@@ -4,6 +4,8 @@ import Footer from '@/components/Footer/Footer'
 import BackToTop from '@/components/ui/BackToTop'
 import SEO from '@/components/SEO/SEO'
 
+import { JsonSchema } from '@/components/SEO/JsonLD'
+
 interface LayoutProps {
   children: React.ReactNode
   title?: string
@@ -14,7 +16,7 @@ interface LayoutProps {
   ogDescription?: string
   ogImage?: string
   ogUrl?: string
-  jsonLd?: object
+  jsonLd?: JsonSchema
 }
 
 const Layout: React.FC<LayoutProps> = ({

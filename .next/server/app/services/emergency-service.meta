@@ -1,0 +1,16 @@
+{
+  "headers": {
+    "x-nextjs-stale-time": "300",
+    "x-nextjs-prerender": "1",
+    "x-next-cache-tags": "_N_T_/layout,_N_T_/services/layout,_N_T_/services/emergency-service/layout,_N_T_/services/emergency-service/page,_N_T_/services/emergency-service"
+  },
+  "segmentPaths": [
+    "/_tree",
+    "/_full",
+    "/services/emergency-service/__PAGE__",
+    "/services/emergency-service",
+    "/services",
+    "/_index",
+    "/_head"
+  ]
+}
