@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { getPostData } from '@/lib/news';
+import { getPostData, getAllPosts } from '@/lib/news';
 import TurndownService from 'turndown';
 import { JSDOM } from 'jsdom';
 
@@ -49,5 +49,8 @@ date_generated: "${new Date().toISOString()}"
 // We need this for output: export to not complain, 
 // even though this route handler technically shouldn't be exported
 export async function generateStaticParams() {
-  return [];
+  const posts = getAllPosts();
+  return posts.map((post) => ({
+    slug: post.slug,
+  }));
 }
