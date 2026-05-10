@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import type { Post } from '@/types/news'
+import { Post, SearchResult, CategorizedResults } from '@/types'
 
 // Define services data statically with icons
 const services = [
@@ -40,19 +40,6 @@ const services = [
     icon: 'Wrench',
   },
 ]
-
-export interface SearchResult {
-  slug: string
-  title: string
-  excerpt: string
-  featuredImage?: { src: string; alt: string }
-  icon?: string
-}
-
-export interface CategorizedResults {
-  news: SearchResult[]
-  services: SearchResult[]
-}
 
 export const useSearch = (query: string, allPosts: Post[]) => {
   const [results, setResults] = useState<CategorizedResults>({ news: [], services: [] })

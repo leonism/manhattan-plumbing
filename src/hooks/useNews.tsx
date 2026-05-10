@@ -1,19 +1,28 @@
-"use client"
-
-import { useMemo } from 'react'
-import type { Post, UseNewsOptions } from '@/types/news'
+import { useState, useEffect, useMemo } from 'react'
+import type { Post, UseNewsOptions } from '@/types'
 import { slugify } from '@/utils/slugify'
 
-// In Next.js, we don't use import.meta.glob.
-// Data should be passed from server components or fetched via API.
-
-// --- Static All Posts Loader ---
-// Fallback empty array for client-side search if data isn't passed down yet
-const allPostsData: Post[] = []
-
-// --- Main Hook ---
 export const useNews = ({ category, tag, page = 1, limit = 9 }: UseNewsOptions = {}) => {
-  const allPosts = useMemo(() => allPostsData, [])
+  const [allPosts, setAllPosts] = useState<Post[]>([])
+  const [isLoading, setIsLoading] = useState(true)
+
+  const [error, setError] = useState<Error | null>(null)
+
+  useEffect(() => {
+    const fetchPosts = async () => {
+      try {
+        const response = await fetch('/api/news')
+        if (!response.ok) throw new Error('Failed to fetch posts')
+        const data = await response.json()
+        setAllPosts(data)
+      } catch (err) {
+        setError(err instanceof Error ? err : new Error('Unknown error'))
+      } finally {
+        setIsLoading(false)
+      }
+    }
+    fetchPosts()
+  }, [])
 
   const { paginated, categories, totalPages } = useMemo(() => {
     let filtered = allPosts
@@ -28,14 +37,15 @@ export const useNews = ({ category, tag, page = 1, limit = 9 }: UseNewsOptions =
     const categories = [...new Set(allPosts.map((p) => p.category))]
     const totalPages = Math.ceil(filtered.length / limit)
 
-    return { filtered, paginated, categories, totalPages }
+    return { paginated, categories, totalPages }
   }, [category, tag, page, limit, allPosts])
 
   return {
     posts: paginated,
     categories,
     totalPages,
-    isLoading: false,
+    isLoading,
+    error,
     allPosts,
   }
 }

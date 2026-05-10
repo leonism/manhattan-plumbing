@@ -10,6 +10,9 @@ export const metadata: Metadata = {
   description: 'Stay informed with the latest news and updates from Manhattan Plumbing, your trusted plumbing experts.',
   alternates: {
     canonical: '/news',
+    types: {
+      'text/markdown': 'https://manhattan-plumbing.pages.dev/news/index.md',
+    },
   },
 }
 

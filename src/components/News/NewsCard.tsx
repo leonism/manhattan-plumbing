@@ -4,7 +4,7 @@ import { format } from 'date-fns'
 import { slugify } from '@/utils/slugify' // Assuming slugify is in a utils file
 import TagButton from '@/components/ui/TagButton'
 
-import type { Post } from '@/types/news'
+import { Post } from '@/types'
 
 interface NewsCardProps {
   post: Post

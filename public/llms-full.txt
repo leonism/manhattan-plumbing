@@ -1,0 +1,32 @@
+# Manhattan Plumbing - Full Discovery
+A comprehensive guide to Manhattan Plumbing's services and content.
+
+## Company Overview
+Manhattan Plumbing is a premier plumbing service provider in New York City, specializing in both residential and commercial plumbing solutions. We pride ourselves on rapid response times, transparent pricing, and expert craftsmanship.
+
+## Detailed Services
+
+### Emergency Plumbing
+Our 24/7 emergency response team handles burst pipes, severe leaks, and major overflows. We understand that plumbing emergencies don't wait for business hours.
+
+### Drain Cleaning
+Professional clearing of kitchen sinks, bathroom drains, main sewer lines, and outdoor catchments. We use modern techniques to ensure your drains are free-flowing and clear.
+
+### Water Heaters
+Full lifecycle support for water heaters, including installation of energy-efficient tankless systems, traditional tank repairs, and annual maintenance to prevent sediment buildup.
+
+### Fixture & Pipe Repair
+Precision repair and installation of high-end fixtures. From vintage faucet restoration to modern touchless systems. We also specialize in leak detection and full re-piping for older Manhattan buildings.
+
+## Latest Updates
+We regularly publish expert guides on our blog to help homeowners maintain their systems.
+
+### Featured Articles:
+- **Emergency Plumbing Services Guide 2025**: Learn what to do before the plumber arrives.
+- **Remote Plumbing Monitoring**: How IoT is changing home maintenance.
+- **Commercial Plumbing Solutions**: Specialized services for NYC businesses.
+
+## Technical Resources
+- Sitemap: https://manhattan-plumbing.pages.dev/sitemap.xml
+- RSS Feed: https://manhattan-plumbing.pages.dev/rss.xml
+- JSON Feed: https://manhattan-plumbing.pages.dev/feed.json

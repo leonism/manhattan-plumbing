@@ -10,11 +10,12 @@ pnpm-debug.log*
 lerna-debug.log*
 
 # modules
-node_modules
+node_modules/
 
 # output
-dist
+dist/
 .next
+out
 
 # Editor directories and files
 .vscode/*

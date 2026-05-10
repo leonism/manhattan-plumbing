@@ -27,10 +27,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: route === '' ? 1 : 0.8,
   }))
 
-  const posts = getAllPosts().map((post: any) => ({
+  const posts = getAllPosts().map((post) => ({
     url: `${baseUrl}/news/${post.slug}`,
-    lastModified: new Date(post.lastModified || post.date),
-    changeFrequency: 'monthly' as 'monthly',
+    lastModified: post.lastModified ? new Date(post.lastModified) : new Date(post.date),
+    changeFrequency: 'monthly' as const,
     priority: 0.6,
   }))
 
