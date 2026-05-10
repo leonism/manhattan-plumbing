@@ -3,7 +3,7 @@
 import React from 'react'
 import { useForm } from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod"
-import { PaperAirplaneIcon } from '@heroicons/react/24/outline'
+import { PaperAirplaneIcon, ChevronDownIcon } from '@heroicons/react/24/outline'
 
 import Button from '@/components/ui/Button'
 import {
@@ -97,11 +97,13 @@ const ContactForm: React.FC<ContactFormProps> = ({
             name="name"
             render={({ field }) => (
               <FormItem>
-                <FormLabel className="text-slate-700 dark:text-slate-300">Full Name *</FormLabel>
+                <FormLabel className="text-slate-700 dark:text-slate-300 font-medium">
+                  Full Name <span className="text-red-600 dark:text-red-500">*</span>
+                </FormLabel>
                 <FormControl>
                   <Input 
                     placeholder="John Doe" 
-                    className="h-11 sm:h-12 bg-white dark:bg-slate-700" 
+                    className="h-12 sm:h-14 bg-white dark:bg-slate-700 border-slate-200 dark:border-slate-600 focus:ring-blue-500" 
                     {...field} 
                   />
                 </FormControl>
@@ -116,12 +118,14 @@ const ContactForm: React.FC<ContactFormProps> = ({
               name="email"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel className="text-slate-700 dark:text-slate-300">Email Address *</FormLabel>
+                  <FormLabel className="text-slate-700 dark:text-slate-300 font-medium">
+                    Email Address <span className="text-red-600 dark:text-red-500">*</span>
+                  </FormLabel>
                   <FormControl>
                     <Input 
                       type="email" 
                       placeholder="john@example.com" 
-                      className="h-11 sm:h-12 bg-white dark:bg-slate-700"
+                      className="h-12 sm:h-14 bg-white dark:bg-slate-700 border-slate-200 dark:border-slate-600 focus:ring-blue-500"
                       {...field} 
                     />
                   </FormControl>
@@ -135,12 +139,14 @@ const ContactForm: React.FC<ContactFormProps> = ({
               name="phone"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel className="text-slate-700 dark:text-slate-300">Phone Number *</FormLabel>
+                  <FormLabel className="text-slate-700 dark:text-slate-300 font-medium">
+                    Phone Number <span className="text-red-600 dark:text-red-500">*</span>
+                  </FormLabel>
                   <FormControl>
                     <Input 
                       type="tel" 
                       placeholder="(212) 555-1234" 
-                      className="h-11 sm:h-12 bg-white dark:bg-slate-700"
+                      className="h-12 sm:h-14 bg-white dark:bg-slate-700 border-slate-200 dark:border-slate-600 focus:ring-blue-500"
                       {...field} 
                     />
                   </FormControl>
@@ -155,11 +161,14 @@ const ContactForm: React.FC<ContactFormProps> = ({
             name="service"
             render={({ field }) => (
               <FormItem>
-                <FormLabel className="text-slate-700 dark:text-slate-300">Service Needed *</FormLabel>
+                <FormLabel className="text-slate-700 dark:text-slate-300 font-medium">
+                  Service Needed <span className="text-red-600 dark:text-red-500">*</span>
+                </FormLabel>
                 <Select onValueChange={field.onChange} value={field.value}>
                   <FormControl>
-                    <SelectTrigger className="h-11 sm:h-12 w-full bg-white dark:bg-slate-700 text-left justify-start">
+                    <SelectTrigger className="h-12 sm:h-14 w-full bg-white dark:bg-slate-700 text-left px-3 border-slate-200 dark:border-slate-600 flex items-center justify-between">
                       <SelectValue placeholder="Select a service" />
+                      <ChevronDownIcon className="h-5 w-5 text-slate-400" />
                     </SelectTrigger>
                   </FormControl>
                   <SelectContent>
@@ -198,7 +207,7 @@ const ContactForm: React.FC<ContactFormProps> = ({
             <Button
               type="submit"
               fullWidth
-              className="group flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-700 text-white py-4 sm:py-5 text-lg font-bold transition-all duration-200"
+              className="group flex h-12 sm:h-14 items-center justify-center gap-2 bg-blue-600 hover:bg-blue-700 text-white text-lg font-bold transition-all duration-200 shadow-lg hover:shadow-xl"
             >
               <span>Submit Request</span>
               <PaperAirplaneIcon className="h-5 w-5 transition-transform group-hover:translate-x-1" />
