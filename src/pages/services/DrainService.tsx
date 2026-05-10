@@ -1,68 +1,94 @@
-import SectionHeading from "../../components/UI/SectionHeading";
-import Button from "../../components/UI/Button";
-import {
-  Droplets,
-  Wrench,
-  Shield,
-  Clock,
-  CheckCircle,
-  Zap,
-} from "lucide-react";
-import drainHero from "../../assets/images/pexels-newyork-001.jpg";
-import kitchenClog from "../../assets/images/pexels-newyork-002.jpg";
-import bathroomDrain from "../../assets/images/pexels-newyork-003.jpg";
-import sewerLine from "../../assets/images/pexels-newyork-004.jpg";
-import outdoorDrain from "../../assets/images/pexels-newyork-005.jpg";
+import SectionHeading from '../../components/UI/SectionHeading'
+import Button from '../../components/UI/Button'
+import { Droplets, Wrench, Shield, Clock, CheckCircle, Zap } from 'lucide-react'
+import SEO from '../../components/SEO/SEO'
+
+import drainHeroJpg from '../../assets/images/pexels-newyork-001.jpg'
+import kitchenClogJpg from '../../assets/images/pexels-newyork-002.jpg'
+import bathroomDrainJpg from '../../assets/images/pexels-newyork-003.jpg'
+import sewerLineJpg from '../../assets/images/pexels-newyork-004.jpg'
+import outdoorDrainJpg from '../../assets/images/pexels-newyork-005.jpg'
 
 const DrainsServicePage = () => {
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'Service',
+    serviceType: 'Drain Cleaning',
+    provider: {
+      '@type': 'Organization',
+      name: 'Manhattan Plumbing',
+      url: 'https://manhattan-plumbing.pages.dev',
+      logo: 'https://manhattan-plumbing.pages.dev/manhattan-plumber.png',
+    },
+    areaServed: {
+      '@type': 'City',
+      name: 'Manhattan',
+    },
+    description:
+      'Expert drain cleaning services in Manhattan. We handle kitchen clogs, bathroom drains, sewer lines, and more.',
+    address: {
+      streetAddress: '123 Main St',
+      addressLocality: 'New York',
+      addressRegion: 'NY',
+      postalCode: '10001',
+      addressCountry: 'US',
+    },
+  }
+
   return (
     <main className="min-h-screen bg-white dark:bg-slate-900">
+      <SEO
+        title="Drain Cleaning Services | Manhattan Plumbing"
+        description="Fast and effective drain cleaning services in Manhattan. We clear clogged drains in kitchens, bathrooms, and sewer lines using the latest technology."
+        keywords={['drain cleaning', 'clogged drain', 'sewer cleaning', 'Manhattan', 'plumber']}
+        canonical="https://manhattan-plumbing.pages.dev/services/drain-service"
+        ogTitle="Drain Cleaning Services | Manhattan Plumbing"
+        ogDescription="Fast and effective drain cleaning services in Manhattan. We clear clogged drains in kitchens, bathrooms, and sewer lines using the latest technology."
+        ogImage={drainHeroJpg}
+        ogUrl="https://manhattan-plumbing.pages.dev/services/drain-service"
+        localBusiness={{
+          ...jsonLd,
+          name: 'Manhattan Plumbing',
+          url: 'https://manhattan-plumbing.pages.dev',
+          telephone: '+12125551234',
+          image: 'https://manhattan-plumbing.pages.dev/manhattan-plumber.png',
+        }}
+      />
       {/* Hero Section with Background Image */}
       <section className="relative bg-slate-900 text-white">
-        <div className="absolute inset-0 z-0 bg-center bg-cover bg-blend-multiply brightness-[0.3] after:absolute after:inset-0 after:bg-gradient-to-b after:from-transparent after:via-black/30 after:to-black/70">
-          <img
-            src={drainHero}
-            alt="Professional drain cleaning service"
-            className="w-full h-full object-cover"
-            loading="lazy"
-          />
+        <div className="absolute inset-0 z-0 bg-cover bg-center bg-blend-multiply brightness-[0.7] after:absolute after:inset-0 after:bg-linear-to-b after:from-transparent after:via-black/30 after:to-black/70">
+          <picture>
+            <source srcSet={drainHeroJpg} type="image/avif" />
+            <source srcSet={drainHeroJpg} type="image/webp" />
+            <img
+              src={drainHeroJpg}
+              alt="Professional drain cleaning service"
+              className="h-full w-full object-cover"
+              loading="lazy"
+            />
+          </picture>
         </div>
-        <div className="container mx-auto px-4 md:px-6 py-32 relative z-10">
-          <div className="max-w-3xl mx-auto text-center">
-            <div className="flex justify-center mb-6">
-              <Droplets
-                size={56}
-                className="text-blue-400"
-              />
+        <div className="relative z-10 container mx-auto px-4 py-32 md:px-6">
+          <div className="mx-auto max-w-3xl text-center">
+            <div className="mb-6 flex justify-center">
+              <Droplets size={56} className="text-blue-400" />
             </div>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
+            <h1 className="mb-6 text-4xl leading-tight font-bold md:text-5xl lg:text-6xl">
               Expert Drain Cleaning Services in Manhattan
             </h1>
-            <p className="text-xl md:text-2xl text-blue-100 mb-8">
-              Fast, effective solutions for clogged drains that keep your
-              plumbing flowing smoothly
+            <p className="mb-8 text-xl text-blue-100 md:text-2xl">
+              Fast, effective solutions for clogged drains that keep your plumbing flowing smoothly
             </p>
-            <div className="flex flex-col sm:flex-row justify-center gap-4">
-              <Button
-                href="tel:+12125551234"
-                variant="primary"
-                className="group">
+            <div className="flex flex-col justify-center gap-4 sm:flex-row">
+              <Button href="tel:+12125551234" variant="primary" className="group">
                 <div className="flex items-center">
-                  <Zap
-                    className="mr-3 group-hover:animate-pulse"
-                    size={20}
-                  />
+                  <Zap className="mr-3 group-hover:animate-pulse" size={20} />
                   <span>Emergency Call: (212) 555-1234</span>
                 </div>
               </Button>
-              <Button
-                href="#contact"
-                variant="secondary">
+              <Button href="/#contact" variant="secondary">
                 <div className="flex items-center">
-                  <Clock
-                    className="mr-3"
-                    size={20}
-                  />
+                  <Clock className="mr-3" size={20} />
                   <span>Schedule Service</span>
                 </div>
               </Button>
@@ -72,57 +98,43 @@ const DrainsServicePage = () => {
       </section>
 
       {/* Why Choose Us Section */}
-      <section className="py-16 bg-slate-50 dark:bg-slate-800/50">
+      <section className="bg-slate-50 py-16 dark:bg-slate-800/50">
         <div className="container mx-auto px-4 md:px-6">
           <SectionHeading
             title="Why Manhattan Choose Us?"
             subtitle="Premium solutions for your plumbing needs"
             centered
           />
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
+          <div className="mt-12 grid grid-cols-1 gap-8 md:grid-cols-3">
             {[
               {
-                icon: (
-                  <Shield
-                    size={40}
-                    className="text-blue-600 dark:text-blue-400"
-                  />
-                ),
-                title: "24/7 Emergency Service",
+                icon: <Shield size={40} className="text-blue-600 dark:text-blue-400" />,
+                title: '24/7 Emergency Service',
                 description:
                   "We're available round-the-clock for urgent drain emergencies that can't wait.",
               },
               {
-                icon: (
-                  <CheckCircle
-                    size={40}
-                    className="text-blue-600 dark:text-blue-400"
-                  />
-                ),
-                title: "10-Year Guarantee",
+                icon: <CheckCircle size={40} className="text-blue-600 dark:text-blue-400" />,
+                title: '10-Year Guarantee',
                 description:
-                  "We stand behind our work with industry-leading warranties on all services.",
+                  'We stand behind our work with industry-leading warranties on all services.',
               },
               {
-                icon: (
-                  <Wrench
-                    size={40}
-                    className="text-blue-600 dark:text-blue-400"
-                  />
-                ),
-                title: "Advanced Technology",
+                icon: <Wrench size={40} className="text-blue-600 dark:text-blue-400" />,
+                title: 'Advanced Technology',
                 description:
-                  "Using state-of-the-art hydro jetting and camera inspection equipment.",
+                  'Using state-of-the-art hydro jetting and camera inspection equipment.',
               },
             ].map((feature, index) => (
               <div
                 key={index}
-                className="bg-white dark:bg-slate-700 rounded-xl shadow-lg p-8 hover:shadow-xl transition-shadow duration-300">
-                <div className="flex justify-center mb-6">{feature.icon}</div>
-                <h3 className="text-2xl font-bold text-center text-slate-800 dark:text-white mb-4">
+                className="rounded-xl bg-white p-8 shadow-lg transition-shadow duration-300 hover:shadow-xl dark:bg-slate-700"
+              >
+                <div className="mb-6 flex justify-center">{feature.icon}</div>
+                <h3 className="mb-4 text-2xl font-bold text-slate-800 dark:text-white">
                   {feature.title}
                 </h3>
-                <p className="text-lg text-center text-slate-600 dark:text-slate-300">
+                <p className="text-center text-lg text-slate-600 dark:text-slate-300">
                   {feature.description}
                 </p>
               </div>
@@ -140,83 +152,76 @@ const DrainsServicePage = () => {
             centered
           />
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mt-12 ">
+          <div className="mt-12 grid grid-cols-1 gap-12 lg:grid-cols-2">
             {[
               {
-                image: kitchenClog,
-                title: "Kitchen Sink Clogs",
+                image: { jpg: kitchenClogJpg },
+                title: 'Kitchen Sink Clogs',
                 description:
-                  "Grease, food particles, and soap buildup can create stubborn clogs in your kitchen drains. Our hydro jetting technology blasts away even the toughest blockages.",
+                  'Grease, food particles, and soap buildup can create stubborn clogs in your kitchen drains. Our hydro jetting technology blasts away even the toughest blockages.',
                 features: [
-                  "Grease and food particle removal",
-                  "Garbage disposal cleaning",
-                  "Preventative maintenance plans",
+                  'Grease and food particle removal',
+                  'Garbage disposal cleaning',
+                  'Preventative maintenance plans',
                 ],
               },
               {
-                image: bathroomDrain,
-                title: "Bathroom Drain Cleaning",
+                image: { jpg: bathroomDrainJpg },
+                title: 'Bathroom Drain Cleaning',
                 description:
-                  "Hair, soap scum, and mineral deposits slow down your drains. We use specialized tools to completely clear your bathroom plumbing.",
+                  'Hair, soap scum, and mineral deposits slow down your drains. We use specialized tools to completely clear your bathroom plumbing.',
                 features: [
-                  "Hair and soap scum removal",
-                  "Tub and shower drain service",
-                  "Odor elimination",
+                  'Hair and soap scum removal',
+                  'Tub and shower drain service',
+                  'Odor elimination',
                 ],
               },
               {
-                image: sewerLine,
-                title: "Sewer Line Services",
+                image: { jpg: sewerLineJpg },
+                title: 'Sewer Line Services',
                 description:
-                  "When multiple drains are slow or you notice sewage backups, you may have a main line issue. Our camera inspections pinpoint the exact problem.",
-                features: [
-                  "Camera inspections",
-                  "Trenchless repairs",
-                  "Root intrusion removal",
-                ],
+                  'When multiple drains are slow or you notice sewage backups, you may have a main line issue. Our camera inspections pinpoint the exact problem.',
+                features: ['Camera inspections', 'Trenchless repairs', 'Root intrusion removal'],
               },
               {
-                image: outdoorDrain,
-                title: "Outdoor Drain Solutions",
+                image: { jpg: outdoorDrainJpg },
+                title: 'Outdoor Drain Solutions',
                 description:
-                  "Keep your property dry with professional cleaning of outdoor drains, gutters, and downspouts that protect your foundation from water damage.",
-                features: [
-                  "Leaf and debris removal",
-                  "French drain cleaning",
-                  "Flood prevention",
-                ],
+                  'Keep your property dry with professional cleaning of outdoor drains, gutters, and downspouts that protect your foundation from water damage.',
+                features: ['Leaf and debris removal', 'French drain cleaning', 'Flood prevention'],
               },
             ].map((service, index) => (
               <div
                 key={index}
-                className="bg-white dark:bg-slate-800 rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
+                className="overflow-hidden rounded-xl bg-white shadow-lg transition-shadow duration-300 hover:shadow-xl dark:bg-slate-800"
+              >
                 <div className="h-64 overflow-hidden">
-                  <img
-                    src={service.image}
-                    alt={service.title}
-                    className="w-full h-full object-cover bg-center bg-cover bg-blend-multiply brightness-[0.7] after:absolute after:inset-0 after:bg-gradient-to-b after:from-transparent after:via-black/30 after:to-black/70"
-                    loading="lazy"
-                  />
+                  <picture>
+                    <source srcSet={service.image.jpg} type="image/avif" />
+                    <source srcSet={service.image.jpg} type="image/webp" />
+                    <img
+                      src={service.image.jpg}
+                      alt={service.title}
+                      className="h-full w-full bg-cover bg-center object-cover bg-blend-multiply brightness-[0.7] after:absolute after:inset-0 after:bg-linear-to-b after:from-transparent after:via-black/30 after:to-black/70"
+                      loading="lazy"
+                    />
+                  </picture>
                 </div>
                 <div className="p-8">
-                  <h3 className="text-2xl font-bold text-slate-800 dark:text-white mb-4">
+                  <h3 className="mb-4 text-2xl font-bold text-slate-800 dark:text-white">
                     {service.title}
                   </h3>
-                  <p className="text-lg text-slate-600 dark:text-slate-300 mb-6">
+                  <p className="mb-6 text-lg text-slate-600 dark:text-slate-300">
                     {service.description}
                   </p>
                   <ul className="space-y-3">
                     {service.features.map((feature, i) => (
-                      <li
-                        key={i}
-                        className="flex items-start">
+                      <li key={i} className="flex items-start">
                         <CheckCircle
-                          className="flex-shrink-0 mt-1 mr-3 text-blue-600 dark:text-blue-400"
+                          className="mt-1 mr-3 shrink-0 text-blue-600 dark:text-blue-400"
                           size={18}
                         />
-                        <span className="text-slate-600 dark:text-slate-300">
-                          {feature}
-                        </span>
+                        <span className="text-slate-600 dark:text-slate-300">{feature}</span>
                       </li>
                     ))}
                   </ul>
@@ -228,45 +233,31 @@ const DrainsServicePage = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 bg-gradient-to-r from-blue-600 to-blue-800 text-white">
-        <div className="container mx-auto px-4 md:px-6 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6">
-            Ready for Free-Flowing Drains?
-          </h2>
-          <p className="text-xl text-blue-100 max-w-3xl mx-auto mb-8">
-            Don't let slow drains become a major problem. Contact Manhattan
-            Plumbing today for fast, reliable service.
+      <section className="bg-linear-to-r from-blue-600 to-blue-800 py-16 text-white">
+        <div className="container mx-auto px-4 text-center md:px-6">
+          <h2 className="mb-6 text-3xl font-bold md:text-4xl">Ready for Free-Flowing Drains?</h2>
+          <p className="mx-auto mb-8 max-w-3xl text-xl text-blue-100">
+            Don't let slow drains become a major problem. Contact Manhattan Plumbing today for fast,
+            reliable service.
           </p>
-          <div className="flex flex-col sm:flex-row justify-center gap-4">
-            <Button
-              href="tel:+12125551234"
-              variant="secondary"
-              className="bg-white text-blue-600 hover:bg-blue-50">
+          <div className="flex flex-col justify-center gap-4 sm:flex-row">
+            <Button href="tel:+12125551234" variant="primary" className="group">
               <div className="flex items-center">
-                <Zap
-                  className="mr-3"
-                  size={20}
-                />
-                <span>Call Now: (212) 555-1234</span>
+                <Zap className="mr-3 group-hover:animate-pulse" size={20} />
+                <span>Emergency Call: (212) 555-1234</span>
               </div>
             </Button>
-            <Button
-              href="#contact"
-              variant="outline"
-              className="text-white border-white hover:bg-white/10">
+            <Button href="/#contact" variant="secondary">
               <div className="flex items-center">
-                <Clock
-                  className="mr-3"
-                  size={20}
-                />
-                <span>Schedule Online</span>
+                <Clock className="mr-3" size={20} />
+                <span>Schedule Service</span>
               </div>
             </Button>
           </div>
         </div>
       </section>
     </main>
-  );
-};
+  )
+}
 
-export default DrainsServicePage;
+export default DrainsServicePage

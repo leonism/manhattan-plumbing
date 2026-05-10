@@ -1,14 +1,16 @@
-import React from "react";
-import { NavItem } from "./navConfig";
-import { ChevronDown } from "lucide-react";
-import Button from "../UI/Button";
+import React from 'react'
+import { Link } from 'react-router-dom'
+import { ChevronDown, X } from 'lucide-react'
+import { NavItem } from './navConfig'
+import Logo from '../UI/Logo'
+import GetQuoteButton from './GetQuoteButton'
 
 interface MobileNavProps {
-  navItems: NavItem[];
-  isOpen: boolean;
-  activeDropdown: string | null;
-  toggleDropdown: (label: string) => void;
-  setIsOpen: (isOpen: boolean) => void;
+  navItems: NavItem[]
+  isOpen: boolean
+  activeDropdown: string | null
+  toggleDropdown: (label: string) => void
+  setIsOpen: (isOpen: boolean) => void
 }
 
 const MobileNav: React.FC<MobileNavProps> = ({
@@ -19,76 +21,75 @@ const MobileNav: React.FC<MobileNavProps> = ({
   setIsOpen,
 }) => {
   return (
-    <nav
-      className={`lg:hidden absolute top-full left-0 w-full bg-white dark:bg-slate-900 shadow-md transition-all duration-300 ${
-        isOpen
-          ? "max-h-screen opacity-100 visible"
-          : "max-h-0 opacity-0 invisible"
-      } overflow-hidden`}
-      aria-label="Mobile navigation">
-      <ul className="container mx-auto px-4 py-4 space-y-4">
-        {navItems.map((item) => (
-          <li key={item.label}>
-            {item.children ? (
-              <>
-                <div className="flex justify-between items-center">
+    <div
+      className={`fixed inset-0 z-40 bg-white transition-transform duration-300 ease-in-out lg:hidden dark:bg-slate-900 ${
+        isOpen ? 'translate-x-0' : 'translate-x-full'
+      }`}
+    >
+      <div className="container mx-auto flex h-full flex-col px-4 py-6 sm:px-6">
+        <div className="mb-8 flex items-center justify-between">
+          <Logo />
+          <button
+            onClick={() => setIsOpen(false)}
+            className="rounded-full p-2 text-slate-800 transition-colors hover:bg-slate-100 dark:text-white dark:hover:bg-slate-800"
+            aria-label="Close mobile navigation"
+          >
+            <X size={24} />
+          </button>
+        </div>
+
+        <nav className="grow space-y-4">
+          {navItems.map((item) => (
+            <div key={item.label}>
+              {item.children && item.children.length > 0 ? (
+                <div>
                   <button
                     onClick={() => toggleDropdown(item.label)}
-                    className="py-2 text-slate-800 dark:text-white font-medium"
+                    className="flex w-full items-center justify-between py-3 text-xl font-medium text-slate-800 transition-colors hover:text-blue-600 dark:text-white dark:hover:text-blue-400"
                     aria-expanded={activeDropdown === item.label}
-                    aria-haspopup="true">
-                    {item.label}
+                    aria-haspopup="true"
+                  >
+                    <span>{item.label}</span>
+                    <ChevronDown
+                      className={`h-6 w-6 transition-transform duration-300 ${
+                        activeDropdown === item.label ? 'rotate-180' : ''
+                      }`}
+                    />
                   </button>
-                  <ChevronDown
-                    size={16}
-                    className={`transition-transform ${
-                      activeDropdown === item.label ? "rotate-180" : ""
-                    }`}
-                  />
+                  {activeDropdown === item.label && (
+                    <div className="space-y-3 pt-2 pl-6">
+                      {item.children.map((subItem) => (
+                        <Link
+                          key={subItem.label}
+                          to={subItem.href}
+                          onClick={() => setIsOpen(false)}
+                          className="block py-2 text-lg text-slate-600 transition-colors hover:text-blue-600 dark:text-slate-300 dark:hover:text-blue-400"
+                        >
+                          {subItem.label}
+                        </Link>
+                      ))}
+                    </div>
+                  )}
                 </div>
-                <ul
-                  className={`ml-4 pl-2 border-l-2 border-slate-200 dark:border-slate-700 space-y-2 transition-all duration-200 ${
-                    activeDropdown === item.label
-                      ? "max-h-screen py-2 opacity-100 visible"
-                      : "max-h-0 py-0 opacity-0 invisible"
-                  } overflow-hidden`}
-                  role="menu">
-                  {item.children.map((child) => (
-                    <li
-                      key={child.label}
-                      role="none">
-                      <a
-                        href={child.href}
-                        className="block py-1 text-slate-600 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
-                        role="menuitem"
-                        onClick={() => setIsOpen(false)}>
-                        {child.label}
-                      </a>
-                    </li>
-                  ))}
-                </ul>
-              </>
-            ) : (
-              <a
-                href={item.href}
-                className="block py-2 text-slate-800 dark:text-white font-medium"
-                onClick={() => setIsOpen(false)}>
-                {item.label}
-              </a>
-            )}
-          </li>
-        ))}
-        <li className="pt-2 mt-2 border-t border-slate-200 dark:border-slate-700">
-          <Button
-            href="#contact"
-            fullWidth
-            onClick={() => setIsOpen(false)}>
-            Get a Quote
-          </Button>
-        </li>
-      </ul>
-    </nav>
-  );
-};
+              ) : (
+                <Link
+                  to={item.href!}
+                  onClick={() => setIsOpen(false)}
+                  className="block py-3 text-xl font-medium text-slate-800 transition-colors hover:text-blue-600 dark:text-white dark:hover:text-blue-400"
+                >
+                  {item.label}
+                </Link>
+              )}
+            </div>
+          ))}
+        </nav>
 
-export default MobileNav;
+        <div className="mt-auto pt-8 pb-4 text-center">
+          <GetQuoteButton />
+        </div>
+      </div>
+    </div>
+  )
+}
+
+export default MobileNav

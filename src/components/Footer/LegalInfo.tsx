@@ -1,38 +1,30 @@
-import React from "react";
+import React from 'react'
 
-interface LegalInfoProps {
-  className?: string;
-}
+const LegalInfo: React.FC = () => (
+  <section aria-labelledby="legal-links">
+    <h3 id="legal-links" className="mb-6 text-xl font-semibold">
+      Legal
+    </h3>
+    <nav aria-label="Legal links">
+      <ul className="space-y-3">
+        <li>
+          <a href="/privacy-policy" className="text-slate-300 transition-colors hover:text-white">
+            Privacy Policy
+          </a>
+        </li>
+        <li>
+          <a href="/terms-of-service" className="text-slate-300 transition-colors hover:text-white">
+            Terms of Service
+          </a>
+        </li>
+        <li>
+          <a href="/cookies-policy" className="text-slate-300 transition-colors hover:text-white">
+            Cookies Policy
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </section>
+)
 
-const LegalInfo: React.FC<LegalInfoProps> = ({ className }) => {
-  return (
-    <section
-      aria-labelledby="legal-info"
-      className={className}>
-      <h3
-        id="legal-info"
-        className="text-xl font-semibold mb-6">
-        Legal
-      </h3>
-      <nav aria-label="Legal information">
-        <ul className="space-y-3">
-          {[
-            { href: "/privacy-policy", text: "Privacy Policy" },
-            { href: "/terms-of-service", text: "Terms of Service" },
-            { href: "/cookie-policy", text: "Cookie Policy" },
-          ].map(({ href, text }) => (
-            <li key={text}>
-              <a
-                href={href}
-                className="text-slate-300 hover:text-white transition-colors">
-                {text}
-              </a>
-            </li>
-          ))}
-        </ul>
-      </nav>
-    </section>
-  );
-};
-
-export default LegalInfo;
+export default LegalInfo

@@ -1,12 +1,13 @@
-import React from 'react';
-import { Star } from 'lucide-react';
+import React from 'react'
+import { Star } from 'lucide-react'
 
 interface TestimonialCardProps {
-  name: string;
-  occupation: string;
-  testimonial: string;
-  rating: number;
-  imgSrc: string;
+  name: string
+  occupation: string
+  testimonial: string
+  rating: number
+  imgSrc: string
+  className?: string
 }
 
 const TestimonialCard: React.FC<TestimonialCardProps> = ({
@@ -15,11 +16,14 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({
   testimonial,
   rating,
   imgSrc,
+  className = '',
 }) => {
   return (
-    <div className="bg-white dark:bg-slate-800 rounded-lg shadow-md p-6 flex flex-col h-full">
+    <div
+      className={`flex h-full max-h-[400px] min-h-[300px] max-w-[350px] min-w-[280px] flex-col rounded-lg bg-white p-6 shadow-md dark:bg-slate-800 ${className}`}
+    >
       {/* Stars */}
-      <div className="flex text-yellow-400 mb-4">
+      <div className="mb-4 flex text-yellow-400">
         {[...Array(5)].map((_, i) => (
           <Star
             key={i}
@@ -28,18 +32,17 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({
           />
         ))}
       </div>
-      
+
       {/* Testimonial Text */}
-      <p className="text-slate-600 dark:text-slate-300 mb-6 flex-grow">
-        "{testimonial}"
-      </p>
-      
+      <p className="mb-6 grow text-slate-600 dark:text-slate-300">"{testimonial}"</p>
+
       {/* Customer Info */}
-      <div className="flex items-center mt-2">
+      <div className="mt-2 flex items-center">
         <img
           src={imgSrc}
           alt={name}
-          className="w-12 h-12 rounded-full object-cover mr-4"
+          className="mr-4 h-12 w-12 rounded-full object-cover"
+          loading="lazy"
         />
         <div>
           <h4 className="font-bold text-slate-800 dark:text-white">{name}</h4>
@@ -47,7 +50,7 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default TestimonialCard;
+export default TestimonialCard

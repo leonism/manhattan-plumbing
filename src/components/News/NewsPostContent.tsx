@@ -1,131 +1,99 @@
-import React from "react";
-import { MDXProvider } from "@mdx-js/react";
-import { Helmet } from "react-helmet-async";
-import SectionHeading from "../UI/SectionHeading";
+import React from 'react'
+import { MDXProvider } from '@mdx-js/react'
+import SectionHeading from '../UI/SectionHeading'
+import TagButton from '../UI/TagButton'
 
 // Custom components for MDX content
 const components = {
-  h1: (props: any) => (
-    <h1
-      className="text-4xl font-bold mb-6 text-gray-900"
-      {...props}
-    />
+  h1: (props: React.HTMLAttributes<HTMLHeadingElement>) => (
+    <h1 className="mb-6 text-4xl font-bold text-gray-900" {...props} />
   ),
-  h2: (props: any) => (
-    <h2
-      className="text-3xl font-bold mb-4 text-gray-800"
-      {...props}
-    />
+  h2: (props: React.HTMLAttributes<HTMLHeadingElement>) => (
+    <h2 className="mb-4 text-3xl font-bold text-gray-800" {...props} />
   ),
-  h3: (props: any) => (
-    <h3
-      className="text-2xl font-semibold mb-3 text-gray-800"
-      {...props}
-    />
+  h3: (props: React.HTMLAttributes<HTMLHeadingElement>) => (
+    <h3 className="mb-3 text-2xl font-semibold text-gray-800" {...props} />
   ),
-  p: (props: any) => (
-    <p
-      className="text-gray-600 leading-relaxed mb-4"
-      {...props}
-    />
+  p: (props: React.HTMLAttributes<HTMLParagraphElement>) => (
+    <p className="mb-4 leading-relaxed text-gray-600" {...props} />
   ),
-  ul: (props: any) => (
-    <ul
-      className="list-disc list-inside mb-4 text-gray-600"
-      {...props}
-    />
+  ul: (props: React.HTMLAttributes<HTMLUListElement>) => (
+    <ul className="mb-4 list-inside list-disc text-gray-600" {...props} />
   ),
-  ol: (props: any) => (
-    <ol
-      className="list-decimal list-inside mb-4 text-gray-600"
-      {...props}
-    />
+  ol: (props: React.HTMLAttributes<HTMLOListElement>) => (
+    <ol className="mb-4 list-inside list-decimal text-gray-600" {...props} />
   ),
-  blockquote: (props: any) => (
+  blockquote: (props: React.HTMLAttributes<HTMLQuoteElement>) => (
     <blockquote
-      className="border-l-4 border-primary-500 pl-4 my-4 italic text-gray-700"
+      className="border-primary-500 my-4 border-l-4 pl-4 text-gray-700 italic"
       {...props}
     />
   ),
-  img: (props: any) => (
+  img: (props: React.ImgHTMLAttributes<HTMLImageElement>) => (
     <img
-      className="rounded-lg shadow-md my-6 w-full"
+      className="my-6 w-full rounded-lg shadow-md"
       {...props}
-      alt={props.alt || ""}
+      alt={props.alt || ''}
       loading="lazy"
     />
   ),
-};
+}
 
 interface NewsPostContentProps {
   frontmatter: {
-    title: string;
-    seoTitle: string;
-    date: string;
-    description: string;
+    title: string
+    seoTitle: string
+    date: string
+    description: string
     author: {
-      name: string;
-      role: string;
-      image: string;
-    };
-    category: string;
-    tags: string[];
-    image: string;
-  };
-  content: React.ReactNode;
+      name: string
+      role: string
+      image: {
+        src: string
+        webp: string
+        avif: string
+      }
+    }
+    category: string
+    tags: string[]
+    image: {
+      src: string
+      webp: string
+      avif: string
+    }
+  }
+  content: React.ReactNode
 }
 
-const NewsPostContent: React.FC<NewsPostContentProps> = ({
-  frontmatter,
-  content,
-}) => {
-  const formattedDate = new Date(frontmatter.date).toLocaleDateString("en-US", {
-    year: "numeric",
-    month: "long",
-    day: "numeric",
-  });
+const NewsPostContent: React.FC<NewsPostContentProps> = ({ frontmatter, content }) => {
+  const formattedDate = new Date(frontmatter.date).toLocaleDateString('en-US', {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric',
+  })
 
   return (
-    <article className="max-w-4xl mx-auto px-4 py-12">
-      <Helmet>
-        <title>{frontmatter.seoTitle} | Manhattan Plumbing</title>
-        <meta
-          name="description"
-          content={frontmatter.description}
-        />
-        <meta
-          property="og:title"
-          content={frontmatter.seoTitle}
-        />
-        <meta
-          property="og:description"
-          content={frontmatter.description}
-        />
-        {frontmatter.image && (
-          <meta
-            property="og:image"
-            content={frontmatter.image}
-          />
-        )}
-      </Helmet>
-
+    <article className="mx-auto max-w-4xl px-4 py-12">
       <header className="mb-12">
         <SectionHeading
           title={frontmatter.title}
           subtitle={frontmatter.description}
-          alignment="left"
+          centered={false}
         />
 
         <div className="mt-6 flex items-center gap-4">
-          <img
-            src={frontmatter.author.image}
-            alt={frontmatter.author.name}
-            className="w-12 h-12 rounded-full"
-          />
+          <picture>
+            <source srcSet={frontmatter.author.image.avif} type="image/avif" />
+            <source srcSet={frontmatter.author.image.webp} type="image/webp" />
+            <img
+              src={frontmatter.author.image.src}
+              alt={frontmatter.author.name}
+              className="h-12 w-12 rounded-full"
+              loading="lazy"
+            />
+          </picture>
           <div>
-            <h3 className="font-medium text-gray-900">
-              {frontmatter.author.name}
-            </h3>
+            <h3 className="font-medium text-gray-900">{frontmatter.author.name}</h3>
             <p className="text-sm text-gray-500">
               {frontmatter.author.role} · {formattedDate}
             </p>
@@ -133,11 +101,16 @@ const NewsPostContent: React.FC<NewsPostContentProps> = ({
         </div>
 
         {frontmatter.image && (
-          <img
-            src={frontmatter.image}
-            alt={frontmatter.title}
-            className="mt-8 w-full h-[400px] object-cover rounded-xl"
-          />
+          <picture>
+            <source srcSet={frontmatter.image.avif} type="image/avif" />
+            <source srcSet={frontmatter.image.webp} type="image/webp" />
+            <img
+              src={frontmatter.image.src}
+              alt={frontmatter.title}
+              className="mt-8 h-[400px] w-full rounded-xl object-cover"
+              loading="lazy"
+            />
+          </picture>
         )}
       </header>
 
@@ -145,19 +118,15 @@ const NewsPostContent: React.FC<NewsPostContentProps> = ({
         <MDXProvider components={components}>{content}</MDXProvider>
       </div>
 
-      <footer className="mt-12 pt-8 border-t border-gray-200">
+      <footer className="mt-12 border-t border-gray-200 pt-8">
         <div className="flex flex-wrap gap-2">
           {frontmatter.tags.map((tag) => (
-            <span
-              key={tag}
-              className="px-3 py-1 bg-gray-100 text-gray-600 text-sm rounded-full">
-              #{tag}
-            </span>
+            <TagButton key={tag} tag={tag} />
           ))}
         </div>
       </footer>
     </article>
-  );
-};
+  )
+}
 
-export default NewsPostContent;
+export default NewsPostContent

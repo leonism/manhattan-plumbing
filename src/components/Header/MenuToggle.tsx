@@ -1,29 +1,38 @@
-import React from "react";
-import { Menu, X } from "lucide-react";
+import React from 'react'
+import { Menu, X } from 'lucide-react'
 
 interface MenuToggleProps {
-  isOpen: boolean; // Indicates whether the menu is open
-  toggleMenu: () => void; // Function to toggle the menu state
+  isOpen: boolean
+  toggleMenu: () => void
+  scrolled: boolean
+  theme: string
+  isHomePage?: boolean
 }
 
-const MenuToggle: React.FC<MenuToggleProps> = ({ isOpen, toggleMenu }) => {
-  const Icon = isOpen ? X : Menu; // Dynamically select the icon based on `isOpen`
+const MenuToggle: React.FC<MenuToggleProps> = ({
+  isOpen,
+  toggleMenu,
+  scrolled,
+  theme,
+  isHomePage,
+}) => {
+  const Icon = isOpen ? X : Menu
+
+  const iconColorClass =
+    isHomePage && !scrolled
+      ? `text-white hover:bg-slate-100 dark:hover:bg-slate-700`
+      : `text-slate-800 hover:bg-slate-200 ${theme === 'dark' ? 'dark:text-white dark:hover:bg-slate-700' : ''}`
 
   return (
     <button
       onClick={toggleMenu}
-      className="p-2 text-white dark:text-white"
+      className={`rounded-full p-1 transition-colors md:p-2 ${iconColorClass}`}
       aria-label="Toggle menu"
-      aria-expanded={isOpen} // Accessibility: Indicates the state of the button
+      aria-expanded={isOpen}
     >
-      <Icon
-        size={24}
-        aria-hidden="true"
-        focusable="false"
-      />{" "}
-      {/* Icon is purely decorative */}
+      <Icon size={20} aria-hidden="true" focusable="false" />
     </button>
-  );
-};
+  )
+}
 
-export default MenuToggle;
+export default MenuToggle

@@ -1,191 +1,128 @@
-import React from "react";
-import { useParams, Link } from "react-router-dom";
-import { Helmet } from "react-helmet-async";
-import { format } from "date-fns";
-import { Calendar, Clock, Tag, ArrowLeft } from "lucide-react";
-import { MDXProvider } from "@mdx-js/react"; // Import MDXProvider
-import Button from "../components/UI/Button";
-import { useNews } from "../hooks/useNews";
+import React from 'react'
+import { useParams } from 'react-router-dom'
+import SEO from '../components/SEO/SEO'
+import BackToBlogButton from '../components/News/BackToBlogButton'
+import NewsPostHeader from '../components/News/NewsPostHeader'
+import NewsPostMeta from '../components/News/NewsPostMeta'
+import NewsPostBody from '../components/News/NewsPostBody'
+import RelatedArticles from '../components/News/RelatedArticles'
+import ShareButtons from '../components/News/ShareButtons'
+import SkeletonLoader from '../components/UI/SkeletonLoader'
+import ArticleNavigation from '../components/News/ArticleNavigation'
+import { useNews } from '../hooks/useNews'
+import { Post } from '../types/news'
 
-// Define components for MDX rendering (can be expanded as needed)
-const components = {
-  // Example: custom H1 component
-  // h1: ({ children }) => <h1 className="text-blue-600">{children}</h1>,
-};
+// Util: slugify
+const slugify = (text: string) =>
+  text
+    .toString()
+    .normalize('NFD')
+    .replace(/\p{M}/gu, '')
+    .toLowerCase()
+    .trim()
+    .replace(/\s+/g, '-')
+    .replace(/[^\w-]+/g, '')
+    .replace(/--+/g, '-')
 
 const NewsPost: React.FC = () => {
-  const { slug } = useParams();
-  const { posts } = useNews();
-  const getPost = (slug: string) => posts.find(post => post.slug === slug);
-  const getRelatedPosts = (currentSlug: string, limit: number) =>
-    posts.filter(post => post.slug !== currentSlug).slice(0, limit);
-  const post = getPost(slug || "");
-  const relatedPosts = post ? getRelatedPosts(post.slug, 3) : [];
+  const { slug } = useParams()
+  const { allPosts } = useNews()
+
+  const postIndex = allPosts.findIndex((post: Post) => post.slug === slug)
+  const post = allPosts[postIndex]
+  const previousPost = postIndex > 0 ? allPosts[postIndex - 1] : null
+  const nextPost = postIndex < allPosts.length - 1 ? allPosts[postIndex + 1] : null
 
   if (!post) {
     return (
       <main className="min-h-screen py-16">
         <div className="container mx-auto px-4">
-          <div className="text-center">
-            <h1 className="text-2xl font-bold mb-4">Post Not Found</h1>
-            <p className="mb-8">
-              The article you're looking for doesn't exist or has been removed.
-            </p>
-            <Button href="/news">Back to News</Button>
-          </div>
+          <section className="text-center">
+            <SkeletonLoader type="text" count={1} className="mx-auto mb-4 h-10 w-3/4" />
+            <SkeletonLoader type="text" count={2} className="mx-auto mb-8 w-full" />
+            <SkeletonLoader type="image" className="mx-auto mb-8 h-64 w-full" />
+            <SkeletonLoader type="text" count={5} className="mx-auto w-full" />
+          </section>
         </div>
       </main>
-    );
+    )
   }
+
+  const {
+    title,
+    excerpt,
+    seoTitle,
+    tags,
+    slug: postSlug,
+    featuredImage,
+    author,
+    date,
+    lastModified,
+    category,
+    body,
+  } = post
 
   return (
     <>
-      <Helmet>
-        <title>{post.title} | Manhattan Plumbing</title>
-        <meta
-          name="description"
-          content={post.excerpt}
-        />
-        <meta
-          property="og:title"
-          content={post.title}
-        />
-        <meta
-          property="og:description"
-          content={post.excerpt}
-        />
-        <meta
-          property="og:image"
-          content={post.featuredImage.src}
-        />
-        <link
-          rel="canonical"
-          href={`/news/${post.slug}`}
-        />
-        <script type="application/ld+json">
-          {JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "BlogPosting",
-            "headline": post.title,
-            "description": post.excerpt,
-            "image": post.featuredImage.src,
-            "datePublished": post.date,
-            "author": {
-              "@type": "Person",
-              "name": post.author.name
-            }
-          })}
-        </script>
-      </Helmet>
+      <SEO
+        title={seoTitle || title}
+        description={excerpt}
+        keywords={tags}
+        canonical={`http://localhost:5173/news/${postSlug}`}
+        ogTitle={seoTitle || title}
+        ogDescription={excerpt}
+        ogImage={featuredImage.src}
+        ogUrl={`http://localhost:5173/news/${postSlug}`}
+        ogType="article"
+        ogImageAlt={featuredImage.alt}
+        ogImageWidth={featuredImage.width}
+        ogImageHeight={featuredImage.height}
+        twitterSite="@ManhattanPlumb"
+        twitterCreator={author.name ? `@${author.name.replace(/\s/g, '')}` : undefined}
+        article={{
+          headline: title,
+          description: excerpt,
+          image: featuredImage.src,
+          datePublished: date,
+          dateModified: lastModified || date,
+          author: { name: author.name },
+          publisherName: 'Manhattan Plumbing',
+          publisherLogo: 'http://localhost:5173/logo.png',
+          articleSection: category,
+          keywords: tags,
+        }}
+      />
 
-      <main className="min-h-screen py-16">
-        <article className="container mx-auto px-4">
-          <Link
-            to="/news"
-            className="inline-flex items-center text-gray-600 hover:text-primary-600 mb-8 transition-colors">
-            <ArrowLeft className="w-4 h-4 mr-2" />
-            Back to News
-          </Link>
-
-          <header className="max-w-4xl mx-auto mb-12">
-            <h1 className="text-4xl md:text-5xl font-bold mb-6">
-              {post.title}
-            </h1>
-
-            <div className="flex flex-wrap items-center gap-4 text-gray-600 mb-6">
-              <div className="flex items-center">
-                <Calendar className="w-4 h-4 mr-2" />
-                <time dateTime={post.date}>
-                  {format(new Date(post.date), "MMMM d, yyyy")}
-                </time>
-              </div>
-              <div className="flex items-center">
-                <Clock className="w-4 h-4 mr-2" />
-                {post.readingTime}
-              </div>
-            </div>
-
-            <div className="flex items-center gap-4 mb-8">
-              <img
-                src={post.author.image}
-                alt={post.author.name}
-                className="w-12 h-12 rounded-full"
-              />
-              <div>
-                <div className="font-medium">{post.author.name}</div>
-                <div className="text-sm text-gray-600">{post.author.role}</div>
-              </div>
-            </div>
-
-            <div className="aspect-video relative rounded-lg overflow-hidden mb-8">
-              <img
-                src={post.featuredImage.src}
-                alt={post.featuredImage.alt}
-                className="object-cover w-full h-full"
-              />
-              {post.featuredImage.caption && (
-                <div className="absolute bottom-0 left-0 right-0 bg-black/60 text-white p-4 text-sm">
-                  {post.featuredImage.caption}
-                </div>
-              )}
-            </div>
-
-            <div className="flex flex-wrap gap-2 mb-8">
-              {post.tags.map((tag) => (
-                <Link
-                  key={tag}
-                  to={`/news/tag/${tag}`}
-                  className="inline-flex items-center text-sm bg-gray-100 hover:bg-gray-200 text-gray-700 px-3 py-1 rounded-full transition-colors">
-                  <Tag className="w-4 h-4 mr-1" />
-                  {tag}
-                </Link>
-              ))}
-            </div>
+      <main className="bg-slate-50 py-20 text-slate-800 sm:py-24 dark:bg-slate-900 dark:text-slate-200">
+        <article
+          className="container mx-auto px-4 py-8"
+          itemScope
+          itemType="http://schema.org/Article"
+        >
+          <header className="mx-auto mb-12 max-w-4xl">
+            <BackToBlogButton />
+            <NewsPostHeader post={post} />
+            <NewsPostMeta post={post} slugify={slugify} />
           </header>
 
-          <div className="max-w-4xl mx-auto prose prose-lg prose-slate dark:prose-invert">
-            {/* Content will be rendered here by MDX */}
-            <MDXProvider components={components}>
-              {React.createElement(post.body)}
-            </MDXProvider>
-          </div>
+          <section aria-labelledby="article-body">
+            <NewsPostBody body={body} />
+          </section>
 
-          {relatedPosts.length > 0 && (
-            <div className="max-w-4xl mx-auto mt-16">
-              <h2 className="text-2xl font-bold mb-8">Related Articles</h2>
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                {relatedPosts.map((relatedPost) => (
-                  <div
-                    key={relatedPost.slug}
-                    className="bg-white rounded-lg shadow-md overflow-hidden">
-                    <Link to={`/news/${relatedPost.slug}`}>
-                      <img
-                        src={relatedPost.featuredImage.src}
-                        alt={relatedPost.featuredImage.alt}
-                        className="w-full aspect-video object-cover"
-                      />
-                    </Link>
-                    <div className="p-4">
-                      <h3 className="font-bold mb-2">
-                        <Link
-                          to={`/news/${relatedPost.slug}`}
-                          className="hover:text-primary-600 transition-colors">
-                          {relatedPost.title}
-                        </Link>
-                      </h3>
-                      <p className="text-gray-600 text-sm line-clamp-2">
-                        {relatedPost.excerpt}
-                      </p>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          )}
+          <section className="mx-auto mt-8 max-w-4xl" aria-labelledby="share-navigation">
+            <ShareButtons post={post} />
+            <nav aria-label="Article navigation">
+              <ArticleNavigation previousPost={previousPost} nextPost={nextPost} />
+            </nav>
+          </section>
+
+          <aside className="mt-12" aria-label="Related articles">
+            <RelatedArticles allPosts={allPosts} currentPostSlug={postSlug} />
+          </aside>
         </article>
       </main>
     </>
-  );
-};
+  )
+}
 
-export default NewsPost;
+export default NewsPost

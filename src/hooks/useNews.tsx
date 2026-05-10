@@ -1,88 +1,111 @@
-import { useState, useEffect } from "react";
-import type { Post, UseNewsOptions } from "../types/news";
+import { useMemo } from 'react'
+import type { Post, UseNewsOptions } from '../types/news'
+import { slugify } from '../utils/slugify'
 
 interface MDXModule {
-  default: React.ComponentType<any>;
-  frontmatter: Post; // Use Post interface for frontmatter
+  default: React.ComponentType<object>
+  frontmatter: Post
 }
 
-export const useNews = ({
-  category,
-  tag,
-  page = 1,
-  limit = 9,
-}: UseNewsOptions = {}) => {
-  const [posts, setPosts] = useState<Post[]>([]);
-  const [categories, setCategories] = useState<string[]>([]);
-  const [totalPages, setTotalPages] = useState(1);
-  const [isLoading, setIsLoading] = useState(true);
+type AuthorImage =
+  | string
+  | {
+      src: string
+      alt?: string
+      caption?: string
+    }
 
-  useEffect(() => {
-    const fetchPosts = async () => {
-      setIsLoading(true);
-      try {
-        const postFiles = import.meta.glob<MDXModule>("../content/news/*.mdx", {
-          eager: true,
-        });
-        const allPosts: Post[] = [];
-        const allCategories = new Set<string>();
+const postFiles = import.meta.glob<MDXModule>('../content/news/*.mdx', { eager: true })
 
-        for (const path in postFiles) {
-          const module = postFiles[path];
-          const data = module.frontmatter as Post; // Access frontmatter directly
-
-          // Ensure slug exists in frontmatter and is a string
-          if (!data.slug || typeof data.slug !== "string") {
-            console.warn(
-              `Slug missing or invalid in frontmatter for file: ${path}. Skipping this post.`
-            );
-            continue;
-          }
-
-          if (data.status === "published") {
-            allCategories.add(data.category);
-            allPosts.push({ ...data, body: module.default } as Post); // Store MDX component as body
-          }
-        }
-
-        // Sort posts by date
-        allPosts.sort(
-          (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
-        );
-
-        // Filter by category if specified
-        let filteredPosts = allPosts;
-        if (category) {
-          filteredPosts = allPosts.filter((post) => post.category === category);
-        }
-        if (tag) {
-          filteredPosts = allPosts.filter((post) => post.tags.includes(tag));
-        }
-
-        // Calculate pagination
-        const totalPosts = filteredPosts.length;
-        setTotalPages(Math.ceil(totalPosts / limit));
-
-        // Get posts for current page
-        const start = (page - 1) * limit;
-        const paginatedPosts = filteredPosts.slice(start, start + limit);
-
-        setPosts(paginatedPosts);
-        setCategories(Array.from(allCategories));
-      } catch (error) {
-        console.error("Error fetching posts:", error);
-      } finally {
-        setIsLoading(false);
-      }
-    };
-
-    fetchPosts();
-  }, [category, tag, page, limit]);
+// --- Utilities ---
+const formatFeaturedImage = (image: Post['featuredImage']) => {
+  const isRemote = image.src.startsWith('http')
+  const base = isRemote ? image.src : `/src/assets/images/${image.src}`
 
   return {
-    posts,
+    src: base,
+    webp: isRemote ? base : `${base}?format=webp`,
+    avif: isRemote ? base : `${base}?format=avif`,
+    alt: image.alt,
+    caption: image.caption,
+  }
+}
+
+const formatAuthorImage = (img: AuthorImage) => {
+  const getBase = (src: string) => ({
+    src,
+    webp: src,
+    avif: src,
+  })
+
+  if (typeof img === 'string') {
+    return img.startsWith('http')
+      ? getBase(img)
+      : {
+          src: `/src/assets/images/${img}`,
+          webp: `/src/assets/images/${img}?format=webp`,
+          avif: `/src/assets/images/${img}?format=avif`,
+          alt: '',
+        }
+  }
+
+  const src = img?.src || ''
+  const base = src.startsWith('http') ? src : `/src/assets/images/${src}`
+  return {
+    src: base,
+    webp: `${base}?format=webp`,
+    avif: `${base}?format=avif`,
+    alt: img.alt || '',
+    caption: img.caption,
+  }
+}
+
+// --- Static All Posts Loader ---
+const allPostsData: Post[] = Object.entries(postFiles)
+  .map(([, module]) => {
+    const { frontmatter: data, default: body } = module
+
+    if (data.status !== 'published') return null
+
+    return {
+      ...data,
+      slug: slugify(data.title),
+      featuredImage: formatFeaturedImage(data.featuredImage),
+      author: {
+        ...data.author,
+        image: formatAuthorImage(data.author.image),
+      },
+      body,
+    } as Post
+  })
+  .filter(Boolean)
+  .sort((a, b) => new Date(b!.date).getTime() - new Date(a!.date).getTime()) as Post[]
+
+// --- Main Hook ---
+export const useNews = ({ category, tag, page = 1, limit = 9 }: UseNewsOptions = {}) => {
+  const allPosts = useMemo(() => allPostsData, [])
+
+  const { paginated, categories, totalPages } = useMemo(() => {
+    let filtered = allPosts
+    if (category) {
+      filtered = allPosts.filter((post) => slugify(post.category) === category)
+    } else if (tag) {
+      filtered = allPosts.filter((post) => post.tags.map(slugify).includes(tag))
+    }
+
+    const start = (page - 1) * limit
+    const paginated = filtered.slice(start, start + limit)
+    const categories = [...new Set(allPosts.map((p) => p.category))]
+    const totalPages = Math.ceil(filtered.length / limit)
+
+    return { filtered, paginated, categories, totalPages }
+  }, [category, tag, page, limit, allPosts])
+
+  return {
+    posts: paginated,
     categories,
     totalPages,
-    isLoading,
-  };
-};
+    isLoading: false,
+    allPosts,
+  }
+}

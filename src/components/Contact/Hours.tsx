@@ -1,11 +1,9 @@
-import React from "react";
-import { Clock } from "lucide-react";
-import ContactDetail from "./ContactDetail";
+import React from 'react'
+import { Clock } from 'lucide-react'
+import ContactDetail from './ContactDetail'
 
 const Hours: React.FC = () => (
-  <ContactDetail
-    icon={<Clock size={24} />}
-    title="Business Hours">
+  <ContactDetail icon={<Clock size={24} />} title="Business Hours">
     <div className="space-y-2">
       <div className="flex justify-between">
         <span className="text-sm lg:text-base">Monday - Friday:</span>
@@ -21,6 +19,6 @@ const Hours: React.FC = () => (
       </div>
     </div>
   </ContactDetail>
-);
+)
 
-export default Hours;
+export default Hours

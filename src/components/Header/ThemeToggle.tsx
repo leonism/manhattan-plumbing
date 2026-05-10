@@ -1,30 +1,44 @@
-import React from "react";
-import { Sun, Moon } from "lucide-react";
-import { useTheme } from "../../context/ThemeContext";
+import React from 'react'
+import { Sun, Moon } from 'lucide-react'
+import { useTheme } from '../../hooks/useTheme'
 
 interface ThemeToggleProps {
-  theme: string; // Prop for current theme (passed from Header)
-  scrolled: boolean; // Prop for scroll state (passed from Header)
+  theme: string
+  scrolled: boolean
+  isHomePage?: boolean
 }
 
-const ThemeToggle: React.FC<ThemeToggleProps> = ({ theme, scrolled }) => {
-  const { toggleTheme } = useTheme(); // Still use useTheme for toggleTheme function
+const ThemeToggle: React.FC<ThemeToggleProps> = ({ theme, scrolled, isHomePage }) => {
+  const { toggleTheme } = useTheme()
 
   const iconColorClass =
-    scrolled && theme === "light"
-      ? "text-slate-800 hover:bg-slate-200 dark:text-white dark:hover:bg-slate-700"
-      : "text-white hover:bg-slate-100 dark:text-white dark:hover:bg-slate-700";
+    isHomePage && !scrolled
+      ? 'text-white hover:bg-slate-100 dark:hover:bg-slate-700'
+      : theme === 'light'
+        ? 'text-slate-800 hover:bg-slate-200'
+        : 'text-white hover:bg-slate-100 dark:hover:bg-slate-700'
 
   return (
-    <button
-      onClick={toggleTheme}
-      className={`p-2 rounded-full transition-colors ${iconColorClass}`}
-      aria-label={
-        theme === "light" ? "Switch to dark theme" : "Switch to light theme"
-      }>
-      {theme === "light" ? <Moon size={20} /> : <Sun size={20} />}
-    </button>
-  );
-};
+    <a
+      href="#"
+      onClick={(e) => {
+        e.preventDefault()
+        toggleTheme()
+      }}
+      role="button"
+      tabIndex={0}
+      onKeyDown={(e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault()
+          toggleTheme()
+        }
+      }}
+      className={`rounded-full p-1 transition-colors md:mr-3 md:p-3 ${iconColorClass}`}
+      aria-label={theme === 'light' ? 'Switch to dark theme' : 'Switch to light theme'}
+    >
+      {theme === 'light' ? <Moon size={20} /> : <Sun size={20} />}
+    </a>
+  )
+}
 
-export default ThemeToggle;
+export default ThemeToggle
