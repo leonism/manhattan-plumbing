@@ -3,6 +3,7 @@ import path from 'path'
 import matter from 'gray-matter'
 import { slugify } from '@/utils/slugify'
 import type { Post, Author, ImageSource } from '@/types'
+export type { Post, Author, ImageSource }
 
 const newsDirectory = path.join(process.cwd(), 'src/content/news')
 
@@ -103,4 +104,19 @@ export function getAllPostSlugs() {
 export async function getPostData(slug: string): Promise<Post | undefined> {
   const allPosts = getAllPosts()
   return allPosts.find((post) => post.slug === slug)
+}
+
+/**
+ * Gets adjacent posts for navigation.
+ */
+export function getAdjacentPosts(currentSlug: string) {
+  const allPosts = getAllPosts()
+  const currentIndex = allPosts.findIndex((post) => post.slug === currentSlug)
+  
+  return {
+    // Newer post (lower index)
+    next: currentIndex > 0 ? allPosts[currentIndex - 1] : null,
+    // Older post (higher index)
+    prev: currentIndex < allPosts.length - 1 ? allPosts[currentIndex + 1] : null,
+  }
 }

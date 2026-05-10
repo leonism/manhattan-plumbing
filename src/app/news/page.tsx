@@ -1,4 +1,5 @@
 import { Metadata } from 'next'
+import Link from 'next/link'
 
 import NewsCard from '@/components/News/NewsCard'
 import CategoryList from '@/components/News/CategoryList'
@@ -16,8 +17,21 @@ export const metadata: Metadata = {
   },
 }
 
-export default async function NewsPage() {
+interface Props {
+  searchParams: Promise<{ category?: string; tag?: string }>
+}
+
+export default async function NewsPage({ searchParams }: Props) {
+  const { category, tag } = await searchParams
   const allPosts = getAllPosts()
+  
+  let filteredPosts = allPosts
+  if (category) {
+    filteredPosts = allPosts.filter(p => slugify(p.category) === category || p.category.toLowerCase() === category.toLowerCase())
+  } else if (tag) {
+    filteredPosts = allPosts.filter(p => p.tags.some(t => t.toLowerCase() === tag.toLowerCase()))
+  }
+
   const categories = [...new Set(allPosts.map((p) => p.category))]
 
   return (
@@ -25,21 +39,34 @@ export default async function NewsPage() {
       <div className="container mx-auto px-4">
         <header className="mt-12 mb-12 text-center">
           <h1 className="mb-4 text-5xl font-bold tracking-tight text-blue-600 md:text-5xl dark:text-blue-400">
-            Latest News
+            {category ? `${category} News` : tag ? `Posts tagged with #${tag}` : 'Latest News'}
           </h1>
           <p className="mx-auto max-w-2xl text-lg text-slate-600 dark:text-slate-400">
-            Stay informed about the latest plumbing tips, company updates, and industry insights.
+            {category 
+              ? `Browse our latest articles and updates in the ${category} category.`
+              : tag
+              ? `Explore all articles tagged with #${tag}.`
+              : 'Stay informed about the latest plumbing tips, company updates, and industry insights.'}
           </p>
           <div className="mt-8">
-            <CategoryList categories={categories} />
+            <CategoryList categories={categories} currentCategory={category} />
           </div>
         </header>
 
-        <section className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
-          {allPosts.map((post) => (
-            <NewsCard key={post.slug} post={post} />
-          ))}
-        </section>
+        {filteredPosts.length > 0 ? (
+          <section className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
+            {filteredPosts.map((post) => (
+              <NewsCard key={post.slug} post={post} />
+            ))}
+          </section>
+        ) : (
+          <div className="py-20 text-center">
+            <h2 className="text-2xl font-semibold text-slate-900 dark:text-white">No posts found.</h2>
+            <Link href="/news" className="mt-4 inline-block text-blue-600 hover:underline">
+              Back to all news
+            </Link>
+          </div>
+        )}
       </div>
     </main>
   )

@@ -38,7 +38,7 @@ const TableOfContents: React.FC<TableOfContentsProps> = ({ content }) => {
   if (toc.length === 0) return null
 
   return (
-    <div className="sticky top-32 hidden lg:block">
+    <div className="my-8">
       <div className="rounded-2xl border border-slate-100 bg-white p-6 shadow-sm dark:border-slate-800 dark:bg-slate-900">
         <div className="mb-4 flex items-center gap-2 font-bold text-slate-900 dark:text-white">
           <List size={20} className="text-blue-600" />
