@@ -8,6 +8,9 @@ export const metadata: Metadata = {
   description: 'Learn about how Manhattan Plumbing collects, uses, and protects your personal information.',
   alternates: {
     canonical: '/privacy-policy',
+    types: {
+      'text/markdown': 'https://manhattan-plumbing.pages.dev/privacy-policy/index.md',
+    },
   },
   openGraph: {
     title: 'Privacy Policy | Manhattan Plumbing',

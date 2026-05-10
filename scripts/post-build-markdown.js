@@ -52,7 +52,12 @@ walk(OUT_DIR, (filePath) => {
     const description = document.querySelector('meta[name="description"]')?.getAttribute('content') || '';
     
     // 2. Fix the <link> tag (Ensure title attribute exists)
-    const mdUrl = `${BASE_URL}/${relativePath.replace(/\\/g, '/').replace(/\.html$/, '.md')}`;
+    const isIndex = relativePath.endsWith('index.html');
+    const mdPath = isIndex 
+      ? relativePath.replace(/\\/g, '/').replace(/index\.html$/, 'index.md')
+      : relativePath.replace(/\\/g, '/').replace(/\.html$/, '.md');
+      
+    const mdUrl = `${BASE_URL}/${mdPath}`;
     let linkTag = /** @type {HTMLLinkElement | null} */(document.querySelector('link[type="text/markdown"]'));
     
     if (linkTag) {
@@ -70,11 +75,22 @@ walk(OUT_DIR, (filePath) => {
     // 3. Extract content for Markdown
     const article = document.querySelector('article');
     const main = document.querySelector('main');
+    
+    // Create a copy of the content to manipulate
     const contentNode = (article || main || document.body).cloneNode(true);
     const contentElement = /** @type {HTMLElement} */(contentNode);
     
     // Clean up content: remove scripts, styles, etc.
-    contentElement.querySelectorAll('script, style, iframe, noscript, nav, header, footer, .no-markdown, svg, button, .sr-only, [aria-hidden="true"]').forEach(el => el.remove());
+    // NOTE: We keep nav elements if they look like TOC, but remove general nav/header/footer
+    contentElement.querySelectorAll('script, style, iframe, noscript, header, footer, .no-markdown, svg, button, .sr-only, [aria-hidden="true"]').forEach(el => el.remove());
+
+    // Keep .toc or nav with "table of contents" aria-label
+    contentElement.querySelectorAll('nav').forEach(nav => {
+      const label = nav.getAttribute('aria-label')?.toLowerCase() || '';
+      if (!label.includes('contents') && !nav.classList.contains('toc')) {
+        nav.remove();
+      }
+    });
 
     // Fix minified HTML by adding newlines between block tags
     let contentHtml = contentElement.innerHTML;

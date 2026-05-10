@@ -16,6 +16,9 @@ export const metadata: Metadata = {
   description: 'Fast response emergency plumbing in Manhattan. Available 24/7 for burst pipes, gas leaks, water heater failures, and major floods. Call (212) 555-1234 now.',
   alternates: {
     canonical: '/services/emergency-service',
+    types: {
+      'text/markdown': 'https://manhattan-plumbing.pages.dev/services/emergency-service/index.md',
+    },
   },
 }
 

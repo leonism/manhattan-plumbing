@@ -3,6 +3,7 @@ import path from 'path'
 import matter from 'gray-matter'
 import { slugify } from '@/utils/slugify'
 import type { Post, Author, ImageSource } from '@/types'
+export type { Post, Author, ImageSource }
 
 const newsDirectory = path.join(process.cwd(), 'src/content/news')
 
@@ -89,6 +90,30 @@ export function getAllPosts(): Post[] {
 }
 
 /**
+ * Retrieves all unique tags from all published posts.
+ */
+export function getAllTags(): string[] {
+  const allPosts = getAllPosts()
+  const tags = new Set<string>()
+  allPosts.forEach((post) => {
+    post.tags.forEach((tag) => tags.add(tag))
+  })
+  return Array.from(tags)
+}
+
+/**
+ * Retrieves all unique categories from all published posts.
+ */
+export function getAllCategories(): string[] {
+  const allPosts = getAllPosts()
+  const categories = new Set<string>()
+  allPosts.forEach((post) => {
+    if (post.category) categories.add(post.category)
+  })
+  return Array.from(categories)
+}
+
+/**
  * Gets all slugs for static generation.
  */
 export function getAllPostSlugs() {
@@ -103,4 +128,19 @@ export function getAllPostSlugs() {
 export async function getPostData(slug: string): Promise<Post | undefined> {
   const allPosts = getAllPosts()
   return allPosts.find((post) => post.slug === slug)
+}
+
+/**
+ * Gets adjacent posts for navigation.
+ */
+export function getAdjacentPosts(currentSlug: string) {
+  const allPosts = getAllPosts()
+  const currentIndex = allPosts.findIndex((post) => post.slug === currentSlug)
+  
+  return {
+    // Newer post (lower index)
+    next: currentIndex > 0 ? allPosts[currentIndex - 1] : null,
+    // Older post (higher index)
+    prev: currentIndex < allPosts.length - 1 ? allPosts[currentIndex + 1] : null,
+  }
 }

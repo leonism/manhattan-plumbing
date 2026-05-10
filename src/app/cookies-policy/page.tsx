@@ -8,6 +8,9 @@ export const metadata: Metadata = {
   description: 'Learn about how Manhattan Plumbing uses cookies and similar technologies on our website.',
   alternates: {
     canonical: '/cookies-policy',
+    types: {
+      'text/markdown': 'https://manhattan-plumbing.pages.dev/cookies-policy/index.md',
+    },
   },
   openGraph: {
     title: 'Cookie Policy | Manhattan Plumbing',

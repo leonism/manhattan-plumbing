@@ -20,7 +20,14 @@ const Header: React.FC<HeaderProps> = ({ isHomePage = false }) => {
   const { theme } = useTheme()
   const [isOpen, setIsOpen] = useState(false)
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null)
+  const [mounted, setMounted] = useState(false)
   const scrolled = useScrollHandler()
+
+  React.useEffect(() => {
+    setMounted(true)
+  }, [])
+
+  const isScrolled = mounted ? scrolled : false
   const toggleMenu = () => setIsOpen(!isOpen)
   const toggleDropdown = (label: string) => {
     setActiveDropdown(activeDropdown === label ? null : label)
@@ -29,7 +36,7 @@ const Header: React.FC<HeaderProps> = ({ isHomePage = false }) => {
   return (
     <header
       className={`fixed top-0 z-50 w-full transition-all duration-300 ${
-        scrolled || !isHomePage
+        isScrolled || !isHomePage
           ? 'bg-white py-3 shadow-md dark:bg-slate-900'
           : 'bg-transparent py-6'
       }`}
@@ -44,23 +51,23 @@ const Header: React.FC<HeaderProps> = ({ isHomePage = false }) => {
             activeDropdown={activeDropdown}
             toggleDropdown={toggleDropdown}
             theme={theme}
-            scrolled={scrolled}
+            scrolled={isScrolled}
             isHomePage={isHomePage}
           />
           <div className="hidden items-center lg:flex">
-            <SearchToggle theme={theme} scrolled={scrolled} isHomePage={isHomePage} />
-            <ThemeToggle theme={theme} scrolled={scrolled} isHomePage={isHomePage} />
+            <SearchToggle theme={theme} scrolled={isScrolled} isHomePage={isHomePage} />
+            <ThemeToggle theme={theme} scrolled={isScrolled} isHomePage={isHomePage} />
             <GetQuoteButton />
           </div>
 
           {/* Mobile Navigation Button */}
           <div className="mt-1 flex items-center space-x-1 lg:hidden">
-            <ThemeToggle theme={theme} scrolled={scrolled} isHomePage={isHomePage} />
-            <SearchToggle theme={theme} scrolled={scrolled} isHomePage={isHomePage} />
+            <ThemeToggle theme={theme} scrolled={isScrolled} isHomePage={isHomePage} />
+            <SearchToggle theme={theme} scrolled={isScrolled} isHomePage={isHomePage} />
             <MenuToggle
               isOpen={isOpen}
               toggleMenu={toggleMenu}
-              scrolled={scrolled}
+              scrolled={isScrolled}
               theme={theme}
               isHomePage={isHomePage}
             />

@@ -16,6 +16,9 @@ export const metadata: Metadata = {
   description: 'Fast and effective drain cleaning services in Manhattan. We clear clogged drains in kitchens, bathrooms, and sewer lines using the latest technology.',
   alternates: {
     canonical: '/services/drain-service',
+    types: {
+      'text/markdown': 'https://manhattan-plumbing.pages.dev/services/drain-service/index.md',
+    },
   },
 }
 

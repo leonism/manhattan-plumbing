@@ -14,6 +14,9 @@ export const metadata: Metadata = {
   description: 'Find Manhattan Plumbing at our convenient location in the heart of Manhattan. View our address, contact details, and service area.',
   alternates: {
     canonical: '/location',
+    types: {
+      'text/markdown': 'https://manhattan-plumbing.pages.dev/location/index.md',
+    },
   },
 }
 

@@ -8,6 +8,9 @@ export const metadata: Metadata = {
   description: 'Read our terms of service to understand the conditions for using Manhattan Plumbing\'s services.',
   alternates: {
     canonical: '/terms-of-service',
+    types: {
+      'text/markdown': 'https://manhattan-plumbing.pages.dev/terms-of-service/index.md',
+    },
   },
   openGraph: {
     title: 'Terms of Service | Manhattan Plumbing',
