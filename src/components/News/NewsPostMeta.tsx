@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import Link from 'next/link'
 import { format } from 'date-fns'
 import { Calendar, Clock, Folder } from 'lucide-react'
 import TagList from '@/components/News/TagList'
@@ -44,7 +44,7 @@ const NewsPostMeta: React.FC<NewsPostMetaProps> = ({ post, slugify }) => {
         <div className="flex items-center">
           <Folder className="mr-2 h-4 w-4" />
           <Link
-            to={`/news/category/${slugify(post.category)}`}
+            href={`/news/category/${slugify(post.category)}`}
             className="transition-colors hover:text-blue-600 dark:hover:text-blue-400"
           >
             {post.category}

@@ -1,5 +1,7 @@
+"use client"
+
 import React from 'react'
-import { Link } from 'react-router-dom'
+import Link from 'next/link'
 import { ChevronDown, X } from 'lucide-react'
 import { NavItem } from '@/components/Header/navConfig'
 import Logo from '@/components/ui/Logo'
@@ -61,7 +63,7 @@ const MobileNav: React.FC<MobileNavProps> = ({
                       {item.children.map((subItem) => (
                         <Link
                           key={subItem.label}
-                          to={subItem.href}
+                          href={subItem.href}
                           onClick={() => setIsOpen(false)}
                           className="block py-2 text-lg text-slate-600 transition-colors hover:text-blue-600 dark:text-slate-300 dark:hover:text-blue-400"
                         >
@@ -73,7 +75,7 @@ const MobileNav: React.FC<MobileNavProps> = ({
                 </div>
               ) : (
                 <Link
-                  to={item.href!}
+                  href={item.href!}
                   onClick={() => setIsOpen(false)}
                   className="block py-3 text-xl font-medium text-slate-800 transition-colors hover:text-blue-600 dark:text-white dark:hover:text-blue-400"
                 >

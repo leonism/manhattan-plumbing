@@ -1,20 +1,21 @@
+'use client'
 import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
+import Link from 'next/link'
+import { slugify } from '@/utils/slugify'
 
 interface CategoryListProps {
   categories: string[]
   currentCategory?: string
-  slugify: (text: string) => string
 }
 
-const CategoryList: React.FC<CategoryListProps> = ({ categories, currentCategory, slugify }) => {
+const CategoryList: React.FC<CategoryListProps> = ({ categories, currentCategory }) => {
   const [showAllCategories, setShowAllCategories] = useState(false)
   const visibleCategories = showAllCategories ? categories : categories.slice(0, 3)
 
   return (
     <div className="mt-6 flex flex-wrap justify-center gap-3">
       <Link
-        to="/news"
+        href="/news"
         className={`text-sm ${
           !currentCategory
             ? 'bg-blue-600 text-white dark:bg-blue-400'
@@ -26,7 +27,7 @@ const CategoryList: React.FC<CategoryListProps> = ({ categories, currentCategory
       {visibleCategories.map((cat) => (
         <Link
           key={cat}
-          to={`/news/category/${slugify(cat)}`}
+          href={`/news/category/${slugify(cat)}`}
           className={`text-sm ${
             currentCategory === cat
               ? 'bg-blue-600 text-white dark:bg-blue-400'

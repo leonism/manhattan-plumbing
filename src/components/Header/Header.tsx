@@ -1,3 +1,5 @@
+'use client'
+
 import React, { useState } from 'react'
 import Logo from '@/components/ui/Logo'
 import ThemeToggle from '@/components/Header/ThemeToggle'

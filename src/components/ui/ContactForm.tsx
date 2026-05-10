@@ -3,7 +3,7 @@
 import React from 'react'
 import { useForm } from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod"
-import { PaperAirplaneIcon, ChevronDownIcon } from '@heroicons/react/24/outline'
+import { PaperAirplaneIcon } from '@heroicons/react/24/outline'
 
 import Button from '@/components/ui/Button'
 import {
@@ -43,6 +43,7 @@ const ContactForm: React.FC<ContactFormProps> = ({
 }) => {
   const form = useForm<ContactFormValues>({
     resolver: zodResolver(contactFormSchema),
+    mode: "onChange",
     defaultValues: {
       name: "",
       email: "",
@@ -168,7 +169,6 @@ const ContactForm: React.FC<ContactFormProps> = ({
                   <FormControl>
                     <SelectTrigger className="h-12 sm:h-14 w-full bg-white dark:bg-slate-700 text-left px-3 border-slate-200 dark:border-slate-600 flex items-center justify-between">
                       <SelectValue placeholder="Select a service" />
-                      <ChevronDownIcon className="h-5 w-5 text-slate-400" />
                     </SelectTrigger>
                   </FormControl>
                   <SelectContent>
@@ -190,11 +190,11 @@ const ContactForm: React.FC<ContactFormProps> = ({
             name="message"
             render={({ field }) => (
               <FormItem>
-                <FormLabel className="text-slate-700 dark:text-slate-300">Message</FormLabel>
+                <FormLabel className="text-slate-700 dark:text-slate-300 font-medium">Message</FormLabel>
                 <FormControl>
                   <Textarea
                     placeholder="Please provide details about your plumbing needs..."
-                    className="min-h-[100px] bg-white dark:bg-slate-700"
+                    className="min-h-[120px] bg-white dark:bg-slate-700 border-slate-200 dark:border-slate-600 focus:ring-blue-500"
                     {...field}
                   />
                 </FormControl>
@@ -207,7 +207,7 @@ const ContactForm: React.FC<ContactFormProps> = ({
             <Button
               type="submit"
               fullWidth
-              className="group flex h-12 sm:h-14 items-center justify-center gap-2 bg-blue-600 hover:bg-blue-700 text-white text-lg font-bold transition-all duration-200 shadow-lg hover:shadow-xl"
+              className="group flex h-12 sm:h-14 items-center justify-center gap-2 bg-blue-600 hover:bg-blue-700 text-white text-lg font-bold transition-all duration-200 shadow-lg hover:shadow-xl rounded-lg"
             >
               <span>Submit Request</span>
               <PaperAirplaneIcon className="h-5 w-5 transition-transform group-hover:translate-x-1" />

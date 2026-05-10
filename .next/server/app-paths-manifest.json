@@ -1,0 +1,20 @@
+{
+  "/_global-error/page": "app/_global-error/page.js",
+  "/_not-found/page": "app/_not-found/page.js",
+  "/cookies-policy/page": "app/cookies-policy/page.js",
+  "/location/page": "app/location/page.js",
+  "/news/[slug]/page": "app/news/[slug]/page.js",
+  "/news/page": "app/news/page.js",
+  "/page": "app/page.js",
+  "/privacy-policy/page": "app/privacy-policy/page.js",
+  "/robots.txt/route": "app/robots.txt/route.js",
+  "/search/page": "app/search/page.js",
+  "/services/drain-service/page": "app/services/drain-service/page.js",
+  "/services/emergency-service/page": "app/services/emergency-service/page.js",
+  "/services/fixture-service/page": "app/services/fixture-service/page.js",
+  "/services/pipe-service/page": "app/services/pipe-service/page.js",
+  "/services/remodeling-service/page": "app/services/remodeling-service/page.js",
+  "/services/water-heater-service/page": "app/services/water-heater-service/page.js",
+  "/sitemap.xml/route": "app/sitemap.xml/route.js",
+  "/terms-of-service/page": "app/terms-of-service/page.js"
+}

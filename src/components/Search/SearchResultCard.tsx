@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import Link from 'next/link'
 import type { SearchResult } from '@/hooks/useSearch'
 
 interface SearchResultCardProps {
@@ -9,7 +9,7 @@ interface SearchResultCardProps {
 const SearchResultCard: React.FC<SearchResultCardProps> = ({ result }) => {
   return (
     <article className="transform overflow-hidden rounded-lg border border-slate-200 bg-white shadow-lg transition-transform duration-300 hover:scale-105 dark:border-slate-700 dark:bg-slate-800">
-      <Link to={result.slug} className="block">
+      <Link href={result.slug} className="block">
         {result.featuredImage && (
           <div className="relative aspect-video overflow-hidden">
             <img

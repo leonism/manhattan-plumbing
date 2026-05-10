@@ -7,6 +7,7 @@ import JsonLD, {
   LocalBusinessSchemaProps,
   ImageSchemaProps,
   ReviewSchemaProps,
+  JsonSchema,
 } from '@/components/SEO/JsonLD'
 
 interface SEOProps {
@@ -36,7 +37,7 @@ interface SEOProps {
   review?: ReviewSchemaProps
 
   imageSchema?: ImageSchemaProps
-  jsonLd?: object
+  jsonLd?: JsonSchema
 }
 
 const SEO: React.FC<SEOProps> = ({

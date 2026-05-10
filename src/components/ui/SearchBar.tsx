@@ -1,7 +1,8 @@
 import React, { useState, useEffect, useRef, useMemo } from 'react'
 import { useSearch } from '@/hooks/useSearch'
 import { useNews } from '@/hooks/useNews'
-import { Link, useNavigate } from 'react-router-dom'
+import Link from 'next/link'
+import { useRouter } from 'next/navigation'
 import { Search, Loader, Newspaper, Wrench, X } from 'lucide-react'
 import Logo from '@/components/ui/Logo'
 
@@ -23,7 +24,7 @@ const SearchBar: React.FC<SearchBarProps> = ({ onClear, onClose }) => {
   const { allPosts } = useNews()
   const { results, isLoading } = useSearch(query, allPosts)
   const [activeIndex, setActiveIndex] = useState(-1)
-  const navigate = useNavigate()
+  const router = useRouter()
   const inputRef = useRef<HTMLInputElement>(null)
 
   const allResults = useMemo(
@@ -44,14 +45,14 @@ const SearchBar: React.FC<SearchBarProps> = ({ onClear, onClose }) => {
         setActiveIndex((prev) => (prev > 0 ? prev - 1 : -1))
       } else if (e.key === 'Enter' && activeIndex >= 0) {
         e.preventDefault()
-        navigate(allResults[activeIndex].slug)
+        router.push(allResults[activeIndex].slug)
         if (onClose) onClose()
       }
     }
 
     window.addEventListener('keydown', handleKeyDown)
     return () => window.removeEventListener('keydown', handleKeyDown)
-  }, [activeIndex, allResults, navigate, onClose])
+  }, [activeIndex, allResults, router, onClose])
 
   const getIcon = (item: SearchResultItem) => {
     if (item.featuredImage) {
@@ -124,7 +125,7 @@ const SearchBar: React.FC<SearchBarProps> = ({ onClear, onClose }) => {
               {results.news.map((result, index) => (
                 <li key={result.slug} role="option" aria-selected={index === activeIndex}>
                   <Link
-                    to={result.slug}
+                    href={result.slug}
                     onClick={() => onClose?.()}
                     className={`flex items-center gap-4 rounded-lg p-4 transition-colors ${activeIndex === index ? 'bg-slate-100 dark:bg-slate-700' : 'hover:bg-slate-50 dark:hover:bg-slate-700/50'}`}
                   >
@@ -157,7 +158,7 @@ const SearchBar: React.FC<SearchBarProps> = ({ onClear, onClose }) => {
                   aria-selected={index + results.news.length === activeIndex}
                 >
                   <Link
-                    to={result.slug}
+                    href={result.slug}
                     onClick={() => onClose?.()}
                     className={`flex items-center gap-4 rounded-lg p-4 transition-colors ${activeIndex === index + results.news.length ? 'bg-slate-100 dark:bg-slate-700' : 'hover:bg-slate-50 dark:hover:bg-slate-700/50'}`}
                   >

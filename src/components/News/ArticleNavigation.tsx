@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import Link from 'next/link'
 import { ArrowLeft, ArrowRight } from 'lucide-react'
 import { Post } from '@/types/news'
 
@@ -29,7 +29,7 @@ const ArticleNavigation: React.FC<ArticleNavigationProps> = ({ previousPost, nex
     <div className="mx-auto mt-16 flex max-w-4xl flex-col items-center justify-between gap-4 border-t border-slate-200 pt-8 sm:flex-row dark:border-slate-700">
       {previousPost ? (
         <Link
-          to={`/news/${previousPost.slug}`}
+          href={`/news/${previousPost.slug}`}
           className="group flex w-full items-center gap-2 rounded-xl border border-slate-200 p-4 text-blue-600 transition-colors hover:bg-slate-100 hover:text-blue-800 sm:w-auto dark:border-slate-700 dark:text-blue-400 dark:hover:bg-slate-800 dark:hover:text-blue-200"
         >
           <ArrowLeftCircle className="shrink-0 transition-transform group-hover:-translate-x-1" />
@@ -44,7 +44,7 @@ const ArticleNavigation: React.FC<ArticleNavigationProps> = ({ previousPost, nex
 
       {nextPost ? (
         <Link
-          to={`/news/${nextPost.slug}`}
+          href={`/news/${nextPost.slug}`}
           className="group ml-auto flex w-full items-center gap-2 rounded-xl border border-slate-200 p-4 text-right text-blue-600 transition-colors hover:bg-slate-100 hover:text-blue-800 sm:w-auto dark:border-slate-700 dark:text-blue-400 dark:hover:bg-slate-800 dark:hover:text-blue-200"
         >
           <div className="grow">

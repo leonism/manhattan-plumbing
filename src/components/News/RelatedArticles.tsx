@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import Link from 'next/link'
 import { Post } from '@/types/news'
 
 interface RelatedArticlesProps {
@@ -23,7 +23,7 @@ const RelatedArticles: React.FC<RelatedArticlesProps> = ({ allPosts, currentPost
             key={relatedPost.slug}
             className="transform overflow-hidden rounded-lg bg-white shadow-lg transition-transform duration-300 hover:scale-105 dark:bg-slate-800"
           >
-            <Link to={`/news/${relatedPost.slug}`}>
+            <Link href={`/news/${relatedPost.slug}`}>
               <picture>
                 <source srcSet={relatedPost.featuredImage.avif} type="image/avif" />
                 <source srcSet={relatedPost.featuredImage.webp} type="image/webp" />
@@ -38,7 +38,7 @@ const RelatedArticles: React.FC<RelatedArticlesProps> = ({ allPosts, currentPost
             <div className="p-4">
               <h3 className="mb-2 text-lg font-bold">
                 <Link
-                  to={`/news/${relatedPost.slug}`}
+                  href={`/news/${relatedPost.slug}`}
                   className="line-clamp-2 transition-colors hover:text-blue-600 dark:hover:text-blue-400"
                 >
                   {relatedPost.title}

@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import { Button as ButtonPrimitive } from '@base-ui/react/button'
 import { Slot } from '@radix-ui/react-slot'
 import { cva, type VariantProps } from 'class-variance-authority'
@@ -50,7 +51,8 @@ export interface ButtonProps
 
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
   ({ className, variant, size, asChild = false, href, fullWidth, ...props }, ref) => {
-    const Comp = (asChild ? Slot : href ? 'a' : ButtonPrimitive) as React.ElementType
+    const isExternal = href?.startsWith('http') || href?.startsWith('tel:') || href?.startsWith('mailto:')
+    const Comp = (asChild ? Slot : href ? (isExternal ? 'a' : Link) : ButtonPrimitive) as React.ElementType
     return (
       <Comp
         ref={ref as React.Ref<never>}

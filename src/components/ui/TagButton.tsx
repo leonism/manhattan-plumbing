@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import Link from 'next/link'
 import { slugify } from '@/utils/slugify'
 
 interface TagButtonProps {
@@ -9,7 +9,7 @@ interface TagButtonProps {
 const TagButton: React.FC<TagButtonProps> = ({ tag }) => {
   return (
     <Link
-      to={`/news/tag/${slugify(tag)}`}
+      href={`/news/tag/${slugify(tag)}`}
       className="inline-flex items-center rounded-full bg-blue-100 px-3 py-1 text-sm text-blue-700 transition-colors hover:bg-blue-200 dark:bg-blue-900 dark:text-blue-200 dark:hover:bg-blue-800"
     >
       <svg

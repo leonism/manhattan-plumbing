@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import Link from 'next/link'
 
 interface PaginationButtonProps {
   to: string
@@ -46,7 +46,7 @@ const PaginationButton: React.FC<PaginationButtonProps> = ({
   }
 
   return (
-    <Link to={to} className={styles}>
+    <Link href={to} className={styles}>
       {children}
     </Link>
   )

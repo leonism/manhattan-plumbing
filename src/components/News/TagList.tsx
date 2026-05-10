@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
+import Link from 'next/link'
 import { Tag } from 'lucide-react'
 
 interface TagListProps {
@@ -17,7 +17,7 @@ const TagList: React.FC<TagListProps> = ({ tags, slugify, className }) => {
       {visibleTags.map((tag: string) => (
         <Link
           key={tag}
-          to={`/news/tag/${slugify(tag)}`}
+          href={`/news/tag/${slugify(tag)}`}
           className="inline-flex items-center rounded-full bg-blue-100 px-3 py-1 text-xs text-blue-700 transition-colors hover:bg-blue-200 dark:bg-blue-900 dark:text-blue-200 dark:hover:bg-blue-800"
         >
           <Tag className="mr-1 h-4 w-4" />
