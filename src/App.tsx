@@ -1,10 +1,10 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import SkipToContent from '@/components/UI/SkipToContent'
+import SkipToContent from '@/components/ui/SkipToContent'
 import { HelmetProvider } from 'react-helmet-async'
 import { ThemeProvider } from '@/context/ThemeContext'
 import LayoutHomePage from '@/components/Layout/LayoutHomePage'
 import LayoutNewsPage from '@/components/Layout/LayoutNewsPage'
-import CookieConsent from '@/components/UI/CookieConsent'
+import CookieConsent from '@/components/ui/CookieConsent'
 
 import HomePage from '@/pages/HomePage'
 import NewsPage from '@/pages/NewsPage'

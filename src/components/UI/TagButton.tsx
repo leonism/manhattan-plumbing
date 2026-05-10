@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { slugify } from "@/utils/slugify"
+import { slugify } from '@/utils/slugify'
 
 interface TagButtonProps {
   tag: string

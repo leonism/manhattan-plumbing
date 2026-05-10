@@ -1,6 +1,6 @@
 import React from 'react'
 import { Mail } from 'lucide-react'
-import ContactDetail from "@/components/Contact/ContactDetail"
+import ContactDetail from '@/components/Contact/ContactDetail'
 
 const Email: React.FC = () => (
   <ContactDetail icon={<Mail size={24} />} title="Email">

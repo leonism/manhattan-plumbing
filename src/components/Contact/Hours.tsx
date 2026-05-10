@@ -1,6 +1,6 @@
 import React from 'react'
 import { Clock } from 'lucide-react'
-import ContactDetail from "@/components/Contact/ContactDetail"
+import ContactDetail from '@/components/Contact/ContactDetail'
 
 const Hours: React.FC = () => (
   <ContactDetail icon={<Clock size={24} />} title="Business Hours">

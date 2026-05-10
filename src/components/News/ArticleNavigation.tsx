@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { ArrowLeft, ArrowRight } from 'lucide-react'
-import { Post } from "@/types/news"
+import { Post } from '@/types/news'
 
 interface ArticleNavigationProps {
   previousPost: Post | null

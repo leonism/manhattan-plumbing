@@ -1,7 +1,7 @@
 import React from 'react'
 import { MDXProvider } from '@mdx-js/react'
-import SectionHeading from "@/components/UI/SectionHeading"
-import TagButton from "@/components/UI/TagButton"
+import SectionHeading from '@/components/ui/SectionHeading'
+import TagButton from '@/components/ui/TagButton'
 
 // Custom components for MDX content
 const components = {

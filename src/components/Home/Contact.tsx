@@ -1,11 +1,11 @@
 import React from 'react'
-import SectionHeading from "@/components/UI/SectionHeading"
-import ContactForm from "@/components/UI/ContactForm"
-import Address from "@/components/Contact/Address"
-import PhoneComponent from "@/components/Contact/Phone"
-import Email from "@/components/Contact/Email"
-import Hours from "@/components/Contact/Hours"
-import EmergencyNotice from "@/components/Contact/EmergencyNotice"
+import SectionHeading from '@/components/ui/SectionHeading'
+import ContactForm from '@/components/ui/ContactForm'
+import Address from '@/components/Contact/Address'
+import PhoneComponent from '@/components/Contact/Phone'
+import Email from '@/components/Contact/Email'
+import Hours from '@/components/Contact/Hours'
+import EmergencyNotice from '@/components/Contact/EmergencyNotice'
 
 const Contact: React.FC = () => {
   return (

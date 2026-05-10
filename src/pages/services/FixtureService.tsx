@@ -1,27 +1,27 @@
-import SectionHeading from "@/components/UI/SectionHeading"
-import Button from "@/components/ui/Button"
-import SEO from "@/components/SEO/SEO"
+import SectionHeading from '@/components/ui/SectionHeading'
+import Button from '@/components/ui/Button'
+import SEO from '@/components/SEO/SEO'
 import { Wrench, ShowerHead, Droplet, Home, CheckCircle } from 'lucide-react'
 
-import fixtureHeroJpg from "@/assets/images/pexels-newyork-010.jpg"
-import fixtureHeroWebp from "@/assets/images/pexels-newyork-010.jpg?format=webp"
-import fixtureHeroAvif from "@/assets/images/pexels-newyork-010.jpg?format=avif"
+import fixtureHeroJpg from '@/assets/images/pexels-newyork-010.jpg'
+import fixtureHeroWebp from '@/assets/images/pexels-newyork-010.jpg?format=webp'
+import fixtureHeroAvif from '@/assets/images/pexels-newyork-010.jpg?format=avif'
 
-import faucetInstallJpg from "@/assets/images/pexels-newyork-011.jpg"
-import faucetInstallWebp from "@/assets/images/pexels-newyork-011.jpg?format=webp"
-import faucetInstallAvif from "@/assets/images/pexels-newyork-011.jpg?format=avif"
+import faucetInstallJpg from '@/assets/images/pexels-newyork-011.jpg'
+import faucetInstallWebp from '@/assets/images/pexels-newyork-011.jpg?format=webp'
+import faucetInstallAvif from '@/assets/images/pexels-newyork-011.jpg?format=avif'
 
-import showerUpgradeJpg from "@/assets/images/pexels-newyork-012.jpg"
-import showerUpgradeWebp from "@/assets/images/pexels-newyork-012.jpg?format=webp"
-import showerUpgradeAvif from "@/assets/images/pexels-newyork-012.jpg?format=avif"
+import showerUpgradeJpg from '@/assets/images/pexels-newyork-012.jpg'
+import showerUpgradeWebp from '@/assets/images/pexels-newyork-012.jpg?format=webp'
+import showerUpgradeAvif from '@/assets/images/pexels-newyork-012.jpg?format=avif'
 
-import waterEfficiencyJpg from "@/assets/images/pexels-newyork-013.jpg"
-import waterEfficiencyWebp from "@/assets/images/pexels-newyork-013.jpg?format=webp"
-import waterEfficiencyAvif from "@/assets/images/pexels-newyork-013.jpg?format=avif"
+import waterEfficiencyJpg from '@/assets/images/pexels-newyork-013.jpg'
+import waterEfficiencyWebp from '@/assets/images/pexels-newyork-013.jpg?format=webp'
+import waterEfficiencyAvif from '@/assets/images/pexels-newyork-013.jpg?format=avif'
 
-import fixtureRepairJpg from "@/assets/images/pexels-newyork-014.jpg"
-import fixtureRepairWebp from "@/assets/images/pexels-newyork-014.jpg?format=webp"
-import fixtureRepairAvif from "@/assets/images/pexels-newyork-014.jpg?format=avif"
+import fixtureRepairJpg from '@/assets/images/pexels-newyork-014.jpg'
+import fixtureRepairWebp from '@/assets/images/pexels-newyork-014.jpg?format=webp'
+import fixtureRepairAvif from '@/assets/images/pexels-newyork-014.jpg?format=avif'
 
 const FixturesServicePage = () => {
   const jsonLd = {
@@ -100,7 +100,7 @@ const FixturesServicePage = () => {
               Transform your home with expertly installed, high-performance plumbing fixtures
             </p>
             <div className="flex flex-col justify-center gap-4 sm:flex-row">
-              <Button href="tel:+12125551234" variant="primary" className="group">
+              <Button href="tel:+12125551234" variant="default" className="group">
                 <div className="flex items-center">
                   <Wrench className="mr-3" size={20} />
                   <span>Schedule Installation: (212) 555-1234</span>
@@ -284,7 +284,7 @@ const FixturesServicePage = () => {
             home.
           </p>
           <div className="flex flex-col justify-center gap-4 sm:flex-row">
-            <Button href="tel:+12125551234" variant="primary" className="group">
+            <Button href="tel:+12125551234" variant="default" className="group">
               <div className="flex items-center">
                 <Wrench className="mr-3" size={20} />
                 <span>Schedule Installation: (212) 555-1234</span>

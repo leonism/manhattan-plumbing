@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { Search } from 'lucide-react'
-import SearchModal from '@/components/UI/SearchModal'
+import SearchModal from '@/components/ui/SearchModal'
 
 interface SearchToggleProps {
   theme: string

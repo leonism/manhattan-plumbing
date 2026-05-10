@@ -1,8 +1,8 @@
 import React from 'react'
-import { useNews } from "@/hooks/useNews"
-import NewsCard from "@/components/News/NewsCard"
-import SectionHeading from "@/components/UI/SectionHeading"
-import Button from "@/components/ui/Button"
+import { useNews } from '@/hooks/useNews'
+import NewsCard from '@/components/News/NewsCard'
+import SectionHeading from '@/components/ui/SectionHeading'
+import Button from '@/components/ui/Button'
 import { ArrowRight } from 'lucide-react'
 
 const NewsSection: React.FC = () => {
@@ -52,7 +52,10 @@ const NewsSection: React.FC = () => {
           ))}
         </div>
         <div className="mt-12 text-center">
-          <Button href="/news" variant="secondary" size="lg">
+          <Button
+            href="/news"
+            className="inline-flex items-center justify-center rounded-md bg-green-900 px-8 py-6 text-lg font-medium text-white transition-all duration-200 hover:bg-slate-900 focus:outline-hidden focus:ring-2 focus:ring-offset-2 focus:ring-slate-500"
+          >
             View All News
             <ArrowRight className="ml-2" size={18} />
           </Button>

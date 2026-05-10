@@ -1,4 +1,4 @@
-import StatItem from "@/components/Hero/StatItem"
+import StatItem from '@/components/Hero/StatItem'
 import { Award, Smile, Clock } from 'lucide-react'
 
 const HeroStats = () => {

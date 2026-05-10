@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { Post } from "@/types/news"
+import { Post } from '@/types/news'
 
 interface RelatedArticlesProps {
   allPosts: Post[]

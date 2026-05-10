@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { ChevronDown, X } from 'lucide-react'
 import { NavItem } from '@/components/Header/navConfig'
-import Logo from '@/components/UI/Logo'
+import Logo from '@/components/ui/Logo'
 import GetQuoteButton from '@/components/Header/GetQuoteButton'
 
 interface MobileNavProps {

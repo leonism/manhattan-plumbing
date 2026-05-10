@@ -1,13 +1,13 @@
-import SectionHeading from "@/components/UI/SectionHeading"
-import Button from "@/components/ui/Button"
+import SectionHeading from '@/components/ui/SectionHeading'
+import Button from '@/components/ui/Button'
 import { Droplets, Wrench, Shield, Clock, CheckCircle, Zap } from 'lucide-react'
-import SEO from "@/components/SEO/SEO"
+import SEO from '@/components/SEO/SEO'
 
-import drainHeroJpg from "@/assets/images/pexels-newyork-001.jpg"
-import kitchenClogJpg from "@/assets/images/pexels-newyork-002.jpg"
-import bathroomDrainJpg from "@/assets/images/pexels-newyork-003.jpg"
-import sewerLineJpg from "@/assets/images/pexels-newyork-004.jpg"
-import outdoorDrainJpg from "@/assets/images/pexels-newyork-005.jpg"
+import drainHeroJpg from '@/assets/images/pexels-newyork-001.jpg'
+import kitchenClogJpg from '@/assets/images/pexels-newyork-002.jpg'
+import bathroomDrainJpg from '@/assets/images/pexels-newyork-003.jpg'
+import sewerLineJpg from '@/assets/images/pexels-newyork-004.jpg'
+import outdoorDrainJpg from '@/assets/images/pexels-newyork-005.jpg'
 
 const DrainsServicePage = () => {
   const jsonLd = {
@@ -80,7 +80,7 @@ const DrainsServicePage = () => {
               Fast, effective solutions for clogged drains that keep your plumbing flowing smoothly
             </p>
             <div className="flex flex-col justify-center gap-4 sm:flex-row">
-              <Button href="tel:+12125551234" variant="primary" className="group">
+              <Button href="tel:+12125551234" variant="default" className="group">
                 <div className="flex items-center">
                   <Zap className="mr-3 group-hover:animate-pulse" size={20} />
                   <span>Emergency Call: (212) 555-1234</span>
@@ -241,7 +241,7 @@ const DrainsServicePage = () => {
             reliable service.
           </p>
           <div className="flex flex-col justify-center gap-4 sm:flex-row">
-            <Button href="tel:+12125551234" variant="primary" className="group">
+            <Button href="tel:+12125551234" variant="default" className="group">
               <div className="flex items-center">
                 <Zap className="mr-3 group-hover:animate-pulse" size={20} />
                 <span>Emergency Call: (212) 555-1234</span>

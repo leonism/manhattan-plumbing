@@ -1,5 +1,5 @@
 import React from 'react'
-import SectionHeading from '@/components/UI/SectionHeading'
+import SectionHeading from '@/components/ui/SectionHeading'
 import Button from '@/components/ui/Button'
 import Paragraph from '@/components/About/Paragraph'
 import BenefitsList from '@/components/About/BenefitsList'

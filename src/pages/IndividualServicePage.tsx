@@ -1,6 +1,6 @@
 import React, { useEffect, useState, Suspense, lazy } from 'react'
 import { useParams } from 'react-router-dom'
-import Layout from "@/components/Layout/Layout"
+import Layout from '@/components/Layout/Layout'
 import {
   Wrench, // General service icon
   Droplet, // For DrainService, PipeService

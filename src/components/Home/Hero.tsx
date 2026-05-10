@@ -1,6 +1,6 @@
-import HeroBackground from "@/components/Hero/HeroBackground"
-import HeroContent from "@/components/Hero/HeroContent"
-import HeroStats from "@/components/Hero/HeroStats"
+import HeroBackground from '@/components/Hero/HeroBackground'
+import HeroContent from '@/components/Hero/HeroContent'
+import HeroStats from '@/components/Hero/HeroStats'
 
 const HeroSection = () => {
   return (

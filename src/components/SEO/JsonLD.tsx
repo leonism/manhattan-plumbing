@@ -103,6 +103,7 @@ export interface JsonLDProps {
   image?: ImageSchemaProps
   review?: ReviewSchemaProps
   faqPage?: FAQPageSchemaProps
+  jsonLd?: object
 }
 type JsonSchema = Record<string, unknown>
 
@@ -113,8 +114,13 @@ const JsonLD: React.FC<JsonLDProps> = ({
   image,
   review,
   faqPage,
+  jsonLd,
 }) => {
   const schemas: JsonSchema[] = []
+
+  if (jsonLd) {
+    schemas.push(jsonLd)
+  }
 
   if (article) {
     schemas.push({

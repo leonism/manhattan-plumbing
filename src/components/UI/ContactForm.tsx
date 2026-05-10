@@ -1,6 +1,6 @@
 import React from 'react'
-import Button from "@/components/ui/Button"
-import useContactForm from "@/hooks/useContactForm"
+import Button from '@/components/ui/Button'
+import useContactForm from '@/hooks/useContactForm'
 import { PaperAirplaneIcon } from '@heroicons/react/24/outline'
 
 interface ContactFormProps {
@@ -18,7 +18,7 @@ const ContactForm: React.FC<ContactFormProps> = ({
   headingSize = 'sm',
   variant = 'default',
 }) => {
-  const { formData, handleChange, handleSubmit } = useContactForm()
+  const { formData, errors, handleChange, handleSubmit } = useContactForm()
 
   // Dynamic class composition
   const getFormClasses = () => {
@@ -75,9 +75,14 @@ const ContactForm: React.FC<ContactFormProps> = ({
             value={formData.name}
             onChange={handleChange}
             required
-            className="w-full rounded-md border border-slate-300 bg-white px-3 py-2 text-sm text-slate-800 placeholder-slate-400 transition-colors focus:border-transparent focus:ring-2 focus:ring-blue-500 focus:outline-hidden sm:px-4 sm:py-3 sm:text-base dark:border-slate-600 dark:bg-slate-700 dark:text-white dark:placeholder-slate-500"
+            className={`w-full rounded-md border px-3 py-2 text-sm transition-colors focus:ring-2 focus:ring-blue-500 focus:outline-hidden sm:px-4 sm:py-3 sm:text-base ${
+              errors.name
+                ? 'border-red-500 bg-red-50 text-red-900 focus:border-red-500 focus:ring-red-500'
+                : 'border-slate-300 bg-white text-slate-800 placeholder-slate-400 dark:border-slate-600 dark:bg-slate-700 dark:text-white'
+            }`}
             placeholder="John Doe"
           />
+          {errors.name && <p className="mt-1 text-sm text-red-500">{errors.name}</p>}
         </div>
 
         {/* Responsive Grid for Email/Phone */}
@@ -96,9 +101,14 @@ const ContactForm: React.FC<ContactFormProps> = ({
               value={formData.email}
               onChange={handleChange}
               required
-              className="w-full rounded-md border border-slate-300 bg-white px-3 py-2 text-sm text-slate-800 placeholder-slate-400 transition-colors focus:border-transparent focus:ring-2 focus:ring-blue-500 focus:outline-hidden sm:px-4 sm:py-3 sm:text-base dark:border-slate-600 dark:bg-slate-700 dark:text-white dark:placeholder-slate-500"
+              className={`w-full rounded-md border px-3 py-2 text-sm transition-colors focus:ring-2 focus:ring-blue-500 focus:outline-hidden sm:px-4 sm:py-3 sm:text-base ${
+                errors.email
+                  ? 'border-red-500 bg-red-50 text-red-900 focus:border-red-500 focus:ring-red-500'
+                  : 'border-slate-300 bg-white text-slate-800 placeholder-slate-400 dark:border-slate-600 dark:bg-slate-700 dark:text-white'
+              }`}
               placeholder="john@example.com"
             />
+            {errors.email && <p className="mt-1 text-sm text-red-500">{errors.email}</p>}
           </div>
 
           <div>
@@ -115,9 +125,14 @@ const ContactForm: React.FC<ContactFormProps> = ({
               value={formData.phone}
               onChange={handleChange}
               required
-              className="w-full rounded-md border border-slate-300 bg-white px-3 py-2 text-sm text-slate-800 placeholder-slate-400 transition-colors focus:border-transparent focus:ring-2 focus:ring-blue-500 focus:outline-hidden sm:px-4 sm:py-3 sm:text-base dark:border-slate-600 dark:bg-slate-700 dark:text-white dark:placeholder-slate-500"
+              className={`w-full rounded-md border px-3 py-2 text-sm transition-colors focus:ring-2 focus:ring-blue-500 focus:outline-hidden sm:px-4 sm:py-3 sm:text-base ${
+                errors.phone
+                  ? 'border-red-500 bg-red-50 text-red-900 focus:border-red-500 focus:ring-red-500'
+                  : 'border-slate-300 bg-white text-slate-800 placeholder-slate-400 dark:border-slate-600 dark:bg-slate-700 dark:text-white'
+              }`}
               placeholder="(212) 555-1234"
             />
+            {errors.phone && <p className="mt-1 text-sm text-red-500">{errors.phone}</p>}
           </div>
         </div>
 
@@ -135,7 +150,11 @@ const ContactForm: React.FC<ContactFormProps> = ({
             value={formData.service}
             onChange={handleChange}
             required
-            className="w-full rounded-md border border-slate-300 bg-white px-3 py-2 text-sm text-slate-800 transition-colors focus:border-transparent focus:ring-2 focus:ring-blue-500 focus:outline-hidden sm:px-4 sm:py-3 sm:text-base dark:border-slate-600 dark:bg-slate-700 dark:text-white"
+            className={`w-full appearance-none rounded-md border px-3 py-2 text-sm transition-colors focus:ring-2 focus:ring-blue-500 focus:outline-hidden sm:px-4 sm:py-3 sm:text-base ${
+              errors.service
+                ? 'border-red-500 bg-red-50 text-red-900 focus:border-red-500 focus:ring-red-500'
+                : 'border-slate-300 bg-white text-slate-800 dark:border-slate-600 dark:bg-slate-700 dark:text-white'
+            }`}
           >
             <option value="">Select a service</option>
             <option value="emergency">Emergency Plumbing</option>
@@ -145,6 +164,7 @@ const ContactForm: React.FC<ContactFormProps> = ({
             <option value="pipes">Pipe Repair & Replacement</option>
             <option value="other">Other</option>
           </select>
+          {errors.service && <p className="mt-1 text-sm text-red-500">{errors.service}</p>}
         </div>
 
         {/* Message Textarea */}
@@ -170,12 +190,12 @@ const ContactForm: React.FC<ContactFormProps> = ({
       {/* Responsive Button */}
       <div className="pt-3 sm:pt-4">
         <Button
-          size="md"
+          type="submit"
           fullWidth
-          className="group flex items-center justify-center gap-2 py-2 text-sm sm:py-3 sm:text-base"
+          className="group flex items-center justify-center gap-2 rounded-md bg-blue-600 px-8 py-3 text-base font-semibold text-white transition-colors hover:bg-blue-700 sm:py-4"
         >
           <span>Submit Request</span>
-          <PaperAirplaneIcon className="h-4 w-4 transition-transform group-hover:translate-x-1 sm:h-5 sm:w-5" />
+          <PaperAirplaneIcon className="h-5 w-5 transition-transform group-hover:translate-x-1" />
         </Button>
       </div>
 
@@ -196,59 +216,3 @@ const ContactForm: React.FC<ContactFormProps> = ({
 }
 
 export default ContactForm
-
-// Default usage
-// <ContactForm />
-
-// Custom heading with large size
-// <ContactForm heading="Request a Callback" headingSize="lg" />
-
-// No heading
-// <ContactForm heading="" />
-
-// Small heading for compact forms
-// <ContactForm heading="Quick Contact" headingSize="sm" />
-
-// Responsive Breakpoints:
-
-// Padding: p-4 sm:p-6 md:p-8
-
-// Text sizes: text-sm sm:text-base
-
-// Input heights: py-2 sm:py-3
-
-// Grid layout: grid-cols-1 sm:grid-cols-2
-
-// Shadows: shadow-xs sm:shadow-md
-
-// Rounded corners: rounded-lg sm:rounded-xl
-
-// // Default (with border)
-// <ContactForm variant="default" />
-
-// // Minimal (no border)
-// <ContactForm variant="minimal" />
-
-// // Highlighted (with blue ring)
-// <ContactForm variant="highlighted" />
-
-// <ContactForm
-//   heading="Quick Question?"
-//   headingSize="sm"
-//   shadow={false}
-//   rounded="sm"
-//   variant="minimal"
-// />
-
-// <ContactForm
-//   heading="Schedule Your Free Consultation"
-//   headingSize="xl"
-//   variant="highlighted"
-// />
-
-// <ContactForm
-//   heading="Contact Us"
-//   headingSize="md"
-//   rounded={false}
-//   shadow={false}
-// />

@@ -1,9 +1,9 @@
 import { useState, useEffect } from 'react'
-import SEO from "@/components/SEO/SEO"
-import SectionHeading from "@/components/UI/SectionHeading"
-import Button from "@/components/ui/Button"
+import SEO from '@/components/SEO/SEO'
+import SectionHeading from '@/components/ui/SectionHeading'
+import Button from '@/components/ui/Button'
 import { Home, Bath, Hammer, Zap, CheckCircle } from 'lucide-react'
-import SkeletonLoader from "@/components/UI/SkeletonLoader"
+import SkeletonLoader from '@/components/ui/SkeletonLoader'
 
 interface PexelsImage {
   id: number
@@ -115,7 +115,7 @@ const RemodelingServicePage = () => {
               Transform your bathroom into a spa-like retreat with our premium remodeling services
             </p>
             <div className="flex flex-col justify-center gap-4 sm:flex-row">
-              <Button href="tel:+12125551234" variant="primary" className="group">
+              <Button href="tel:+12125551234" variant="default" className="group">
                 <div className="flex items-center">
                   <Zap className="mr-3 group-hover:animate-pulse" size={20} />
                   <span>Emergency Call: (212) 555-1234</span>
@@ -277,7 +277,7 @@ const RemodelingServicePage = () => {
             bathroom.
           </p>
           <div className="flex flex-col justify-center gap-4 sm:flex-row">
-            <Button href="tel:+12125551234" variant="primary" className="group">
+            <Button href="tel:+12125551234" variant="default" className="group">
               <div className="flex items-center">
                 <Zap className="mr-3 group-hover:animate-pulse" size={20} />
                 <span>Emergency Call: (212) 555-1234</span>

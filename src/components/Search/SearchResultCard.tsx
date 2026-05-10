@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import type { SearchResult } from "@/hooks/useSearch"
+import type { SearchResult } from '@/hooks/useSearch'
 
 interface SearchResultCardProps {
   result: SearchResult

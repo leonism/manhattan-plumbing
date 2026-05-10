@@ -1,5 +1,5 @@
 import React from 'react'
-import { Post } from "@/types/news"
+import { Post } from '@/types/news'
 
 interface NewsPostHeaderProps {
   post: Post

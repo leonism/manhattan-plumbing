@@ -1,6 +1,6 @@
-import SEO from "@/components/SEO/SEO"
-import SectionHeading from "@/components/UI/SectionHeading"
-import Button from "@/components/ui/Button"
+import SEO from '@/components/SEO/SEO'
+import SectionHeading from '@/components/ui/SectionHeading'
+import Button from '@/components/ui/Button'
 import { Flame, Thermometer, Zap, Clock, CheckCircle } from 'lucide-react'
 
 const WaterHeatersServicePage = () => {
@@ -51,7 +51,7 @@ const WaterHeatersServicePage = () => {
             Reliable hot water solutions with 24/7 emergency service and 10-year guarantees
           </p>
           <div className="flex flex-col justify-center gap-4 sm:flex-row">
-            <Button href="tel:+12125551234" variant="primary" className="group">
+            <Button href="tel:+12125551234" variant="default" className="group">
               <div className="flex items-center">
                 <Zap className="mr-3 group-hover:animate-pulse" size={20} />
                 <span>Emergency Call: (212) 555-1234</span>
@@ -214,7 +214,7 @@ const WaterHeatersServicePage = () => {
             about our special rebates and financing options.
           </p>
           <div className="flex flex-col justify-center gap-4 sm:flex-row">
-            <Button href="tel:+12125551234" variant="primary" className="group">
+            <Button href="tel:+12125551234" variant="default" className="group">
               <div className="flex items-center">
                 <Zap className="mr-3 group-hover:animate-pulse" size={20} />
                 <span>Emergency Call: (212) 555-1234</span>

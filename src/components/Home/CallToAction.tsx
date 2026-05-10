@@ -1,7 +1,7 @@
 import React from 'react'
-import CallToActionBackground from "@/components/CallToAction/CallToActionBackground"
-import CallToActionContent from "@/components/CallToAction/CallToActionContent"
-import CallToActionButtons from "@/components/CallToAction/CallToActionButtons"
+import CallToActionBackground from '@/components/CallToAction/CallToActionBackground'
+import CallToActionContent from '@/components/CallToAction/CallToActionContent'
+import CallToActionButtons from '@/components/CallToAction/CallToActionButtons'
 
 const CallToAction: React.FC = () => {
   const backgroundImage =

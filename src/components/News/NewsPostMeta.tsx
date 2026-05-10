@@ -2,8 +2,8 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { format } from 'date-fns'
 import { Calendar, Clock, Folder } from 'lucide-react'
-import TagList from "@/components/News/TagList"
-import { Post } from "@/types/news"
+import TagList from '@/components/News/TagList'
+import { Post } from '@/types/news'
 
 interface NewsPostMetaProps {
   post: Post

@@ -7,7 +7,7 @@ import JsonLD, {
   LocalBusinessSchemaProps,
   ImageSchemaProps,
   ReviewSchemaProps,
-} from "@/components/SEO/JsonLD"
+} from '@/components/SEO/JsonLD'
 
 interface SEOProps {
   title: string
@@ -36,6 +36,7 @@ interface SEOProps {
   review?: ReviewSchemaProps
 
   imageSchema?: ImageSchemaProps
+  jsonLd?: object
 }
 
 const SEO: React.FC<SEOProps> = ({
@@ -64,6 +65,7 @@ const SEO: React.FC<SEOProps> = ({
   breadcrumbs,
   review,
   imageSchema,
+  jsonLd,
 }) => {
   const keywordsString = Array.isArray(keywords) ? keywords.join(', ') : keywords
 
@@ -129,6 +131,7 @@ const SEO: React.FC<SEOProps> = ({
         review={review}
         image={imageSchema}
         faqPage={undefined} // Assuming no FAQPage for now
+        jsonLd={jsonLd}
       />
     </>
   )

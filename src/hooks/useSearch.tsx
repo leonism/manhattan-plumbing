@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import type { Post } from "@/types/news"
+import type { Post } from '@/types/news'
 
 // Define services data statically with icons
 const services = [
