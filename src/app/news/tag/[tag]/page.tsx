@@ -1,14 +1,12 @@
 import { Metadata } from 'next'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
-import NewsCard from '@/components/News/NewsCard'
+import PaginatedPostGrid from '@/components/News/PaginatedPostGrid'
 import { getAllPosts, getAllTags } from '@/lib/news'
 import { slugify } from '@/utils/slugify'
-import Pagination from '@/components/ui/Pagination'
 
 interface Props {
   params: Promise<{ tag: string }>
-  searchParams: Promise<{ page?: string }>
 }
 
 export async function generateStaticParams() {
@@ -40,10 +38,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   }
 }
 
-export default async function TagPage({ params, searchParams }: Props) {
+export default async function TagPage({ params }: Props) {
   const { tag } = await params
-  const { page } = await searchParams
-  const currentPage = parseInt(page || '1', 10)
   const postsPerPage = 6
 
   const allPosts = getAllPosts()
@@ -58,10 +54,6 @@ export default async function TagPage({ params, searchParams }: Props) {
     notFound()
   }
 
-  const totalPages = Math.ceil(filteredPosts.length / postsPerPage)
-  const startIndex = (currentPage - 1) * postsPerPage
-  const paginatedPosts = filteredPosts.slice(startIndex, startIndex + postsPerPage)
-
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "CollectionPage",
@@ -70,7 +62,7 @@ export default async function TagPage({ params, searchParams }: Props) {
     "url": `https://manhattan-plumbing.pages.dev/news/tag/${tag}`,
     "mainEntity": {
       "@type": "ItemList",
-      "itemListElement": paginatedPosts.map((post, index) => ({
+      "itemListElement": filteredPosts.slice(0, 6).map((post, index) => ({
         "@type": "ListItem",
         "position": index + 1,
         "url": `https://manhattan-plumbing.pages.dev/news/${post.slug}`
@@ -101,15 +93,9 @@ export default async function TagPage({ params, searchParams }: Props) {
           </p>
         </header>
 
-        <section className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
-          {paginatedPosts.map((post) => (
-            <NewsCard key={post.slug} post={post} />
-          ))}
-        </section>
-
-        <Pagination 
-          currentPage={currentPage} 
-          totalPages={totalPages} 
+        <PaginatedPostGrid 
+          posts={filteredPosts} 
+          postsPerPage={postsPerPage} 
           baseUrl={`/news/tag/${tag}`} 
         />
       </div>
