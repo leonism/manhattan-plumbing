@@ -27,7 +27,7 @@ const NewsCard: React.FC<NewsCardProps> = ({ post }) => {
           </picture>
         </Link>
         <Link
-          href={`/news?category=${slugify(post.category)}`}
+          href={`/news/category/${slugify(post.category)}`}
           className="absolute top-4 left-4 rounded-full bg-blue-600 px-3 py-1 text-sm font-semibold text-white dark:bg-blue-400"
         >
           {post.category}

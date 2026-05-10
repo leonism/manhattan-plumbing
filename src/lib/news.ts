@@ -102,6 +102,18 @@ export function getAllTags(): string[] {
 }
 
 /**
+ * Retrieves all unique categories from all published posts.
+ */
+export function getAllCategories(): string[] {
+  const allPosts = getAllPosts()
+  const categories = new Set<string>()
+  allPosts.forEach((post) => {
+    if (post.category) categories.add(post.category)
+  })
+  return Array.from(categories)
+}
+
+/**
  * Gets all slugs for static generation.
  */
 export function getAllPostSlugs() {

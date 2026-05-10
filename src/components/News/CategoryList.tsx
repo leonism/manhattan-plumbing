@@ -37,7 +37,7 @@ const CategoryList: React.FC<CategoryListProps> = ({ categories, currentCategory
       {visibleCategories.map((cat) => (
         <Link
           key={cat}
-          href={`/news?category=${slugify(cat)}`}
+          href={`/news/category/${slugify(cat)}`}
           className={`text-sm ${
             currentCategory === slugify(cat) || currentCategory === cat.toLowerCase()
               ? 'bg-blue-600 text-white dark:bg-blue-400'

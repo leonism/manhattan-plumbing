@@ -17,21 +17,9 @@ export const metadata: Metadata = {
   },
 }
 
-interface Props {
-  searchParams: Promise<{ category?: string; tag?: string }>
-}
-
-export default async function NewsPage({ searchParams }: Props) {
-  const { category, tag } = await searchParams
+export default function NewsPage() {
   const allPosts = getAllPosts()
-  
-  let filteredPosts = allPosts
-  if (category) {
-    filteredPosts = allPosts.filter(p => slugify(p.category) === category || p.category.toLowerCase() === category.toLowerCase())
-  } else if (tag) {
-    filteredPosts = allPosts.filter(p => p.tags.some(t => t.toLowerCase() === tag.toLowerCase()))
-  }
-
+  const filteredPosts = allPosts.slice(0, 6)
   const categories = [...new Set(allPosts.map((p) => p.category))]
 
   return (
@@ -39,17 +27,13 @@ export default async function NewsPage({ searchParams }: Props) {
       <div className="container mx-auto px-4">
         <header className="mt-12 mb-12 text-center">
           <h1 className="mb-4 text-5xl font-bold tracking-tight text-blue-600 md:text-5xl dark:text-blue-400">
-            {category ? `${category} News` : tag ? `Posts tagged with #${tag}` : 'Latest News'}
+            Latest News
           </h1>
           <p className="mx-auto max-w-2xl text-lg text-slate-600 dark:text-slate-400">
-            {category 
-              ? `Browse our latest articles and updates in the ${category} category.`
-              : tag
-              ? `Explore all articles tagged with #${tag}.`
-              : 'Stay informed about the latest plumbing tips, company updates, and industry insights.'}
+            Stay informed about the latest plumbing tips, company updates, and industry insights.
           </p>
           <div className="mt-8">
-            <CategoryList categories={categories} currentCategory={category} />
+            <CategoryList categories={categories} />
           </div>
         </header>
 
