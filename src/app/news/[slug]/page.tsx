@@ -6,6 +6,8 @@ import Link from 'next/link'
 import { Calendar, User, ChevronLeft } from 'lucide-react'
 import Button from '@/components/ui/Button'
 import NewsPostBody from '@/components/News/NewsPostBody'
+import TableOfContents from '@/components/News/TableOfContents'
+import NewsletterForm from '@/components/News/NewsletterForm'
 import { format } from 'date-fns'
 
 interface Props {
@@ -160,6 +162,9 @@ export default async function NewsPostPage({ params }: Props) {
 
           {/* Sidebar */}
           <aside className="space-y-12 lg:w-1/3">
+            {/* Table of Contents - Only shown on desktop */}
+            <TableOfContents content={post.content || ''} />
+
             {/* Author Bio */}
             <div className="rounded-2xl border border-slate-100 bg-slate-50 p-8 dark:border-slate-800 dark:bg-slate-800/50">
               <h3 className="mb-6 text-xl font-bold dark:text-white">About the Author</h3>
@@ -191,9 +196,7 @@ export default async function NewsPostPage({ params }: Props) {
               <p className="mb-6 text-blue-100">
                 Get the latest plumbing tips and company news delivered straight to your inbox.
               </p>
-              <Button variant="default" className="w-full bg-white text-blue-600 hover:bg-blue-50">
-                Subscribe to Newsletter
-              </Button>
+              <NewsletterForm />
             </div>
           </aside>
         </div>
