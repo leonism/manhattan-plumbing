@@ -16,17 +16,13 @@ interface Props {
   params: Promise<{ slug: string }>
 }
 
+export const dynamicParams = false
+
 export async function generateStaticParams() {
   const slugs = getAllPostSlugs()
-  const params = slugs.map((s) => ({
+  return slugs.map((s) => ({
     slug: s.params.slug,
   }))
-  
-  // Add index.md to satisfy Next.js crawling
-  // and avoid the "missing param" build error
-  params.push({ slug: 'index.md' })
-  
-  return params
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
