@@ -1,38 +1,19 @@
-// Placeholder for useContactForm hook
-import { useState } from 'react'
+import { z } from "zod"
 
-interface FormData {
-  name: string
-  email: string
-  phone: string
-  service: string
-  message: string
-}
+export const contactFormSchema = z.object({
+  name: z.string().min(2, {
+    message: "Name must be at least 2 characters.",
+  }),
+  email: z.string().email({
+    message: "Please enter a valid email address.",
+  }),
+  phone: z.string().min(10, {
+    message: "Please enter a valid phone number.",
+  }),
+  service: z.string().min(1, {
+    message: "Please select a service.",
+  }),
+  message: z.string().optional(),
+})
 
-const useContactForm = () => {
-  const [formData, setFormData] = useState<FormData>({
-    name: '',
-    email: '',
-    phone: '',
-    service: '',
-    message: '',
-  })
-
-  const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>
-  ) => {
-    const { name, value } = e.target
-    setFormData((prev) => ({ ...prev, [name]: value }))
-  }
-
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault()
-    // Handle form submission logic here
-    console.log('Form data submitted:', formData)
-    alert('Form submitted! Check the console for data.')
-  }
-
-  return { formData, handleChange, handleSubmit }
-}
-
-export default useContactForm
+export type ContactFormValues = z.infer<typeof contactFormSchema>

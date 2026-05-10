@@ -1,6 +1,6 @@
 import React from 'react'
 import { SparklesIcon } from '@heroicons/react/24/outline'
-import Button from '../UI/Button'
+import Button from '@/components/ui/Button'
 
 const GetQuoteButton: React.FC = () => {
   return (

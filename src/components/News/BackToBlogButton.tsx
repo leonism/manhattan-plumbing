@@ -1,11 +1,11 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import Link from 'next/link'
 import { ArrowLeft } from 'lucide-react'
 
 const BackToBlogButton: React.FC = () => {
   return (
     <Link
-      to="/news"
+      href="/news"
       className="mb-3 inline-flex text-left text-xs text-blue-600 transition-colors duration-200 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-200"
       aria-label="Back to Blog"
     >

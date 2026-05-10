@@ -1,34 +1,11 @@
-import React from 'react'
-import { useNews } from '../../hooks/useNews'
-import NewsCard from '../News/NewsCard'
-import SectionHeading from '../UI/SectionHeading'
-import Button from '../UI/Button'
+import { getAllPosts } from '@/lib/news'
+import NewsCard from '@/components/News/NewsCard'
+import SectionHeading from '@/components/ui/SectionHeading'
+import Button from '@/components/ui/Button'
 import { ArrowRight } from 'lucide-react'
 
-const NewsSection: React.FC = () => {
-  const { posts, isLoading } = useNews({ limit: 6 }) // Fetch latest 6 posts
-
-  if (isLoading) {
-    // Optional: Add a loading state UI
-    return (
-      <section
-        id="news"
-        aria-labelledby="news-heading"
-        className="bg-slate-50 py-20 dark:bg-slate-800"
-      >
-        <div className="container mx-auto px-4 md:px-6">
-          <SectionHeading
-            title="Latest News"
-            subtitle="Stay updated with our latest articles and insights"
-            centered={false}
-          />
-          <div className="text-center">
-            <p className="text-lg text-slate-600 dark:text-slate-300">Loading news...</p>
-          </div>
-        </div>
-      </section>
-    )
-  }
+const NewsSection = async () => {
+  const posts = (await getAllPosts()).slice(0, 3) // Get latest 3 posts for the homepage
 
   if (!posts.length) {
     return null // Don't render section if no posts
@@ -52,7 +29,10 @@ const NewsSection: React.FC = () => {
           ))}
         </div>
         <div className="mt-12 text-center">
-          <Button href="/news" variant="secondary" size="lg">
+          <Button
+            href="/news"
+            className="inline-flex items-center justify-center rounded-md bg-green-900 px-8 py-4 text-lg font-semibold text-white transition-all duration-200 hover:bg-slate-900 focus:outline-hidden focus:ring-2 focus:ring-offset-2 focus:ring-slate-500 shadow-md hover:shadow-lg"
+          >
             View All News
             <ArrowRight className="ml-2" size={18} />
           </Button>

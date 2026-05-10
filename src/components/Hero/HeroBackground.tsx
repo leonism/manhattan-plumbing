@@ -1,10 +1,8 @@
-import bgImage from '/src/assets/images/pexels-newyork-004.jpg'
-
 const HeroBackground = () => {
   return (
     <div
       className="absolute inset-0 z-0 bg-cover bg-center bg-blend-multiply brightness-[0.3] after:absolute after:inset-0 after:bg-linear-to-b after:from-transparent after:via-black/30 after:to-black/70"
-      style={{ backgroundImage: `url(${bgImage})` }}
+      style={{ backgroundImage: `url('/images/pexels-newyork-004.jpg')` }}
       role="img"
       aria-label="New York City skyline background"
     />

@@ -1,4 +1,4 @@
-import HeroButton from './HeroButton'
+import HeroButton from '@/components/Hero/HeroButton'
 import { PhoneCall, CheckCircle } from 'lucide-react'
 
 const HeroContent = () => {
@@ -13,16 +13,16 @@ const HeroContent = () => {
       </p>
       <div className="mb-5 flex flex-col gap-4 sm:flex-row">
         <HeroButton href="/#contact" icon={CheckCircle}>
-          Get a Free Quote
+          Schedule Appointment
         </HeroButton>
-        <a
-          href="tel:+12125551234"
-          className="inline-flex items-center justify-center rounded-md border-2 border-white px-6 py-3 font-medium text-white transition-colors duration-200 hover:bg-white/10 focus:ring-2 focus:ring-white focus:ring-offset-2 focus:outline-hidden"
+        <HeroButton 
+          href="tel:+12125551234" 
+          icon={PhoneCall} 
+          variant="outline"
           aria-label="Call us at 212-555-1234"
         >
-          <PhoneCall size={20} className="mr-2" aria-hidden="true" />
-          <span>(212) 555-1234</span>
-        </a>
+          Call Now
+        </HeroButton>
       </div>
     </section>
   )

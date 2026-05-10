@@ -1,0 +1,71 @@
+1:"$Sreact.fragment"
+2:I[5500,["/_next/static/chunks/03j.2kmw04qgd.js","/_next/static/chunks/0mmdhz817e4c6.js","/_next/static/chunks/0eewamb49pw7k.js","/_next/static/chunks/16~6cxmw7ssa_.js","/_next/static/chunks/078zl5tuz~lxe.js"],"Image"]
+3:I[22016,["/_next/static/chunks/03j.2kmw04qgd.js","/_next/static/chunks/0mmdhz817e4c6.js","/_next/static/chunks/0eewamb49pw7k.js","/_next/static/chunks/16~6cxmw7ssa_.js","/_next/static/chunks/078zl5tuz~lxe.js"],""]
+b:I[72472,["/_next/static/chunks/03j.2kmw04qgd.js","/_next/static/chunks/0mmdhz817e4c6.js","/_next/static/chunks/0eewamb49pw7k.js","/_next/static/chunks/16~6cxmw7ssa_.js","/_next/static/chunks/078zl5tuz~lxe.js"],"Button"]
+c:I[97367,["/_next/static/chunks/03j.2kmw04qgd.js","/_next/static/chunks/0mmdhz817e4c6.js","/_next/static/chunks/0eewamb49pw7k.js","/_next/static/chunks/16~6cxmw7ssa_.js"],"OutletBoundary"]
+d:"$Sreact.suspense"
+4:Te42,<h1>Leak Detection Technology: Protecting Your Home in 2025</h1>
+<p>Undetected leaks can cause severe water damage, structural issues, and unexpected spikes in utility
+bills. In 2025, smart leak detection technology empowers homeowners to identify and address problems
+before they escalate.</p>
+<h2>1. The True Cost of Hidden Leaks</h2>
+<p>Leaks waste billions of gallons of water annually and lead to:</p>
+<ul>
+<li><strong>Mold Growth</strong>: Creates health hazards and expensive remediation efforts.</li>
+<li><strong>Structural Damage</strong>: Weakens walls, foundations, and flooring.</li>
+<li><strong>Higher Bills</strong>: Significant water waste drives up utility costs.</li>
+</ul>
+<p>Early detection saves money and protects both property and health.</p>
+<h2>2. How Modern Leak Detection Systems Work</h2>
+<p>Smart leak detection systems have evolved significantly:</p>
+<ul>
+<li><strong>Flow Monitoring</strong>: Track water flow in real time to identify unusual patterns or sudden surges.</li>
+<li><strong>Moisture Sensors</strong>: Installed in vulnerable areas like under sinks, behind appliances, or near
+water heaters to detect the first signs of leaks.</li>
+<li><strong>Acoustic Sensors</strong>: Use sound wave analysis to detect leaks in hidden pipes without invasive
+inspections.</li>
+</ul>
+<p>When irregularities are detected, systems send immediate alerts to your smartphone or smart home
+hub.</p>
+<h2>3. Automated Shut-Off Valves</h2>
+<p>Advanced systems now include automatic shut-off features:</p>
+<ul>
+<li><strong>Instant Reaction</strong>: Shut off water supply the moment a leak is detected to minimize damage.</li>
+<li><strong>Remote Control</strong>: Allow manual shut-off from anywhere via a mobile app.</li>
+<li><strong>Zoned Control</strong>: Target specific areas rather than the entire home, maintaining partial water
+service where safe.</li>
+</ul>
+<p>This automation adds a powerful layer of defense against catastrophic water loss.</p>
+<h2>4. Integration with Smart Home Systems</h2>
+<p>Leak detection technology seamlessly integrates with broader home automation platforms:</p>
+<ul>
+<li><strong>Unified Alerts</strong>: Receive combined notifications for water leaks, smoke, and security systems.</li>
+<li><strong>Energy and Water Usage Analytics</strong>: Track and optimize overall resource consumption.</li>
+<li><strong>Preventive Maintenance Scheduling</strong>: Use data insights to plan inspections and proactive
+repairs.</li>
+</ul>
+<p>These integrated approaches enhance overall home safety and efficiency.</p>
+<h2>5. Choosing the Right Leak Detection Solution</h2>
+<p>Key considerations when selecting a system include:</p>
+<ul>
+<li><strong>Coverage Area</strong>: Choose systems capable of monitoring your home&#39;s full plumbing network.</li>
+<li><strong>Installation Complexity</strong>: Decide between DIY sensors or professionally installed comprehensive
+systems.</li>
+<li><strong>Battery Backup and Connectivity</strong>: Ensure systems remain operational during power outages.</li>
+</ul>
+<p>Consulting a professional plumber or water systems specialist helps tailor solutions to your
+specific home needs.</p>
+<h2>Conclusion: Building a Resilient, Smart Home</h2>
+<p>Investing in leak detection technology is a proactive step toward protecting your home, saving
+water, and preventing unexpected expenses. In 2025, these systems are more accessible, intelligent,
+and effective than ever before.</p>
+<p>By embracing this technology today, homeowners create safer, more efficient, and environmentally
+responsible living spaces — a forward-thinking commitment to both comfort and sustainability.</p>
+0:{"rsc":["$","$1","c",{"children":[["$","main",null,{"className":"min-h-screen bg-white dark:bg-slate-900 pb-20","children":[["$","div",null,{"className":"relative h-[60vh] min-h-[400px] w-full bg-slate-900","children":[["$","$L2",null,{"src":"https://images.pexels.com/photos/5591664/pexels-photo-5591664.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2","alt":"Technician installing smart leak detection system","fill":true,"className":"object-cover opacity-60","priority":true}],["$","div",null,{"className":"absolute inset-0 bg-linear-to-b from-black/20 via-black/40 to-slate-900"}],["$","div",null,{"className":"absolute bottom-0 left-0 w-full pb-12 pt-24","children":["$","div",null,{"className":"container mx-auto px-4","children":[["$","$L3",null,{"href":"/news","className":"mb-8 inline-flex items-center text-blue-400 hover:text-blue-300 transition-colors","children":[["$","svg",null,{"xmlns":"http://www.w3.org/2000/svg","width":20,"height":20,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-chevron-left mr-1","aria-hidden":"true","children":[["$","path","1wnfg3",{"d":"m15 18-6-6 6-6"}],"$undefined"]}],["$","span",null,{"children":"Back to News"}]]}],["$","div",null,{"className":"max-w-4xl","children":[["$","div",null,{"className":"mb-4 flex flex-wrap items-center gap-4 text-sm text-blue-200","children":[["$","span",null,{"className":"rounded-full bg-blue-600 px-3 py-1 font-semibold text-white","children":"Smart Home"}],["$","div",null,{"className":"flex items-center","children":[["$","svg",null,{"xmlns":"http://www.w3.org/2000/svg","width":16,"height":16,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-calendar mr-2","aria-hidden":"true","children":[["$","path","1cmpym",{"d":"M8 2v4"}],["$","path","4m81vk",{"d":"M16 2v4"}],["$","rect","1hopcy",{"width":"18","height":"18","x":"3","y":"4","rx":"2"}],["$","path","8toen8",{"d":"M3 10h18"}],"$undefined"]}],"April 08, 2025"]}],["$","div",null,{"className":"flex items-center","children":[["$","svg",null,{"xmlns":"http://www.w3.org/2000/svg","width":16,"height":16,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-user mr-2","aria-hidden":"true","children":[["$","path","975kel",{"d":"M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"}],["$","circle","17ys0d",{"cx":"12","cy":"7","r":"4"}],"$undefined"]}],"Olivia Turner"]}]]}],["$","h1",null,{"className":"text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight","children":"Leak Detection Technology: Protecting Your Home in 2025"}]]}]]}]}]]}],["$","div",null,{"className":"container mx-auto px-4 mt-12","children":["$","div",null,{"className":"flex flex-col lg:flex-row gap-12","children":[["$","article",null,{"className":"lg:w-2/3","children":[["$","div",null,{"className":"prose prose-lg dark:prose-invert max-w-none prose-blue","children":[["$","div",null,{"dangerouslySetInnerHTML":{"__html":"$4"}}],"$L5"]}],"$L6"]}],"$L7"]}]}],"$L8"]}],["$L9"],"$La"]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"a7gnUAL8VUvvPXGGqweiZ"}
+5:["$","p",null,{"className":"text-slate-500 italic mt-8 border-t pt-8","children":"This article was originally published in our news section. For more tips and updates, follow us on social media."}]
+6:["$","div",null,{"className":"mt-12 flex flex-wrap gap-2","children":[["$","span","leak detection",{"className":"rounded-lg bg-slate-100 dark:bg-slate-800 px-4 py-1 text-sm font-medium text-slate-600 dark:text-slate-400","children":["#","leak detection"]}],["$","span","smart plumbing",{"className":"rounded-lg bg-slate-100 dark:bg-slate-800 px-4 py-1 text-sm font-medium text-slate-600 dark:text-slate-400","children":["#","smart plumbing"]}],["$","span","water safety",{"className":"rounded-lg bg-slate-100 dark:bg-slate-800 px-4 py-1 text-sm font-medium text-slate-600 dark:text-slate-400","children":["#","water safety"]}],["$","span","home monitoring",{"className":"rounded-lg bg-slate-100 dark:bg-slate-800 px-4 py-1 text-sm font-medium text-slate-600 dark:text-slate-400","children":["#","home monitoring"]}],["$","span","plumbing technology",{"className":"rounded-lg bg-slate-100 dark:bg-slate-800 px-4 py-1 text-sm font-medium text-slate-600 dark:text-slate-400","children":["#","plumbing technology"]}],["$","span","preventive maintenance",{"className":"rounded-lg bg-slate-100 dark:bg-slate-800 px-4 py-1 text-sm font-medium text-slate-600 dark:text-slate-400","children":["#","preventive maintenance"]}]]}]
+7:["$","aside",null,{"className":"lg:w-1/3 space-y-12","children":[["$","div",null,{"className":"rounded-2xl bg-slate-50 dark:bg-slate-800/50 p-8 border border-slate-100 dark:border-slate-800","children":[["$","h3",null,{"className":"text-xl font-bold mb-6 dark:text-white","children":"About the Author"}],["$","div",null,{"className":"flex items-center gap-4 mb-4","children":[["$","div",null,{"className":"relative h-16 w-16 overflow-hidden rounded-full border-2 border-blue-600","children":["$","$L2",null,{"src":"https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2","alt":"Olivia Turner","fill":true,"className":"object-cover"}]}],["$","div",null,{"children":[["$","div",null,{"className":"font-bold text-lg dark:text-white","children":"Olivia Turner"}],["$","div",null,{"className":"text-blue-600 dark:text-blue-400 text-sm","children":"Plumbing Specialist"}]]}]]}],["$","p",null,{"className":"text-slate-600 dark:text-slate-400","children":["With over 15 years of experience in Manhattan's unique plumbing landscape, ","Olivia"," brings expert knowledge to every article."]}]]}],["$","div",null,{"className":"rounded-2xl bg-blue-600 p-8 text-white","children":[["$","h3",null,{"className":"text-xl font-bold mb-4","children":"Never Miss an Update"}],["$","p",null,{"className":"mb-6 text-blue-100","children":"Get the latest plumbing tips and company news delivered straight to your inbox."}],["$","$Lb",null,{"data-slot":"button","className":"group/button inline-flex shrink-0 items-center justify-center rounded-md border border-transparent bg-clip-padding text-base font-medium whitespace-nowrap transition-all duration-200 outline-none select-none focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/50 active:not-aria-[haspopup]:translate-y-px disabled:pointer-events-none disabled:opacity-50 aria-invalid:border-destructive aria-invalid:ring-3 aria-invalid:ring-destructive/20 dark:aria-invalid:border-destructive/50 dark:aria-invalid:ring-destructive/40 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-5 dark:hover:bg-blue-700 h-fit gap-2 px-4 py-2 w-full bg-white text-blue-600 hover:bg-blue-50","children":"Subscribe to Newsletter"}]]}]]}]
+8:["$","section",null,{"className":"container mx-auto px-4 mt-20","children":["$","div",null,{"className":"rounded-3xl bg-slate-900 p-12 text-center text-white relative overflow-hidden","children":[["$","div",null,{"className":"relative z-10","children":[["$","h2",null,{"className":"mb-6 text-3xl font-bold md:text-4xl","children":"Facing a Plumbing Issue?"}],["$","p",null,{"className":"mx-auto mb-8 max-w-2xl text-xl text-slate-300","children":"Don't wait for a small leak to become a flood. Our expert team is ready to help you 24/7."}],["$","div",null,{"className":"flex flex-col justify-center gap-4 sm:flex-row","children":[["$","a",null,{"data-slot":"button","className":"group/button inline-flex shrink-0 items-center justify-center rounded-md border border-transparent bg-clip-padding text-base font-medium whitespace-nowrap transition-all duration-200 outline-none select-none focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/50 active:not-aria-[haspopup]:translate-y-px disabled:pointer-events-none disabled:opacity-50 aria-invalid:border-destructive aria-invalid:ring-3 aria-invalid:ring-destructive/20 dark:aria-invalid:border-destructive/50 dark:aria-invalid:ring-destructive/40 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-5 text-white dark:hover:bg-blue-700 h-fit gap-2 px-4 py-2 bg-blue-600 hover:bg-blue-700","href":"tel:+12125551234","children":["$","span",null,{"children":"Call Us Now: (212) 555-1234"}]}],["$","$L3",null,{"data-slot":"button","className":"group/button inline-flex shrink-0 items-center justify-center rounded-md border bg-clip-padding text-base font-medium whitespace-nowrap transition-all duration-200 outline-none select-none focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/50 active:not-aria-[haspopup]:translate-y-px disabled:pointer-events-none disabled:opacity-50 aria-invalid:border-destructive aria-invalid:ring-3 aria-invalid:ring-destructive/20 dark:aria-invalid:border-destructive/50 dark:aria-invalid:ring-destructive/40 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-5 bg-transparent dark:border-primary dark:text-primary dark:hover:bg-primary dark:hover:text-primary-foreground h-fit gap-2 px-4 py-2 border-white text-white hover:bg-white hover:text-slate-900","href":"/#contact","children":["$","span",null,{"children":"Book Online"}]}]]}]]}],["$","div",null,{"className":"absolute top-0 right-0 h-64 w-64 bg-blue-600/20 blur-3xl rounded-full translate-x-1/2 -translate-y-1/2"}]]}]}]
+9:["$","script","script-0",{"src":"/_next/static/chunks/078zl5tuz~lxe.js","async":true}]
+a:["$","$Lc",null,{"children":["$","$d",null,{"name":"Next.MetadataOutlet","children":"$@e"}]}]
+e:null

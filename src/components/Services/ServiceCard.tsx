@@ -1,5 +1,5 @@
 import React from 'react'
-import Button from '../UI/Button'
+import Button from '@/components/ui/Button'
 import { ArrowRightCircle } from 'lucide-react'
 
 interface ServiceCardProps {
@@ -17,7 +17,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ title, description, icon, hre
       </div>
       <h3 className="mb-3 text-xl font-bold text-slate-800 dark:text-white">{title}</h3>
       <p className="mb-5 line-clamp-3 grow text-slate-600 dark:text-slate-300">{description}</p>
-      <Button href={href} variant="primary" size="md" className="bg-blue-600 text-white">
+      <Button href={href} variant="default" size="default" className="bg-blue-600 text-white">
         <ArrowRightCircle className="mr-2" size={18} />
         Learn More
       </Button>

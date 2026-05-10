@@ -1,10 +1,10 @@
 import React from 'react'
-import CompanyInfo from '../Footer/CompanyInfo'
-import QuickLinks from '../Footer/QuickLinks'
+import CompanyInfo from '@/components/Footer/CompanyInfo'
+import QuickLinks from '@/components/Footer/QuickLinks'
 
-import ServicesList from '../Footer/ServicesList'
-import ContactInfo from '../Footer/ContactInfo'
-import LegalInfo from '../Footer/LegalInfo'
+import ServicesList from '@/components/Footer/ServicesList'
+import ContactInfo from '@/components/Footer/ContactInfo'
+import LegalInfo from '@/components/Footer/LegalInfo'
 
 const currentYear = new Date().getFullYear()
 

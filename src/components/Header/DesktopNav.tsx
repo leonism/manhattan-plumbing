@@ -1,5 +1,5 @@
 import React from 'react'
-import { NavItem } from './navConfig'
+import { NavItem } from '@/components/Header/navConfig'
 import { ChevronDown } from 'lucide-react'
 
 interface DesktopNavProps {

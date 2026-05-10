@@ -1,7 +1,7 @@
 import React from 'react'
-import Header from '../Header/Header'
-import Footer from '../../components/Footer/Footer'
-import BackToTop from '../UI/BackToTop'
+import Header from '@/components/Header/Header'
+import Footer from '@/components/Footer/Footer'
+import BackToTop from '@/components/ui/BackToTop'
 
 interface LayoutNewsPageProps {
   children: React.ReactNode
@@ -14,7 +14,7 @@ interface LayoutNewsPageProps {
   ogUrl?: string
 }
 
-import SEO from '../SEO/SEO'
+import SEO from '@/components/SEO/SEO'
 
 const LayoutNewsPage: React.FC<LayoutNewsPageProps> = ({
   children,

@@ -103,8 +103,9 @@ export interface JsonLDProps {
   image?: ImageSchemaProps
   review?: ReviewSchemaProps
   faqPage?: FAQPageSchemaProps
+  jsonLd?: JsonSchema
 }
-type JsonSchema = Record<string, unknown>
+export type JsonSchema = Record<string, unknown>
 
 const JsonLD: React.FC<JsonLDProps> = ({
   article,
@@ -113,10 +114,16 @@ const JsonLD: React.FC<JsonLDProps> = ({
   image,
   review,
   faqPage,
+  jsonLd,
 }) => {
   const schemas: JsonSchema[] = []
 
+  if (jsonLd) {
+    schemas.push(jsonLd)
+  }
+
   if (article) {
+    const currentUrl = typeof window !== 'undefined' ? window.location.href : 'https://manhattan-plumbing.pages.dev'
     schemas.push({
       '@context': 'https://schema.org',
       '@type': 'Article',
@@ -139,7 +146,7 @@ const JsonLD: React.FC<JsonLDProps> = ({
       },
       mainEntityOfPage: {
         '@type': 'WebPage',
-        '@id': window.location.href,
+        '@id': currentUrl,
       },
     })
   }

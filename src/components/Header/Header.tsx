@@ -1,14 +1,16 @@
+'use client'
+
 import React, { useState } from 'react'
-import Logo from '../UI/Logo'
-import ThemeToggle from './ThemeToggle'
-import SearchToggle from './SearchToggle'
-import MenuToggle from './MenuToggle'
-import GetQuoteButton from './GetQuoteButton'
-import useScrollHandler from './useScrollHandler'
-import { useTheme } from '../../hooks/useTheme'
-import { navItems } from './navConfig'
-import DesktopNav from './DesktopNav'
-import MobileNav from './MobileNav'
+import Logo from '@/components/ui/Logo'
+import ThemeToggle from '@/components/Header/ThemeToggle'
+import SearchToggle from '@/components/Header/SearchToggle'
+import MenuToggle from '@/components/Header/MenuToggle'
+import GetQuoteButton from '@/components/Header/GetQuoteButton'
+import useScrollHandler from '@/components/Header/useScrollHandler'
+import { useTheme } from '@/hooks/useTheme'
+import { navItems } from '@/components/Header/navConfig'
+import DesktopNav from '@/components/Header/DesktopNav'
+import MobileNav from '@/components/Header/MobileNav'
 
 interface HeaderProps {
   isHomePage?: boolean

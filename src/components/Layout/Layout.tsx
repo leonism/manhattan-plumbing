@@ -1,27 +1,29 @@
 import React from 'react'
-import Header from '../Header/Header'
-import Footer from '../Footer/Footer'
-import BackToTop from '../UI/BackToTop'
-import SEO from '../SEO/SEO'
+import Header from '@/components/Header/Header'
+import Footer from '@/components/Footer/Footer'
+import BackToTop from '@/components/ui/BackToTop'
+import SEO from '@/components/SEO/SEO'
+
+import { JsonSchema } from '@/components/SEO/JsonLD'
 
 interface LayoutProps {
   children: React.ReactNode
-  title: string
-  description: string
-  keywords: string[]
-  canonical: string
-  ogTitle: string
-  ogDescription: string
-  ogImage: string
-  ogUrl: string
-  jsonLd?: object
+  title?: string
+  description?: string
+  keywords?: string[]
+  canonical?: string
+  ogTitle?: string
+  ogDescription?: string
+  ogImage?: string
+  ogUrl?: string
+  jsonLd?: JsonSchema
 }
 
 const Layout: React.FC<LayoutProps> = ({
   children,
-  title,
-  description,
-  keywords,
+  title = 'Manhattan Plumbing | Professional Plumbing Services in NYC',
+  description = 'Expert plumbing services in Manhattan and surrounding areas. Emergency repairs, drain cleaning, water heaters, and more.',
+  keywords = ['plumbing', 'Manhattan', 'NYC', 'emergency plumber'],
   canonical,
   ogTitle,
   ogDescription,

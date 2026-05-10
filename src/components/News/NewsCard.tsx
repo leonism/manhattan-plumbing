@@ -1,10 +1,10 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import Link from 'next/link'
 import { format } from 'date-fns'
-import { slugify } from '../../utils/slugify' // Assuming slugify is in a utils file
-import TagButton from '../UI/TagButton'
+import { slugify } from '@/utils/slugify' // Assuming slugify is in a utils file
+import TagButton from '@/components/ui/TagButton'
 
-import type { Post } from '../../types/news'
+import type { Post } from '@/types/news'
 
 interface NewsCardProps {
   post: Post
@@ -14,7 +14,7 @@ const NewsCard: React.FC<NewsCardProps> = ({ post }) => {
   return (
     <article className="transform overflow-hidden rounded-lg border border-slate-200 bg-white shadow-lg transition-transform duration-300 hover:scale-105 dark:border-slate-700 dark:bg-slate-800">
       <div className="relative aspect-video overflow-hidden">
-        <Link to={`/news/${post.slug}`} className="block">
+        <Link href={`/news/${post.slug}`} className="block">
           <picture>
             <source srcSet={post.featuredImage.avif} type="image/avif" />
             <source srcSet={post.featuredImage.webp} type="image/webp" />
@@ -27,7 +27,7 @@ const NewsCard: React.FC<NewsCardProps> = ({ post }) => {
           </picture>
         </Link>
         <Link
-          to={`/news/category/${slugify(post.category)}`}
+          href={`/news/category/${slugify(post.category)}`}
           className="absolute top-4 left-4 rounded-full bg-blue-600 px-3 py-1 text-sm font-semibold text-white dark:bg-blue-400"
         >
           {post.category}
@@ -55,7 +55,7 @@ const NewsCard: React.FC<NewsCardProps> = ({ post }) => {
           <span className="hidden md:inline md:text-nowrap">{post.readingTime}</span>
         </div>
         <h2 className="mb-3 text-xl font-semibold transition-colors hover:text-blue-600 dark:text-white/90 dark:hover:text-blue-400">
-          <Link to={`/news/${post.slug}`}>{post.title}</Link>
+          <Link href={`/news/${post.slug}`}>{post.title}</Link>
         </h2>
         <p className="mb-4 line-clamp-3 text-slate-600 dark:text-slate-400">{post.excerpt}</p>
         <div className="flex flex-wrap gap-2">
