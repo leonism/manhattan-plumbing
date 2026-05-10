@@ -18,9 +18,15 @@ interface Props {
 
 export async function generateStaticParams() {
   const slugs = getAllPostSlugs()
-  return slugs.map((s) => ({
+  const params = slugs.map((s) => ({
     slug: s.params.slug,
   }))
+  
+  // Add index.md to satisfy Next.js crawling
+  // and avoid the "missing param" build error
+  params.push({ slug: 'index.md' })
+  
+  return params
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
@@ -53,6 +59,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function NewsPostPage({ params }: Props) {
   const { slug } = await params
+  
+  // Handle markdown filenames that might be matched by this dynamic route
+  if (slug === 'index.md') {
+    notFound()
+  }
+
   const post = await getPostData(slug)
 
   if (!post) {

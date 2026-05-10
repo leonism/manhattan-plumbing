@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
+export const dynamic = "force-static";
 
 export async function GET() {
   // Simple placeholder for the news archive markdown
@@ -7,7 +8,6 @@ export async function GET() {
 title: "News & Updates | Manhattan Plumbing"
 description: "Stay updated with the latest plumbing tips, news, and guides from Manhattan Plumbing."
 url: "https://manhattan-plumbing.pages.dev/news/"
-date_generated: "${new Date().toISOString()}"
 ---
 
 # News & Updates

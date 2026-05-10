@@ -30,7 +30,6 @@ export async function GET(
 title: "${post.title.replace(/"/g, '\\"')}"
 description: "${post.excerpt.replace(/"/g, '\\"')}"
 url: "https://manhattan-plumbing.pages.dev/news/${slug}"
-date_generated: "${new Date().toISOString()}"
 ---
 
 # ${post.title}

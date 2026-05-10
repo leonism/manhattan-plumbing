@@ -1,11 +1,11 @@
 import { NextRequest, NextResponse } from 'next/server';
+export const dynamic = "force-static";
 
 export async function GET() {
   const frontmatter = `---
 title: "Professional Drain Cleaning Services | Manhattan Plumbing"
 description: "Expert drain cleaning and sewer services in Manhattan. We clear clogs and keep your pipes flowing."
 url: "https://manhattan-plumbing.pages.dev/services/drain-service/"
-date_generated: "${new Date().toISOString()}"
 ---
 
 # Drain Cleaning Services
