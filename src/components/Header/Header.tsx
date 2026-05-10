@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import Logo from "@/components/ui/Logo"
+import Logo from "@/components/UI/Logo"
 import ThemeToggle from "@/components/Header/ThemeToggle"
 import SearchToggle from "@/components/Header/SearchToggle"
 import MenuToggle from "@/components/Header/MenuToggle"

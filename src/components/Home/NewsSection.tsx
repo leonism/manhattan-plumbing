@@ -1,7 +1,7 @@
 import React from 'react'
 import { useNews } from "@/hooks/useNews"
 import NewsCard from "@/components/News/NewsCard"
-import SectionHeading from "@/components/ui/SectionHeading"
+import SectionHeading from "@/components/UI/SectionHeading"
 import Button from "@/components/ui/Button"
 import { ArrowRight } from 'lucide-react'
 

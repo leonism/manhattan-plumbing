@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { format } from 'date-fns'
 import { slugify } from "@/utils/slugify" // Assuming slugify is in a utils file
-import TagButton from "@/components/ui/TagButton"
+import TagButton from "@/components/UI/TagButton"
 
 import type { Post } from "@/types/news"
 

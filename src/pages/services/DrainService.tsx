@@ -1,4 +1,4 @@
-import SectionHeading from "@/components/ui/SectionHeading"
+import SectionHeading from "@/components/UI/SectionHeading"
 import Button from "@/components/ui/Button"
 import { Droplets, Wrench, Shield, Clock, CheckCircle, Zap } from 'lucide-react'
 import SEO from "@/components/SEO/SEO"

@@ -1,7 +1,7 @@
 import React from 'react'
-import Header from "@/components/Header/Header"
-import Footer from "@/components/Footer/Footer"
-import BackToTop from "@/components/ui/BackToTop"
+import Header from '@/components/Header/Header'
+import Footer from '@/components/Footer/Footer'
+import BackToTop from '@/components/UI/BackToTop'
 
 interface LayoutHomePageProps {
   children: React.ReactNode

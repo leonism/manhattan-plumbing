@@ -1,5 +1,5 @@
 import React from 'react'
-import SectionHeading from "@/components/ui/SectionHeading"
+import SectionHeading from "@/components/UI/SectionHeading"
 import ServiceCard from "@/components/Services/ServiceCard"
 import { Droplets, UtilityPole, Flame, Home, Wrench, Shield } from 'lucide-react'
 

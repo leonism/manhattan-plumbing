@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
-import StaticHeading from "@/components/ui/StaticHeading"
+import StaticHeading from "@/components/UI/StaticHeading"
 import Layout from "@/components/Layout/Layout"
 import { ChevronDownIcon, ChevronUpIcon } from '@heroicons/react/24/outline'
-import ContactForm from "@/components/ui/ContactForm"
+import ContactForm from "@/components/UI/ContactForm"
 import HeroBackground from "@/components/Hero/HeroBackground"
 
 const PrivacyPolicy: React.FC = () => {

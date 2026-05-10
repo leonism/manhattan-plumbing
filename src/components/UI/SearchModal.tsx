@@ -1,6 +1,6 @@
 import React from 'react'
 import { Dialog } from '@headlessui/react'
-import SearchBar from "@/components/ui/SearchBar"
+import SearchBar from '@/components/UI/SearchBar'
 
 interface SearchModalProps {
   isOpen: boolean

@@ -3,7 +3,7 @@ import { useSearch } from "@/hooks/useSearch"
 import { useNews } from "@/hooks/useNews"
 import { Link, useNavigate } from 'react-router-dom'
 import { Search, Loader, Newspaper, Wrench, X } from 'lucide-react'
-import Logo from "@/components/ui/Logo"
+import Logo from "@/components/UI/Logo"
 
 export interface SearchBarProps {
   onClear: () => void

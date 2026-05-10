@@ -1,5 +1,5 @@
 import React from 'react'
-import SectionHeading from "@/components/ui/SectionHeading"
+import SectionHeading from "@/components/UI/SectionHeading"
 import Button from "@/components/ui/Button"
 import { MapPin, Phone, Mail, Clock, Zap, CheckCircle, Home } from 'lucide-react'
 import SEO from "@/components/SEO/SEO"

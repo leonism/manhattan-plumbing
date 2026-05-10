@@ -1,6 +1,6 @@
 import React from 'react'
 import { Phone, Calendar } from 'lucide-react'
-import Button from "@/components/ui/Button"
+import Button from '@/components/ui/Button'
 
 interface CallToActionButtonsProps {
   phoneNumber: string

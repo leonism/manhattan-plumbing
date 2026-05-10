@@ -1,6 +1,6 @@
 import React from 'react'
-import SectionHeading from "@/components/ui/SectionHeading"
-import TestimonialCard from "@/components/ui/TestimonialCard"
+import SectionHeading from '@/components/UI/SectionHeading'
+import TestimonialCard from '@/components/UI/TestimonialCard'
 
 const Testimonials: React.FC = () => {
   const testimonials = [

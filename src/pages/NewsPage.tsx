@@ -1,10 +1,10 @@
 import React from 'react'
 import { useParams } from 'react-router-dom'
-import SectionHeading from "@/components/ui/SectionHeading"
+import SectionHeading from "@/components/UI/SectionHeading"
 import NewsCard from "@/components/News/NewsCard"
-import PaginationControls from "@/components/ui/PaginationControls"
+import PaginationControls from "@/components/UI/PaginationControls"
 import { useNews } from "@/hooks/useNews"
-import SkeletonLoader from "@/components/ui/SkeletonLoader"
+import SkeletonLoader from "@/components/UI/SkeletonLoader"
 import CategoryList from "@/components/News/CategoryList"
 import SEO from "@/components/SEO/SEO"
 
