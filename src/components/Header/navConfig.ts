@@ -21,7 +21,7 @@ export const navItems: NavItem[] = [
   },
   {
     label: 'Services',
-    href: '#services',
+    href: '/services',
     children: [
       { label: 'Emergency Plumbing', href: '/services/emergency-service' },
       { label: 'Drain Cleaning', href: '/services/drain-service' },
