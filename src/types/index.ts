@@ -35,6 +35,19 @@ export interface Post {
   content: string
 }
 
+export interface SearchResult {
+  slug: string
+  title: string
+  excerpt: string
+  featuredImage?: { src: string; alt: string }
+  icon?: string
+}
+
+export interface CategorizedResults {
+  news: SearchResult[]
+  services: SearchResult[]
+}
+
 export interface UseNewsOptions {
   category?: string
   tag?: string

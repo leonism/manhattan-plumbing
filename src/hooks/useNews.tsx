@@ -6,6 +6,8 @@ export const useNews = ({ category, tag, page = 1, limit = 9 }: UseNewsOptions =
   const [allPosts, setAllPosts] = useState<Post[]>([])
   const [isLoading, setIsLoading] = useState(true)
 
+  const [error, setError] = useState<Error | null>(null)
+
   useEffect(() => {
     const fetchPosts = async () => {
       try {
@@ -13,8 +15,8 @@ export const useNews = ({ category, tag, page = 1, limit = 9 }: UseNewsOptions =
         if (!response.ok) throw new Error('Failed to fetch posts')
         const data = await response.json()
         setAllPosts(data)
-      } catch (error) {
-        console.error('Error fetching news:', error)
+      } catch (err) {
+        setError(err instanceof Error ? err : new Error('Unknown error'))
       } finally {
         setIsLoading(false)
       }
@@ -43,6 +45,7 @@ export const useNews = ({ category, tag, page = 1, limit = 9 }: UseNewsOptions =
     categories,
     totalPages,
     isLoading,
+    error,
     allPosts,
   }
 }

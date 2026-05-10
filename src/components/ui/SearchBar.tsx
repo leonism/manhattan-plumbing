@@ -11,13 +11,7 @@ interface SearchBarProps {
   onClose?: () => void
 }
 
-interface SearchResult {
-  slug: string
-  title: string
-  excerpt: string
-  featuredImage?: { src: string; alt: string }
-  icon?: string
-}
+import { SearchResult } from '@/types'
 
 const SearchBar: React.FC<SearchBarProps> = ({ onClear, onClose }) => {
   const [query, setQuery] = useState('')
