@@ -16,6 +16,9 @@ export const metadata: Metadata = {
   description: 'Expert plumbing for your kitchen and bathroom remodeling projects in Manhattan. We handle design, layout changes, and high-end fixture installation.',
   alternates: {
     canonical: '/services/remodeling-service',
+    types: {
+      'text/markdown': 'https://manhattan-plumbing.pages.dev/services/remodeling-service/index.md',
+    },
   },
 }
 

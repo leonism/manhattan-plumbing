@@ -16,6 +16,9 @@ export const metadata: Metadata = {
   description: 'Professional fixture installation and repair services in Manhattan. We handle faucets, toilets, showers, and sinks with precision and care.',
   alternates: {
     canonical: '/services/fixture-service',
+    types: {
+      'text/markdown': 'https://manhattan-plumbing.pages.dev/services/fixture-service/index.md',
+    },
   },
 }
 

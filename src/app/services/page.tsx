@@ -13,6 +13,9 @@ export const metadata: Metadata = {
   description: 'Comprehensive plumbing services in Manhattan, from 24/7 emergency repairs to full bathroom remodeling and water heater installations.',
   alternates: {
     canonical: '/services',
+    types: {
+      'text/markdown': 'https://manhattan-plumbing.pages.dev/services/index.md',
+    },
   },
 }
 

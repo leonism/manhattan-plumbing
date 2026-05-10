@@ -16,6 +16,9 @@ export const metadata: Metadata = {
   description: 'Expert pipe repair, repiping, and leak detection services in Manhattan. We fix burst pipes, frozen lines, and handle whole-home repiping projects.',
   alternates: {
     canonical: '/services/pipe-service',
+    types: {
+      'text/markdown': 'https://manhattan-plumbing.pages.dev/services/pipe-service/index.md',
+    },
   },
 }
 
