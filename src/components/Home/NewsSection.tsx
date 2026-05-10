@@ -54,7 +54,7 @@ const NewsSection: React.FC = () => {
         <div className="mt-12 text-center">
           <Button
             href="/news"
-            className="inline-flex items-center justify-center rounded-md bg-green-900 px-8 py-6 text-lg font-medium text-white transition-all duration-200 hover:bg-slate-900 focus:outline-hidden focus:ring-2 focus:ring-offset-2 focus:ring-slate-500"
+            className="inline-flex items-center justify-center rounded-md bg-green-900 px-8 py-4 text-lg font-medium text-white transition-all duration-200 hover:bg-slate-900 focus:outline-hidden focus:ring-2 focus:ring-offset-2 focus:ring-slate-500"
           >
             View All News
             <ArrowRight className="ml-2" size={18} />

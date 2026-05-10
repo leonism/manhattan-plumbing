@@ -198,7 +198,7 @@ const ContactForm: React.FC<ContactFormProps> = ({
             <Button
               type="submit"
               fullWidth
-              className="group flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-700 text-white h-12 sm:h-14 text-lg font-bold transition-all duration-200"
+              className="group flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-700 text-white py-4 sm:py-5 text-lg font-bold transition-all duration-200"
             >
               <span>Submit Request</span>
               <PaperAirplaneIcon className="h-5 w-5 transition-transform group-hover:translate-x-1" />

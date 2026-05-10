@@ -10,7 +10,7 @@ const buttonVariants = cva(
   {
     variants: {
       variant: {
-        default: 'bg-primary text-primary-foreground hover:bg-blue-700 dark:hover:bg-blue-700',
+        default: 'bg-primary text-white hover:bg-blue-700 dark:hover:bg-blue-700',
         outline:
           'border-primary bg-transparent text-primary hover:bg-primary hover:text-white dark:border-primary dark:text-primary dark:hover:bg-primary dark:hover:text-primary-foreground',
         secondary:
@@ -22,10 +22,10 @@ const buttonVariants = cva(
         link: 'text-primary underline-offset-4 hover:underline',
       },
       size: {
-        default: 'h-10 gap-2 px-4 py-2',
-        xs: 'h-7 gap-1 px-2 text-xs',
-        sm: 'h-8 gap-1 px-3 text-sm',
-        lg: 'h-12 gap-2 px-6 text-lg',
+        default: 'h-fit gap-2 px-4 py-2',
+        xs: 'h-fit gap-1 px-2 py-1 text-xs',
+        sm: 'h-fit gap-1 px-3 py-1.5 text-sm',
+        lg: 'h-fit gap-2 px-6 py-3 text-lg',
         icon: 'size-10',
         'icon-xs': 'size-7',
         'icon-sm': 'size-8',
