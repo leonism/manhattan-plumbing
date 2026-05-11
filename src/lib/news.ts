@@ -90,6 +90,25 @@ export function getAllPosts(): Post[] {
 }
 
 /**
+ * Retrieves a lightweight version of all posts for search indexing.
+ * Excludes full content and complex author objects to minimize payload.
+ */
+export function getSearchIndex() {
+  const posts = getAllPosts()
+  return posts.map(post => ({
+    slug: post.slug,
+    title: post.title,
+    excerpt: post.excerpt,
+    category: post.category,
+    tags: post.tags,
+    featuredImage: {
+      src: post.featuredImage.src,
+      alt: post.featuredImage.alt
+    }
+  }))
+}
+
+/**
  * Retrieves all unique tags from all published posts.
  */
 export function getAllTags(): string[] {

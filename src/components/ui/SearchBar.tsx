@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useRef, useMemo } from 'react'
 import { useSearch } from '@/hooks/useSearch'
-import { useNews } from '@/hooks/useNews'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 import { Search, Loader, Newspaper, Wrench, X } from 'lucide-react'
@@ -15,8 +14,7 @@ import { SearchResult } from '@/types'
 
 const SearchBar: React.FC<SearchBarProps> = ({ onClear, onClose }) => {
   const [query, setQuery] = useState('')
-  const { allPosts } = useNews()
-  const { results, isLoading } = useSearch(query, allPosts)
+  const { results, isLoading } = useSearch(query)
   const [activeIndex, setActiveIndex] = useState(-1)
   const router = useRouter()
   const inputRef = useRef<HTMLInputElement>(null)
