@@ -3,6 +3,7 @@
 import React from 'react'
 import { Sun, Moon } from 'lucide-react'
 import { useTheme } from '@/hooks/useTheme'
+import { cn } from '@/lib/utils'
 
 interface ThemeToggleProps {
   theme: string
@@ -18,35 +19,29 @@ const ThemeToggle: React.FC<ThemeToggleProps> = ({ theme, scrolled, isHomePage }
     setMounted(true)
   }, [])
 
-  const iconColorClass =
+  const iconColorClass = cn(
+    'relative flex items-center justify-center rounded-full transition-all duration-200',
     isHomePage && !scrolled
-      ? 'text-white hover:bg-slate-100 dark:hover:bg-slate-700'
-      : theme === 'light'
-        ? 'text-slate-800 hover:bg-slate-200'
-        : 'text-white hover:bg-slate-100 dark:hover:bg-slate-700'
+      ? 'text-white hover:bg-white/10'
+      : 'text-slate-700 hover:bg-slate-100 dark:text-slate-200 dark:hover:bg-slate-800'
+  )
 
-  if (!mounted) return <div className="p-3 w-[44px] h-[44px]" /> // Placeholder
+  if (!mounted) return <div className="h-10 w-10 md:mr-3" />
 
   return (
-    <a
-      href="#"
-      onClick={(e) => {
-        e.preventDefault()
-        toggleTheme()
-      }}
-      role="button"
-      tabIndex={0}
-      onKeyDown={(e) => {
-        if (e.key === 'Enter' || e.key === ' ') {
-          e.preventDefault()
-          toggleTheme()
-        }
-      }}
-      className={`rounded-full p-1 transition-colors md:mr-3 md:p-3 ${iconColorClass}`}
+    <button
+      type="button"
+      onClick={toggleTheme}
+      className={cn('p-2 md:mr-3 md:p-3', iconColorClass)}
       aria-label={theme === 'light' ? 'Switch to dark theme' : 'Switch to light theme'}
     >
-      {theme === 'light' ? <Moon size={20} /> : <Sun size={20} />}
-    </a>
+      <span className="sr-only">Toggle theme</span>
+      {theme === 'light' ? (
+        <Moon size={20} className="transition-transform group-hover:rotate-12" />
+      ) : (
+        <Sun size={20} className="transition-transform group-hover:rotate-45" />
+      )}
+    </button>
   )
 }
 

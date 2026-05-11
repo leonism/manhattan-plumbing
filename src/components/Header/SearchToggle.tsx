@@ -3,6 +3,7 @@
 import React, { useState } from 'react'
 import { Search } from 'lucide-react'
 import SearchModal from '@/components/ui/SearchModal'
+import { cn } from '@/lib/utils'
 
 interface SearchToggleProps {
   theme: string
@@ -28,21 +29,24 @@ const SearchToggle: React.FC<SearchToggleProps> = ({ theme, scrolled, isHomePage
     return () => window.removeEventListener('keydown', handleKeyDown)
   }, [])
 
-  const iconColorClass =
+  const iconColorClass = cn(
+    'relative flex items-center justify-center transition-all duration-200',
     isHomePage && !scrolled
       ? 'text-white hover:bg-white/10'
-      : theme === 'light'
-        ? 'text-slate-700 hover:bg-slate-100'
-        : 'text-slate-200 hover:bg-white/10'
+      : 'text-slate-700 hover:bg-slate-100 dark:text-slate-200 dark:hover:bg-slate-800'
+  )
 
-  if (!mounted) return <div className="p-2 w-10 h-10" />
+  if (!mounted) return <div className="h-10 w-10" />
 
   return (
     <>
       <button
         type="button"
         onClick={() => setIsSearchOpen(true)}
-        className={`group relative inline-flex items-center gap-2 rounded-lg px-3 py-1.5 text-sm font-medium transition-all ${iconColorClass} border border-transparent hover:border-slate-200 dark:hover:border-slate-700`}
+        className={cn(
+          'group relative inline-flex items-center gap-2 rounded-lg px-3 py-1.5 text-sm font-medium transition-all border border-transparent hover:border-slate-200 dark:hover:border-slate-700',
+          iconColorClass
+        )}
         aria-label="Search (⌘K)"
       >
         <Search size={18} className="transition-transform group-hover:scale-110" />
@@ -57,3 +61,4 @@ const SearchToggle: React.FC<SearchToggleProps> = ({ theme, scrolled, isHomePage
 }
 
 export default SearchToggle
+
