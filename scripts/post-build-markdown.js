@@ -37,7 +37,7 @@ if (!fs.existsSync(OUT_DIR)) {
 walk(OUT_DIR, (filePath) => {
   if (path.extname(filePath) !== '.html') return;
 
-  const relativePath = path.relative(OUT_DIR, filePath);
+  const relativePath = path.relative(OUT_DIR, filePath).replace(/\\/g, '/');
   if (relativePath === '404.html') return;
 
   console.log(`📄 Processing ${relativePath}...`);
@@ -51,11 +51,13 @@ walk(OUT_DIR, (filePath) => {
     const title = document.title || 'Manhattan Plumbing';
     const description = document.querySelector('meta[name="description"]')?.getAttribute('content') || '';
     
-    // 2. Fix the <link> tag (Ensure title attribute exists)
+    // 2. Determine Markdown Path
+    // slug.html -> slug/index.md
+    // slug/index.html -> slug/index.md
     const isIndex = relativePath.endsWith('index.html');
     const mdPath = isIndex 
-      ? relativePath.replace(/\\/g, '/').replace(/index\.html$/, 'index.md')
-      : relativePath.replace(/\\/g, '/').replace(/\.html$/, '.md');
+      ? relativePath.replace(/index\.html$/, 'index.md')
+      : relativePath.replace(/\.html$/, '/index.md');
       
     const mdUrl = `${BASE_URL}/${mdPath}`;
     let linkTag = /** @type {HTMLLinkElement | null} */(document.querySelector('link[type="text/markdown"]'));
@@ -81,16 +83,7 @@ walk(OUT_DIR, (filePath) => {
     const contentElement = /** @type {HTMLElement} */(contentNode);
     
     // Clean up content: remove scripts, styles, etc.
-    // NOTE: We keep nav elements if they look like TOC, but remove general nav/header/footer
-    contentElement.querySelectorAll('script, style, iframe, noscript, header, footer, .no-markdown, svg, button, .sr-only, [aria-hidden="true"]').forEach(el => el.remove());
-
-    // Keep .toc or nav with "table of contents" aria-label
-    contentElement.querySelectorAll('nav').forEach(nav => {
-      const label = nav.getAttribute('aria-label')?.toLowerCase() || '';
-      if (!label.includes('contents') && !nav.classList.contains('toc')) {
-        nav.remove();
-      }
-    });
+    contentElement.querySelectorAll('script, style, iframe, noscript, header, footer, nav, .no-markdown, svg, button, form, input, select, textarea, .sr-only, [aria-hidden="true"]').forEach(el => el.remove());
 
     // Fix minified HTML by adding newlines between block tags
     let contentHtml = contentElement.innerHTML;
@@ -98,11 +91,13 @@ walk(OUT_DIR, (filePath) => {
     
     let markdown = turndownService.turndown(contentHtml);
 
+    // Strip all remaining HTML tags (to satisfy "Strip all of the html code")
+    markdown = markdown.replace(/<[^>]+>/g, '');
+
     // Final cleanup of the markdown string
     let pageH1 = document.querySelector('h1')?.textContent || '';
     
     // Remove the title from the start of the markdown if it's already there to avoid duplication
-    // (Turndown might have picked up the H1 if it was inside the contentElement)
     const h1Regex = new RegExp(`^# ${pageH1.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}\\s*`, 'i');
     markdown = markdown.replace(h1Regex, '');
     
@@ -118,11 +113,10 @@ walk(OUT_DIR, (filePath) => {
       '---',
       `title: "${title.replace(/"/g, '\\"')}"`,
       `description: "${description.replace(/"/g, '\\"')}"`,
-      `url: "${BASE_URL}/${relativePath.replace(/\\/g, '/').replace(/\/index\.html$/, '')}"`,
+      `url: "${BASE_URL}/${relativePath.replace(/\/index\.html$/, '')}"`,
       `date_generated: "${new Date().toISOString()}"`,
       '---',
-      '',
-      ''
+      '\n'
     ].join('\n');
 
     const finalMarkdown = frontmatter + markdown;
@@ -130,11 +124,15 @@ walk(OUT_DIR, (filePath) => {
     // 5. Save the modified HTML (with fixed link tag)
     fs.writeFileSync(filePath, dom.serialize(), 'utf8');
 
-    // 6. Save the Markdown file
-    const mdFilePath = filePath.replace(/\.html$/, '.md');
-    fs.writeFileSync(mdFilePath, finalMarkdown, 'utf8');
+    // 6. Save the Markdown file in the requested index.md format
+    const absoluteMdPath = path.join(OUT_DIR, mdPath);
+    const mdDir = path.dirname(absoluteMdPath);
+    if (!fs.existsSync(mdDir)) {
+      fs.mkdirSync(mdDir, { recursive: true });
+    }
+    fs.writeFileSync(absoluteMdPath, finalMarkdown, 'utf8');
 
-    console.log(`✅ Generated ${path.relative(OUT_DIR, mdFilePath)}`);
+    console.log(`✅ Generated ${mdPath}`);
   } catch (error) {
     console.error(`❌ Error processing ${filePath}:`, error);
   }
