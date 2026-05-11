@@ -35,6 +35,9 @@ const NewsCard: React.FC<NewsCardProps> = ({ post }) => {
       </div>
 
       <div className="p-6">
+        <h2 className="mb-3 text-xl font-semibold transition-colors hover:text-blue-600 dark:text-white/90 dark:hover:text-blue-400">
+          <Link href={`/news/${post.slug}`}>{post.title}</Link>
+        </h2>
         <div className="mb-4 flex items-center space-x-1 text-left text-base text-slate-600 md:text-sm dark:text-slate-400">
           <picture>
             <source srcSet={post.author.image.avif} type="image/avif" />
@@ -54,9 +57,6 @@ const NewsCard: React.FC<NewsCardProps> = ({ post }) => {
           <span className="hidden md:inline">•</span>
           <span className="hidden md:inline md:text-nowrap">{post.readingTime}</span>
         </div>
-        <h2 className="mb-3 text-xl font-semibold transition-colors hover:text-blue-600 dark:text-white/90 dark:hover:text-blue-400">
-          <Link href={`/news/${post.slug}`}>{post.title}</Link>
-        </h2>
         <p className="mb-4 line-clamp-3 text-slate-600 dark:text-slate-400">{post.excerpt}</p>
         <div className="flex flex-wrap gap-2">
           {post.tags.slice(0, 3).map((tag) => (
