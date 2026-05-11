@@ -82,12 +82,40 @@ walk(OUT_DIR, (filePath) => {
     const contentNode = (article || main || document.body).cloneNode(true);
     const contentElement = /** @type {HTMLElement} */(contentNode);
     
+    // 3.1 Preserve specific navigation and footer elements before cleaning
+    const header = document.querySelector('header');
+    const footer = document.querySelector('footer');
+    const navs = Array.from(document.querySelectorAll('nav'));
+    
     // Clean up content: remove scripts, styles, etc.
-    contentElement.querySelectorAll('script, style, iframe, noscript, header, footer, nav, .no-markdown, svg, button, form, input, select, textarea, .sr-only, [aria-hidden="true"]').forEach(el => el.remove());
+    // We KEEP header, footer, and nav now
+    contentElement.querySelectorAll('script, style, iframe, noscript, .no-markdown, svg, input, select, textarea, .sr-only, [aria-hidden="true"]').forEach(el => el.remove());
+
+    // 3.2 Enhance Card Extraction
+    // If we are on an index/list page, ensure cards are formatted nicely
+    contentElement.querySelectorAll('.card, [class*="PostGrid"], [class*="Grid"]').forEach(grid => {
+      grid.querySelectorAll('a').forEach(link => {
+        // Ensure links in cards have their full text
+        if (!link.textContent?.trim()) {
+          const title = link.querySelector('h2, h3, h4')?.textContent;
+          if (title) link.textContent = title;
+        }
+      });
+    });
 
     // Fix minified HTML by adding newlines between block tags
     let contentHtml = contentElement.innerHTML;
-    contentHtml = contentHtml.replace(/<\/(p|h[1-6]|div|li|section|article|main|blockquote|ul|ol|tr|table)>/gi, '$&\n\n');
+    
+    // Add navigation and footer if they weren't part of the extracted content
+    if (!contentElement.contains(header) && header) {
+      contentHtml = `<header>${header.innerHTML}</header>\n\n` + contentHtml;
+    }
+    
+    if (!contentElement.contains(footer) && footer) {
+      contentHtml = contentHtml + `\n\n<footer>${footer.innerHTML}</footer>`;
+    }
+
+    contentHtml = contentHtml.replace(/<\/(p|h[1-6]|div|li|section|article|main|blockquote|ul|ol|tr|table|header|footer|nav)>/gi, '$&\n\n');
     
     let markdown = turndownService.turndown(contentHtml);
 
@@ -107,6 +135,7 @@ walk(OUT_DIR, (filePath) => {
     // Clean up excessive newlines and escaped headers
     markdown = markdown.replace(/^\\# /gm, '# ');
     markdown = markdown.replace(/\n{3,}/g, '\n\n');
+    markdown = markdown.replace(/&nbsp;/g, ' ');
 
     // 4. Add Frontmatter
     const frontmatter = [
