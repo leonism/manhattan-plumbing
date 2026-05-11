@@ -116,25 +116,29 @@ export {
 export default function PaginationResponsive({ 
   currentPage, 
   totalPages, 
-  baseUrl 
+  baseUrl,
+  usePathPagination = false
 }: { 
   currentPage: number; 
   totalPages: number; 
-  baseUrl: string 
+  baseUrl: string;
+  usePathPagination?: boolean;
 }) {
   if (totalPages <= 1) return null
 
   const pages = Array.from({ length: totalPages }, (_, i) => i + 1)
   
-  // Logic for which pages to show (simplified for now)
-  const showEllipsis = totalPages > 7
+  const getPageUrl = (page: number) => {
+    if (page === 1) return baseUrl
+    return usePathPagination ? `${baseUrl}/${page}` : `${baseUrl}?page=${page}`
+  }
   
   return (
     <Pagination className="mt-12">
       <PaginationContent>
         <PaginationItem>
           <PaginationPrevious 
-            href={currentPage > 1 ? (currentPage === 2 ? baseUrl : `${baseUrl}?page=${currentPage - 1}`) : "#"}
+            href={currentPage > 1 ? getPageUrl(currentPage - 1) : "#"}
             className={currentPage === 1 ? "pointer-events-none opacity-50" : ""}
           />
         </PaginationItem>
@@ -149,7 +153,7 @@ export default function PaginationResponsive({
             return (
               <PaginationItem key={page}>
                 <PaginationLink 
-                  href={page === 1 ? baseUrl : `${baseUrl}?page=${page}`} 
+                  href={getPageUrl(page)} 
                   isActive={currentPage === page}
                 >
                   {page}
@@ -175,7 +179,7 @@ export default function PaginationResponsive({
 
         <PaginationItem>
           <PaginationNext 
-            href={currentPage < totalPages ? `${baseUrl}?page=${currentPage + 1}` : "#"}
+            href={currentPage < totalPages ? getPageUrl(currentPage + 1) : "#"}
             className={currentPage === totalPages ? "pointer-events-none opacity-50" : ""}
           />
         </PaginationItem>

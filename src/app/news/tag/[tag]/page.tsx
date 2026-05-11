@@ -7,6 +7,7 @@ import { slugify } from '@/utils/slugify'
 
 interface Props {
   params: Promise<{ tag: string }>
+  searchParams: Promise<{ page?: string }>
 }
 
 export async function generateStaticParams() {
@@ -16,19 +17,22 @@ export async function generateStaticParams() {
   }))
 }
 
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
+export async function generateMetadata({ params, searchParams }: Props): Promise<Metadata> {
   const { tag } = await params
-  const allTags = getAllTags()
-  const displayTag = allTags.find(t => slugify(t) === tag) || tag
+  const { page } = await searchParams
+  const pageNum = parseInt(page || '1', 10)
+  const displayTag = tag.charAt(0).toUpperCase() + tag.slice(1).replace(/-/g, ' ')
 
-  const title = `Articles tagged with #${displayTag} | Manhattan Plumbing News`
-  const description = `Explore our latest articles and expert plumbing tips tagged with #${displayTag}. Stay informed with Manhattan Plumbing.`
+  const title = pageNum === 1 
+    ? `Articles Tagged: ${displayTag} | Manhattan Plumbing`
+    : `Articles Tagged: ${displayTag} - Page ${pageNum} | Manhattan Plumbing`
+  const description = `Browse all news and plumbing articles related to ${displayTag} from the Manhattan Plumbing team.${pageNum > 1 ? ` Page ${pageNum}.` : ''}`
 
   return {
     title,
     description,
     alternates: {
-      canonical: `/news/tag/${tag}`,
+      canonical: pageNum === 1 ? `/news/tag/${tag}` : `/news/tag/${tag}?page=${pageNum}`,
     },
     openGraph: {
       title,
@@ -38,8 +42,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   }
 }
 
-export default async function TagPage({ params }: Props) {
+export default async function TagPage({ params, searchParams }: Props) {
   const { tag } = await params
+  const { page } = await searchParams
+  const pageNum = parseInt(page || '1', 10)
   const postsPerPage = 6
 
   const allPosts = getAllPosts()
@@ -97,6 +103,7 @@ export default async function TagPage({ params }: Props) {
           posts={filteredPosts} 
           postsPerPage={postsPerPage} 
           baseUrl={`/news/tag/${tag}`} 
+          initialPage={pageNum}
         />
       </div>
     </main>

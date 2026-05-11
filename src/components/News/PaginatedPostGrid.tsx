@@ -10,12 +10,20 @@ interface PaginatedPostGridProps {
   posts: Post[]
   postsPerPage: number
   baseUrl: string
+  initialPage?: number
+  usePathPagination?: boolean
 }
 
-const PostGrid: React.FC<PaginatedPostGridProps> = ({ posts, postsPerPage, baseUrl }) => {
+const PostGrid: React.FC<PaginatedPostGridProps> = ({ 
+  posts, 
+  postsPerPage, 
+  baseUrl, 
+  initialPage,
+  usePathPagination 
+}) => {
   const searchParams = useSearchParams()
   const pageParam = searchParams.get('page')
-  const currentPage = parseInt(pageParam || '1', 10)
+  const currentPage = initialPage || parseInt(pageParam || '1', 10)
 
   const totalPages = Math.ceil(posts.length / postsPerPage)
   const startIndex = (currentPage - 1) * postsPerPage
@@ -33,6 +41,7 @@ const PostGrid: React.FC<PaginatedPostGridProps> = ({ posts, postsPerPage, baseU
         currentPage={currentPage} 
         totalPages={totalPages} 
         baseUrl={baseUrl} 
+        usePathPagination={usePathPagination}
       />
     </>
   )

@@ -18,25 +18,31 @@ export async function generateStaticParams() {
   }))
 }
 
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
+export async function generateMetadata({ params, searchParams }: Props): Promise<Metadata> {
   const { category } = await params
+  const { page } = await searchParams
+  const pageNum = parseInt(page || '1', 10)
   const allCategories = getAllCategories()
   const displayCategory = allCategories.find(c => slugify(c) === category) || category
 
-  const title = `${displayCategory} News & Articles | Manhattan Plumbing`
-  const description = `Read the latest news and expert plumbing insights in the ${displayCategory} category from Manhattan Plumbing.`
+  const title = pageNum === 1 
+    ? `${displayCategory} News & Articles | Manhattan Plumbing`
+    : `${displayCategory} News & Articles - Page ${pageNum} | Manhattan Plumbing`
+  const description = `Read the latest news and expert plumbing insights in the ${displayCategory} category from Manhattan Plumbing.${pageNum > 1 ? ` Page ${pageNum} of our collection.` : ''}`
 
   return {
     title,
     description,
     alternates: {
-      canonical: `/news/category/${category}`,
+      canonical: pageNum === 1 ? `/news/category/${category}` : `/news/category/${category}?page=${pageNum}`,
     },
   }
 }
 
-export default async function CategoryPage({ params }: Props) {
+export default async function CategoryPage({ params, searchParams }: Props) {
   const { category } = await params
+  const { page } = await searchParams
+  const pageNum = parseInt(page || '1', 10)
   const postsPerPage = 6
 
   const allPosts = getAllPosts()
@@ -97,6 +103,7 @@ export default async function CategoryPage({ params }: Props) {
           posts={filteredPosts} 
           postsPerPage={postsPerPage} 
           baseUrl={`/news/category/${category}`} 
+          initialPage={pageNum}
         />
       </div>
     </main>
