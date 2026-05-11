@@ -2,39 +2,38 @@ import { Metadata } from 'next'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import PaginatedPostGrid from '@/components/News/PaginatedPostGrid'
-import CategoryList from '@/components/News/CategoryList'
 import NewsIndexJSONLD from '@/components/News/NewsIndexJSONLD'
-import { getAllPosts, getAllCategories } from '@/lib/news'
+import { getAllPosts, getAllTags } from '@/lib/news'
 import { slugify } from '@/utils/slugify'
 
 export const dynamicParams = false
 
 interface Props {
-  params: Promise<{ slug?: string[] }>
+  params: Promise<{ slug: string[] }>
 }
 
 export async function generateStaticParams() {
   const allPosts = getAllPosts()
-  const categories = getAllCategories()
+  const tags = getAllTags()
   const params: { slug: string[] }[] = []
   const seenSlugs = new Set<string>()
 
-  categories.forEach(cat => {
-    const slugCat = slugify(cat)
-    if (seenSlugs.has(slugCat)) return
-    seenSlugs.add(slugCat)
+  tags.forEach(tag => {
+    const slugTag = slugify(tag)
+    if (seenSlugs.has(slugTag)) return
+    seenSlugs.add(slugTag)
 
     const filteredPosts = allPosts.filter((post) => 
-      slugify(post.category) === slugCat || post.category.toLowerCase() === slugCat.toLowerCase()
+      post.tags.some((t) => slugify(t) === slugTag || t.toLowerCase() === slugTag.toLowerCase())
     )
     const totalPages = Math.ceil(filteredPosts.length / 6)
     
-    // Add base category page /news/category/[category]
-    params.push({ slug: [slugCat] })
+    // Add base tag page /news/tag/[tag]
+    params.push({ slug: [slugTag] })
     
-    // Add paginated pages /news/category/[category]/[page]
+    // Add paginated pages /news/tag/[tag]/[page]
     for (let i = 2; i <= totalPages; i++) {
-      params.push({ slug: [slugCat, String(i)] })
+      params.push({ slug: [slugTag, String(i)] })
     }
   })
 
@@ -43,43 +42,47 @@ export async function generateStaticParams() {
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params
-  if (!slug || slug.length === 0) return { title: 'Categories' }
-
-  const category = slug[0]
+  if (!slug || slug.length === 0) return { title: 'Tags' }
+  
+  const tag = slug[0]
   const pageNum = slug.length > 1 ? parseInt(slug[1], 10) : 1
-  const allCategories = getAllCategories()
-  const displayCategory = allCategories.find(c => slugify(c) === category) || category
+  const displayTag = tag.charAt(0).toUpperCase() + tag.slice(1).replace(/-/g, ' ')
 
   const title = pageNum === 1 
-    ? `${displayCategory} News & Articles | Manhattan Plumbing`
-    : `${displayCategory} News & Articles - Page ${pageNum} | Manhattan Plumbing`
-  const description = `Read the latest news and expert plumbing insights in the ${displayCategory} category from Manhattan Plumbing.${pageNum > 1 ? ` Page ${pageNum} of our collection.` : ''}`
+    ? `Articles Tagged: ${displayTag} | Manhattan Plumbing`
+    : `Articles Tagged: ${displayTag} - Page ${pageNum} | Manhattan Plumbing`
+  const description = `Browse all news and plumbing articles related to ${displayTag} from the Manhattan Plumbing team.${pageNum > 1 ? ` Page ${pageNum}.` : ''}`
 
   return {
     title,
     description,
     alternates: {
-      canonical: pageNum === 1 ? `/news/category/${category}` : `/news/category/${category}/${pageNum}`,
+      canonical: pageNum === 1 ? `/news/tag/${tag}` : `/news/tag/${tag}/${pageNum}`,
+    },
+    openGraph: {
+      title,
+      description,
+      type: 'website',
     },
   }
 }
 
-export default async function CategoryPage({ params }: Props) {
+export default async function TagPage({ params }: Props) {
   const { slug } = await params
   if (!slug || slug.length === 0) {
     notFound()
   }
 
-  const category = slug[0]
+  const tag = slug[0]
   const pageNum = slug.length > 1 ? parseInt(slug[1], 10) : 1
   const postsPerPage = 6
 
   const allPosts = getAllPosts()
-  const allCategories = getAllCategories()
-  const displayCategory = allCategories.find(c => slugify(c) === category) || category
+  const allTags = getAllTags()
+  const displayTag = allTags.find(t => slugify(t) === tag) || tag
 
   const filteredPosts = allPosts.filter((post) => 
-    slugify(post.category) === category || post.category.toLowerCase() === category.toLowerCase()
+    post.tags.some((t) => slugify(t) === tag || t.toLowerCase() === tag.toLowerCase())
   )
 
   if (filteredPosts.length === 0) {
@@ -96,9 +99,9 @@ export default async function CategoryPage({ params }: Props) {
     <main className="min-h-screen py-16 bg-white dark:bg-slate-900">
       <NewsIndexJSONLD 
         posts={filteredPosts.slice((pageNum - 1) * postsPerPage, pageNum * postsPerPage)} 
-        title={pageNum === 1 ? `${displayCategory} News & Articles | Manhattan Plumbing` : `${displayCategory} News & Articles - Page ${pageNum} | Manhattan Plumbing`}
-        description={`Read the latest news and expert plumbing insights in the ${displayCategory} category from Manhattan Plumbing.${pageNum > 1 ? ` Page ${pageNum}.` : ''}`}
-        url={`https://manhattan-plumbing.pages.dev/news/category/${category}${pageNum > 1 ? `/${pageNum}` : ''}`}
+        title={pageNum === 1 ? `Articles Tagged: ${displayTag} | Manhattan Plumbing` : `Articles Tagged: ${displayTag} - Page ${pageNum} | Manhattan Plumbing`}
+        description={`Browse all news and plumbing articles related to ${displayTag} from the Manhattan Plumbing team.${pageNum > 1 ? ` Page ${pageNum}.` : ''}`}
+        url={`https://manhattan-plumbing.pages.dev/news/tag/${tag}${pageNum > 1 ? `/${pageNum}` : ''}`}
       />
       
       <div className="container mx-auto px-4">
@@ -110,21 +113,18 @@ export default async function CategoryPage({ params }: Props) {
             ← Back to All News
           </Link>
           <h1 className="mt-4 mb-4 text-5xl font-bold tracking-tight text-slate-900 md:text-6xl dark:text-white">
-            Category: <span className="text-blue-600 dark:text-blue-400">{displayCategory}</span>
+            Tag: <span className="text-blue-600 dark:text-blue-400">#{displayTag}</span>
             {pageNum > 1 && <span className="text-slate-400 text-3xl font-medium block mt-2"> - Page {pageNum}</span>}
           </h1>
           <p className="mx-auto max-w-2xl text-lg text-slate-600 dark:text-slate-400">
-            Expert insights and latest updates in {displayCategory}.
+            Showing {filteredPosts.length} {filteredPosts.length === 1 ? 'article' : 'articles'} tagged with #{displayTag}.
           </p>
-          <div className="mt-8">
-            <CategoryList categories={allCategories} currentCategory={category} />
-          </div>
         </header>
 
         <PaginatedPostGrid 
           posts={filteredPosts} 
           postsPerPage={postsPerPage} 
-          baseUrl={`/news/category/${category}`} 
+          baseUrl={`/news/tag/${tag}`} 
           initialPage={pageNum}
           usePathPagination={true}
         />
