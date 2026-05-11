@@ -2,6 +2,7 @@ import fs from 'fs'
 import path from 'path'
 import matter from 'gray-matter'
 import { slugify } from '@/utils/slugify'
+import { getAllServices } from '@/lib/services'
 import type { Post, Author, ImageSource } from '@/types'
 export type { Post, Author, ImageSource }
 
@@ -95,7 +96,9 @@ export function getAllPosts(): Post[] {
  */
 export function getSearchIndex() {
   const posts = getAllPosts()
-  return posts.map(post => ({
+  const services = getAllServices()
+
+  const postIndex = posts.map(post => ({
     slug: post.slug,
     title: post.title,
     excerpt: post.excerpt,
@@ -104,8 +107,24 @@ export function getSearchIndex() {
     featuredImage: {
       src: post.featuredImage.src,
       alt: post.featuredImage.alt
-    }
+    },
+    type: 'news'
   }))
+
+  const serviceIndex = services.map(service => ({
+    slug: `/services/${service.slug}`,
+    title: service.title,
+    excerpt: service.description,
+    category: 'Services',
+    tags: [],
+    featuredImage: {
+      src: (service.heroImage as ImageSource).src,
+      alt: (service.heroImage as ImageSource).alt
+    },
+    type: 'service'
+  }))
+
+  return [...postIndex, ...serviceIndex]
 }
 
 /**

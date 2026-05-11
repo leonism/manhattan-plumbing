@@ -2,50 +2,9 @@ import { useState, useEffect, useMemo, useRef } from 'react'
 import FlexSearch from 'flexsearch'
 import { SearchResult, CategorizedResults, SearchIndexItem } from '@/types'
 
-// Define services data statically with icons
-const staticServices = [
-  {
-    slug: '/services/emergency-service',
-    title: 'Emergency Plumbing',
-    excerpt: '24/7 immediate response for all plumbing emergencies.',
-    icon: 'Wrench',
-  },
-  {
-    slug: '/services/drain-service',
-    title: 'Drain Cleaning',
-    excerpt: 'Expert cleaning and clearing of all types of drains.',
-    icon: 'Wrench',
-  },
-  {
-    slug: '/services/water-heater-service',
-    title: 'Water Heaters',
-    excerpt: 'Installation, repair, and maintenance of water heaters.',
-    icon: 'Wrench',
-  },
-  {
-    slug: '/services/remodeling-service',
-    title: 'Remodeling Services',
-    excerpt: 'Plumbing for kitchen and bathroom remodeling projects.',
-    icon: 'Wrench',
-  },
-  {
-    slug: '/services/pipe-service',
-    title: 'Pipe Repair & Installation',
-    excerpt: 'Leak detection, pipe repair, and full re-piping services.',
-    icon: 'Wrench',
-  },
-  {
-    slug: '/services/fixture-service',
-    title: 'Fixture Installation',
-    excerpt: 'Installation and repair of faucets, toilets, and other fixtures.',
-    icon: 'Wrench',
-  },
-]
-
 // Singleton index and data to avoid re-fetching and re-indexing on every mount
 let flexIndex: any = null
 let searchData: SearchIndexItem[] = []
-let servicesData: any[] = []
 
 export const useSearch = (query: string) => {
   const [results, setResults] = useState<CategorizedResults>({ news: [], services: [] })
@@ -61,7 +20,7 @@ export const useSearch = (query: string) => {
         setIsLoading(true)
         const response = await fetch('/api/search')
         if (!response.ok) throw new Error('Failed to fetch search index')
-        const data: SearchIndexItem[] = await response.json()
+        const data: (SearchIndexItem & { type: string })[] = await response.json()
         
         // Initialize FlexSearch Document Index
         // Using "Document" for multi-field indexing and easy retrieval
@@ -76,28 +35,12 @@ export const useSearch = (query: string) => {
           cache: true
         })
 
-        // Add news posts to index
+        // Add items to index (both news and services are now in the data)
         data.forEach(item => {
-          flexIndex.add({
-            ...item,
-            type: 'news'
-          })
-        })
-
-        // Add services to index
-        staticServices.forEach(service => {
-          flexIndex.add({
-            slug: service.slug,
-            title: service.title,
-            excerpt: service.excerpt,
-            category: 'Services',
-            tags: [],
-            type: 'service'
-          })
+          flexIndex.add(item)
         })
 
         searchData = data
-        servicesData = staticServices
         setIsReady(true)
       } catch (error) {
         console.error('Search initialization failed:', error)
@@ -119,7 +62,7 @@ export const useSearch = (query: string) => {
         return
       }
 
-      // FlexSearch is incredibly fast, but we still want to keep it async-friendly
+      // FlexSearch is incredibly fast
       const searchResults = flexIndex.search(query, {
         limit: 20,
         enrich: true, // This returns the stored fields
@@ -157,7 +100,7 @@ export const useSearch = (query: string) => {
       setResults({ news, services })
     }
 
-    // Small debounce for rapid typing, though FlexSearch handles it fine
+    // Small debounce for rapid typing
     const debounceTimeout = setTimeout(search, 50)
     return () => clearTimeout(debounceTimeout)
   }, [query, isReady])
