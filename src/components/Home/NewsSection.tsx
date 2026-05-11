@@ -5,7 +5,7 @@ import Button from '@/components/ui/Button'
 import { ArrowRight } from 'lucide-react'
 
 const NewsSection = async () => {
-  const posts = (await getAllPosts()).slice(0, 3) // Get latest 3 posts for the homepage
+  const posts = getAllPosts().slice(0, 6) // Get latest 6 posts for the homepage
 
   if (!posts.length) {
     return null // Don't render section if no posts

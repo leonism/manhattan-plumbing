@@ -1,59 +1,185 @@
-import React from 'react'
-import Link from 'next/link'
-import { ChevronLeft, ChevronRight } from 'lucide-react'
+import * as React from "react"
+import { ChevronLeft, ChevronRight, MoreHorizontal } from "lucide-react"
+import Link from "next/link"
 
-interface PaginationProps {
-  currentPage: number
-  totalPages: number
-  baseUrl: string
+import { cn } from "@/lib/utils"
+import { buttonVariants } from "@/components/ui/Button"
+
+const Pagination = ({ className, ...props }: React.ComponentProps<"nav">) => (
+  <nav
+    role="navigation"
+    aria-label="pagination"
+    className={cn("mx-auto flex w-full justify-center", className)}
+    {...props}
+  />
+)
+Pagination.displayName = "Pagination"
+
+const PaginationContent = React.forwardRef<
+  HTMLUListElement,
+  React.ComponentProps<"ul">
+>(({ className, ...props }, ref) => (
+  <ul
+    ref={ref}
+    className={cn("flex flex-row items-center gap-1", className)}
+    {...props}
+  />
+))
+PaginationContent.displayName = "PaginationContent"
+
+const PaginationItem = React.forwardRef<
+  HTMLLIElement,
+  React.ComponentProps<"li">
+>(({ className, ...props }, ref) => (
+  <li ref={ref} className={cn("", className)} {...props} />
+))
+PaginationItem.displayName = "PaginationItem"
+
+type PaginationLinkProps = {
+  isActive?: boolean
+} & React.ComponentProps<typeof Link>
+
+const PaginationLink = ({
+  className,
+  isActive,
+  ...props
+}: PaginationLinkProps) => (
+  <Link
+    aria-current={isActive ? "page" : undefined}
+    className={cn(
+      buttonVariants({
+        variant: isActive ? "outline" : "ghost",
+        size: "icon",
+      }),
+      className
+    )}
+    {...props}
+  />
+)
+PaginationLink.displayName = "PaginationLink"
+
+const PaginationPrevious = ({
+  className,
+  ...props
+}: React.ComponentProps<typeof PaginationLink>) => (
+  <PaginationLink
+    aria-label="Go to previous page"
+    className={cn("gap-1 pl-2.5 w-auto px-4", className)}
+    {...props}
+  >
+    <ChevronLeft className="h-4 w-4" />
+    <span>Previous</span>
+  </PaginationLink>
+)
+PaginationPrevious.displayName = "PaginationPrevious"
+
+const PaginationNext = ({
+  className,
+  ...props
+}: React.ComponentProps<typeof PaginationLink>) => (
+  <PaginationLink
+    aria-label="Go to next page"
+    className={cn("gap-1 pr-2.5 w-auto px-4", className)}
+    {...props}
+  >
+    <span>Next</span>
+    <ChevronRight className="h-4 w-4" />
+  </PaginationLink>
+)
+PaginationNext.displayName = "PaginationNext"
+
+const PaginationEllipsis = ({
+  className,
+  ...props
+}: React.ComponentProps<"span">) => (
+  <span
+    aria-hidden
+    className={cn("flex h-9 w-9 items-center justify-center", className)}
+    {...props}
+  >
+    <MoreHorizontal className="h-4 w-4" />
+    <span className="sr-only">More pages</span>
+  </span>
+)
+PaginationEllipsis.displayName = "PaginationEllipsis"
+
+export {
+  Pagination,
+  PaginationContent,
+  PaginationEllipsis,
+  PaginationItem,
+  PaginationLink,
+  PaginationNext,
+  PaginationPrevious,
 }
 
-const Pagination: React.FC<PaginationProps> = ({ currentPage, totalPages, baseUrl }) => {
+export default function PaginationResponsive({ 
+  currentPage, 
+  totalPages, 
+  baseUrl 
+}: { 
+  currentPage: number; 
+  totalPages: number; 
+  baseUrl: string 
+}) {
   if (totalPages <= 1) return null
 
   const pages = Array.from({ length: totalPages }, (_, i) => i + 1)
-
+  
+  // Logic for which pages to show (simplified for now)
+  const showEllipsis = totalPages > 7
+  
   return (
-    <nav className="mt-12 flex items-center justify-center space-x-2" aria-label="Pagination">
-      {/* Previous Page */}
-      <Link
-        href={`${baseUrl}${currentPage > 2 ? `?page=${currentPage - 1}` : ''}`}
-        className={`flex h-10 w-10 items-center justify-center rounded-lg border border-slate-200 bg-white text-slate-600 transition-colors hover:bg-blue-50 hover:text-blue-600 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-400 dark:hover:bg-blue-900/20 dark:hover:text-blue-400 ${
-          currentPage === 1 ? 'pointer-events-none opacity-50' : ''
-        }`}
-        aria-disabled={currentPage === 1}
-      >
-        <ChevronLeft size={20} />
-      </Link>
+    <Pagination className="mt-12">
+      <PaginationContent>
+        <PaginationItem>
+          <PaginationPrevious 
+            href={currentPage > 1 ? (currentPage === 2 ? baseUrl : `${baseUrl}?page=${currentPage - 1}`) : "#"}
+            className={currentPage === 1 ? "pointer-events-none opacity-50" : ""}
+          />
+        </PaginationItem>
+        
+        {pages.map((page) => {
+          // Show first, last, and pages around current
+          if (
+            page === 1 || 
+            page === totalPages || 
+            (page >= currentPage - 1 && page <= currentPage + 1)
+          ) {
+            return (
+              <PaginationItem key={page}>
+                <PaginationLink 
+                  href={page === 1 ? baseUrl : `${baseUrl}?page=${page}`} 
+                  isActive={currentPage === page}
+                >
+                  {page}
+                </PaginationLink>
+              </PaginationItem>
+            )
+          }
+          
+          // Show ellipsis
+          if (
+            (page === 2 && currentPage > 3) || 
+            (page === totalPages - 1 && currentPage < totalPages - 2)
+          ) {
+            return (
+              <PaginationItem key={page}>
+                <PaginationEllipsis />
+              </PaginationItem>
+            )
+          }
+          
+          return null
+        })}
 
-      {/* Page Numbers */}
-      {pages.map((page) => (
-        <Link
-          key={page}
-          href={`${baseUrl}${page > 1 ? `?page=${page}` : ''}`}
-          className={`flex h-10 w-10 items-center justify-center rounded-lg border transition-all duration-300 ${
-            currentPage === page
-              ? 'border-blue-600 bg-blue-600 text-white shadow-lg shadow-blue-600/20'
-              : 'border-slate-200 bg-white text-slate-600 hover:bg-blue-50 hover:text-blue-600 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-400 dark:hover:bg-blue-900/20 dark:hover:text-blue-400'
-          }`}
-          aria-current={currentPage === page ? 'page' : undefined}
-        >
-          {page}
-        </Link>
-      ))}
-
-      {/* Next Page */}
-      <Link
-        href={`${baseUrl}?page=${currentPage + 1}`}
-        className={`flex h-10 w-10 items-center justify-center rounded-lg border border-slate-200 bg-white text-slate-600 transition-colors hover:bg-blue-50 hover:text-blue-600 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-400 dark:hover:bg-blue-900/20 dark:hover:text-blue-400 ${
-          currentPage === totalPages ? 'pointer-events-none opacity-50' : ''
-        }`}
-        aria-disabled={currentPage === totalPages}
-      >
-        <ChevronRight size={20} />
-      </Link>
-    </nav>
+        <PaginationItem>
+          <PaginationNext 
+            href={currentPage < totalPages ? `${baseUrl}?page=${currentPage + 1}` : "#"}
+            className={currentPage === totalPages ? "pointer-events-none opacity-50" : ""}
+          />
+        </PaginationItem>
+      </PaginationContent>
+    </Pagination>
   )
 }
-
-export default Pagination

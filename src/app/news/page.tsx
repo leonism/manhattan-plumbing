@@ -1,10 +1,7 @@
 import { Metadata } from 'next'
-import Link from 'next/link'
-
-import NewsCard from '@/components/News/NewsCard'
-import CategoryList from '@/components/News/CategoryList'
 import { getAllPosts } from '@/lib/news'
-import { slugify } from '@/utils/slugify'
+import PaginatedPostGrid from '@/components/News/PaginatedPostGrid'
+import CategoryList from '@/components/News/CategoryList'
 
 export const metadata: Metadata = {
   title: 'Latest News - Manhattan Plumbing',
@@ -17,9 +14,8 @@ export const metadata: Metadata = {
   },
 }
 
-export default function NewsPage() {
+export default async function NewsPage() {
   const allPosts = getAllPosts()
-  const filteredPosts = allPosts.slice(0, 6)
   const categories = [...new Set(allPosts.map((p) => p.category))]
 
   return (
@@ -37,20 +33,11 @@ export default function NewsPage() {
           </div>
         </header>
 
-        {filteredPosts.length > 0 ? (
-          <section className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
-            {filteredPosts.map((post) => (
-              <NewsCard key={post.slug} post={post} />
-            ))}
-          </section>
-        ) : (
-          <div className="py-20 text-center">
-            <h2 className="text-2xl font-semibold text-slate-900 dark:text-white">No posts found.</h2>
-            <Link href="/news" className="mt-4 inline-block text-blue-600 hover:underline">
-              Back to all news
-            </Link>
-          </div>
-        )}
+        <PaginatedPostGrid 
+          posts={allPosts} 
+          postsPerPage={6} 
+          baseUrl="/news" 
+        />
       </div>
     </main>
   )
