@@ -3,8 +3,11 @@ import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import PaginatedPostGrid from '@/components/News/PaginatedPostGrid'
 import CategoryList from '@/components/News/CategoryList'
+import NewsIndexJSONLD from '@/components/News/NewsIndexJSONLD'
 import { getAllPosts, getAllCategories } from '@/lib/news'
 import { slugify } from '@/utils/slugify'
+
+export const dynamicParams = false
 
 interface Props {
   params: Promise<{ category: string }>
@@ -57,27 +60,14 @@ export default async function CategoryPage({ params, searchParams }: Props) {
     notFound()
   }
 
-  const jsonLd = {
-    "@context": "https://schema.org",
-    "@type": "CollectionPage",
-    "name": `${displayCategory} Articles`,
-    "description": `Browse all articles and news in the ${displayCategory} category from Manhattan Plumbing.`,
-    "url": `https://manhattan-plumbing.pages.dev/news/category/${category}`,
-    "mainEntity": {
-      "@type": "ItemList",
-      "itemListElement": filteredPosts.slice(0, 6).map((post, index) => ({
-        "@type": "ListItem",
-        "position": index + 1,
-        "url": `https://manhattan-plumbing.pages.dev/news/${post.slug}`
-      }))
-    }
-  }
 
   return (
     <main className="min-h-screen py-16 bg-white dark:bg-slate-900">
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      <NewsIndexJSONLD 
+        posts={filteredPosts.slice((pageNum - 1) * 6, pageNum * 6)} 
+        title={pageNum === 1 ? `${displayCategory} News & Articles | Manhattan Plumbing` : `${displayCategory} News & Articles - Page ${pageNum} | Manhattan Plumbing`}
+        description={`Read the latest news and expert plumbing insights in the ${displayCategory} category from Manhattan Plumbing.${pageNum > 1 ? ` Page ${pageNum}.` : ''}`}
+        url={`https://manhattan-plumbing.pages.dev/news/category/${category}${pageNum > 1 ? `?page=${pageNum}` : ''}`}
       />
       
       <div className="container mx-auto px-4">

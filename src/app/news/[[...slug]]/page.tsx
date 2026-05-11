@@ -8,6 +8,7 @@ import NewsPostHero from '@/components/News/NewsPostHero'
 import NewsPostSidebar from '@/components/News/NewsPostSidebar'
 import NewsPostCTA from '@/components/News/NewsPostCTA'
 import NewsPostJSONLD from '@/components/News/NewsPostJSONLD'
+import NewsIndexJSONLD from '@/components/News/NewsIndexJSONLD'
 import { ArticleNavigation } from '@/components/News/ArticleNavigation'
 import TableOfContents from '@/components/News/TableOfContents'
 import { SocialShare } from '@/components/News/SocialShare'
@@ -18,7 +19,7 @@ interface Props {
   params: Promise<{ slug?: string[] }>
 }
 
-export const dynamicParams = true
+export const dynamicParams = false
 
 export async function generateStaticParams() {
   const allPosts = getAllPosts()
@@ -102,6 +103,12 @@ export default async function CombinedNewsPage({ params }: Props) {
     
     return (
       <main className="min-h-screen py-16 bg-white dark:bg-slate-900">
+        <NewsIndexJSONLD 
+          posts={allPosts.slice((pageNum - 1) * 6, pageNum * 6)} 
+          title={pageNum === 1 ? 'Latest News - Manhattan Plumbing' : `Latest News - Page ${pageNum} | Manhattan Plumbing`}
+          description={`Stay informed with the latest news and updates from Manhattan Plumbing. Page ${pageNum} of our expert plumbing insights.`}
+          url={`https://manhattan-plumbing.pages.dev/news${pageNum > 1 ? `/${pageNum}` : ''}`}
+        />
         <div className="container mx-auto px-4">
           <header className="mt-12 mb-12 text-center">
             <h1 className="mb-4 text-5xl font-bold tracking-tight text-blue-600 md:text-5xl dark:text-blue-400">
