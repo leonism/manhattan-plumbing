@@ -125,7 +125,7 @@ export default async function CategoryPage({ params }: Props) {
           posts={filteredPosts} 
           postsPerPage={postsPerPage} 
           baseUrl={`/news/category/${category}`} 
-          initialPage={pageNum}
+          currentPage={pageNum}
           usePathPagination={true}
         />
       </div>

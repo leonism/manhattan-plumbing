@@ -126,7 +126,7 @@ export default async function CombinedNewsPage({ params }: Props) {
             posts={allPosts} 
             postsPerPage={6} 
             baseUrl="/news" 
-            initialPage={pageNum}
+            currentPage={pageNum}
             usePathPagination={true}
           />
         </div>

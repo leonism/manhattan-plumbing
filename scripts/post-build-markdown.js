@@ -1,3 +1,9 @@
+/**
+ * Post-build script to generate .md versions of all static pages
+ * This script runs after 'next build' and 'next export'
+ * It uses JSDOM to parse the static HTML and Turndown to convert it to Markdown
+ */
+
 import fs from 'fs';
 import path from 'path';
 import { JSDOM } from 'jsdom';
@@ -6,20 +12,50 @@ import TurndownService from 'turndown';
 const OUT_DIR = path.resolve(process.cwd(), 'out');
 const BASE_URL = 'https://manhattan-plumbing.pages.dev';
 
+// Configure Turndown
 const turndownService = new TurndownService({
-  headingStyle: 'atx',
-  codeBlockStyle: 'fenced',
-  emDelimiter: '_',
-  strongDelimiter: '**',
-  bulletListMarker: '-'
+    headingStyle: 'atx',
+    codeBlockStyle: 'fenced',
+    hr: '---',
+    bulletListMarker: '-',
+    emDelimiter: '_',
+    strongDelimiter: '**'
 });
 
-// Helper to recursively find files
+// Custom rule for images to ensure absolute paths or correct relative paths
+turndownService.addRule('images', {
+    filter: 'img',
+    replacement: function (content, node) {
+        const img = /** @type {HTMLImageElement} */ (node);
+        const alt = img.getAttribute('alt') || '';
+        let src = img.getAttribute('src') || '';
+        return `![${alt}](${src})`;
+    }
+});
+
+// Custom rule for Article Navigation (Next/Prev links) to ensure they are on new lines
+turndownService.addRule('articleNav', {
+    /**
+     * @param {HTMLElement} node 
+     * @returns {boolean}
+     */
+    filter: function (node) {
+        return node.tagName === 'DIV' && !!node.className && (node.className.includes('ArticleNavigation') || node.className.includes('navigation'));
+    },
+    replacement: function (content) {
+        // Ensure links are separated and on new lines
+        // content usually looks like [Text](/url)[Text](/url)
+        return '\n\n' + content.trim().replace(/\]\(/g, ']\n\n(') + '\n\n';
+    }
+});
+
 /**
- * @param {string} dir
- * @param {(filePath: string) => void} callback
+ * Recursively find all HTML files
+ * @param {string} dir 
+ * @param {(filePath: string) => void} callback 
  */
 function walk(dir, callback) {
+  if (!fs.existsSync(dir)) return;
   fs.readdirSync(dir).forEach( f => {
     let dirPath = path.join(dir, f);
     let isDirectory = fs.statSync(dirPath).isDirectory();
@@ -27,144 +63,172 @@ function walk(dir, callback) {
   });
 }
 
-console.log('🚀 Starting post-build markdown generation...');
-
-if (!fs.existsSync(OUT_DIR)) {
-  console.error('❌ Error: "out" directory not found. Did the build finish?');
-  process.exit(1);
-}
-
-walk(OUT_DIR, (filePath) => {
-  if (path.extname(filePath) !== '.html') return;
-
-  const relativePath = path.relative(OUT_DIR, filePath).replace(/\\/g, '/');
-  if (relativePath === '404.html') return;
-
-  console.log(`📄 Processing ${relativePath}...`);
-
-  try {
-    const html = fs.readFileSync(filePath, 'utf8');
-    const dom = new JSDOM(html);
-    const { document } = dom.window;
-
-    // 1. Metadata Extraction
-    const title = document.title || 'Manhattan Plumbing';
-    const description = document.querySelector('meta[name="description"]')?.getAttribute('content') || '';
+/**
+ * Clean up content specifically for our plumbing site structure
+ * @param {Document} document 
+ * @param {string} relativePath 
+ */
+function cleanContent(document, relativePath) {
+    // 1. Remove Vercel Insights & other scripts (for Cloudflare parity)
+    const elementsToRemove = [
+        'script', 
+        'style', 
+        'noscript', 
+        'iframe', 
+        'svg', 
+        '.skip-to-content',
+        '#vercel-live-feedback',
+        '.vercel-insights',
+        'script[src*="va.js"]',
+        'script[src*="insights"]',
+        'script[src*="vercel"]',
+        'script[id*="vercel"]'
+    ];
     
-    // 2. Determine Markdown Path
-    // slug.html -> slug/index.md
-    // slug/index.html -> slug/index.md
-    const isIndex = relativePath.endsWith('index.html');
-    const mdPath = isIndex 
-      ? relativePath.replace(/index\.html$/, 'index.md')
-      : relativePath.replace(/\.html$/, '/index.md');
-      
-    const mdUrl = `${BASE_URL}/${mdPath}`;
-    let linkTag = /** @type {HTMLLinkElement | null} */(document.querySelector('link[type="text/markdown"]'));
-    
-    if (linkTag) {
-      linkTag.setAttribute('title', 'Markdown version');
-      linkTag.setAttribute('href', mdUrl);
-    } else {
-      linkTag = /** @type {HTMLLinkElement} */(document.createElement('link'));
-      linkTag.rel = 'alternate';
-      linkTag.type = 'text/markdown';
-      linkTag.href = mdUrl;
-      linkTag.title = 'Markdown version';
-      document.head.appendChild(linkTag);
-    }
-
-    // 3. Extract content for Markdown
-    const article = document.querySelector('article');
-    const main = document.querySelector('main');
-    
-    // Create a copy of the content to manipulate
-    const contentNode = (article || main || document.body).cloneNode(true);
-    const contentElement = /** @type {HTMLElement} */(contentNode);
-    
-    // 3.1 Preserve specific navigation and footer elements before cleaning
-    const header = document.querySelector('header');
-    const footer = document.querySelector('footer');
-    const navs = Array.from(document.querySelectorAll('nav'));
-    
-    // Clean up content: remove scripts, styles, etc.
-    // We KEEP header, footer, and nav now
-    contentElement.querySelectorAll('script, style, iframe, noscript, .no-markdown, svg, input, select, textarea, .sr-only, [aria-hidden="true"]').forEach(el => el.remove());
-
-    // 3.2 Enhance Card Extraction
-    // If we are on an index/list page, ensure cards are formatted nicely
-    contentElement.querySelectorAll('.card, [class*="PostGrid"], [class*="Grid"]').forEach(grid => {
-      grid.querySelectorAll('a').forEach(link => {
-        // Ensure links in cards have their full text
-        if (!link.textContent?.trim()) {
-          const title = link.querySelector('h2, h3, h4')?.textContent;
-          if (title) link.textContent = title;
-        }
-      });
+    elementsToRemove.forEach(selector => {
+        document.querySelectorAll(selector).forEach(el => el.remove());
     });
 
-    // Fix minified HTML by adding newlines between block tags
-    let contentHtml = contentElement.innerHTML;
+    // 2. Pre-process cards for better Markdown (Home page, News Index, Category/Tag pages)
+    // This addresses "render the card content into markdown format"
+    document.querySelectorAll('.NewsCard, .PostCard, .card, article, [class*="PostGrid"] article').forEach(card => {
+        const cardEl = /** @type {HTMLElement} */ (card);
+        // Don't simplify the main article on a post page
+        const isMainArticle = !relativePath.includes('index.html') && cardEl.tagName === 'ARTICLE' && cardEl.parentElement?.tagName === 'MAIN';
+        if (isMainArticle) return;
+
+        const h2 = cardEl.querySelector('h2, h3, h4');
+        const link = cardEl.querySelector('a');
+        const time = cardEl.querySelector('time');
+        const p = cardEl.querySelector('p');
+        const author = cardEl.querySelector('[class*="author"], .flex.items-center.space-x-1')?.textContent?.trim();
+        
+        if (h2 && link) {
+            const titleText = h2.textContent?.trim() || '';
+            const href = link.getAttribute('href');
+            const dateText = time ? ` | ${time.textContent?.trim()}` : '';
+            const authorText = author ? ` | By ${author.split('•')[0].trim()}` : '';
+            const excerptText = p ? `\n\n${p.textContent?.trim()}` : '';
+            
+            const replacement = document.createElement('div');
+            replacement.innerHTML = `
+                <h3><a href="${href}">${titleText}</a></h3>
+                <p><em>${dateText}${authorText}</em></p>
+                <p>${excerptText}</p>
+                <hr />
+            `;
+            cardEl.parentNode?.replaceChild(replacement, cardEl);
+        }
+    });
+
+    return document;
+}
+
+async function main() {
+    console.log('🚀 Starting post-build markdown generation...');
     
-    // Add navigation and footer if they weren't part of the extracted content
-    if (!contentElement.contains(header) && header) {
-      contentHtml = `<header>${header.innerHTML}</header>\n\n` + contentHtml;
+    if (!fs.existsSync(OUT_DIR)) {
+      console.error('❌ Error: "out" directory not found.');
+      process.exit(1);
     }
-    
-    if (!contentElement.contains(footer) && footer) {
-      contentHtml = contentHtml + `\n\n<footer>${footer.innerHTML}</footer>`;
-    }
 
-    contentHtml = contentHtml.replace(/<\/(p|h[1-6]|div|li|section|article|main|blockquote|ul|ol|tr|table|header|footer|nav)>/gi, '$&\n\n');
-    
-    let markdown = turndownService.turndown(contentHtml);
+    walk(OUT_DIR, (filePath) => {
+        if (path.extname(filePath) !== '.html') return;
 
-    // Strip all remaining HTML tags (to satisfy "Strip all of the html code")
-    markdown = markdown.replace(/<[^>]+>/g, '');
+        const relativePath = path.relative(OUT_DIR, filePath).replace(/\\/g, '/');
+        if (relativePath === '404.html' || relativePath.includes('/_next/')) return;
 
-    // Final cleanup of the markdown string
-    let pageH1 = document.querySelector('h1')?.textContent || '';
-    
-    // Remove the title from the start of the markdown if it's already there to avoid duplication
-    const h1Regex = new RegExp(`^# ${pageH1.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}\\s*`, 'i');
-    markdown = markdown.replace(h1Regex, '');
-    
-    // Ensure we have exactly one H1 at the top
-    markdown = `# ${pageH1}\n\n${markdown}`;
+        console.log(`📄 Processing ${relativePath}...`);
 
-    // Clean up excessive newlines and escaped headers
-    markdown = markdown.replace(/^\\# /gm, '# ');
-    markdown = markdown.replace(/\n{3,}/g, '\n\n');
-    markdown = markdown.replace(/&nbsp;/g, ' ');
+        try {
+            const html = fs.readFileSync(filePath, 'utf-8');
+            const dom = new JSDOM(html);
+            const document = dom.window.document;
 
-    // 4. Add Frontmatter
-    const frontmatter = [
-      '---',
-      `title: "${title.replace(/"/g, '\\"')}"`,
-      `description: "${description.replace(/"/g, '\\"')}"`,
-      `url: "${BASE_URL}/${relativePath.replace(/\/index\.html$/, '')}"`,
-      `date_generated: "${new Date().toISOString()}"`,
-      '---',
-      '\n'
-    ].join('\n');
+            // Extract metadata
+            const title = document.title || 'Manhattan Plumbing';
+            const description = document.querySelector('meta[name="description"]')?.getAttribute('content') || '';
+            
+            // Determine Markdown Path
+            const isIndex = relativePath.endsWith('index.html');
+            const mdPath = isIndex 
+                ? relativePath.replace(/index\.html$/, 'index.md')
+                : relativePath.replace(/\.html$/, '/index.md');
+            
+            const canonicalUrl = `${BASE_URL}/${relativePath.replace(/\/index\.html$/, '').replace(/\.html$/, '')}`;
 
-    const finalMarkdown = frontmatter + markdown;
+            // Clean the content
+            cleanContent(document, relativePath);
 
-    // 5. Save the modified HTML (with fixed link tag)
-    fs.writeFileSync(filePath, dom.serialize(), 'utf8');
+            // Structure: Header -> Main -> Footer
+            const header = document.querySelector('header');
+            const main = document.querySelector('main') || document.querySelector('article') || document.body;
+            const footer = document.querySelector('footer');
 
-    // 6. Save the Markdown file in the requested index.md format
-    const absoluteMdPath = path.join(OUT_DIR, mdPath);
-    const mdDir = path.dirname(absoluteMdPath);
-    if (!fs.existsSync(mdDir)) {
-      fs.mkdirSync(mdDir, { recursive: true });
-    }
-    fs.writeFileSync(absoluteMdPath, finalMarkdown, 'utf8');
+            const combinedContainer = document.createElement('div');
+            if (header) combinedContainer.appendChild(header.cloneNode(true));
+            
+            // Add other navigation elements if found
+            document.querySelectorAll('nav').forEach(nav => {
+                if (!header?.contains(nav) && !footer?.contains(nav)) {
+                    combinedContainer.appendChild(nav.cloneNode(true));
+                }
+            });
 
-    console.log(`✅ Generated ${mdPath}`);
-  } catch (error) {
-    console.error(`❌ Error processing ${filePath}:`, error);
-  }
-});
+            if (main) {
+                const mainClone = /** @type {HTMLElement} */ (main.cloneNode(true));
+                // Remove header/footer if they were nested in body fallback
+                if (main === document.body) {
+                    mainClone.querySelectorAll('header, footer').forEach(el => el.remove());
+                }
+                combinedContainer.appendChild(mainClone);
+            }
+            if (footer) combinedContainer.appendChild(footer.cloneNode(true));
 
-console.log('✨ Post-build markdown generation complete!');
+            // Convert to Markdown
+            let markdown = turndownService.turndown(combinedContainer.innerHTML);
+
+            // Final cleanup
+            // Strip remaining HTML tags
+            markdown = markdown.replace(/<[^>]+>/g, '');
+            
+            // Clean up excessive newlines
+            markdown = markdown.replace(/\n{4,}/g, '\n\n\n');
+            markdown = markdown.replace(/\n{3}/g, '\n\n');
+            markdown = markdown.replace(/&nbsp;/g, ' ');
+
+            // Ensure H1
+            let pageH1 = document.querySelector('h1')?.textContent?.trim() || title;
+            const h1Regex = new RegExp(`^# ${pageH1.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}\\s*`, 'i');
+            markdown = markdown.replace(h1Regex, '');
+            markdown = `# ${pageH1}\n\n${markdown}`;
+
+            // Add frontmatter
+            const frontmatter = `---
+title: "${title.replace(/"/g, '\\"')}"
+description: "${description.replace(/"/g, '\\"')}"
+url: "${canonicalUrl}"
+date_generated: "${new Date().toISOString()}"
+---
+
+`;
+            const finalMarkdown = frontmatter + markdown;
+
+            // Save .md file
+            const absoluteMdPath = path.join(OUT_DIR, mdPath);
+            const mdDir = path.dirname(absoluteMdPath);
+            if (!fs.existsSync(mdDir)) fs.mkdirSync(mdDir, { recursive: true });
+            fs.writeFileSync(absoluteMdPath, finalMarkdown);
+            
+            // Save modified HTML without Vercel scripts
+            fs.writeFileSync(filePath, dom.serialize());
+            
+        } catch (error) {
+            console.error(`❌ Error processing ${filePath}:`, error);
+        }
+    });
+
+    console.log('✨ Markdown generation complete!');
+}
+
+main();

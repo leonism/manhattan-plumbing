@@ -125,7 +125,7 @@ export default async function TagPage({ params }: Props) {
           posts={filteredPosts} 
           postsPerPage={postsPerPage} 
           baseUrl={`/news/tag/${tag}`} 
-          initialPage={pageNum}
+          currentPage={pageNum}
           usePathPagination={true}
         />
       </div>
