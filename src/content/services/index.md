@@ -34,7 +34,3 @@ cta:
     text: "Call (212) 555-1234"
     href: "tel:+12125551234"
 ---
-
-# Professional Plumbing Services in Manhattan
-
-Manhattan Plumbing provides top-tier plumbing solutions for both residential and commercial clients throughout New York City. Our team of licensed master plumbers is equipped to handle everything from minor repairs to major installations and renovations.
