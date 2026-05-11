@@ -1,7 +1,6 @@
 import React from 'react'
 import CompanyInfo from '@/components/Footer/CompanyInfo'
 import QuickLinks from '@/components/Footer/QuickLinks'
-
 import ServicesList from '@/components/Footer/ServicesList'
 import ContactInfo from '@/components/Footer/ContactInfo'
 import LegalInfo from '@/components/Footer/LegalInfo'

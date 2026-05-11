@@ -22,20 +22,6 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({
     <div
       className={`flex h-full max-h-[400px] min-h-[300px] max-w-[350px] min-w-[280px] flex-col rounded-lg bg-white p-6 shadow-md dark:bg-slate-800 ${className}`}
     >
-      {/* Stars */}
-      <div className="mb-4 flex text-yellow-400">
-        {[...Array(5)].map((_, i) => (
-          <Star
-            key={i}
-            size={20}
-            className={i < rating ? 'fill-current' : 'stroke-current opacity-40'}
-          />
-        ))}
-      </div>
-
-      {/* Testimonial Text */}
-      <p className="mb-6 grow text-slate-600 dark:text-slate-300">"{testimonial}"</p>
-
       {/* Customer Info */}
       <div className="mt-2 flex items-center">
         <img
@@ -49,6 +35,18 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({
           <p className="text-sm text-slate-500 dark:text-slate-400">{occupation}</p>
         </div>
       </div>
+      {/* Stars */}
+      <div className="mt-8 flex text-yellow-400">
+        {[...Array(5)].map((_, i) => (
+          <Star
+            key={i}
+            size={20}
+            className={i < rating ? 'fill-current' : 'stroke-current opacity-40'}
+          />
+        ))}
+      </div>
+      {/* Testimonial Text */}
+      <p className="mt-8 grow text-slate-600 dark:text-slate-300">"{testimonial}"</p>
     </div>
   )
 }

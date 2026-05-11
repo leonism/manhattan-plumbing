@@ -1,6 +1,6 @@
 import React from 'react'
-import Logo from '@/components/ui/Logo'
 import { Facebook, Twitter, Instagram, Youtube, Linkedin, Rss } from 'lucide-react'
+import LogoFooter from '@/components/ui/LogoFooter'
 
 interface CompanyInfoProps {
   className?: string
@@ -12,7 +12,7 @@ const CompanyInfo: React.FC<CompanyInfoProps> = ({ className }) => {
       <h2 id="company-info" className="sr-only">
         Company Information
       </h2>
-      <Logo />
+      <LogoFooter />
       <p className="mt-4 mb-6 text-slate-300">
         Professional plumbing services with a commitment to quality and customer satisfaction since
         1985.
