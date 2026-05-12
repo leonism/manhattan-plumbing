@@ -4,7 +4,7 @@ description: "Comprehensive plumbing services in Manhattan, from 24/7 emergency 
 hero:
   title: "Professional Plumbing Services"
   subtitle: "Expert solutions for residential and commercial properties across Manhattan. Reliable, licensed, and available 24/7."
-  image: "pexels-newyork-006.jpg"
+  image: "pexels-newyork-005.jpg"
   primaryButton:
     text: "View All Services"
     href: "#all-services"

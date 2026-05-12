@@ -59,7 +59,7 @@ export default async function ServicePage({ params }: Props) {
             src={typeof service.heroImage === 'string' ? service.heroImage : service.heroImage.src}
             alt={service.title}
             fill
-            className="object-cover brightness-[0.6]"
+            className="dark:object-cover dark:brightness-[0.6]"
             priority
           />
           <div className="absolute inset-0 bg-linear-to-b from-transparent via-black/30 to-black/70" />
@@ -68,22 +68,22 @@ export default async function ServicePage({ params }: Props) {
           <div className="mx-auto max-w-3xl text-center">
             {service.heroIcon && (
               <div className="mb-6 flex justify-center">
-                <DynamicIcon 
-                  name={service.heroIcon} 
-                  size={64} 
-                  className={cn(isEmergency ? "text-red-500 animate-pulse" : "text-blue-500")} 
+                <DynamicIcon
+                  name={service.heroIcon}
+                  size={64}
+                  className={cn(isEmergency ? 'animate-pulse text-red-500' : 'text-blue-500')}
                 />
               </div>
             )}
-            <h1 className={cn(
-              "mb-6 text-4xl leading-tight font-bold md:text-5xl lg:text-6xl",
-              isEmergency ? "text-red-50" : "text-white"
-            )}>
+            <h1
+              className={cn(
+                'mb-6 text-4xl leading-tight font-bold md:text-5xl lg:text-6xl',
+                isEmergency ? 'text-red-50' : 'text-white'
+              )}
+            >
               {service.heroTitle}
             </h1>
-            <p className="mb-8 text-xl text-blue-100 md:text-2xl">
-              {service.heroSubtitle}
-            </p>
+            <p className="mb-8 text-xl text-blue-100 md:text-2xl">{service.heroSubtitle}</p>
             <div className="flex flex-col justify-center gap-4 sm:flex-row">
               <ServiceHeroButton service={service} />
             </div>
@@ -121,10 +121,7 @@ export default async function ServicePage({ params }: Props) {
 
       {/* Protocols Section */}
       {service.protocols && (
-        <ServiceProtocols
-          title={service.protocols.title}
-          steps={service.protocols.steps}
-        />
+        <ServiceProtocols title={service.protocols.title} steps={service.protocols.steps} />
       )}
 
       {/* CTA Section */}
@@ -144,9 +141,9 @@ export default async function ServicePage({ params }: Props) {
 function ServiceHeroButton({ service }: { service: any }) {
   if (service.slug === 'emergency-service') {
     return (
-      <a 
-        href="tel:+12125551234" 
-        className="group inline-flex items-center justify-center rounded-md bg-red-600 px-8 h-16 text-lg font-medium text-white hover:bg-red-700 transition-colors focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2"
+      <a
+        href="tel:+12125551234"
+        className="group inline-flex h-16 items-center justify-center rounded-md bg-red-600 px-8 text-lg font-medium text-white transition-colors hover:bg-red-700 focus:ring-2 focus:ring-red-500 focus:ring-offset-2 focus:outline-none"
       >
         <DynamicIcon name="Phone" className="mr-3 group-hover:animate-bounce" size={24} />
         <span>Call Emergency Line: (212) 555-1234</span>
@@ -155,9 +152,9 @@ function ServiceHeroButton({ service }: { service: any }) {
   }
 
   return (
-    <a 
-      href="/contact" 
-      className="inline-flex items-center justify-center rounded-md bg-blue-600 px-8 h-16 text-lg font-medium text-white hover:bg-blue-700 transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+    <a
+      href="/contact/"
+      className="inline-flex h-16 items-center justify-center rounded-md bg-blue-600 px-8 text-lg font-medium text-white transition-colors hover:bg-blue-700 focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:outline-none"
     >
       Request a Quote
     </a>

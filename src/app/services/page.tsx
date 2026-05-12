@@ -9,12 +9,12 @@ import DynamicIcon from '@/components/ui/DynamicIcon'
 
 export async function generateMetadata(): Promise<Metadata> {
   const indexData = getServicesIndexData()
-  
+
   return {
     title: indexData?.title || 'Our Services | Manhattan Plumbing',
     description: indexData?.description || 'Comprehensive plumbing services in Manhattan.',
     alternates: {
-      canonical: '/services',
+      canonical: '/services/',
     },
   }
 }
@@ -22,7 +22,7 @@ export async function generateMetadata(): Promise<Metadata> {
 export default async function ServicesPage() {
   const indexData = getServicesIndexData()
   const allServices = getAllServices()
-  
+
   if (!indexData) {
     return <div>Loading services...</div>
   }
@@ -46,14 +46,20 @@ export default async function ServicesPage() {
             <h1 className="mb-6 text-4xl font-black tracking-tight text-white md:text-6xl">
               {indexData.hero.title}
             </h1>
-            <p className="mb-8 text-xl text-slate-200">
-              {indexData.hero.subtitle}
-            </p>
+            <p className="mb-8 text-xl text-slate-200">{indexData.hero.subtitle}</p>
             <div className="flex flex-wrap justify-center gap-4">
-              <Button href={indexData.hero.primaryButton.href} variant="default" className="h-12 px-8">
+              <Button
+                href={indexData.hero.primaryButton.href}
+                variant="default"
+                className="h-12 px-8"
+              >
                 {indexData.hero.primaryButton.text}
               </Button>
-              <Button href={indexData.hero.secondaryButton.href} variant="outline" className="h-12 border-white text-white hover:bg-white hover:text-slate-900 px-8">
+              <Button
+                href={indexData.hero.secondaryButton.href}
+                variant="outline"
+                className="h-12 border-white px-8 text-white hover:bg-white hover:text-slate-900"
+              >
                 <Phone className="mr-2" size={20} />
                 {indexData.hero.secondaryButton.text}
               </Button>
@@ -70,7 +76,7 @@ export default async function ServicesPage() {
             subtitle={indexData.solutions.subtitle}
             centered
           />
-          
+
           <div className="mt-16 grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
             {allServices.map((service) => (
               <ServiceCard
@@ -97,13 +103,13 @@ export default async function ServicesPage() {
               <div className="mt-8 space-y-4">
                 {indexData.whyChooseUs.items.map((item: string, index: number) => (
                   <div key={index} className="flex items-center space-x-3">
-                    <CheckCircle2 className="text-blue-600 dark:text-blue-400 shrink-0" size={24} />
+                    <CheckCircle2 className="shrink-0 text-blue-600 dark:text-blue-400" size={24} />
                     <span className="text-lg text-slate-700 dark:text-slate-300">{item}</span>
                   </div>
                 ))}
               </div>
               <div className="mt-10">
-                <Button href="/contact" variant="default" className="h-12 px-8">
+                <Button href="/contact/" variant="default" className="h-12 px-8">
                   Get a Free Estimate
                 </Button>
               </div>
@@ -124,14 +130,20 @@ export default async function ServicesPage() {
       <section className="bg-blue-600 py-16 text-white dark:bg-blue-700">
         <div className="container mx-auto px-4 text-center md:px-6">
           <h2 className="mb-6 text-3xl font-bold md:text-4xl">{indexData.cta.title}</h2>
-          <p className="mb-10 text-xl text-blue-50">
-            {indexData.cta.subtitle}
-          </p>
+          <p className="mb-10 text-xl text-blue-50">{indexData.cta.subtitle}</p>
           <div className="flex flex-wrap justify-center gap-6">
-            <Button href={indexData.cta.primaryButton.href} variant="default" className="bg-white text-blue-600 hover:bg-blue-50 h-14 px-10 text-lg">
+            <Button
+              href={indexData.cta.primaryButton.href}
+              variant="default"
+              className="h-14 bg-white px-10 text-lg text-blue-600 hover:bg-blue-50"
+            >
               {indexData.cta.primaryButton.text}
             </Button>
-            <Button href={indexData.cta.secondaryButton.href} variant="outline" className="border-white text-white hover:bg-white/10 h-14 px-10 text-lg">
+            <Button
+              href={indexData.cta.secondaryButton.href}
+              variant="outline"
+              className="h-14 border-white px-10 text-lg text-white hover:bg-white/10"
+            >
               {indexData.cta.secondaryButton.text}
             </Button>
           </div>
