@@ -23,13 +23,13 @@ const NewsPostHero: React.FC<NewsPostHeroProps> = ({ post }) => {
       />
       <div className="absolute inset-0 bg-linear-to-b from-black/20 via-black/40 to-slate-900" />
 
-      <div className="absolute bottom-0 left-0 w-full pt-24 pb-12">
+      <div className="absolute bottom-0 left-0 w-full pt-24 pb-8 md:pb-12">
         <div className="container mx-auto px-4">
           <Link
             href="/news"
-            className="mb-8 inline-flex items-center text-blue-400 transition-colors hover:text-blue-300"
+            className="mb-6 inline-flex items-center text-sm font-medium text-blue-400 transition-colors hover:text-blue-300 md:mb-8 md:text-base"
           >
-            <ChevronLeft size={20} className="mr-1" />
+            <ChevronLeft size={18} className="mr-1 md:size-5" />
             <span>Back to News</span>
           </Link>
           <div className="max-w-4xl">
