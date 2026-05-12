@@ -3,6 +3,7 @@ import path from 'path'
 import matter from 'gray-matter'
 import { slugify } from '@/utils/slugify'
 import { getAllServices } from '@/lib/services'
+import { getAllLegalPages } from '@/lib/legal'
 import type { Post, Author, ImageSource } from '@/types'
 export type { Post, Author, ImageSource }
 
@@ -97,6 +98,7 @@ export function getAllPosts(): Post[] {
 export function getSearchIndex() {
   const posts = getAllPosts()
   const services = getAllServices()
+  const legalPages = getAllLegalPages()
 
   const postIndex = posts.map(post => ({
     slug: post.slug,
@@ -124,7 +126,20 @@ export function getSearchIndex() {
     type: 'service'
   }))
 
-  return [...postIndex, ...serviceIndex]
+  const legalIndex = legalPages.map(page => ({
+    slug: `/${page.slug}`,
+    title: page.title,
+    excerpt: page.description,
+    category: 'Legal',
+    tags: [],
+    featuredImage: {
+      src: '/images/legal-placeholder.jpg',
+      alt: page.title
+    },
+    type: 'legal'
+  }))
+
+  return [...postIndex, ...serviceIndex, ...legalIndex]
 }
 
 /**

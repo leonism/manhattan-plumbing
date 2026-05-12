@@ -55,6 +55,7 @@ export interface SearchIndexItem {
 export interface CategorizedResults {
   news: SearchResult[]
   services: SearchResult[]
+  legal: SearchResult[]
 }
 
 export interface UseNewsOptions {

@@ -7,7 +7,7 @@ let flexIndex: any = null
 let searchData: SearchIndexItem[] = []
 
 export const useSearch = (query: string) => {
-  const [results, setResults] = useState<CategorizedResults>({ news: [], services: [] })
+  const [results, setResults] = useState<CategorizedResults>({ news: [], services: [], legal: [] })
   const [isLoading, setIsLoading] = useState(false)
   const [isReady, setIsReady] = useState(!!flexIndex)
 
@@ -35,7 +35,7 @@ export const useSearch = (query: string) => {
           cache: true
         })
 
-        // Add items to index (both news and services are now in the data)
+        // Add items to index (both news, services and legal are now in the data)
         data.forEach(item => {
           flexIndex.add(item)
         })
@@ -58,7 +58,7 @@ export const useSearch = (query: string) => {
 
     const search = async () => {
       if (!query.trim()) {
-        setResults({ news: [], services: [] })
+        setResults({ news: [], services: [], legal: [] })
         return
       }
 
@@ -71,6 +71,7 @@ export const useSearch = (query: string) => {
 
       const news: SearchResult[] = []
       const services: SearchResult[] = []
+      const legal: SearchResult[] = []
 
       // FlexSearch returns results grouped by index field, we need to flatten and deduplicate
       const seen = new Set()
@@ -86,18 +87,20 @@ export const useSearch = (query: string) => {
             title: doc.title,
             excerpt: doc.excerpt,
             featuredImage: doc.featuredImage,
-            icon: doc.type === 'service' ? 'Wrench' : undefined
+            icon: doc.type === 'service' ? 'Wrench' : doc.type === 'legal' ? 'FileText' : undefined
           }
 
           if (doc.type === 'news') {
             news.push(result)
-          } else {
+          } else if (doc.type === 'service') {
             services.push(result)
+          } else if (doc.type === 'legal') {
+            legal.push(result)
           }
         })
       })
 
-      setResults({ news, services })
+      setResults({ news, services, legal })
     }
 
     // Small debounce for rapid typing
