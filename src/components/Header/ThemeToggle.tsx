@@ -26,7 +26,13 @@ const ThemeToggle: React.FC<ThemeToggleProps> = ({ theme, scrolled, isHomePage }
       : 'text-slate-700 hover:bg-slate-100 dark:text-slate-200 dark:hover:bg-slate-800'
   )
 
-  if (!mounted) return <div className="h-10 w-10 md:mr-3" />
+  if (!mounted) {
+    return (
+      <div className={cn('p-2 md:mr-3 md:p-3', iconColorClass)}>
+        <Moon size={20} className="opacity-50" />
+      </div>
+    )
+  }
 
   return (
     <button

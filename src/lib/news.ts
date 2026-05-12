@@ -113,30 +113,33 @@ export function getSearchIndex() {
     type: 'news'
   }))
 
-  const serviceIndex = services.map(service => ({
-    slug: `/services/${service.slug}`,
-    title: service.title,
-    excerpt: service.description,
-    category: 'Services',
-    tags: [],
-    featuredImage: {
-      src: (service.heroImage as ImageSource).src,
-      alt: (service.heroImage as ImageSource).alt
-    },
-    type: 'service'
-  }))
+  const serviceIndex = services.map(service => {
+    const heroImage = service.heroImage as ImageSource;
+    return {
+      slug: `/services/${service.slug}`,
+      title: service.title,
+      excerpt: service.description,
+      category: 'Services',
+      tags: [],
+      featuredImage: heroImage && heroImage.src ? {
+        src: heroImage.src,
+        alt: heroImage.alt || service.title
+      } : undefined,
+      type: 'service'
+    };
+  })
 
   const legalIndex = legalPages.map(page => ({
     slug: `/${page.slug}`,
     title: page.title,
     excerpt: page.description,
-    category: 'Legal',
+    category: page.category || 'Legal',
     tags: [],
     featuredImage: {
-      src: '/images/legal-placeholder.jpg',
+      src: page.featuredImage?.src || '/images/legal-placeholder.jpg',
       alt: page.title
     },
-    type: 'legal'
+    type: page.type || 'legal'
   }))
 
   return [...postIndex, ...serviceIndex, ...legalIndex]

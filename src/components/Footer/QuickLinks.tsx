@@ -16,10 +16,10 @@ const QuickLinks: React.FC<QuickLinksProps> = ({ className }) => {
             { href: '/', text: 'Home' },
             { href: '/news', text: 'News & Updates' },
             { href: '/services', text: 'Services' },
-            { href: '/#about', text: 'About Us' },
+            { href: '/about', text: 'About Us' },
             { href: '/location', text: 'Location' },
             { href: '/#testimonials', text: 'Testimonials' },
-            { href: '/#contact', text: 'Contact' },
+            { href: '/contact', text: 'Contact' },
           ].map(({ href, text }) => (
             <li key={text}>
               <a href={href} className="text-slate-300 transition-colors hover:text-white">

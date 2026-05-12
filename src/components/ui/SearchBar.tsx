@@ -47,12 +47,18 @@ const SearchBar: React.FC<SearchBarProps> = ({ onClear, onClose }) => {
   }, [activeIndex, allResults, router, onClose])
 
   const getIcon = (item: SearchResult) => {
-    if (item.featuredImage) {
+    if (item.featuredImage && item.featuredImage.src) {
       return (
         <img
           src={item.featuredImage.src}
-          alt={item.featuredImage.alt}
+          alt={item.featuredImage.alt || item.title}
           className="h-full w-full object-cover"
+          loading="lazy"
+          onError={(e) => {
+            // Fallback if image fails to load
+            (e.target as HTMLImageElement).style.display = 'none';
+            (e.target as HTMLImageElement).parentElement!.innerHTML = '<div class="flex items-center justify-center h-full w-full bg-slate-100 dark:bg-slate-800"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-slate-400"><path d="M20 7h-9l-3-3H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2z"></path></svg></div>';
+          }}
         />
       )
     }
@@ -129,7 +135,7 @@ const SearchBar: React.FC<SearchBarProps> = ({ onClear, onClose }) => {
                     </div>
                     <div>
                       <p className="font-semibold text-slate-800 dark:text-white">{result.title}</p>
-                      <p className="line-clamp-1 text-sm text-slate-500 dark:text-slate-400">
+                      <p className="line-clamp-2 text-sm text-slate-500 dark:text-slate-400">
                         {result.excerpt}
                       </p>
                     </div>
@@ -162,7 +168,7 @@ const SearchBar: React.FC<SearchBarProps> = ({ onClear, onClose }) => {
                     </div>
                     <div>
                       <p className="font-semibold text-slate-800 dark:text-white">{result.title}</p>
-                      <p className="line-clamp-1 text-sm text-slate-500 dark:text-slate-400">
+                      <p className="line-clamp-2 text-sm text-slate-500 dark:text-slate-400">
                         {result.excerpt}
                       </p>
                     </div>
@@ -195,7 +201,7 @@ const SearchBar: React.FC<SearchBarProps> = ({ onClear, onClose }) => {
                     </div>
                     <div>
                       <p className="font-semibold text-slate-800 dark:text-white">{result.title}</p>
-                      <p className="line-clamp-1 text-sm text-slate-500 dark:text-slate-400">
+                      <p className="line-clamp-2 text-sm text-slate-500 dark:text-slate-400">
                         {result.excerpt}
                       </p>
                     </div>

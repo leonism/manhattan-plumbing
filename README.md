@@ -27,17 +27,20 @@
 The search system has been refactored for extreme performance:
 - **100x Faster**: Replaced naive client-side filtering with **FlexSearch**, providing instant results across 1,000+ posts.
 - **Static API Indexing**: Uses a `force-static` Next.js route (`/api/search`) to serve a lightweight metadata index, reducing initial payload by >90%.
-- **Unified Results**: Seamlessly indexes both **News** and **Services** (with working thumbnails).
+- **Unified Results**: Seamlessly indexes **News**, **Services**, and **Legal Pages** (with working thumbnails).
 - **Global Shortcut**: Use `⌘K` (or `Ctrl+K`) to toggle the search modal from anywhere.
+- **Mobile Optimized**: Results are truncated to 2 lines maximum for better legibility on small screens.
 
 ### 🎨 Modern UI & UX
 - **Performance Skeletons**: Integrated Shadcn-style Skeletons for smooth loading states and zero layout shift.
 - **Native Dark Mode**: Clean implementation using Tailwind's `dark:` utilities, ensuring high contrast and zero flickering during theme transitions.
 - **Accessibility First**: WCAG-compliant color palettes and keyboard-accessible navigation components.
+- **Responsive Layouts**: Optimized spacing for mobile viewports, including improved Table of Contents and navigation buttons.
 
 ### 📂 Dynamic Content Pipeline
-- **MDX Powered**: Full support for MDX in News and Services content.
-- **Structured Services**: Services landing page is powered by a central `index.md` output, allowing for easy updates to hero sections and CTA messaging.
+- **MDX Powered**: Full support for MDX across News, Services, and Legal content.
+- **Legal Migration**: Privacy Policy, Terms of Service, and Cookies Policy are now fully MDX-based and indexable.
+- **Post-Build Markdown Output**: Automatically generates `index.md` versions of every page (e.g., `/privacy-policy/index.md`) using a custom JSDOM/Turndown script, enabling easier content auditing and LLM indexing.
 - **Asset Optimization**: Automated post-build image normalization and lazy loading.
 
 ---
