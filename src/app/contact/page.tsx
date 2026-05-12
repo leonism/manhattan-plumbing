@@ -1,9 +1,9 @@
 import React from 'react'
 import { Metadata } from 'next'
 import { notFound } from 'next/navigation'
-import LegalPageClient from '@/components/Legal/LegalPageClient'
+import AccordionPageLayout from '@/components/ui/AccordionPageLayout'
 import ContactForm from '@/components/ui/ContactForm'
-import { getLegalPageData } from '@/lib/legal'
+import { getContactPageData } from '@/lib/contact'
 
 export const metadata: Metadata = {
   title: 'Contact Us',
@@ -22,7 +22,8 @@ export const metadata: Metadata = {
 }
 
 export default async function ContactPage() {
-  const page = await getLegalPageData('contact')
+  const page = await getContactPageData()
+
   
   if (!page) {
     notFound()
@@ -30,7 +31,7 @@ export default async function ContactPage() {
 
   return (
     <>
-      <LegalPageClient
+      <AccordionPageLayout
         title={page.title}
         lastUpdated={page.lastUpdated}
         sections={page.sections}
