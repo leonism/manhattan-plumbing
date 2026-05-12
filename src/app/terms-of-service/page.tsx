@@ -1,8 +1,7 @@
 import React from 'react'
 import { Metadata } from 'next'
 import { notFound } from 'next/navigation'
-import LegalPageClient from '@/components/Legal/LegalPageClient'
-import ContactForm from '@/components/ui/ContactForm'
+import AccordionPageLayout from '@/components/ui/AccordionPageLayout'
 import { getLegalPageData } from '@/lib/legal'
 
 export const metadata: Metadata = {
@@ -30,19 +29,19 @@ export default async function TermsOfServicePage() {
 
   return (
     <>
-      <LegalPageClient
+      <AccordionPageLayout
         title={page.title}
         lastUpdated={page.lastUpdated}
         sections={page.sections}
+        formConfig={{
+          afterSectionTitle: '8. Quick Question?',
+          heading: '',
+          headingSize: 'sm',
+          shadow: false,
+          variant: 'minimal'
+        }}
       />
-      <div className="container mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 pb-16">
-        <ContactForm
-          heading="Quick Question?"
-          headingSize="sm"
-          shadow={false}
-          variant="minimal"
-        />
-      </div>
     </>
   )
 }
+

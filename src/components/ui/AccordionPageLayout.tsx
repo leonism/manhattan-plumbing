@@ -4,19 +4,29 @@ import React, { useState } from 'react'
 import { ChevronDownIcon, ChevronUpIcon } from '@heroicons/react/24/outline'
 import StaticHeading from '@/components/ui/StaticHeading'
 import ReactMarkdown from 'react-markdown'
+import ContactForm from '@/components/ui/ContactForm'
 
 interface Section {
   title: string
   content: string
 }
 
-interface LegalPageClientProps {
+interface FormConfig {
+  afterSectionTitle: string
+  heading: string
+  headingSize?: 'sm' | 'md' | 'lg' | 'xl'
+  shadow?: boolean
+  variant?: 'default' | 'minimal' | 'highlighted'
+}
+
+interface AccordionPageLayoutProps {
   title: string
   lastUpdated: string
   sections: Section[]
+  formConfig?: FormConfig
 }
 
-const LegalPageClient: React.FC<LegalPageClientProps> = ({ title, lastUpdated, sections }) => {
+const AccordionPageLayout: React.FC<AccordionPageLayoutProps> = ({ title, lastUpdated, sections, formConfig }) => {
   const [openSections, setOpenSections] = useState<Record<number, boolean>>({
     0: true, // First section open by default
   })
@@ -56,10 +66,14 @@ const LegalPageClient: React.FC<LegalPageClientProps> = ({ title, lastUpdated, s
                   <h2 className="text-xl font-bold text-gray-900 dark:text-white">
                     {section.title}
                   </h2>
-                  <span className="ml-4 flex h-8 w-8 items-center justify-center rounded-full transition-colors hover:bg-gray-100 dark:hover:bg-gray-700">
+                  <span className={`ml-4 flex h-8 w-8 items-center justify-center rounded-full border transition-colors border-gray-200 hover:bg-gray-100 dark:border-gray-700 dark:hover:bg-gray-700 ${
+                    openSections[index] 
+                      ? 'bg-gray-50/50 dark:bg-gray-800/50' 
+                      : 'bg-transparent'
+                  }`}>
                     {openSections[index] ? (
                       <ChevronUpIcon
-                        className="h-5 w-5 text-gray-500 dark:text-gray-400"
+                        className="h-5 w-5 text-gray-600 dark:text-gray-300"
                         aria-hidden="true"
                       />
                     ) : (
@@ -79,6 +93,17 @@ const LegalPageClient: React.FC<LegalPageClientProps> = ({ title, lastUpdated, s
                   <div className="prose prose-slate max-w-none dark:prose-invert prose-p:leading-relaxed prose-p:text-gray-600 dark:prose-p:text-gray-300">
                     <ReactMarkdown>{section.content}</ReactMarkdown>
                   </div>
+                  
+                  {formConfig && section.title.includes(formConfig.afterSectionTitle) && (
+                    <div className="mt-6">
+                      <ContactForm
+                        heading={formConfig.heading}
+                        headingSize={formConfig.headingSize || 'sm'}
+                        shadow={formConfig.shadow ?? false}
+                        variant={formConfig.variant || 'minimal'}
+                      />
+                    </div>
+                  )}
                 </div>
               </section>
             ))}
@@ -89,4 +114,5 @@ const LegalPageClient: React.FC<LegalPageClientProps> = ({ title, lastUpdated, s
   )
 }
 
-export default LegalPageClient
+export default AccordionPageLayout
+
