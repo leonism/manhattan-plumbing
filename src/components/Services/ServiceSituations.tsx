@@ -66,7 +66,7 @@ const ServiceSituations = ({ title, subtitle, items }: ServiceSituationsProps) =
                   <p className="mb-6 text-lg text-slate-600 dark:text-slate-300">
                     {item.description}
                   </p>
-                  <Button href="tel:+12125551234" variant="outline" className="w-full">
+                  <Button href="tel:+12125551234" variant="default" className="w-full">
                     Contact Us Now
                   </Button>
                 </div>
