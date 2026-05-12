@@ -90,12 +90,22 @@ function cleanContent(document, relativePath) {
     });
 
     // 2. Pre-process cards for better Markdown (Home page, News Index, Category/Tag pages)
-    // This addresses "render the card content into markdown format"
-    document.querySelectorAll('.NewsCard, .PostCard, .card, article, [class*="PostGrid"] article').forEach(card => {
+    // We want to simplify cards in lists, but PRESERVE main articles
+    const isLegalPage = relativePath.includes('privacy-policy') || 
+                        relativePath.includes('terms-of-service') || 
+                        relativePath.includes('cookies-policy');
+
+    document.querySelectorAll('.NewsCard, .PostCard, .card, article').forEach(card => {
         const cardEl = /** @type {HTMLElement} */ (card);
-        // Don't simplify the main article on a post page
-        const isMainArticle = !relativePath.includes('index.html') && cardEl.tagName === 'ARTICLE' && cardEl.parentElement?.tagName === 'MAIN';
-        if (isMainArticle) return;
+        
+        // Robust main article detection:
+        // A main article is typically the only <article> inside <main>, 
+        // or has specific semantic markers. In this app, main articles for news/legal
+        // are NOT inside a grid container.
+        const isInGrid = !!cardEl.closest('.grid') || !!cardEl.closest('[class*="Grid"]');
+        const isMainArticle = cardEl.tagName === 'ARTICLE' && !isInGrid;
+
+        if (isMainArticle || isLegalPage) return;
 
         const h2 = cardEl.querySelector('h2, h3, h4');
         const link = cardEl.querySelector('a');

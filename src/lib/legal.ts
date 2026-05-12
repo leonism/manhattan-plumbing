@@ -4,11 +4,17 @@ import matter from 'gray-matter'
 
 const legalDirectory = path.join(process.cwd(), 'src/content/legal')
 
+export interface LegalSection {
+  title: string
+  content: string // Markdown string
+}
+
 export interface LegalPage {
   slug: string
   title: string
   description: string
   lastUpdated: string
+  sections: LegalSection[]
   content: string
 }
 
@@ -29,6 +35,7 @@ export function getAllLegalPages(): LegalPage[] {
         title: data.title,
         description: data.description,
         lastUpdated: data.lastUpdated,
+        sections: data.sections || [],
         content,
       } as LegalPage
     })
@@ -37,10 +44,4 @@ export function getAllLegalPages(): LegalPage[] {
 export async function getLegalPageData(slug: string): Promise<LegalPage | undefined> {
   const allPages = getAllLegalPages()
   return allPages.find((page) => page.slug === slug)
-}
-
-export function getAllLegalSlugs() {
-  return getAllLegalPages().map((page) => ({
-    params: { slug: page.slug },
-  }))
 }

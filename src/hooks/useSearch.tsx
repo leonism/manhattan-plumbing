@@ -1,87 +1,112 @@
-import { useState, useEffect } from 'react'
-import { Post, SearchResult, CategorizedResults } from '@/types'
+import { useState, useEffect, useMemo, useRef } from 'react'
+import FlexSearch from 'flexsearch'
+import { SearchResult, CategorizedResults, SearchIndexItem } from '@/types'
 
-// Define services data statically with icons
-const services = [
-  {
-    slug: '/services/emergency-service',
-    title: 'Emergency Plumbing',
-    excerpt: '24/7 immediate response for all plumbing emergencies.',
-    icon: 'Wrench',
-  },
-  {
-    slug: '/services/drain-service',
-    title: 'Drain Cleaning',
-    excerpt: 'Expert cleaning and clearing of all types of drains.',
-    icon: 'Wrench',
-  },
-  {
-    slug: '/services/water-heater-service',
-    title: 'Water Heaters',
-    excerpt: 'Installation, repair, and maintenance of water heaters.',
-    icon: 'Wrench',
-  },
-  {
-    slug: '/services/remodeling-service',
-    title: 'Remodeling Services',
-    excerpt: 'Plumbing for kitchen and bathroom remodeling projects.',
-    icon: 'Wrench',
-  },
-  {
-    slug: '/services/pipe-service',
-    title: 'Pipe Repair & Installation',
-    excerpt: 'Leak detection, pipe repair, and full re-piping services.',
-    icon: 'Wrench',
-  },
-  {
-    slug: '/services/fixture-service',
-    title: 'Fixture Installation',
-    excerpt: 'Installation and repair of faucets, toilets, and other fixtures.',
-    icon: 'Wrench',
-  },
-]
+// Singleton index and data to avoid re-fetching and re-indexing on every mount
+let flexIndex: any = null
+let searchData: SearchIndexItem[] = []
 
-export const useSearch = (query: string, allPosts: Post[]) => {
-  const [results, setResults] = useState<CategorizedResults>({ news: [], services: [] })
+export const useSearch = (query: string) => {
+  const [results, setResults] = useState<CategorizedResults>({ news: [], services: [], legal: [] })
   const [isLoading, setIsLoading] = useState(false)
+  const [isReady, setIsReady] = useState(!!flexIndex)
 
+  // Initialize FlexSearch and fetch data
   useEffect(() => {
-    const search = () => {
+    if (flexIndex) return
+
+    const initSearch = async () => {
+      try {
+        setIsLoading(true)
+        const response = await fetch('/api/search')
+        if (!response.ok) throw new Error('Failed to fetch search index')
+        const data: (SearchIndexItem & { type: string })[] = await response.json()
+        
+        // Initialize FlexSearch Document Index
+        // Using "Document" for multi-field indexing and easy retrieval
+        flexIndex = new FlexSearch.Document({
+          document: {
+            id: 'slug',
+            index: ['title', 'excerpt', 'category', 'tags'],
+            store: ['title', 'excerpt', 'slug', 'featuredImage', 'type']
+          },
+          tokenize: 'forward',
+          resolution: 9,
+          cache: true
+        })
+
+        // Add items to index (both news, services and legal are now in the data)
+        data.forEach(item => {
+          flexIndex.add(item)
+        })
+
+        searchData = data
+        setIsReady(true)
+      } catch (error) {
+        console.error('Search initialization failed:', error)
+      } finally {
+        setIsLoading(false)
+      }
+    }
+
+    initSearch()
+  }, [])
+
+  // Perform search
+  useEffect(() => {
+    if (!isReady || !flexIndex) return
+
+    const search = async () => {
       if (!query.trim()) {
-        setResults({ news: [], services: [] })
+        setResults({ news: [], services: [], legal: [] })
         return
       }
 
-      setIsLoading(true)
-
-      // Filter news posts
-      const newsResults = allPosts
-        .filter((post) => {
-          const searchableContent = [post.title, post.excerpt, post.category, ...(post.tags || [])]
-            .join(' ')
-            .toLowerCase()
-          return searchableContent.includes(query.toLowerCase())
-        })
-        .map((post) => ({
-          slug: `/news/${post.slug}`,
-          title: post.title,
-          excerpt: post.excerpt,
-          featuredImage: post.featuredImage,
-        }))
-
-      // Filter services
-      const servicesResults = services.filter((service) => {
-        const searchableContent = [service.title, service.excerpt].join(' ').toLowerCase()
-        return searchableContent.includes(query.toLowerCase())
+      // FlexSearch is incredibly fast
+      const searchResults = flexIndex.search(query, {
+        limit: 20,
+        enrich: true, // This returns the stored fields
+        suggest: true
       })
 
-      setResults({ news: newsResults, services: servicesResults })
-      setIsLoading(false)
+      const news: SearchResult[] = []
+      const services: SearchResult[] = []
+      const legal: SearchResult[] = []
+
+      // FlexSearch returns results grouped by index field, we need to flatten and deduplicate
+      const seen = new Set()
+      
+      searchResults.forEach((fieldResult: any) => {
+        fieldResult.result.forEach((item: any) => {
+          if (seen.has(item.id)) return
+          seen.add(item.id)
+
+          const doc = item.doc
+          const result: SearchResult = {
+            slug: doc.type === 'news' ? `/news/${doc.slug}` : doc.slug,
+            title: doc.title,
+            excerpt: doc.excerpt,
+            featuredImage: doc.featuredImage,
+            icon: doc.type === 'service' ? 'Wrench' : doc.type === 'legal' ? 'FileText' : undefined
+          }
+
+          if (doc.type === 'news') {
+            news.push(result)
+          } else if (doc.type === 'service') {
+            services.push(result)
+          } else if (doc.type === 'legal') {
+            legal.push(result)
+          }
+        })
+      })
+
+      setResults({ news, services, legal })
     }
 
-    const debounceTimeout = setTimeout(search, 300)
+    // Small debounce for rapid typing
+    const debounceTimeout = setTimeout(search, 50)
     return () => clearTimeout(debounceTimeout)
-  }, [query, allPosts])
+  }, [query, isReady])
 
-  return { results, isLoading }
+  return { results, isLoading: isLoading || (!isReady && query.length > 0) }
 }

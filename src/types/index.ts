@@ -43,9 +43,19 @@ export interface SearchResult {
   icon?: string
 }
 
+export interface SearchIndexItem {
+  slug: string
+  title: string
+  excerpt: string
+  category: string
+  tags: string[]
+  featuredImage?: { src: string; alt: string }
+}
+
 export interface CategorizedResults {
   news: SearchResult[]
   services: SearchResult[]
+  legal: SearchResult[]
 }
 
 export interface UseNewsOptions {

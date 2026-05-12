@@ -3,11 +3,11 @@
 import React, { useState } from 'react'
 import { ChevronDownIcon, ChevronUpIcon } from '@heroicons/react/24/outline'
 import StaticHeading from '@/components/ui/StaticHeading'
-import HeroBackground from '@/components/Hero/HeroBackground'
+import ReactMarkdown from 'react-markdown'
 
 interface Section {
   title: string
-  content: React.ReactNode
+  content: string
 }
 
 interface LegalPageClientProps {
@@ -30,7 +30,6 @@ const LegalPageClient: React.FC<LegalPageClientProps> = ({ title, lastUpdated, s
 
   return (
     <div className="relative min-h-screen">
-      <HeroBackground />
       <main id="main-content" className="relative z-10 py-16">
         <div className="container mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
           <article className="mt-12 overflow-hidden rounded-2xl bg-white shadow-lg backdrop-blur-xs transition-all duration-300 hover:shadow-xl dark:bg-gray-800/90">
@@ -77,7 +76,9 @@ const LegalPageClient: React.FC<LegalPageClientProps> = ({ title, lastUpdated, s
                   className={`px-6 pb-6 ${openSections[index] ? 'block' : 'hidden'}`}
                   aria-labelledby={`section-${index}-heading`}
                 >
-                  {section.content}
+                  <div className="prose prose-slate max-w-none dark:prose-invert prose-p:leading-relaxed prose-p:text-gray-600 dark:prose-p:text-gray-300">
+                    <ReactMarkdown>{section.content}</ReactMarkdown>
+                  </div>
                 </div>
               </section>
             ))}

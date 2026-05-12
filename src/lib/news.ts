@@ -2,6 +2,8 @@ import fs from 'fs'
 import path from 'path'
 import matter from 'gray-matter'
 import { slugify } from '@/utils/slugify'
+import { getAllServices } from '@/lib/services'
+import { getAllLegalPages } from '@/lib/legal'
 import type { Post, Author, ImageSource } from '@/types'
 export type { Post, Author, ImageSource }
 
@@ -87,6 +89,57 @@ export function getAllPosts(): Post[] {
     .filter((post): post is Post => post !== null)
 
   return allPosts.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
+}
+
+/**
+ * Retrieves a lightweight version of all posts for search indexing.
+ * Excludes full content and complex author objects to minimize payload.
+ */
+export function getSearchIndex() {
+  const posts = getAllPosts()
+  const services = getAllServices()
+  const legalPages = getAllLegalPages()
+
+  const postIndex = posts.map(post => ({
+    slug: post.slug,
+    title: post.title,
+    excerpt: post.excerpt,
+    category: post.category,
+    tags: post.tags,
+    featuredImage: {
+      src: post.featuredImage.src,
+      alt: post.featuredImage.alt
+    },
+    type: 'news'
+  }))
+
+  const serviceIndex = services.map(service => ({
+    slug: `/services/${service.slug}`,
+    title: service.title,
+    excerpt: service.description,
+    category: 'Services',
+    tags: [],
+    featuredImage: {
+      src: (service.heroImage as ImageSource).src,
+      alt: (service.heroImage as ImageSource).alt
+    },
+    type: 'service'
+  }))
+
+  const legalIndex = legalPages.map(page => ({
+    slug: `/${page.slug}`,
+    title: page.title,
+    excerpt: page.description,
+    category: 'Legal',
+    tags: [],
+    featuredImage: {
+      src: '/images/legal-placeholder.jpg',
+      alt: page.title
+    },
+    type: 'legal'
+  }))
+
+  return [...postIndex, ...serviceIndex, ...legalIndex]
 }
 
 /**

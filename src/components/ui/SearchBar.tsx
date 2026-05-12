@@ -1,9 +1,8 @@
 import React, { useState, useEffect, useRef, useMemo } from 'react'
 import { useSearch } from '@/hooks/useSearch'
-import { useNews } from '@/hooks/useNews'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
-import { Search, Loader, Newspaper, Wrench, X } from 'lucide-react'
+import { Search, Loader, Newspaper, Wrench, X, FileText } from 'lucide-react'
 import Logo from '@/components/ui/Logo'
 
 interface SearchBarProps {
@@ -15,15 +14,14 @@ import { SearchResult } from '@/types'
 
 const SearchBar: React.FC<SearchBarProps> = ({ onClear, onClose }) => {
   const [query, setQuery] = useState('')
-  const { allPosts } = useNews()
-  const { results, isLoading } = useSearch(query, allPosts)
+  const { results, isLoading } = useSearch(query)
   const [activeIndex, setActiveIndex] = useState(-1)
   const router = useRouter()
   const inputRef = useRef<HTMLInputElement>(null)
 
   const allResults = useMemo(
-    () => [...results.news, ...results.services],
-    [results.news, results.services]
+    () => [...results.news, ...results.services, ...results.legal],
+    [results.news, results.services, results.legal]
   )
 
   useEffect(() => {
@@ -60,6 +58,9 @@ const SearchBar: React.FC<SearchBarProps> = ({ onClear, onClose }) => {
     }
     if (item.icon === 'Wrench') {
       return <Wrench size={18} className="text-slate-500" />
+    }
+    if (item.icon === 'FileText') {
+      return <FileText size={18} className="text-slate-500" />
     }
     return <Newspaper size={18} className="text-slate-500" />
   }
@@ -155,6 +156,39 @@ const SearchBar: React.FC<SearchBarProps> = ({ onClear, onClose }) => {
                     href={result.slug}
                     onClick={() => onClose?.()}
                     className={`flex items-center gap-4 rounded-lg p-4 transition-colors ${activeIndex === index + results.news.length ? 'bg-slate-100 dark:bg-slate-700' : 'hover:bg-slate-50 dark:hover:bg-slate-700/50'}`}
+                  >
+                    <div className="flex h-12 w-12 shrink-0 items-center justify-center overflow-hidden rounded-md bg-slate-200 dark:bg-slate-600">
+                      {getIcon(result)}
+                    </div>
+                    <div>
+                      <p className="font-semibold text-slate-800 dark:text-white">{result.title}</p>
+                      <p className="line-clamp-1 text-sm text-slate-500 dark:text-slate-400">
+                        {result.excerpt}
+                      </p>
+                    </div>
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
+
+        {results.legal.length > 0 && (
+          <div className="border-t border-slate-100 p-4 dark:border-slate-700/50">
+            <h3 className="mb-2 px-4 text-xs font-semibold tracking-wider text-slate-400 uppercase">
+              Legal
+            </h3>
+            <ul role="listbox">
+              {results.legal.map((result, index) => (
+                <li
+                  key={result.slug}
+                  role="option"
+                  aria-selected={index + results.news.length + results.services.length === activeIndex}
+                >
+                  <Link
+                    href={result.slug}
+                    onClick={() => onClose?.()}
+                    className={`flex items-center gap-4 rounded-lg p-4 transition-colors ${activeIndex === index + results.news.length + results.services.length ? 'bg-slate-100 dark:bg-slate-700' : 'hover:bg-slate-50 dark:hover:bg-slate-700/50'}`}
                   >
                     <div className="flex h-12 w-12 shrink-0 items-center justify-center overflow-hidden rounded-md bg-slate-200 dark:bg-slate-600">
                       {getIcon(result)}
