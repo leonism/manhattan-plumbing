@@ -133,8 +133,10 @@ const SearchBar: React.FC<SearchBarProps> = ({ onClear, onClose }) => {
                     <div className="flex h-12 w-12 shrink-0 items-center justify-center overflow-hidden rounded-md bg-slate-200 dark:bg-slate-600">
                       {getIcon(result)}
                     </div>
-                    <div>
-                      <p className="font-semibold text-slate-800 dark:text-white">{result.title}</p>
+                    <div className="min-w-0">
+                      <p className="line-clamp-2 font-semibold text-slate-800 dark:text-white">
+                        {result.title}
+                      </p>
                       <p className="line-clamp-2 text-sm text-slate-500 dark:text-slate-400">
                         {result.excerpt}
                       </p>
@@ -166,8 +168,10 @@ const SearchBar: React.FC<SearchBarProps> = ({ onClear, onClose }) => {
                     <div className="flex h-12 w-12 shrink-0 items-center justify-center overflow-hidden rounded-md bg-slate-200 dark:bg-slate-600">
                       {getIcon(result)}
                     </div>
-                    <div>
-                      <p className="font-semibold text-slate-800 dark:text-white">{result.title}</p>
+                    <div className="min-w-0">
+                      <p className="line-clamp-2 font-semibold text-slate-800 dark:text-white">
+                        {result.title}
+                      </p>
                       <p className="line-clamp-2 text-sm text-slate-500 dark:text-slate-400">
                         {result.excerpt}
                       </p>
@@ -199,8 +203,10 @@ const SearchBar: React.FC<SearchBarProps> = ({ onClear, onClose }) => {
                     <div className="flex h-12 w-12 shrink-0 items-center justify-center overflow-hidden rounded-md bg-slate-200 dark:bg-slate-600">
                       {getIcon(result)}
                     </div>
-                    <div>
-                      <p className="font-semibold text-slate-800 dark:text-white">{result.title}</p>
+                    <div className="min-w-0">
+                      <p className="line-clamp-2 font-semibold text-slate-800 dark:text-white">
+                        {result.title}
+                      </p>
                       <p className="line-clamp-2 text-sm text-slate-500 dark:text-slate-400">
                         {result.excerpt}
                       </p>

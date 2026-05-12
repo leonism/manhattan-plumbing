@@ -11,6 +11,7 @@ import { useTheme } from '@/hooks/useTheme'
 import { navItems } from '@/components/Header/navConfig'
 import DesktopNav from '@/components/Header/DesktopNav'
 import MobileNav from '@/components/Header/MobileNav'
+import { useUI } from '@/context/UIContext'
 
 interface HeaderProps {
   isHomePage?: boolean
@@ -18,7 +19,7 @@ interface HeaderProps {
 
 const Header: React.FC<HeaderProps> = ({ isHomePage = false }) => {
   const { theme } = useTheme()
-  const [isOpen, setIsOpen] = useState(false)
+  const { isMenuOpen: isOpen, setIsMenuOpen: setIsOpen } = useUI()
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null)
   const [mounted, setMounted] = useState(false)
   const scrolled = useScrollHandler()

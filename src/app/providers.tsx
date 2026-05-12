@@ -2,10 +2,14 @@
 
 import React from 'react'
 import { ThemeProvider } from '@/context/ThemeContext'
+import { UIProvider } from '@/context/UIContext'
+
 export function Providers({ children }: { children: React.ReactNode }) {
   return (
     <ThemeProvider>
-      {children}
+      <UIProvider>
+        {children}
+      </UIProvider>
     </ThemeProvider>
   )
 }
