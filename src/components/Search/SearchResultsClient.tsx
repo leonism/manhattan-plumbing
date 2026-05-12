@@ -72,16 +72,16 @@ export default function SearchResultsClient() {
               className="group block rounded-2xl bg-white p-6 shadow-sm border border-slate-100 transition-all hover:shadow-md hover:border-blue-200 dark:bg-slate-800 dark:border-slate-800 dark:hover:border-blue-900"
             >
               <div className="flex items-center justify-between">
-                <div className="flex items-center gap-4">
-                  <div className="rounded-full bg-blue-50 p-3 text-blue-600 dark:bg-blue-900/30 dark:text-blue-400">
+                <div className="flex items-center gap-4 min-w-0">
+                  <div className="rounded-full bg-blue-50 p-3 text-blue-600 shrink-0 dark:bg-blue-900/30 dark:text-blue-400">
                     {result.category === 'Service' ? <Wrench size={20} /> : 
                      result.category === 'Page' ? <Search size={20} /> : <Newspaper size={20} />}
                   </div>
-                  <div>
+                  <div className="min-w-0">
                     <span className="text-xs font-bold uppercase tracking-wider text-blue-600 dark:text-blue-400">
                       {result.category}
                     </span>
-                    <h3 className="text-xl font-bold text-slate-900 group-hover:text-blue-600 transition-colors dark:text-white dark:group-hover:text-blue-400">
+                    <h3 className="text-xl font-bold text-slate-900 group-hover:text-blue-600 transition-colors line-clamp-2 dark:text-white dark:group-hover:text-blue-400">
                       {result.title}
                     </h3>
                   </div>

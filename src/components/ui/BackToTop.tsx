@@ -1,9 +1,11 @@
 "use client"
 
 import React, { useState, useEffect } from 'react'
+import { useUI } from '@/context/UIContext'
 
 const BackToTop: React.FC = () => {
   const [isVisible, setIsVisible] = useState(false)
+  const { isMenuOpen } = useUI()
 
   const toggleVisibility = () => {
     if (window.pageYOffset > 300) {
@@ -30,7 +32,7 @@ const BackToTop: React.FC = () => {
 
   return (
     <div className="fixed right-4 bottom-4 z-50">
-      {isVisible && (
+      {isVisible && !isMenuOpen && (
         <button
           onClick={scrollToTop}
           className="transform rounded-full bg-blue-600 p-3 font-bold text-white shadow-lg transition-all duration-300 ease-in-out hover:scale-110 hover:bg-blue-700"

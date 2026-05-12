@@ -22,15 +22,20 @@ const CommonSchema: React.FC<CommonSchemaProps> = ({
   dateModified,
 }) => {
   const pathname = usePathname()
+  const [mounted, setMounted] = React.useState(false)
+
+  React.useEffect(() => {
+    setMounted(true)
+  }, [])
+
   const baseUrl = 'https://manhattan-plumbing.pages.dev'
   const currentUrl = propUrl || `${baseUrl}${pathname === '/' ? '' : pathname}`
-  const publishDate = datePublished || new Date('2025-01-01').toISOString()
+  const publishDate = datePublished || '2025-01-01T00:00:00Z'
   const modifiedDate = dateModified || publishDate
 
   const schemas = [
     // 1. Organization Schema
     {
-      '@context': 'https://schema.org',
       '@type': 'Organization',
       '@id': 'https://manhattan-plumbing.pages.dev/#organization',
       name: 'Manhattan Plumbing',
@@ -62,7 +67,6 @@ const CommonSchema: React.FC<CommonSchemaProps> = ({
     },
     // 2. Article / NewsArticle Schema
     {
-      '@context': 'https://schema.org',
       '@type': 'NewsArticle',
       '@id': `${currentUrl}#article`,
       headline: title,
@@ -85,7 +89,6 @@ const CommonSchema: React.FC<CommonSchemaProps> = ({
     },
     // 3. ImageObject Schema (Images)
     {
-      '@context': 'https://schema.org',
       '@type': 'ImageObject',
       '@id': `${currentUrl}#primaryimage`,
       url: imageUrl,
@@ -96,7 +99,6 @@ const CommonSchema: React.FC<CommonSchemaProps> = ({
     },
     // 4. PlumbingBusiness with AggregateRating and Reviews
     {
-      '@context': 'https://schema.org',
       '@type': 'PlumbingBusiness',
       '@id': 'https://manhattan-plumbing.pages.dev/#business',
       name: 'Manhattan Plumbing',
@@ -134,21 +136,22 @@ const CommonSchema: React.FC<CommonSchemaProps> = ({
           ratingValue: t.rating,
         },
         reviewBody: t.testimonial,
-        datePublished: '2024-12-01', // Example date
+        datePublished: '2024-12-01',
       })),
     },
   ]
 
+  // We render on server for SEO, and avoid re-rendering differently on client
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@graph': schemas,
+  }
+
   return (
-    <>
-      {schemas.map((schema, index) => (
-        <script
-          key={index}
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
-        />
-      ))}
-    </>
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+    />
   )
 }
 
