@@ -146,8 +146,8 @@ export default async function CombinedNewsPage({ params }: Props) {
       <main className="min-h-screen bg-white pb-20 dark:bg-slate-900">
         <NewsPostJSONLD post={post} slug={postSlug} />
         <NewsPostHero post={post} />
-        <div className="container mx-auto mt-8 px-4 md:mt-12">
-          <div className="flex flex-col gap-12 lg:flex-row">
+        <div className="container mx-auto mt-6 px-4 md:mt-12">
+          <div className="flex flex-col gap-8 lg:flex-row lg:gap-12">
             <article className="lg:w-2/3">
               <TableOfContents content={post.content || ''} className="lg:hidden" />
               <NewsPostBody content={post.content || ''} />

@@ -31,7 +31,7 @@ export const navItems: NavItem[] = [
       { label: 'Service Fixtures', href: '/services/fixture-service' },
     ],
   },
-  { label: 'About', href: '/#about' },
+  { label: 'About', href: '/about' },
   { label: 'Location', href: '/location' },
-  { label: 'Contact', href: '/#contact' },
+  { label: 'Contact', href: '/contact' },
 ]

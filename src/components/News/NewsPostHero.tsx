@@ -23,34 +23,34 @@ const NewsPostHero: React.FC<NewsPostHeroProps> = ({ post }) => {
       />
       <div className="absolute inset-0 bg-linear-to-b from-black/20 via-black/40 to-slate-900" />
 
-      <div className="absolute bottom-0 left-0 w-full pt-24 pb-8 md:pb-12">
+      <div className="absolute bottom-0 left-0 w-full pt-32 pb-8 md:pb-12">
         <div className="container mx-auto px-4">
           <Link
             href="/news"
-            className="mb-6 inline-flex items-center text-sm font-medium text-blue-400 transition-colors hover:text-blue-300 md:mb-8 md:text-base"
+            className="group inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-2 text-sm font-medium text-white backdrop-blur-md transition-all hover:bg-white/20 md:px-3 md:py-1.5 md:text-xs"
           >
-            <ChevronLeft size={18} className="mr-1 md:size-5" />
-            <span>Back to News</span>
+            <ChevronLeft size={16} className="transition-transform group-hover:-translate-x-1" />
+            Back to News
           </Link>
-          <div className="max-w-4xl">
-            <h1 className="mb-6 text-4xl leading-tight font-bold text-white md:text-5xl lg:text-6xl">
-              {post.title}
-            </h1>
-            <div className="mb-4 flex flex-wrap items-center gap-4 text-sm text-blue-200">
-              <Link 
-                href={`/news?category=${slugify(post.category)}`}
-                className="rounded-full bg-blue-600 px-3 py-1 font-semibold text-white transition-colors hover:bg-blue-700"
-              >
-                {post.category}
-              </Link>
-              <div className="flex items-center">
-                <Calendar size={16} className="mr-2" />
-                {format(new Date(post.date), 'MMMM dd, yyyy')}
-              </div>
-              <div className="flex items-center">
-                <User size={16} className="mr-2" />
-                {post.author.name}
-              </div>
+          
+          <h1 className="mt-6 text-3xl font-extrabold text-white md:text-5xl lg:text-6xl lg:leading-tight">
+            {post.title}
+          </h1>
+          
+          <div className="mt-6 flex flex-wrap items-center gap-4 text-white/80 md:mt-8 md:gap-6">
+            <Link 
+              href={`/news/category/${slugify(post.category)}`}
+              className="rounded-full bg-blue-600/20 px-3 py-1 text-xs font-semibold text-blue-300 backdrop-blur-sm transition-colors hover:bg-blue-600/30 md:px-4 md:py-1.5 md:text-sm"
+            >
+              {post.category}
+            </Link>
+            <div className="flex items-center">
+              <Calendar size={16} className="mr-2" />
+              {format(new Date(post.date), 'MMMM dd, yyyy')}
+            </div>
+            <div className="flex items-center">
+              <User size={16} className="mr-2" />
+              {post.author.name}
             </div>
           </div>
         </div>

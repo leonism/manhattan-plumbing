@@ -93,7 +93,9 @@ function cleanContent(document, relativePath) {
     // We want to simplify cards in lists, but PRESERVE main articles
     const isLegalPage = relativePath.includes('privacy-policy') || 
                         relativePath.includes('terms-of-service') || 
-                        relativePath.includes('cookies-policy');
+                        relativePath.includes('cookies-policy') ||
+                        relativePath.includes('about') ||
+                        relativePath.includes('contact');
 
     document.querySelectorAll('.NewsCard, .PostCard, .card, article').forEach(card => {
         const cardEl = /** @type {HTMLElement} */ (card);

@@ -16,6 +16,12 @@ export interface LegalPage {
   lastUpdated: string
   sections: LegalSection[]
   content: string
+  category?: string
+  type?: string
+  featuredImage?: {
+    src: string
+    alt: string
+  }
 }
 
 export function getAllLegalPages(): LegalPage[] {
