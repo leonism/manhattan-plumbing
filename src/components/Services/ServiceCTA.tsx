@@ -15,31 +15,28 @@ const ServiceCTA = ({
   subtitle,
   buttonText,
   buttonHref,
-  variant = 'default'
+  variant = 'default',
 }: ServiceCTAProps) => {
   return (
-    <section className={cn(
-      "py-12 text-white",
-      variant === 'emergency' ? "bg-red-600" : "bg-blue-600 dark:bg-blue-700"
-    )}>
+    <section
+      className={cn(
+        'py-16 text-white',
+        variant === 'emergency'
+          ? 'bg-red-600 dark:bg-red-900'
+          : 'bg-slate-100 text-slate-900 dark:bg-slate-800 dark:text-white'
+      )}
+    >
       <div className="container mx-auto px-4 text-center md:px-6">
-        <h2 className="mb-4 text-3xl font-bold">{title}</h2>
-        <p className={cn(
-          "mb-8 text-xl",
-          variant === 'emergency' ? "text-red-100" : "text-blue-100"
-        )}>
-          {subtitle}
-        </p>
-        <Button 
-          href={buttonHref} 
-          variant="default" 
+        <h2 className="mb-4 text-3xl font-bold md:text-4xl">{title}</h2>
+        <p
           className={cn(
-            "h-16 text-xl px-12",
-            variant === 'emergency' 
-              ? "bg-white text-red-600 hover:bg-red-50" 
-              : "bg-white text-blue-600 hover:bg-blue-50"
+            'mx-auto mb-10 max-w-2xl text-xl',
+            variant === 'emergency' ? 'text-red-100' : 'text-slate-600 dark:text-slate-300'
           )}
         >
+          {subtitle}
+        </p>
+        <Button href={buttonHref} variant="default" size="lg" className="h-16 px-12 text-xl">
           {buttonText}
         </Button>
       </div>

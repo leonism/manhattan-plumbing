@@ -12,6 +12,7 @@ import { navItems } from '@/components/Header/navConfig'
 import DesktopNav from '@/components/Header/DesktopNav'
 import MobileNav from '@/components/Header/MobileNav'
 import { useUI } from '@/context/UIContext'
+import { usePathname } from 'next/navigation'
 
 interface HeaderProps {
   isHomePage?: boolean
@@ -23,6 +24,12 @@ const Header: React.FC<HeaderProps> = ({ isHomePage = false }) => {
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null)
   const [mounted, setMounted] = useState(false)
   const scrolled = useScrollHandler()
+  const pathname = usePathname()
+
+  // Close mobile menu on route change
+  React.useEffect(() => {
+    setIsOpen(false)
+  }, [pathname, setIsOpen])
 
   React.useEffect(() => {
     setMounted(true)

@@ -127,7 +127,10 @@ const SearchBar: React.FC<SearchBarProps> = ({ onClear, onClose }) => {
                 <li key={result.slug} role="option" aria-selected={index === activeIndex}>
                   <Link
                     href={result.slug}
-                    onClick={() => onClose?.()}
+                    onClick={() => {
+                      setQuery('')
+                      onClose?.()
+                    }}
                     className={`flex items-center gap-4 rounded-lg p-4 transition-colors ${activeIndex === index ? 'bg-slate-100 dark:bg-slate-700' : 'hover:bg-slate-50 dark:hover:bg-slate-700/50'}`}
                   >
                     <div className="flex h-12 w-12 shrink-0 items-center justify-center overflow-hidden rounded-md bg-slate-200 dark:bg-slate-600">
@@ -162,7 +165,10 @@ const SearchBar: React.FC<SearchBarProps> = ({ onClear, onClose }) => {
                 >
                   <Link
                     href={result.slug}
-                    onClick={() => onClose?.()}
+                    onClick={() => {
+                      setQuery('')
+                      onClose?.()
+                    }}
                     className={`flex items-center gap-4 rounded-lg p-4 transition-colors ${activeIndex === index + results.news.length ? 'bg-slate-100 dark:bg-slate-700' : 'hover:bg-slate-50 dark:hover:bg-slate-700/50'}`}
                   >
                     <div className="flex h-12 w-12 shrink-0 items-center justify-center overflow-hidden rounded-md bg-slate-200 dark:bg-slate-600">
@@ -197,7 +203,10 @@ const SearchBar: React.FC<SearchBarProps> = ({ onClear, onClose }) => {
                 >
                   <Link
                     href={result.slug}
-                    onClick={() => onClose?.()}
+                    onClick={() => {
+                      setQuery('')
+                      onClose?.()
+                    }}
                     className={`flex items-center gap-4 rounded-lg p-4 transition-colors ${activeIndex === index + results.news.length + results.services.length ? 'bg-slate-100 dark:bg-slate-700' : 'hover:bg-slate-50 dark:hover:bg-slate-700/50'}`}
                   >
                     <div className="flex h-12 w-12 shrink-0 items-center justify-center overflow-hidden rounded-md bg-slate-200 dark:bg-slate-600">
