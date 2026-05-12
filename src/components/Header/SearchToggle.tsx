@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react'
 import { Search } from 'lucide-react'
+import { usePathname } from 'next/navigation'
 import SearchModal from '@/components/ui/SearchModal'
 import { cn } from '@/lib/utils'
 
@@ -14,6 +15,12 @@ interface SearchToggleProps {
 const SearchToggle: React.FC<SearchToggleProps> = ({ theme, scrolled, isHomePage }) => {
   const [isSearchOpen, setIsSearchOpen] = useState(false)
   const [mounted, setMounted] = useState(false)
+  const pathname = usePathname()
+
+  // Close search modal on route change
+  React.useEffect(() => {
+    setIsSearchOpen(false)
+  }, [pathname])
 
   React.useEffect(() => {
     setMounted(true)
