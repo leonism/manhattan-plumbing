@@ -232,8 +232,10 @@ date_generated: "${new Date().toISOString()}"
             if (!fs.existsSync(mdDir)) fs.mkdirSync(mdDir, { recursive: true });
             fs.writeFileSync(absoluteMdPath, finalMarkdown);
             
-            // Save modified HTML without Vercel scripts
-            fs.writeFileSync(filePath, dom.serialize());
+            // Save modified HTML without Vercel scripts and React hydration markers
+            let finalHtml = dom.serialize();
+            finalHtml = finalHtml.replace(/<!--\$-->|<!--\/\$-->/g, '');
+            fs.writeFileSync(filePath, finalHtml);
             
         } catch (error) {
             console.error(`❌ Error processing ${filePath}:`, error);

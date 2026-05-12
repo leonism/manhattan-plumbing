@@ -134,7 +134,9 @@ const SearchBar: React.FC<SearchBarProps> = ({ onClear, onClose }) => {
                       {getIcon(result)}
                     </div>
                     <div>
-                      <p className="font-semibold text-slate-800 dark:text-white">{result.title}</p>
+                      <p className="line-clamp-2 font-semibold text-slate-800 dark:text-white">
+                        {result.title}
+                      </p>
                       <p className="line-clamp-2 text-sm text-slate-500 dark:text-slate-400">
                         {result.excerpt}
                       </p>
@@ -167,7 +169,9 @@ const SearchBar: React.FC<SearchBarProps> = ({ onClear, onClose }) => {
                       {getIcon(result)}
                     </div>
                     <div>
-                      <p className="font-semibold text-slate-800 dark:text-white">{result.title}</p>
+                      <p className="line-clamp-2 font-semibold text-slate-800 dark:text-white">
+                        {result.title}
+                      </p>
                       <p className="line-clamp-2 text-sm text-slate-500 dark:text-slate-400">
                         {result.excerpt}
                       </p>
@@ -200,7 +204,9 @@ const SearchBar: React.FC<SearchBarProps> = ({ onClear, onClose }) => {
                       {getIcon(result)}
                     </div>
                     <div>
-                      <p className="font-semibold text-slate-800 dark:text-white">{result.title}</p>
+                      <p className="line-clamp-2 font-semibold text-slate-800 dark:text-white">
+                        {result.title}
+                      </p>
                       <p className="line-clamp-2 text-sm text-slate-500 dark:text-slate-400">
                         {result.excerpt}
                       </p>
