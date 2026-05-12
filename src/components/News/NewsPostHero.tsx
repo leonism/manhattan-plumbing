@@ -37,19 +37,19 @@ const NewsPostHero: React.FC<NewsPostHeroProps> = ({ post }) => {
             {post.title}
           </h1>
           
-          <div className="mt-6 flex flex-wrap items-center gap-4 text-[10px] text-white/80 md:mt-8 md:gap-6 md:text-base">
+          <div className="mt-6 flex flex-wrap items-center gap-4 text-[13px] text-white/80 md:mt-8 md:gap-6 md:text-base">
             <Link 
               href={`/news/category/${slugify(post.category)}`}
-              className="rounded-full bg-blue-600/20 px-3 py-0.5 text-[9px] font-semibold text-blue-300 backdrop-blur-sm transition-colors hover:bg-blue-600/30 md:px-4 md:py-1.5 md:text-sm"
+              className="rounded-full bg-blue-600/20 px-3.5 py-1 text-[12px] font-semibold text-blue-300 backdrop-blur-sm transition-colors hover:bg-blue-600/30 md:px-4 md:py-1.5 md:text-sm"
             >
               {post.category}
             </Link>
             <div className="flex items-center">
-              <Calendar className="mr-1 h-2.5 w-2.5 md:mr-2 md:h-4 md:w-4" />
+              <Calendar className="mr-1.5 h-3.5 w-3.5 md:mr-2 md:h-4 md:w-4" />
               {format(new Date(post.date), 'MMMM dd, yyyy')}
             </div>
             <div className="flex items-center">
-              <User className="mr-1 h-2.5 w-2.5 md:mr-2 md:h-4 md:w-4" />
+              <User className="mr-1.5 h-3.5 w-3.5 md:mr-2 md:h-4 md:w-4" />
               {post.author.name}
             </div>
           </div>
