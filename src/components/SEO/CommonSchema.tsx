@@ -37,9 +37,15 @@ const CommonSchema: React.FC<CommonSchemaProps> = ({
       url: 'https://manhattan-plumbing.pages.dev',
       logo: {
         '@type': 'ImageObject',
+        '@id': 'https://manhattan-plumbing.pages.dev/#logo',
         url: 'https://manhattan-plumbing.pages.dev/images/manhattan-plumber.png',
+        contentUrl: 'https://manhattan-plumbing.pages.dev/images/manhattan-plumber.png',
         width: 600,
         height: 600,
+        caption: 'Manhattan Plumbing Logo',
+      },
+      image: {
+        '@id': 'https://manhattan-plumbing.pages.dev/#logo',
       },
       contactPoint: {
         '@type': 'ContactPoint',
@@ -72,6 +78,10 @@ const CommonSchema: React.FC<CommonSchemaProps> = ({
       publisher: {
         '@id': 'https://manhattan-plumbing.pages.dev/#organization',
       },
+      mainEntityOfPage: {
+        '@type': 'WebPage',
+        '@id': currentUrl,
+      },
     },
     // 3. ImageObject Schema (Images)
     {
@@ -81,14 +91,20 @@ const CommonSchema: React.FC<CommonSchemaProps> = ({
       url: imageUrl,
       contentUrl: imageUrl,
       caption: title,
+      width: 1200,
+      height: 630,
     },
-    // 4. Review / AggregateRating Schema (Reviews)
+    // 4. PlumbingBusiness with AggregateRating and Reviews
     {
       '@context': 'https://schema.org',
       '@type': 'PlumbingBusiness',
       '@id': 'https://manhattan-plumbing.pages.dev/#business',
       name: 'Manhattan Plumbing',
+      url: 'https://manhattan-plumbing.pages.dev',
       image: imageUrl,
+      logo: 'https://manhattan-plumbing.pages.dev/images/manhattan-plumber.png',
+      priceRange: '$$',
+      telephone: '+1-212-555-1234',
       address: {
         '@type': 'PostalAddress',
         streetAddress: '123 Manhattan Ave',
@@ -97,7 +113,17 @@ const CommonSchema: React.FC<CommonSchemaProps> = ({
         postalCode: '10001',
         addressCountry: 'US',
       },
-      review: testimonials.map((t) => ({
+      geo: {
+        '@type': 'GeoCoordinates',
+        latitude: '40.7128',
+        longitude: '-74.0060',
+      },
+      aggregateRating: {
+        '@type': 'AggregateRating',
+        ratingValue: '5',
+        reviewCount: testimonials.length.toString(),
+      },
+      review: testimonials.slice(0, 5).map((t) => ({
         '@type': 'Review',
         author: {
           '@type': 'Person',
@@ -108,12 +134,8 @@ const CommonSchema: React.FC<CommonSchemaProps> = ({
           ratingValue: t.rating,
         },
         reviewBody: t.testimonial,
+        datePublished: '2024-12-01', // Example date
       })),
-      aggregateRating: {
-        '@type': 'AggregateRating',
-        ratingValue: '5',
-        reviewCount: testimonials.length.toString(),
-      },
     },
   ]
 
@@ -131,3 +153,4 @@ const CommonSchema: React.FC<CommonSchemaProps> = ({
 }
 
 export default CommonSchema
+

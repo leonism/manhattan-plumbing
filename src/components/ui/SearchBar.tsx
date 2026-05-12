@@ -133,7 +133,7 @@ const SearchBar: React.FC<SearchBarProps> = ({ onClear, onClose }) => {
                     <div className="flex h-12 w-12 shrink-0 items-center justify-center overflow-hidden rounded-md bg-slate-200 dark:bg-slate-600">
                       {getIcon(result)}
                     </div>
-                    <div>
+                    <div className="min-w-0">
                       <p className="line-clamp-2 font-semibold text-slate-800 dark:text-white">
                         {result.title}
                       </p>
@@ -168,7 +168,7 @@ const SearchBar: React.FC<SearchBarProps> = ({ onClear, onClose }) => {
                     <div className="flex h-12 w-12 shrink-0 items-center justify-center overflow-hidden rounded-md bg-slate-200 dark:bg-slate-600">
                       {getIcon(result)}
                     </div>
-                    <div>
+                    <div className="min-w-0">
                       <p className="line-clamp-2 font-semibold text-slate-800 dark:text-white">
                         {result.title}
                       </p>
@@ -203,7 +203,7 @@ const SearchBar: React.FC<SearchBarProps> = ({ onClear, onClose }) => {
                     <div className="flex h-12 w-12 shrink-0 items-center justify-center overflow-hidden rounded-md bg-slate-200 dark:bg-slate-600">
                       {getIcon(result)}
                     </div>
-                    <div>
+                    <div className="min-w-0">
                       <p className="line-clamp-2 font-semibold text-slate-800 dark:text-white">
                         {result.title}
                       </p>

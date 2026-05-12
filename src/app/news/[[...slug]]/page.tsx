@@ -151,8 +151,8 @@ export default async function CombinedNewsPage({ params }: Props) {
             <article className="lg:w-2/3">
               <TableOfContents content={post.content || ''} className="lg:hidden" />
               <NewsPostBody content={post.content || ''} />
-              <div className="mt-12 flex items-center justify-center rounded-xl border border-slate-100 bg-slate-50/50 p-8 text-center dark:border-slate-800 dark:bg-slate-800/30">
-                <p className="max-w-2xl text-slate-500 italic leading-relaxed">
+              <div className="mt-12 flex flex-col items-center justify-center rounded-xl border border-slate-100 bg-slate-50/50 p-8 text-center dark:border-slate-800 dark:bg-slate-800/30">
+                <p className="max-w-2xl text-balance text-slate-500 italic leading-relaxed">
                   This article was originally published in our news section. For more tips and
                   updates, follow us on social media.
                 </p>

@@ -37,9 +37,6 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
   },
-  other: {
-    'og:logo': 'https://manhattan-plumbing.pages.dev/images/manhattan-plumber.png',
-  },
 }
 
 export default function RootLayout({
@@ -49,8 +46,13 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className="antialiased selection:bg-blue-100 selection:text-blue-900 dark:selection:bg-blue-900 dark:selection:text-blue-100">
-        <CommonSchema />
+      <head>
+        <meta property="og:logo" content="https://manhattan-plumbing.pages.dev/images/manhattan-plumber.png" />
+      </head>
+      <body 
+        className="antialiased selection:bg-blue-100 selection:text-blue-900 dark:selection:bg-blue-900 dark:selection:text-blue-100"
+        suppressHydrationWarning
+      >
         <Providers>
           <div className="flex min-h-screen flex-col bg-white/90 transition-colors duration-300 dark:bg-slate-900">
             <HeaderWrapper />
@@ -58,6 +60,7 @@ export default function RootLayout({
             <Footer />
             <BackToTop />
           </div>
+          <CommonSchema />
         </Providers>
       </body>
     </html>
