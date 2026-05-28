@@ -8,6 +8,8 @@ import fs from 'fs'
 import path from 'path'
 import { JSDOM } from 'jsdom'
 import TurndownService from 'turndown'
+import zlib from 'zlib'
+import { spawnSync } from 'child_process'
 
 const OUT_DIR = path.resolve(process.cwd(), 'out')
 const BASE_URL = 'https://manhattan-plumbing.pages.dev'
@@ -143,6 +145,34 @@ function cleanContent(document, relativePath) {
   return document
 }
 
+/**
+ * Compress a file using Brotli (built-in zlib) and Zstandard (cli tool)
+ * @param {string} filePath
+ */
+function compressFile(filePath) {
+  try {
+    const data = fs.readFileSync(filePath)
+    
+    // Brotli compression (.br)
+    const brPath = filePath + '.br'
+    const brData = zlib.brotliCompressSync(data, {
+      params: {
+        [zlib.constants.BROTLI_PARAM_QUALITY]: 11,
+      },
+    })
+    fs.writeFileSync(brPath, brData)
+    
+    // Zstandard compression (.zst)
+    const zstPath = filePath + '.zst'
+    const result = spawnSync('zstd', ['-q', '-f', '-19', '-T0', filePath, '-o', zstPath])
+    if (result.status !== 0) {
+      throw new Error(result.stderr ? result.stderr.toString() : 'zstd failed with non-zero exit code')
+    }
+  } catch (error) {
+    console.error(`❌ Compression failed for ${filePath}:`, error)
+  }
+}
+
 async function main() {
   console.log('🚀 Starting post-build markdown generation...')
 
@@ -241,16 +271,48 @@ date_generated: "${new Date().toISOString()}"
       if (!fs.existsSync(mdDir)) fs.mkdirSync(mdDir, { recursive: true })
       fs.writeFileSync(absoluteMdPath, finalMarkdown)
 
+      // Add alternate link to the HTML head pointing to the markdown version
+      let altLink = document.querySelector('link[rel="alternate"][type="text/markdown"]')
+      if (!altLink) {
+        altLink = document.createElement('link')
+        altLink.setAttribute('rel', 'alternate')
+        altLink.setAttribute('type', 'text/markdown')
+        const head = document.head || document.getElementsByTagName('head')[0]
+        if (head) {
+          head.appendChild(altLink)
+        }
+      }
+      const mdUrl = '/' + mdPath.replace(/\\/g, '/')
+      altLink.setAttribute('href', mdUrl)
+      altLink.setAttribute('title', 'Markdown version')
+
       // Save modified HTML without Vercel scripts and React hydration markers
       let finalHtml = dom.serialize()
       finalHtml = finalHtml.replace(/<!--\$-->|<!--\/\$-->/g, '')
       fs.writeFileSync(filePath, finalHtml)
+
     } catch (error) {
       console.error(`❌ Error processing ${filePath}:`, error)
     }
   })
 
   console.log('✨ Markdown generation complete!')
+
+  console.log('📦 Starting Brotli and Zstandard compression for static assets...')
+  let compressedCount = 0
+  const COMPRESSIBLE_EXTENSIONS = ['.html', '.md', '.js', '.css', '.json', '.xml', '.svg', '.txt']
+
+  walk(OUT_DIR, (filePath) => {
+    const ext = path.extname(filePath).toLowerCase()
+    if (ext === '.br' || ext === '.zst') return
+    
+    if (COMPRESSIBLE_EXTENSIONS.includes(ext)) {
+      compressFile(filePath)
+      compressedCount++
+    }
+  })
+
+  console.log(`✨ Compression complete! Pre-compressed ${compressedCount} assets to .br and .zst.`)
 }
 
 main()
