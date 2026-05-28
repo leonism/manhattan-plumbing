@@ -74,15 +74,13 @@ function walk(dir, callback) {
  * Clean up content specifically for our plumbing site structure
  * @param {Document} document
  * @param {string} relativePath
+ * @param {boolean} isForMarkdown
  */
-function cleanContent(document, relativePath) {
+function cleanContent(document, relativePath, isForMarkdown = false) {
   // 1. Remove Vercel Insights & other scripts (for Cloudflare parity)
   const elementsToRemove = [
-    'script',
-    'style',
     'noscript',
     'iframe',
-    'svg',
     '.skip-to-content',
     '#vercel-live-feedback',
     '.vercel-insights',
@@ -96,52 +94,54 @@ function cleanContent(document, relativePath) {
     document.querySelectorAll(selector).forEach((el) => el.remove())
   })
 
-  // 2. Pre-process cards for better Markdown (Home page, News Index, Category/Tag pages)
+  // 2. ONLY for Markdown: Pre-process cards for better readability
   // We want to simplify cards in lists, but PRESERVE main articles
-  const isLegalPage =
-    relativePath.includes('privacy-policy') ||
-    relativePath.includes('terms-of-service') ||
-    relativePath.includes('cookies-policy') ||
-    relativePath.includes('about') ||
-    relativePath.includes('contact')
+  if (isForMarkdown) {
+    const isLegalPage =
+      relativePath.includes('privacy-policy') ||
+      relativePath.includes('terms-of-service') ||
+      relativePath.includes('cookies-policy') ||
+      relativePath.includes('about') ||
+      relativePath.includes('contact')
 
-  document.querySelectorAll('.NewsCard, .PostCard, .card, article').forEach((card) => {
-    const cardEl = /** @type {HTMLElement} */ (card)
+    document.querySelectorAll('.NewsCard, .PostCard, .card, article').forEach((card) => {
+      const cardEl = /** @type {HTMLElement} */ (card)
 
-    // Robust main article detection:
-    // A main article is typically the only <article> inside <main>,
-    // or has specific semantic markers. In this app, main articles for news/legal
-    // are NOT inside a grid container.
-    const isInGrid = !!cardEl.closest('.grid') || !!cardEl.closest('[class*="Grid"]')
-    const isMainArticle = cardEl.tagName === 'ARTICLE' && !isInGrid
+      // Robust main article detection:
+      // A main article is typically the only <article> inside <main>,
+      // or has specific semantic markers. In this app, main articles for news/legal
+      // are NOT inside a grid container.
+      const isInGrid = !!cardEl.closest('.grid') || !!cardEl.closest('[class*="Grid"]')
+      const isMainArticle = cardEl.tagName === 'ARTICLE' && !isInGrid
 
-    if (isMainArticle || isLegalPage) return
+      if (isMainArticle || isLegalPage) return
 
-    const h2 = cardEl.querySelector('h2, h3, h4')
-    const link = cardEl.querySelector('a')
-    const time = cardEl.querySelector('time')
-    const p = cardEl.querySelector('p')
-    const author = cardEl
-      .querySelector('[class*="author"], .flex.items-center.space-x-1')
-      ?.textContent?.trim()
+      const h2 = cardEl.querySelector('h2, h3, h4')
+      const link = cardEl.querySelector('a')
+      const time = cardEl.querySelector('time')
+      const p = cardEl.querySelector('p')
+      const author = cardEl
+        .querySelector('[class*="author"], .flex.items-center.space-x-1')
+        ?.textContent?.trim()
 
-    if (h2 && link) {
-      const titleText = h2.textContent?.trim() || ''
-      const href = link.getAttribute('href')
-      const dateText = time ? ` | ${time.textContent?.trim()}` : ''
-      const authorText = author ? ` | By ${author.split('•')[0].trim()}` : ''
-      const excerptText = p ? `\n\n${p.textContent?.trim()}` : ''
+      if (h2 && link) {
+        const titleText = h2.textContent?.trim() || ''
+        const href = link.getAttribute('href')
+        const dateText = time ? ` | ${time.textContent?.trim()}` : ''
+        const authorText = author ? ` | By ${author.split('•')[0].trim()}` : ''
+        const excerptText = p ? `\n\n${p.textContent?.trim()}` : ''
 
-      const replacement = document.createElement('div')
-      replacement.innerHTML = `
-                <h3><a href="${href}">${titleText}</a></h3>
-                <p><em>${dateText}${authorText}</em></p>
-                <p>${excerptText}</p>
-                <hr />
-            `
-      cardEl.parentNode?.replaceChild(replacement, cardEl)
-    }
-  })
+        const replacement = document.createElement('div')
+        replacement.innerHTML = `
+                  <h3><a href="${href}">${titleText}</a></h3>
+                  <p><em>${dateText}${authorText}</em></p>
+                  <p>${excerptText}</p>
+                  <hr />
+              `
+        cardEl.parentNode?.replaceChild(replacement, cardEl)
+      }
+    })
+  }
 
   return document
 }
@@ -208,20 +208,25 @@ async function main() {
 
       const canonicalUrl = `${BASE_URL}/${relativePath.replace(/\/index\.html$/, '').replace(/\.html$/, '')}`
 
-      // Clean the content
-      cleanContent(document, relativePath)
+      // 1. Clean the content for HTML (minimal)
+      cleanContent(document, relativePath, false)
+
+      // 2. Prepare Markdown-specific content
+      // Create a temporary container for markdown conversion to avoid polluting the main document
+      const markdownDoc = new JSDOM(html).window.document
+      cleanContent(markdownDoc, relativePath, true) // Aggressive cleaning for Markdown
 
       // Structure: Header -> Main -> Footer
-      const header = document.querySelector('header')
+      const header = markdownDoc.querySelector('header')
       const main =
-        document.querySelector('main') || document.querySelector('article') || document.body
-      const footer = document.querySelector('footer')
+        markdownDoc.querySelector('main') || markdownDoc.querySelector('article') || markdownDoc.body
+      const footer = markdownDoc.querySelector('footer')
 
-      const combinedContainer = document.createElement('div')
+      const combinedContainer = markdownDoc.createElement('div')
       if (header) combinedContainer.appendChild(header.cloneNode(true))
 
       // Add other navigation elements if found
-      document.querySelectorAll('nav').forEach((nav) => {
+      markdownDoc.querySelectorAll('nav').forEach((nav) => {
         if (!header?.contains(nav) && !footer?.contains(nav)) {
           combinedContainer.appendChild(nav.cloneNode(true))
         }
@@ -230,7 +235,7 @@ async function main() {
       if (main) {
         const mainClone = /** @type {HTMLElement} */ (main.cloneNode(true))
         // Remove header/footer if they were nested in body fallback
-        if (main === document.body) {
+        if (main === markdownDoc.body) {
           mainClone.querySelectorAll('header, footer').forEach((el) => el.remove())
         }
         combinedContainer.appendChild(mainClone)

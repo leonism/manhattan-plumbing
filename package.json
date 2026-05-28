@@ -6,12 +6,12 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build && node scripts/post-build-markdown.js",
-    "start": "next start",
+    "start": "npm run serve:dist",
     "lint": "next lint",
     "lint:fix": "eslint . --fix && prettier --write .",
     "format": "prettier --write \"**/*.{css,js,ts,jsx,tsx,md}\" --ignore-path .prettierignore",
     "check:code": "npm run format && npm run lint:fix",
-    "preview": "next start",
+    "preview": "npm run serve:dist",
     "serve:dist": "serve out",
     "knip": "knip",
     "madge": "madge --circular src"
