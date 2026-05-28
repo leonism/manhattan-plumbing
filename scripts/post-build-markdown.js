@@ -10,6 +10,7 @@ import { JSDOM } from 'jsdom'
 import TurndownService from 'turndown'
 import zlib from 'zlib'
 import { spawnSync } from 'child_process'
+import crypto from 'crypto'
 
 const OUT_DIR = path.resolve(process.cwd(), 'out')
 const BASE_URL = 'https://manhattan-plumbing.pages.dev'
@@ -297,6 +298,77 @@ date_generated: "${new Date().toISOString()}"
   })
 
   console.log('✨ Markdown generation complete!')
+
+  // 1. Process Robots.txt Content Signals
+  const robotsPath = path.join(OUT_DIR, 'robots.txt')
+  if (fs.existsSync(robotsPath)) {
+    console.log('🤖 Injecting Content Signals into robots.txt...')
+    let robotsTxt = fs.readFileSync(robotsPath, 'utf-8')
+    if (robotsTxt.includes('User-agent: *')) {
+      robotsTxt = robotsTxt.replace(
+        'User-agent: *',
+        'User-agent: *\nContent-Signal: ai-train=no, search=yes, ai-input=no'
+      )
+      fs.writeFileSync(robotsPath, robotsTxt)
+      console.log('✅ Injected Content-Signal into robots.txt successfully.')
+    } else {
+      console.warn('⚠️ User-agent: * not found in robots.txt. Appending signal at the top.')
+      robotsTxt = 'User-agent: *\nContent-Signal: ai-train=no, search=yes, ai-input=no\n\n' + robotsTxt
+      fs.writeFileSync(robotsPath, robotsTxt)
+    }
+  } else {
+    console.warn('⚠️ robots.txt not found in build output.')
+  }
+
+  // 2. Build Agent Skills Discovery Index
+  const skillsDir = path.join(OUT_DIR, '.well-known', 'agent-skills')
+  if (!fs.existsSync(skillsDir)) {
+    fs.mkdirSync(skillsDir, { recursive: true })
+  }
+
+  const contentNegPath = path.join(skillsDir, 'content-negotiation.md')
+  const webmcpSkillPath = path.join(skillsDir, 'webmcp.md')
+
+  // If the skill files weren't copied automatically, write fallback versions
+  if (!fs.existsSync(contentNegPath)) {
+    const fallbackCN = `# Content Negotiation Skill\n\nSupports Accept: text/markdown to serve Markdown.`
+    fs.writeFileSync(contentNegPath, fallbackCN)
+  }
+  if (!fs.existsSync(webmcpSkillPath)) {
+    const fallbackWebMCP = `# WebMCP Tools Skill\n\nExposes search_articles, list_services, get_plumbing_quote.`
+    fs.writeFileSync(webmcpSkillPath, fallbackWebMCP)
+  }
+
+  console.log('🔍 Computing digests for agent skills...')
+  const cnData = fs.readFileSync(contentNegPath)
+  const cnHash = crypto.createHash('sha256').update(cnData).digest('hex')
+
+  const webmcpData = fs.readFileSync(webmcpSkillPath)
+  const webmcpHash = crypto.createHash('sha256').update(webmcpData).digest('hex')
+
+  const discoveryIndex = {
+    $schema: 'https://schemas.agentskills.io/discovery/0.2.0/schema.json',
+    skills: [
+      {
+        name: 'content-negotiation',
+        type: 'skill-md',
+        description: 'Standard content negotiation to serve Markdown pages when requested with Accept: text/markdown.',
+        url: `${BASE_URL}/.well-known/agent-skills/content-negotiation.md`,
+        digest: `sha256:${cnHash}`
+      },
+      {
+        name: 'webmcp',
+        type: 'skill-md',
+        description: 'Exposes browser-based tools for searching articles, listing services, and getting plumbing quotes.',
+        url: `${BASE_URL}/.well-known/agent-skills/webmcp.md`,
+        digest: `sha256:${webmcpHash}`
+      }
+    ]
+  }
+
+  const indexJsonPath = path.join(skillsDir, 'index.json')
+  fs.writeFileSync(indexJsonPath, JSON.stringify(discoveryIndex, null, 2))
+  console.log('✅ Generated /.well-known/agent-skills/index.json discovery document.')
 
   console.log('📦 Starting Brotli and Zstandard compression for static assets...')
   let compressedCount = 0
