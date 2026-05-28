@@ -16,7 +16,10 @@ interface RawImage {
   caption?: string
 }
 
-function formatImage(img: string | RawImage | undefined | null, defaultAlt: string = ''): ImageSource {
+function formatImage(
+  img: string | RawImage | undefined | null,
+  defaultAlt: string = ''
+): ImageSource {
   if (typeof img === 'string') {
     const src = img.startsWith('http') ? img : `/images/${img}`
     return {
@@ -29,7 +32,7 @@ function formatImage(img: string | RawImage | undefined | null, defaultAlt: stri
 
   const rawSrc = img?.src || ''
   const src = rawSrc.startsWith('http') ? rawSrc : `/images/${rawSrc}`
-  
+
   return {
     src,
     webp: img?.webp || (rawSrc.startsWith('http') ? src : `${src}?format=webp`),
@@ -140,17 +143,21 @@ export function getAllServices(): Service[] {
         ...data,
         slug: data.slug || fileName.replace(/\.mdx?$/, ''),
         heroImage: formatImage(data.heroImage, data.title),
-        features: data.features ? {
-          ...data.features,
-          items: data.features.items || []
-        } : undefined,
-        situations: data.situations ? {
-          ...data.situations,
-          items: (data.situations.items || []).map((s: any) => ({
-            ...s,
-            image: formatImage(s.image, s.title)
-          }))
-        } : undefined,
+        features: data.features
+          ? {
+              ...data.features,
+              items: data.features.items || [],
+            }
+          : undefined,
+        situations: data.situations
+          ? {
+              ...data.situations,
+              items: (data.situations.items || []).map((s: any) => ({
+                ...s,
+                image: formatImage(s.image, s.title),
+              })),
+            }
+          : undefined,
         protocols: data.protocols,
         cta: data.cta,
         content,
@@ -175,7 +182,7 @@ export async function getServiceData(slug: string): Promise<Service | undefined>
 export function getServicesIndexData(): ServicesIndexData | null {
   const indexPath = path.join(servicesDirectory, 'index.md')
   if (!fs.existsSync(indexPath)) return null
-  
+
   const fileContents = fs.readFileSync(indexPath, 'utf8')
   const { data, content } = matter(fileContents)
   return { ...data, content } as ServicesIndexData

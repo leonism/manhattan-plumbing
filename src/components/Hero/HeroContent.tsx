@@ -15,9 +15,9 @@ const HeroContent = () => {
         <HeroButton href="/#contact" icon={CheckCircle}>
           Schedule Appointment
         </HeroButton>
-        <HeroButton 
-          href="tel:+12125551234" 
-          icon={PhoneCall} 
+        <HeroButton
+          href="tel:+12125551234"
+          icon={PhoneCall}
           variant="outline"
           aria-label="Call us at 212-555-1234"
         >

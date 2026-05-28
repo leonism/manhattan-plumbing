@@ -86,7 +86,7 @@ const DesktopNav: React.FC<DesktopNavProps> = ({
     setMounted(true)
   }, [])
 
-  if (!mounted) return <nav className="hidden lg:block w-[400px]" />
+  if (!mounted) return <nav className="hidden w-[400px] lg:block" />
 
   const linkColorClass =
     isHomePage && !scrolled

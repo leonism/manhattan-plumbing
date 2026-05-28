@@ -121,7 +121,18 @@ npm run start
 
 ---
 
+## 🤖 Agent & AI Discovery
+
+Manhattan Plumbing is fully optimized for autonomous AI agents and discovery engines:
+- **API Catalog**: Exposes a standards-compliant RFC 9727 Linkset at `/.well-known/api-catalog` pointing to the public news and search APIs.
+- **LLM Content**: Serves plain-text discovery resources at `/llms.txt` and `/llms-full.txt`.
+- **HTTP Discovery**: Advertises the API catalog via custom RFC 8288 `Link` response headers on the homepage.
+- **DNS Discovery**: Supports DNS-based agent discovery (DNS-AID). See [docs/dns-aid.md](docs/dns-aid.md) for DNSSEC and DNS record setup instructions.
+
+---
+
 ## 📄 License
 
 This project is private and intended for Manhattan Plumbing official use. Distributed under the [MIT License](LICENSE).
+
 

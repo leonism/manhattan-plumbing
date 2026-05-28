@@ -7,9 +7,7 @@ import { UIProvider } from '@/context/UIContext'
 export function Providers({ children }: { children: React.ReactNode }) {
   return (
     <ThemeProvider>
-      <UIProvider>
-        {children}
-      </UIProvider>
+      <UIProvider>{children}</UIProvider>
     </ThemeProvider>
   )
 }

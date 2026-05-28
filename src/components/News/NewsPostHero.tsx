@@ -32,13 +32,13 @@ const NewsPostHero: React.FC<NewsPostHeroProps> = ({ post }) => {
             <ChevronLeft size={16} className="transition-transform group-hover:-translate-x-1" />
             Back to News
           </Link>
-          
+
           <h1 className="mt-6 text-3xl font-extrabold text-white md:text-5xl lg:text-6xl lg:leading-tight">
             {post.title}
           </h1>
-          
+
           <div className="mt-6 flex flex-wrap items-center gap-4 text-[13px] text-white/80 md:mt-8 md:gap-6 md:text-base">
-            <Link 
+            <Link
               href={`/news/category/${slugify(post.category)}`}
               className="rounded-full bg-blue-600/20 px-3.5 py-1 text-[12px] font-semibold text-blue-300 backdrop-blur-sm transition-colors hover:bg-blue-600/30 md:px-4 md:py-1.5 md:text-sm"
             >

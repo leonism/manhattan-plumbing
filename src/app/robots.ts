@@ -9,6 +9,6 @@ export default function robots(): MetadataRoute.Robots {
       allow: '/',
       disallow: ['/api/', '/search?*'],
     },
-    sitemap: 'https://manhattan-plumbing.pages.dev/sitemap.xml',
+    sitemap: 'sitemap.xml',
   }
 }

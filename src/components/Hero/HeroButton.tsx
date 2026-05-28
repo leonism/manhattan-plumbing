@@ -10,12 +10,12 @@ interface HeroButtonProps {
   className?: string
 }
 
-const HeroButton: React.FC<HeroButtonProps> = ({ 
-  href, 
-  children, 
-  icon: Icon, 
+const HeroButton: React.FC<HeroButtonProps> = ({
+  href,
+  children,
+  icon: Icon,
   variant = 'primary',
-  className 
+  className,
 }) => {
   const variantClasses = {
     primary: 'bg-blue-600 text-white hover:bg-blue-700',
@@ -27,7 +27,7 @@ const HeroButton: React.FC<HeroButtonProps> = ({
     <Link
       href={href}
       className={cn(
-        "inline-flex items-center justify-center rounded-lg px-8 py-4 text-lg font-semibold transition-all duration-200 focus:ring-2 focus:ring-white focus:ring-offset-2 focus:outline-hidden",
+        'inline-flex items-center justify-center rounded-lg px-8 py-4 text-lg font-semibold transition-all duration-200 focus:ring-2 focus:ring-white focus:ring-offset-2 focus:outline-hidden',
         variantClasses[variant],
         className
       )}
@@ -39,4 +39,3 @@ const HeroButton: React.FC<HeroButtonProps> = ({
 }
 
 export default HeroButton
-

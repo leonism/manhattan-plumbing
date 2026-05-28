@@ -1,4 +1,4 @@
-import type { NextConfig } from 'next';
+import type { NextConfig } from 'next'
 
 const nextConfig: NextConfig = {
   output: 'export',
@@ -12,6 +12,6 @@ const nextConfig: NextConfig = {
   // Ensure that trailing slashes are handled correctly for static hosting
   trailingSlash: true,
   // Next.js 16 specific experimental features if any (keeping it safe for now)
-};
+}
 
-export default nextConfig;
+export default nextConfig

@@ -31,7 +31,7 @@ const NewsSection = async () => {
         <div className="mt-12 text-center">
           <Button
             href="/news"
-            className="inline-flex items-center justify-center rounded-md bg-green-900 px-8 py-4 text-lg font-semibold text-white transition-all duration-200 hover:bg-slate-900 focus:outline-hidden focus:ring-2 focus:ring-offset-2 focus:ring-slate-500 shadow-md hover:shadow-lg"
+            className="inline-flex items-center justify-center rounded-md bg-green-900 px-8 py-4 text-lg font-semibold text-white shadow-md transition-all duration-200 hover:bg-slate-900 hover:shadow-lg focus:ring-2 focus:ring-slate-500 focus:ring-offset-2 focus:outline-hidden"
           >
             View All News
             <ArrowRight className="ml-2" size={18} />

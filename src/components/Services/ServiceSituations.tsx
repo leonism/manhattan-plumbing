@@ -24,16 +24,13 @@ const ServiceSituations = ({ title, subtitle, items }: ServiceSituationsProps) =
   return (
     <section className="py-16">
       <div className="container mx-auto px-4 md:px-6">
-        <SectionHeading
-          title={title}
-          subtitle={subtitle}
-          centered
-        />
+        <SectionHeading title={title} subtitle={subtitle} centered />
 
         <div className="mt-12 grid grid-cols-1 gap-12 lg:grid-cols-2">
           {items.map((item, index) => {
-            const imageSrc = typeof item.image === 'string' ? `/images/${item.image}` : item.image.src
-            
+            const imageSrc =
+              typeof item.image === 'string' ? `/images/${item.image}` : item.image.src
+
             return (
               <div
                 key={index}
@@ -47,10 +44,14 @@ const ServiceSituations = ({ title, subtitle, items }: ServiceSituationsProps) =
                     className="object-cover brightness-[0.7]"
                   />
                   {item.priority && (
-                    <div className={cn(
-                      "absolute top-4 right-4 z-10 rounded-full px-4 py-1 text-sm font-bold text-white shadow-lg",
-                      item.priority === 'CRITICAL' || item.priority === 'IMMEDIATE' ? "bg-red-600" : "bg-orange-500"
-                    )}>
+                    <div
+                      className={cn(
+                        'absolute top-4 right-4 z-10 rounded-full px-4 py-1 text-sm font-bold text-white shadow-lg',
+                        item.priority === 'CRITICAL' || item.priority === 'IMMEDIATE'
+                          ? 'bg-red-600'
+                          : 'bg-orange-500'
+                      )}
+                    >
                       {item.priority}
                     </div>
                   )}

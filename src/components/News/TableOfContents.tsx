@@ -19,8 +19,8 @@ const TableOfContents: React.FC<TableOfContentsProps> = ({ content, className })
 
   useEffect(() => {
     // Basic markdown heading parser
-    const headingLines = content.split('\n').filter(line => line.match(/^#{2,4}\s/))
-    
+    const headingLines = content.split('\n').filter((line) => line.match(/^#{2,4}\s/))
+
     const items: TOCItem[] = headingLines.map((line, index) => {
       const level = (line.match(/^#+/) || [''])[0].length
       const text = line.replace(/^#+\s/, '').trim()
@@ -29,7 +29,7 @@ const TableOfContents: React.FC<TableOfContentsProps> = ({ content, className })
         .toLowerCase()
         .replace(/[^\w\s-]/g, '')
         .replace(/\s+/g, '-')
-      
+
       return { id, text, level }
     })
 
@@ -39,7 +39,7 @@ const TableOfContents: React.FC<TableOfContentsProps> = ({ content, className })
   if (toc.length === 0) return null
 
   return (
-    <div className={`mb-6 mt-2 md:mb-8 md:mt-0 ${className || ''}`}>
+    <div className={`mt-2 mb-6 md:mt-0 md:mb-8 ${className || ''}`}>
       <div className="rounded-2xl border border-slate-100 bg-white p-6 shadow-sm dark:border-slate-800 dark:bg-slate-900">
         <div className="mb-4 flex items-center gap-2 font-bold text-slate-900 dark:text-white">
           <List size={20} className="text-blue-600" />
@@ -65,7 +65,7 @@ const TableOfContents: React.FC<TableOfContentsProps> = ({ content, className })
 
                   window.scrollTo({
                     top: offsetPosition,
-                    behavior: 'smooth'
+                    behavior: 'smooth',
                   })
                 }
               }}

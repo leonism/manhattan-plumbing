@@ -6,7 +6,8 @@ import { getLegalPageData } from '@/lib/legal'
 
 export const metadata: Metadata = {
   title: 'Cookie Policy',
-  description: 'Learn about how Manhattan Plumbing uses cookies and similar technologies on our website.',
+  description:
+    'Learn about how Manhattan Plumbing uses cookies and similar technologies on our website.',
   alternates: {
     canonical: '/cookies-policy',
     types: {
@@ -15,14 +16,15 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title: 'Cookie Policy | Manhattan Plumbing',
-    description: 'Learn about how Manhattan Plumbing uses cookies and similar technologies on our website.',
+    description:
+      'Learn about how Manhattan Plumbing uses cookies and similar technologies on our website.',
     url: '/cookies-policy',
   },
 }
 
 export default async function CookiesPolicyPage() {
   const page = await getLegalPageData('cookies-policy')
-  
+
   if (!page) {
     notFound()
   }
@@ -38,10 +40,9 @@ export default async function CookiesPolicyPage() {
           heading: '',
           headingSize: 'sm',
           shadow: false,
-          variant: 'minimal'
+          variant: 'minimal',
         }}
       />
     </>
   )
 }
-

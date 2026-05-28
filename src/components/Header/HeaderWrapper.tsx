@@ -6,6 +6,6 @@ import Header from './Header'
 export default function HeaderWrapper() {
   const pathname = usePathname()
   const isHomePage = pathname === '/'
-  
+
   return <Header isHomePage={isHomePage} />
 }

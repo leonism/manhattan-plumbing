@@ -5,7 +5,6 @@ import TestimonialCard from '@/components/ui/TestimonialCard'
 import { testimonials } from '@/lib/testimonials'
 
 const Testimonials: React.FC = () => {
-
   return (
     <section id="testimonials" className="bg-slate-100 py-20 dark:bg-slate-800/50">
       <div className="container mx-auto px-4 md:px-6">

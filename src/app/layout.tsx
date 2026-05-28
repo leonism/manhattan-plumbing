@@ -12,7 +12,8 @@ export const metadata: Metadata = {
     default: 'Manhattan Plumbing | Your Trusted Local Plumber',
     template: '%s | Manhattan Plumbing',
   },
-  description: 'Manhattan Plumbing offers reliable and affordable plumbing services in New York City. From leaky faucets to emergency repairs, our expert plumbers are here to help.',
+  description:
+    'Manhattan Plumbing offers reliable and affordable plumbing services in New York City. From leaky faucets to emergency repairs, our expert plumbers are here to help.',
   metadataBase: new URL('https://manhattan-plumbing.pages.dev'),
   openGraph: {
     type: 'website',
@@ -42,14 +43,10 @@ export const metadata: Metadata = {
   },
 }
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode
-}) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body 
+      <body
         className="antialiased selection:bg-blue-100 selection:text-blue-900 dark:selection:bg-blue-900 dark:selection:text-blue-100"
         suppressHydrationWarning
       >

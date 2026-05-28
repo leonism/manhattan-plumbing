@@ -43,7 +43,9 @@ export default function NotFound() {
         </div>
 
         <div className="mt-16">
-          <h3 className="mb-6 text-xl font-bold text-slate-800 dark:text-white">Popular Services</h3>
+          <h3 className="mb-6 text-xl font-bold text-slate-800 dark:text-white">
+            Popular Services
+          </h3>
           <div className="flex flex-wrap justify-center gap-3">
             {[
               { name: 'Drain Cleaning', href: '/services/drain-service' },

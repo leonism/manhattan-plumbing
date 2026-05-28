@@ -7,7 +7,8 @@ import { getContactPageData } from '@/lib/contact'
 
 export const metadata: Metadata = {
   title: 'Contact Us',
-  description: 'Get in touch with Manhattan Plumbing for all your plumbing needs. We are available 24/7 for emergencies.',
+  description:
+    'Get in touch with Manhattan Plumbing for all your plumbing needs. We are available 24/7 for emergencies.',
   alternates: {
     canonical: '/contact',
     types: {
@@ -16,7 +17,8 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title: 'Contact Us | Manhattan Plumbing',
-    description: 'Get in touch with Manhattan Plumbing for all your plumbing needs. We are available 24/7 for emergencies.',
+    description:
+      'Get in touch with Manhattan Plumbing for all your plumbing needs. We are available 24/7 for emergencies.',
     url: '/contact',
   },
 }
@@ -24,7 +26,6 @@ export const metadata: Metadata = {
 export default async function ContactPage() {
   const page = await getContactPageData()
 
-  
   if (!page) {
     notFound()
   }
@@ -36,7 +37,7 @@ export default async function ContactPage() {
         lastUpdated={page.lastUpdated}
         sections={page.sections}
       />
-      <div className="container mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 pb-16">
+      <div className="container mx-auto max-w-4xl px-4 pb-16 sm:px-6 lg:px-8">
         <ContactForm
           heading="Send us a message"
           headingSize="sm"

@@ -11,7 +11,6 @@ interface NewsPostSidebarProps {
 const NewsPostSidebar: React.FC<NewsPostSidebarProps> = ({ post }) => {
   return (
     <div className="space-y-12">
-
       {/* Author Bio */}
       <div className="rounded-2xl border border-slate-100 bg-slate-50 p-8 dark:border-slate-800 dark:bg-slate-800/50">
         <h3 className="mb-6 text-xl font-bold dark:text-white">About the Author</h3>
@@ -26,9 +25,7 @@ const NewsPostSidebar: React.FC<NewsPostSidebarProps> = ({ post }) => {
           </div>
           <div>
             <div className="text-lg font-bold dark:text-white">{post.author.name}</div>
-            <div className="text-sm text-blue-600 dark:text-blue-400">
-              Plumbing Specialist
-            </div>
+            <div className="text-sm text-blue-600 dark:text-blue-400">Plumbing Specialist</div>
           </div>
         </div>
         <p className="text-slate-600 dark:text-slate-400">

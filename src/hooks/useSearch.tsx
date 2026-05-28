@@ -21,22 +21,22 @@ export const useSearch = (query: string) => {
         const response = await fetch('/api/search')
         if (!response.ok) throw new Error('Failed to fetch search index')
         const data: (SearchIndexItem & { type: string })[] = await response.json()
-        
+
         // Initialize FlexSearch Document Index
         // Using "Document" for multi-field indexing and easy retrieval
         flexIndex = new FlexSearch.Document({
           document: {
             id: 'slug',
             index: ['title', 'excerpt', 'category', 'tags'],
-            store: ['title', 'excerpt', 'slug', 'featuredImage', 'type']
+            store: ['title', 'excerpt', 'slug', 'featuredImage', 'type'],
           },
           tokenize: 'forward',
           resolution: 9,
-          cache: true
+          cache: true,
         })
 
         // Add items to index (both news, services and legal are now in the data)
-        data.forEach(item => {
+        data.forEach((item) => {
           flexIndex.add(item)
         })
 
@@ -66,7 +66,7 @@ export const useSearch = (query: string) => {
       const searchResults = flexIndex.search(query, {
         limit: 20,
         enrich: true, // This returns the stored fields
-        suggest: true
+        suggest: true,
       })
 
       const news: SearchResult[] = []
@@ -75,7 +75,7 @@ export const useSearch = (query: string) => {
 
       // FlexSearch returns results grouped by index field, we need to flatten and deduplicate
       const seen = new Set()
-      
+
       searchResults.forEach((fieldResult: any) => {
         fieldResult.result.forEach((item: any) => {
           if (seen.has(item.id)) return
@@ -87,7 +87,7 @@ export const useSearch = (query: string) => {
             title: doc.title,
             excerpt: doc.excerpt,
             featuredImage: doc.featuredImage,
-            icon: doc.type === 'service' ? 'Wrench' : doc.type === 'legal' ? 'FileText' : undefined
+            icon: doc.type === 'service' ? 'Wrench' : doc.type === 'legal' ? 'FileText' : undefined,
           }
 
           if (doc.type === 'news') {

@@ -18,19 +18,19 @@ export async function generateStaticParams() {
   const params: { slug: string[] }[] = []
   const seenSlugs = new Set<string>()
 
-  tags.forEach(tag => {
+  tags.forEach((tag) => {
     const slugTag = slugify(tag)
     if (seenSlugs.has(slugTag)) return
     seenSlugs.add(slugTag)
 
-    const filteredPosts = allPosts.filter((post) => 
+    const filteredPosts = allPosts.filter((post) =>
       post.tags.some((t) => slugify(t) === slugTag || t.toLowerCase() === slugTag.toLowerCase())
     )
     const totalPages = Math.ceil(filteredPosts.length / 6)
-    
+
     // Add base tag page /news/tag/[tag]
     params.push({ slug: [slugTag] })
-    
+
     // Add paginated pages /news/tag/[tag]/[page]
     for (let i = 2; i <= totalPages; i++) {
       params.push({ slug: [slugTag, String(i)] })
@@ -43,14 +43,15 @@ export async function generateStaticParams() {
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params
   if (!slug || slug.length === 0) return { title: 'Tags' }
-  
+
   const tag = slug[0]
   const pageNum = slug.length > 1 ? parseInt(slug[1], 10) : 1
   const displayTag = tag.charAt(0).toUpperCase() + tag.slice(1).replace(/-/g, ' ')
 
-  const title = pageNum === 1 
-    ? `Articles Tagged: ${displayTag} | Manhattan Plumbing`
-    : `Articles Tagged: ${displayTag} - Page ${pageNum} | Manhattan Plumbing`
+  const title =
+    pageNum === 1
+      ? `Articles Tagged: ${displayTag} | Manhattan Plumbing`
+      : `Articles Tagged: ${displayTag} - Page ${pageNum} | Manhattan Plumbing`
   const description = `Browse all news and plumbing articles related to ${displayTag} from the Manhattan Plumbing team.${pageNum > 1 ? ` Page ${pageNum}.` : ''}`
 
   return {
@@ -79,9 +80,9 @@ export default async function TagPage({ params }: Props) {
 
   const allPosts = getAllPosts()
   const allTags = getAllTags()
-  const displayTag = allTags.find(t => slugify(t) === tag) || tag
+  const displayTag = allTags.find((t) => slugify(t) === tag) || tag
 
-  const filteredPosts = allPosts.filter((post) => 
+  const filteredPosts = allPosts.filter((post) =>
     post.tags.some((t) => slugify(t) === tag || t.toLowerCase() === tag.toLowerCase())
   )
 
@@ -96,14 +97,18 @@ export default async function TagPage({ params }: Props) {
   }
 
   return (
-    <main className="min-h-screen py-16 bg-white dark:bg-slate-900">
-      <NewsIndexJSONLD 
-        posts={filteredPosts.slice((pageNum - 1) * postsPerPage, pageNum * postsPerPage)} 
-        title={pageNum === 1 ? `Articles Tagged: ${displayTag} | Manhattan Plumbing` : `Articles Tagged: ${displayTag} - Page ${pageNum} | Manhattan Plumbing`}
+    <main className="min-h-screen bg-white py-16 dark:bg-slate-900">
+      <NewsIndexJSONLD
+        posts={filteredPosts.slice((pageNum - 1) * postsPerPage, pageNum * postsPerPage)}
+        title={
+          pageNum === 1
+            ? `Articles Tagged: ${displayTag} | Manhattan Plumbing`
+            : `Articles Tagged: ${displayTag} - Page ${pageNum} | Manhattan Plumbing`
+        }
         description={`Browse all news and plumbing articles related to ${displayTag} from the Manhattan Plumbing team.${pageNum > 1 ? ` Page ${pageNum}.` : ''}`}
         url={`https://manhattan-plumbing.pages.dev/news/tag/${tag}${pageNum > 1 ? `/${pageNum}` : ''}`}
       />
-      
+
       <div className="container mx-auto px-4">
         <header className="mt-12 mb-12 text-center">
           <Link
@@ -114,17 +119,23 @@ export default async function TagPage({ params }: Props) {
           </Link>
           <h1 className="mt-4 mb-4 text-5xl font-bold tracking-tight text-slate-900 md:text-6xl dark:text-white">
             Tag: <span className="text-blue-600 dark:text-blue-400">#{displayTag}</span>
-            {pageNum > 1 && <span className="text-slate-400 text-3xl font-medium block mt-2"> - Page {pageNum}</span>}
+            {pageNum > 1 && (
+              <span className="mt-2 block text-3xl font-medium text-slate-400">
+                {' '}
+                - Page {pageNum}
+              </span>
+            )}
           </h1>
           <p className="mx-auto max-w-2xl text-lg text-slate-600 dark:text-slate-400">
-            Showing {filteredPosts.length} {filteredPosts.length === 1 ? 'article' : 'articles'} tagged with #{displayTag}.
+            Showing {filteredPosts.length} {filteredPosts.length === 1 ? 'article' : 'articles'}{' '}
+            tagged with #{displayTag}.
           </p>
         </header>
 
-        <PaginatedPostGrid 
-          posts={filteredPosts} 
-          postsPerPage={postsPerPage} 
-          baseUrl={`/news/tag/${tag}`} 
+        <PaginatedPostGrid
+          posts={filteredPosts}
+          postsPerPage={postsPerPage}
+          baseUrl={`/news/tag/${tag}`}
           currentPage={pageNum}
           usePathPagination={true}
         />

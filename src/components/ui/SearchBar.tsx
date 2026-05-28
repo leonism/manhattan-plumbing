@@ -56,8 +56,9 @@ const SearchBar: React.FC<SearchBarProps> = ({ onClear, onClose }) => {
           loading="lazy"
           onError={(e) => {
             // Fallback if image fails to load
-            (e.target as HTMLImageElement).style.display = 'none';
-            (e.target as HTMLImageElement).parentElement!.innerHTML = '<div class="flex items-center justify-center h-full w-full bg-slate-100 dark:bg-slate-800"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-slate-400"><path d="M20 7h-9l-3-3H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2z"></path></svg></div>';
+            ;(e.target as HTMLImageElement).style.display = 'none'
+            ;(e.target as HTMLImageElement).parentElement!.innerHTML =
+              '<div class="flex items-center justify-center h-full w-full bg-slate-100 dark:bg-slate-800"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-slate-400"><path d="M20 7h-9l-3-3H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2z"></path></svg></div>'
           }}
         />
       )
@@ -199,7 +200,9 @@ const SearchBar: React.FC<SearchBarProps> = ({ onClear, onClose }) => {
                 <li
                   key={result.slug}
                   role="option"
-                  aria-selected={index + results.news.length + results.services.length === activeIndex}
+                  aria-selected={
+                    index + results.news.length + results.services.length === activeIndex
+                  }
                 >
                   <Link
                     href={result.slug}

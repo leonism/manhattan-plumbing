@@ -8,9 +8,7 @@ interface NewsPostJSONLDProps {
 
 const NewsPostJSONLD: React.FC<NewsPostJSONLDProps> = ({ post, slug }) => {
   const publishDate = new Date(post.date).toISOString()
-  const modifiedDate = post.lastModified
-    ? new Date(post.lastModified).toISOString()
-    : publishDate
+  const modifiedDate = post.lastModified ? new Date(post.lastModified).toISOString() : publishDate
 
   const jsonLd = {
     '@context': 'https://schema.org',
