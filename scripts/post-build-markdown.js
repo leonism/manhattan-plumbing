@@ -56,6 +56,33 @@ turndownService.addRule('articleNav', {
   },
 })
 
+// Custom rule for Internal Links to point to .md files
+turndownService.addRule('internalLinks', {
+  filter: 'a',
+  replacement: function (content, node) {
+    const a = /** @type {HTMLAnchorElement} */ (node)
+    let href = a.getAttribute('href') || ''
+
+    // Only process internal links that don't already end in .md, .png, etc.
+    // and aren't hash links or external links
+    if (
+      href.startsWith('/') &&
+      !href.includes('.') &&
+      !href.startsWith('//') &&
+      !href.includes('#')
+    ) {
+      // Ensure href ends with index.md
+      if (href === '/') {
+        href = '/index.md'
+      } else {
+        href = href.endsWith('/') ? `${href}index.md` : `${href}/index.md`
+      }
+    }
+
+    return `[${content}](${href})`
+  },
+})
+
 /**
  * Recursively find all HTML files
  * @param {string} dir
