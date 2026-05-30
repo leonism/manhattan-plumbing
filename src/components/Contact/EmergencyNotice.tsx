@@ -1,5 +1,6 @@
 import React from 'react'
 import { AlertTriangle, PhoneCall } from 'lucide-react'
+import { TypographyH2, TypographyP } from '@/components/ui/typography'
 
 const EmergencyNotice: React.FC = () => (
   <aside
@@ -13,10 +14,10 @@ const EmergencyNotice: React.FC = () => (
         size={22}
       />
       <div>
-        <h2 className="mb-2 flex items-center gap-2 text-lg font-semibold text-slate-800 dark:text-white">
+        <TypographyH2 className="mb-2 flex items-center gap-2 text-lg font-semibold text-slate-800 dark:text-white">
           Emergency Service
-        </h2>
-        <p className="text-sm text-slate-600 lg:text-base dark:text-slate-300">
+        </TypographyH2>
+        <TypographyP className="text-sm text-slate-600 lg:text-base dark:text-slate-300">
           We offer 24/7 emergency plumbing services. If you have an urgent plumbing issue outside of
           regular business hours, please call our emergency line at{' '}
           <a
@@ -28,7 +29,7 @@ const EmergencyNotice: React.FC = () => (
             (212) 555-1234
           </a>
           .
-        </p>
+        </TypographyP>
       </div>
     </div>
   </aside>

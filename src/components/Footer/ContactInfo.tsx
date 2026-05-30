@@ -1,5 +1,6 @@
 import React from 'react'
 import { Phone, Mail, MapPin } from 'lucide-react'
+import { TypographyH3 } from '@/components/ui/typography'
 
 interface ContactInfoProps {
   className?: string
@@ -8,9 +9,9 @@ interface ContactInfoProps {
 const ContactInfo: React.FC<ContactInfoProps> = ({ className }) => {
   return (
     <section aria-labelledby="contact-us" className={className}>
-      <h3 id="contact-us" className="mb-6 text-xl font-semibold">
+      <TypographyH3 id="contact-us" className="mb-6 text-xl font-semibold">
         Contact Us
-      </h3>
+      </TypographyH3>
       <address className="space-y-4 not-italic">
         <div className="flex gap-3">
           <MapPin size={20} className="mt-1 shrink-0 text-blue-400" />

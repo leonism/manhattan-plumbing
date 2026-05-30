@@ -2,6 +2,7 @@ import Link from 'next/link'
 import SectionHeading from '@/components/ui/SectionHeading'
 import Button from '@/components/ui/Button'
 import { Home, Phone, Wrench } from 'lucide-react'
+import { TypographyH3, TypographyP } from '@/components/ui/typography'
 
 export default function NotFound() {
   return (
@@ -22,10 +23,10 @@ export default function NotFound() {
           centered
         />
 
-        <p className="mx-auto mb-12 max-w-lg text-lg text-slate-600 dark:text-slate-400">
+        <TypographyP className="mx-auto mb-12 max-w-lg text-lg text-slate-600 dark:text-slate-400">
           Sorry, the page you are looking for might have been removed, had its name changed, or is
           temporarily unavailable. Let's get you back on track.
-        </p>
+        </TypographyP>
 
         <div className="flex flex-col justify-center gap-4 sm:flex-row">
           <Button href="/" variant="default">
@@ -43,9 +44,9 @@ export default function NotFound() {
         </div>
 
         <div className="mt-16">
-          <h3 className="mb-6 text-xl font-bold text-slate-800 dark:text-white">
+          <TypographyH3 className="mb-6 text-xl font-bold text-slate-800 dark:text-white">
             Popular Services
-          </h3>
+          </TypographyH3>
           <div className="flex flex-wrap justify-center gap-3">
             {[
               { name: 'Drain Cleaning', href: '/services/drain-service' },

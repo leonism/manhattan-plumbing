@@ -1,16 +1,17 @@
 import React from 'react'
 import Button from '@/components/ui/Button'
+import { TypographyH2, TypographyP } from '@/components/ui/typography'
 
 const NewsPostCTA = () => {
   return (
     <section className="container mx-auto mt-20 px-4">
       <div className="relative overflow-hidden rounded-3xl bg-slate-900 p-12 text-center text-white">
         <div className="relative z-10">
-          <h2 className="mb-6 text-3xl font-bold md:text-4xl">Facing a Plumbing Issue?</h2>
-          <p className="mx-auto mb-8 max-w-2xl text-xl text-slate-300">
+          <TypographyH2 className="mb-6 text-3xl font-bold md:text-4xl">Facing a Plumbing Issue?</TypographyH2>
+          <TypographyP className="mx-auto mb-8 max-w-2xl text-xl text-slate-300">
             Don't wait for a small leak to become a flood. Our expert team is ready to help you
             24/7.
-          </p>
+          </TypographyP>
           <div className="flex flex-col justify-center gap-4 sm:flex-row">
             <Button
               href="tel:+12125551234"

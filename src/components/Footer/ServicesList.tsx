@@ -1,4 +1,5 @@
 import React from 'react'
+import { TypographyH3 } from '@/components/ui/typography'
 
 interface ServicesListProps {
   className?: string
@@ -7,9 +8,9 @@ interface ServicesListProps {
 const ServicesList: React.FC<ServicesListProps> = ({ className }) => {
   return (
     <section aria-labelledby="our-services" className={className}>
-      <h3 id="our-services" className="mb-6 text-xl font-semibold">
+      <TypographyH3 id="our-services" className="mb-6 text-xl font-semibold">
         Services
-      </h3>
+      </TypographyH3>
       <nav aria-label="Our services">
         <ul className="space-y-3">
           {[

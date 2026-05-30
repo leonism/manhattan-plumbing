@@ -4,6 +4,7 @@ import QuickLinks from '@/components/Footer/QuickLinks'
 import ServicesList from '@/components/Footer/ServicesList'
 import ContactInfo from '@/components/Footer/ContactInfo'
 import LegalInfo from '@/components/Footer/LegalInfo'
+import { TypographyP } from '@/components/ui/typography'
 
 const currentYear = new Date().getFullYear()
 
@@ -22,9 +23,9 @@ const Footer: React.FC = () => (
       </div>
 
       <div className="mt-12 border-t border-slate-800 pt-8 text-center">
-        <p className="text-sm text-slate-400">
+        <TypographyP className="text-sm text-slate-400">
           © {currentYear} Manhattan Plumbing. All Rights Reserved.
-        </p>
+        </TypographyP>
       </div>
     </div>
   </footer>

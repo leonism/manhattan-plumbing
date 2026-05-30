@@ -6,6 +6,7 @@ import CategoryList from '@/components/News/CategoryList'
 import NewsIndexJSONLD from '@/components/News/NewsIndexJSONLD'
 import { getAllPosts, getAllCategories } from '@/lib/news'
 import { slugify } from '@/utils/slugify'
+import { TypographyH1, TypographyP } from '@/components/ui/typography'
 
 export const dynamicParams = false
 
@@ -117,7 +118,7 @@ export default async function CategoryPage({ params }: Props) {
           >
             ← Back to All News
           </Link>
-          <h1 className="mt-4 mb-4 text-5xl font-bold tracking-tight text-slate-900 md:text-6xl dark:text-white">
+          <TypographyH1 className="mt-4 mb-4 text-5xl font-bold tracking-tight text-slate-900 md:text-6xl dark:text-white">
             Category: <span className="text-blue-600 dark:text-blue-400">{displayCategory}</span>
             {pageNum > 1 && (
               <span className="mt-2 block text-3xl font-medium text-slate-400">
@@ -125,10 +126,10 @@ export default async function CategoryPage({ params }: Props) {
                 - Page {pageNum}
               </span>
             )}
-          </h1>
-          <p className="mx-auto max-w-2xl text-lg text-slate-600 dark:text-slate-400">
+          </TypographyH1>
+          <TypographyP className="mx-auto max-w-2xl text-lg text-slate-600 dark:text-slate-400">
             Expert insights and latest updates in {displayCategory}.
-          </p>
+          </TypographyP>
           <div className="mt-8">
             <CategoryList categories={allCategories} currentCategory={category} />
           </div>

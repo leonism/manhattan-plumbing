@@ -1,5 +1,6 @@
 import React from 'react'
 import { Star } from 'lucide-react'
+import { TypographyH4, TypographyP } from '@/components/ui/typography'
 
 interface TestimonialCardProps {
   name: string
@@ -31,8 +32,8 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({
           loading="lazy"
         />
         <div>
-          <h4 className="font-bold text-slate-800 dark:text-white">{name}</h4>
-          <p className="text-sm text-slate-500 dark:text-slate-400">{occupation}</p>
+          <TypographyH4 className="font-bold text-slate-800 dark:text-white">{name}</TypographyH4>
+          <TypographyP className="text-sm text-slate-500 dark:text-slate-400">{occupation}</TypographyP>
         </div>
       </div>
       {/* Stars */}
@@ -46,7 +47,7 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({
         ))}
       </div>
       {/* Testimonial Text */}
-      <p className="mt-8 grow text-slate-600 dark:text-slate-300">"{testimonial}"</p>
+      <TypographyP className="mt-8 grow text-slate-600 dark:text-slate-300">"{testimonial}"</TypographyP>
     </div>
   )
 }

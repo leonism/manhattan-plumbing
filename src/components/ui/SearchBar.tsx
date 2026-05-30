@@ -11,6 +11,7 @@ interface SearchBarProps {
 }
 
 import { SearchResult } from '@/types'
+import { TypographyH3, TypographyP } from '@/components/ui/typography'
 
 const SearchBar: React.FC<SearchBarProps> = ({ onClear, onClose }) => {
   const [query, setQuery] = useState('')
@@ -112,17 +113,17 @@ const SearchBar: React.FC<SearchBarProps> = ({ onClear, onClose }) => {
         </div>
         {query && !isLoading && allResults.length === 0 && (
           <div className="py-12 text-center text-slate-500">
-            <p>
+            <TypographyP>
               No results for "<span className="font-semibold">{query}</span>"
-            </p>
+            </TypographyP>
           </div>
         )}
 
         {results.news.length > 0 && (
           <div className="p-4">
-            <h3 className="mb-2 px-4 text-xs font-semibold tracking-wider text-slate-400 uppercase">
+            <TypographyH3 className="mb-2 px-4 text-xs font-semibold tracking-wider text-slate-400 uppercase">
               News
-            </h3>
+            </TypographyH3>
             <ul role="listbox">
               {results.news.map((result, index) => (
                 <li key={result.slug} role="option" aria-selected={index === activeIndex}>
@@ -138,12 +139,12 @@ const SearchBar: React.FC<SearchBarProps> = ({ onClear, onClose }) => {
                       {getIcon(result)}
                     </div>
                     <div className="min-w-0">
-                      <p className="line-clamp-2 font-semibold text-slate-800 dark:text-white">
+                      <TypographyP className="line-clamp-2 font-semibold text-slate-800 dark:text-white">
                         {result.title}
-                      </p>
-                      <p className="line-clamp-2 text-sm text-slate-500 dark:text-slate-400">
+                      </TypographyP>
+                      <TypographyP className="line-clamp-2 text-sm text-slate-500 dark:text-slate-400">
                         {result.excerpt}
-                      </p>
+                      </TypographyP>
                     </div>
                   </Link>
                 </li>
@@ -154,9 +155,9 @@ const SearchBar: React.FC<SearchBarProps> = ({ onClear, onClose }) => {
 
         {results.services.length > 0 && (
           <div className="border-t border-slate-100 p-4 dark:border-slate-700/50">
-            <h3 className="mb-2 px-4 text-xs font-semibold tracking-wider text-slate-400 uppercase">
+            <TypographyH3 className="mb-2 px-4 text-xs font-semibold tracking-wider text-slate-400 uppercase">
               Services
-            </h3>
+            </TypographyH3>
             <ul role="listbox">
               {results.services.map((result, index) => (
                 <li
@@ -176,12 +177,12 @@ const SearchBar: React.FC<SearchBarProps> = ({ onClear, onClose }) => {
                       {getIcon(result)}
                     </div>
                     <div className="min-w-0">
-                      <p className="line-clamp-2 font-semibold text-slate-800 dark:text-white">
+                      <TypographyP className="line-clamp-2 font-semibold text-slate-800 dark:text-white">
                         {result.title}
-                      </p>
-                      <p className="line-clamp-2 text-sm text-slate-500 dark:text-slate-400">
+                      </TypographyP>
+                      <TypographyP className="line-clamp-2 text-sm text-slate-500 dark:text-slate-400">
                         {result.excerpt}
-                      </p>
+                      </TypographyP>
                     </div>
                   </Link>
                 </li>
@@ -192,9 +193,9 @@ const SearchBar: React.FC<SearchBarProps> = ({ onClear, onClose }) => {
 
         {results.legal.length > 0 && (
           <div className="border-t border-slate-100 p-4 dark:border-slate-700/50">
-            <h3 className="mb-2 px-4 text-xs font-semibold tracking-wider text-slate-400 uppercase">
+            <TypographyH3 className="mb-2 px-4 text-xs font-semibold tracking-wider text-slate-400 uppercase">
               Legal
-            </h3>
+            </TypographyH3>
             <ul role="listbox">
               {results.legal.map((result, index) => (
                 <li
@@ -216,12 +217,12 @@ const SearchBar: React.FC<SearchBarProps> = ({ onClear, onClose }) => {
                       {getIcon(result)}
                     </div>
                     <div className="min-w-0">
-                      <p className="line-clamp-2 font-semibold text-slate-800 dark:text-white">
+                      <TypographyP className="line-clamp-2 font-semibold text-slate-800 dark:text-white">
                         {result.title}
-                      </p>
-                      <p className="line-clamp-2 text-sm text-slate-500 dark:text-slate-400">
+                      </TypographyP>
+                      <TypographyP className="line-clamp-2 text-sm text-slate-500 dark:text-slate-400">
                         {result.excerpt}
-                      </p>
+                      </TypographyP>
                     </div>
                   </Link>
                 </li>

@@ -2,6 +2,7 @@
 
 import React from 'react'
 import Button from '@/components/ui/Button'
+import { TypographyP } from '@/components/ui/typography'
 
 const NewsletterForm = () => {
   const [email, setEmail] = React.useState('')
@@ -50,9 +51,9 @@ const NewsletterForm = () => {
             : 'Subscribe Now'}
       </Button>
       {status === 'success' && (
-        <p className="animate-in fade-in slide-in-from-top-1 text-center text-sm text-blue-100">
+        <TypographyP className="animate-in fade-in slide-in-from-top-1 text-center text-sm text-blue-100">
           Welcome to the plumbing insider list!
-        </p>
+        </TypographyP>
       )}
     </form>
   )

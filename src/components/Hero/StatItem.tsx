@@ -1,3 +1,5 @@
+import { TypographyP } from '@/components/ui/typography'
+
 const StatItem = ({
   icon: Icon,
   value,
@@ -21,12 +23,12 @@ const StatItem = ({
         </span>
       </div>
       {/* Label */}
-      <p
+      <TypographyP
         id={`stat-label-${label.replace(/\s+/g, '-').toLowerCase()}`}
         className="md:text-md text-xs leading-relaxed text-white/90 xl:text-xl"
       >
         {label}
-      </p>
+      </TypographyP>
     </article>
   )
 }

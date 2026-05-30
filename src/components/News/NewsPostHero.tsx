@@ -6,6 +6,7 @@ import { format } from 'date-fns'
 import { Post } from '@/types'
 
 import { slugify } from '@/utils/slugify'
+import { TypographyH1 } from '@/components/ui/typography'
 
 interface NewsPostHeroProps {
   post: Post
@@ -33,9 +34,9 @@ const NewsPostHero: React.FC<NewsPostHeroProps> = ({ post }) => {
             Back to News
           </Link>
 
-          <h1 className="mt-6 text-3xl font-extrabold text-white md:text-5xl lg:text-6xl lg:leading-tight">
+          <TypographyH1 className="mt-6 text-3xl font-extrabold text-white md:text-5xl lg:text-6xl lg:leading-tight">
             {post.title}
-          </h1>
+          </TypographyH1>
 
           <div className="mt-6 flex flex-wrap items-center gap-4 text-[13px] text-white/80 md:mt-8 md:gap-6 md:text-base">
             <Link

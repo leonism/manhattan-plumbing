@@ -14,6 +14,7 @@ import TableOfContents from '@/components/News/TableOfContents'
 import { SocialShare } from '@/components/News/SocialShare'
 import Link from 'next/link'
 import { slugify } from '@/utils/slugify'
+import { TypographyH1, TypographyP } from '@/components/ui/typography'
 
 interface Props {
   params: Promise<{ slug?: string[] }>
@@ -112,15 +113,15 @@ export default async function CombinedNewsPage({ params }: Props) {
         />
         <div className="container mx-auto px-4">
           <header className="mt-12 mb-12 text-center">
-            <h1 className="mb-4 text-5xl font-bold tracking-tight text-blue-600 md:text-5xl dark:text-blue-400">
+            <TypographyH1 className="mb-4 text-5xl font-bold tracking-tight text-blue-600 md:text-5xl dark:text-blue-400">
               Latest News{' '}
               {pageNum > 1 && (
                 <span className="text-3xl font-medium text-slate-400"> - Page {pageNum}</span>
               )}
-            </h1>
-            <p className="mx-auto max-w-2xl text-lg text-slate-600 dark:text-slate-400">
+            </TypographyH1>
+            <TypographyP className="mx-auto max-w-2xl text-lg text-slate-600 dark:text-slate-400">
               Stay informed about the latest plumbing tips, company updates, and industry insights.
-            </p>
+            </TypographyP>
             <div className="mt-8">
               <CategoryList categories={categories} />
             </div>
@@ -156,10 +157,10 @@ export default async function CombinedNewsPage({ params }: Props) {
               <TableOfContents content={post.content || ''} className="lg:hidden" />
               <NewsPostBody content={post.content || ''} />
               <div className="mt-12 flex min-h-[120px] flex-col items-center justify-center rounded-xl border border-slate-100 bg-slate-50/50 p-6 text-center dark:border-slate-800 dark:bg-slate-800/30">
-                <p className="max-w-xl text-sm leading-relaxed text-balance text-slate-500 italic md:text-base">
+                <TypographyP className="max-w-xl text-sm leading-relaxed text-balance text-slate-500 italic md:text-base">
                   This article was originally published in our news section. For more tips and
                   updates, follow us on social media.
-                </p>
+                </TypographyP>
               </div>
               <SocialShare
                 title={post.title}

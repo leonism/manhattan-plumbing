@@ -2,6 +2,7 @@ import React from 'react'
 import DynamicIcon from '@/components/ui/DynamicIcon'
 import SectionHeading from '@/components/ui/SectionHeading'
 import { cn } from '@/lib/utils'
+import { TypographyH3, TypographyP } from '@/components/ui/typography'
 
 interface Feature {
   icon: string
@@ -54,12 +55,12 @@ const ServiceFeatures = ({
                   }
                 />
               </div>
-              <h3 className="mb-4 text-center text-2xl font-bold text-slate-800 dark:text-white">
+              <TypographyH3 className="mb-4 text-center text-2xl font-bold text-slate-800 dark:text-white">
                 {feature.title}
-              </h3>
-              <p className="text-center text-lg text-slate-600 dark:text-slate-300">
+              </TypographyH3>
+              <TypographyP className="text-center text-lg text-slate-600 dark:text-slate-300">
                 {feature.description}
-              </p>
+              </TypographyP>
             </div>
           ))}
         </div>

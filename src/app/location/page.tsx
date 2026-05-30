@@ -6,6 +6,7 @@ import Button from '@/components/ui/Button'
 import DynamicIcon from '@/components/ui/DynamicIcon'
 import Image from 'next/image'
 import { getLegalPageData } from '@/lib/legal'
+import { TypographyH1, TypographyH2, TypographyH3, TypographyP } from '@/components/ui/typography'
 
 export async function generateMetadata(): Promise<Metadata> {
   const page = await getLegalPageData('location')
@@ -91,10 +92,10 @@ const LocationPage = async () => {
             <div className="mb-6 flex justify-center">
               <DynamicIcon name="MapPin" size={56} className="text-blue-400" />
             </div>
-            <h1 className="mb-6 text-4xl leading-tight font-bold md:text-5xl lg:text-6xl">
+            <TypographyH1 className="mb-6 text-4xl leading-tight font-bold md:text-5xl lg:text-6xl">
               {page.hero.title}
-            </h1>
-            <p className="mb-8 text-xl text-blue-100 md:text-2xl">{page.hero.subtitle}</p>
+            </TypographyH1>
+            <TypographyP className="mb-8 text-xl text-blue-100 md:text-2xl">{page.hero.subtitle}</TypographyP>
             <div className="flex flex-col justify-center gap-4 sm:flex-row">
               <Button href="tel:+12125551234" variant="default" className="group">
                 <div className="flex items-center">
@@ -130,12 +131,12 @@ const LocationPage = async () => {
                     className="text-blue-600 dark:text-blue-400"
                   />
                 </div>
-                <h3 className="mb-4 text-center text-2xl font-bold text-slate-800 dark:text-white">
+                <TypographyH3 className="mb-4 text-center text-2xl font-bold text-slate-800 dark:text-white">
                   {feature.title}
-                </h3>
-                <p className="text-center text-lg text-slate-600 dark:text-slate-300">
+                </TypographyH3>
+                <TypographyP className="text-center text-lg text-slate-600 dark:text-slate-300">
                   {feature.description}
-                </p>
+                </TypographyP>
               </div>
             ))}
           </div>
@@ -162,12 +163,12 @@ const LocationPage = async () => {
                 </div>
               </div>
               <div className="p-8">
-                <h3 className="mb-4 text-2xl font-bold text-slate-800 dark:text-white">
+                <TypographyH3 className="mb-4 text-2xl font-bold text-slate-800 dark:text-white">
                   {page.findUs.office.title}
-                </h3>
-                <p className="mb-6 text-lg text-slate-600 dark:text-slate-300">
+                </TypographyH3>
+                <TypographyP className="mb-6 text-lg text-slate-600 dark:text-slate-300">
                   {page.findUs.office.description}
-                </p>
+                </TypographyP>
                 <div className="aspect-w-16 aspect-h-9 mb-6 overflow-hidden rounded-lg shadow-lg">
                   <iframe
                     src={page.findUs.office.mapEmbedUrl}
@@ -209,12 +210,12 @@ const LocationPage = async () => {
                 </div>
               </div>
               <div className="p-8">
-                <h3 className="mb-4 text-2xl font-bold text-slate-800 dark:text-white">
+                <TypographyH3 className="mb-4 text-2xl font-bold text-slate-800 dark:text-white">
                   {page.getInTouch.title}
-                </h3>
-                <p className="mb-6 text-lg text-slate-600 dark:text-slate-300">
+                </TypographyH3>
+                <TypographyP className="mb-6 text-lg text-slate-600 dark:text-slate-300">
                   {page.getInTouch.description}
-                </p>
+                </TypographyP>
                 <div className="space-y-6 text-lg text-slate-700 dark:text-slate-300">
                   <div className="flex items-center gap-4">
                     <DynamicIcon
@@ -239,9 +240,9 @@ const LocationPage = async () => {
                       {page.getInTouch.email}
                     </a>
                   </div>
-                  <h3 className="mt-10 mb-4 text-2xl font-bold text-slate-800 dark:text-white">
+                  <TypographyH3 className="mt-10 mb-4 text-2xl font-bold text-slate-800 dark:text-white">
                     Business Hours
-                  </h3>
+                  </TypographyH3>
                   <ul className="space-y-2 text-lg text-slate-700 dark:text-slate-300">
                     {page.getInTouch.hours.map((hour: string, i: number) => (
                       <li key={i}>{hour}</li>
@@ -270,8 +271,8 @@ const LocationPage = async () => {
       <section className="bg-linear-to-r from-blue-600 to-blue-800 py-16 text-white">
         <div className="container mx-auto px-4 text-center md:px-6">
           <DynamicIcon name="MapPin" size={48} className="mx-auto mb-6" />
-          <h2 className="mb-6 text-3xl font-bold md:text-4xl">{page.cta.title}</h2>
-          <p className="mx-auto mb-8 max-w-3xl text-xl text-blue-100">{page.cta.subtitle}</p>
+          <TypographyH2 className="mb-6 text-3xl font-bold md:text-4xl">{page.cta.title}</TypographyH2>
+          <TypographyP className="mx-auto mb-8 max-w-3xl text-xl text-blue-100">{page.cta.subtitle}</TypographyP>
           <div className="flex flex-col justify-center gap-4 sm:flex-row">
             <Button href="tel:+12125551234" variant="default" className="group">
               <div className="flex items-center">

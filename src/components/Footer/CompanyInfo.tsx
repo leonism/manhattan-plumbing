@@ -1,6 +1,7 @@
 import React from 'react'
 import { Facebook, Twitter, Instagram, Youtube, Linkedin, Rss } from 'lucide-react'
 import LogoFooter from '@/components/ui/LogoFooter'
+import { TypographyH2, TypographyP } from '@/components/ui/typography'
 
 interface CompanyInfoProps {
   className?: string
@@ -9,14 +10,14 @@ interface CompanyInfoProps {
 const CompanyInfo: React.FC<CompanyInfoProps> = ({ className }) => {
   return (
     <section aria-labelledby="company-info" className={className}>
-      <h2 id="company-info" className="sr-only">
+      <TypographyH2 id="company-info" className="sr-only">
         Company Information
-      </h2>
+      </TypographyH2>
       <LogoFooter />
-      <p className="mt-4 mb-6 text-slate-300">
+      <TypographyP className="mt-4 mb-6 text-slate-300">
         Professional plumbing services with a commitment to quality and customer satisfaction since
         1985.
-      </p>
+      </TypographyP>
       <nav aria-label="Social media">
         <ul className="flex gap-4">
           {[

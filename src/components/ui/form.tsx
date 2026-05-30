@@ -14,6 +14,7 @@ import {
 
 import { cn } from '@/lib/utils'
 import { Label } from '@/components/ui/label'
+import { TypographyP } from '@/components/ui/typography'
 
 const Form = FormProvider
 
@@ -128,14 +129,14 @@ const FormMessage = React.forwardRef<
   }
 
   return (
-    <p
+    <TypographyP
       ref={ref}
       id={formMessageId}
       className={cn('text-destructive text-[0.8rem] font-medium', className)}
       {...props}
     >
       {body}
-    </p>
+    </TypographyP>
   )
 })
 FormMessage.displayName = 'FormMessage'

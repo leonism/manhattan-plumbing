@@ -25,6 +25,7 @@ import {
 import { Textarea } from '@/components/ui/textarea'
 import { contactFormSchema, type ContactFormValues } from '@/hooks/useContactForm'
 import { cn } from '@/lib/utils'
+import { TypographyH3, TypographyP } from '@/components/ui/typography'
 
 interface ContactFormProps {
   shadow?: boolean
@@ -83,14 +84,14 @@ const ContactForm: React.FC<ContactFormProps> = ({
       )}
     >
       {heading && (
-        <h3
+        <TypographyH3
           className={cn(
             headingSizes[headingSize],
             'mb-4 text-center font-bold text-slate-800 sm:mb-6 sm:text-left md:mb-8 dark:text-white'
           )}
         >
           {heading}
-        </h3>
+        </TypographyH3>
       )}
 
       <Form {...form}>
@@ -218,7 +219,7 @@ const ContactForm: React.FC<ContactFormProps> = ({
             </Button>
           </div>
 
-          <p className="text-center text-xs text-slate-500 sm:text-left sm:text-sm dark:text-slate-400">
+          <TypographyP className="text-center text-xs text-slate-500 sm:text-left sm:text-sm dark:text-slate-400">
             By submitting this form, you agree to our{' '}
             <a
               href="/privacy-policy"
@@ -234,7 +235,7 @@ const ContactForm: React.FC<ContactFormProps> = ({
               Terms of Service
             </a>
             .
-          </p>
+          </TypographyP>
         </form>
       </Form>
     </div>

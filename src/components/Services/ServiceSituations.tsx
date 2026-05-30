@@ -5,6 +5,7 @@ import SectionHeading from '@/components/ui/SectionHeading'
 import Button from '@/components/ui/Button'
 import { ImageSource } from '@/types'
 import { cn } from '@/lib/utils'
+import { TypographyH3, TypographyP } from '@/components/ui/typography'
 
 interface Situation {
   image: string | ImageSource
@@ -60,13 +61,13 @@ const ServiceSituations = ({ title, subtitle, items }: ServiceSituationsProps) =
                 <div className="p-8">
                   <div className="mb-4 flex items-center gap-4">
                     <DynamicIcon name={item.icon} className="text-blue-500" size={32} />
-                    <h3 className="text-2xl font-bold text-slate-800 dark:text-white">
+                    <TypographyH3 className="text-2xl font-bold text-slate-800 dark:text-white">
                       {item.title}
-                    </h3>
+                    </TypographyH3>
                   </div>
-                  <p className="mb-6 text-lg text-slate-600 dark:text-slate-300">
+                  <TypographyP className="mb-6 text-lg text-slate-600 dark:text-slate-300">
                     {item.description}
-                  </p>
+                  </TypographyP>
                   <Button href="tel:+12125551234" variant="default" className="w-full">
                     Contact Us Now
                   </Button>

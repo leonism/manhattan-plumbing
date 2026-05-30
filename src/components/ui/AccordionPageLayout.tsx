@@ -5,6 +5,7 @@ import { ChevronDownIcon, ChevronUpIcon } from '@heroicons/react/24/outline'
 import StaticHeading from '@/components/ui/StaticHeading'
 import ReactMarkdown from 'react-markdown'
 import ContactForm from '@/components/ui/ContactForm'
+import { TypographyH2 } from '@/components/ui/typography'
 
 interface Section {
   title: string
@@ -68,9 +69,9 @@ const AccordionPageLayout: React.FC<AccordionPageLayoutProps> = ({
                   aria-expanded={openSections[index]}
                   aria-controls={`section-${index}`}
                 >
-                  <h2 className="text-xl font-bold text-gray-900 dark:text-white">
+                  <TypographyH2 className="text-xl font-bold text-gray-900 dark:text-white">
                     {section.title}
-                  </h2>
+                  </TypographyH2>
                   <span
                     className={`ml-4 flex h-8 w-8 items-center justify-center rounded-full border border-gray-200 transition-colors hover:bg-gray-100 dark:border-gray-700 dark:hover:bg-gray-700 ${
                       openSections[index] ? 'bg-gray-50/50 dark:bg-gray-800/50' : 'bg-transparent'
