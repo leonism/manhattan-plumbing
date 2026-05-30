@@ -10,7 +10,7 @@ const TagButton: React.FC<TagButtonProps> = ({ tag }) => {
   return (
     <Link
       href={`/news/tag/${slugify(tag)}`}
-      className="inline-flex items-center rounded-full bg-blue-100 px-3 py-1 text-sm text-blue-700 transition-colors hover:bg-blue-200 dark:bg-blue-900 dark:text-blue-200 dark:hover:bg-blue-800"
+      className="inline-flex items-center rounded-full bg-blue-50 px-2 py-1 text-xs text-blue-700 transition-colors hover:bg-blue-200 dark:bg-blue-900 dark:text-blue-200 dark:hover:bg-blue-800"
     >
       <svg
         xmlns="http://www.w3.org/2000/svg"

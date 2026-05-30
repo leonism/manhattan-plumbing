@@ -1,4 +1,4 @@
-"use client"
+'use client'
 
 import React from 'react'
 import { Menu, X } from 'lucide-react'
@@ -31,7 +31,7 @@ const MenuToggle: React.FC<MenuToggleProps> = ({
       ? `text-white hover:bg-slate-100 dark:hover:bg-slate-700`
       : `text-slate-800 hover:bg-slate-200 ${theme === 'dark' ? 'dark:text-white dark:hover:bg-slate-700' : ''}`
 
-  if (!mounted) return <div className="p-1 md:p-2 w-[32px] md:w-[40px] h-[32px] md:h-[40px]" />
+  if (!mounted) return <div className="h-[32px] w-[32px] p-1 md:h-[40px] md:w-[40px] md:p-2" />
 
   return (
     <button

@@ -5,6 +5,7 @@ import { ChevronDownIcon, ChevronUpIcon } from '@heroicons/react/24/outline'
 import StaticHeading from '@/components/ui/StaticHeading'
 import ReactMarkdown from 'react-markdown'
 import ContactForm from '@/components/ui/ContactForm'
+import { TypographyH2 } from '@/components/ui/typography'
 
 interface Section {
   title: string
@@ -26,7 +27,12 @@ interface AccordionPageLayoutProps {
   formConfig?: FormConfig
 }
 
-const AccordionPageLayout: React.FC<AccordionPageLayoutProps> = ({ title, lastUpdated, sections, formConfig }) => {
+const AccordionPageLayout: React.FC<AccordionPageLayoutProps> = ({
+  title,
+  lastUpdated,
+  sections,
+  formConfig,
+}) => {
   const [openSections, setOpenSections] = useState<Record<number, boolean>>({
     0: true, // First section open by default
   })
@@ -63,14 +69,14 @@ const AccordionPageLayout: React.FC<AccordionPageLayoutProps> = ({ title, lastUp
                   aria-expanded={openSections[index]}
                   aria-controls={`section-${index}`}
                 >
-                  <h2 className="text-xl font-bold text-gray-900 dark:text-white">
+                  <TypographyH2 className="text-xl font-bold text-gray-900 dark:text-white">
                     {section.title}
-                  </h2>
-                  <span className={`ml-4 flex h-8 w-8 items-center justify-center rounded-full border transition-colors border-gray-200 hover:bg-gray-100 dark:border-gray-700 dark:hover:bg-gray-700 ${
-                    openSections[index] 
-                      ? 'bg-gray-50/50 dark:bg-gray-800/50' 
-                      : 'bg-transparent'
-                  }`}>
+                  </TypographyH2>
+                  <span
+                    className={`ml-4 flex h-8 w-8 items-center justify-center rounded-full border border-gray-200 transition-colors hover:bg-gray-100 dark:border-gray-700 dark:hover:bg-gray-700 ${
+                      openSections[index] ? 'bg-gray-50/50 dark:bg-gray-800/50' : 'bg-transparent'
+                    }`}
+                  >
                     {openSections[index] ? (
                       <ChevronUpIcon
                         className="h-5 w-5 text-gray-600 dark:text-gray-300"
@@ -90,10 +96,10 @@ const AccordionPageLayout: React.FC<AccordionPageLayoutProps> = ({ title, lastUp
                   className={`px-6 pb-6 ${openSections[index] ? 'block' : 'hidden'}`}
                   aria-labelledby={`section-${index}-heading`}
                 >
-                  <div className="prose prose-slate max-w-none dark:prose-invert prose-p:leading-relaxed prose-p:text-gray-600 dark:prose-p:text-gray-300">
+                  <div className="prose prose-slate dark:prose-invert prose-p:leading-relaxed prose-p:text-gray-600 dark:prose-p:text-gray-300 max-w-none">
                     <ReactMarkdown>{section.content}</ReactMarkdown>
                   </div>
-                  
+
                   {formConfig && section.title.includes(formConfig.afterSectionTitle) && (
                     <div className="mt-6">
                       <ContactForm
@@ -115,4 +121,3 @@ const AccordionPageLayout: React.FC<AccordionPageLayoutProps> = ({ title, lastUp
 }
 
 export default AccordionPageLayout
-

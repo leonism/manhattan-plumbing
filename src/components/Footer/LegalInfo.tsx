@@ -1,10 +1,11 @@
 import React from 'react'
+import { TypographyH3 } from '@/components/ui/typography'
 
 const LegalInfo: React.FC = () => (
   <section aria-labelledby="legal-links">
-    <h3 id="legal-links" className="mb-6 text-xl font-semibold">
+    <TypographyH3 id="legal-links" className="mb-6 text-xl font-semibold">
       Legal
-    </h3>
+    </TypographyH3>
     <nav aria-label="Legal links">
       <ul className="space-y-3">
         <li>

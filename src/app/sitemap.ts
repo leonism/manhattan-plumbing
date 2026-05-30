@@ -5,7 +5,7 @@ export const dynamic = 'force-static'
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = 'https://manhattan-plumbing.pages.dev'
-  
+
   const staticPages = [
     '',
     '/news',

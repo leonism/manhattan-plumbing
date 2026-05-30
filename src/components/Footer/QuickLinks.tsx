@@ -1,4 +1,5 @@
 import React from 'react'
+import { TypographyH3 } from '@/components/ui/typography'
 
 interface QuickLinksProps {
   className?: string
@@ -7,9 +8,9 @@ interface QuickLinksProps {
 const QuickLinks: React.FC<QuickLinksProps> = ({ className }) => {
   return (
     <section aria-labelledby="quick-links" className={className}>
-      <h3 id="quick-links" className="mb-6 text-xl font-semibold">
+      <TypographyH3 id="quick-links" className="mb-6 text-xl font-semibold">
         Quick Links
-      </h3>
+      </TypographyH3>
       <nav aria-label="Quick links">
         <ul className="space-y-3">
           {[

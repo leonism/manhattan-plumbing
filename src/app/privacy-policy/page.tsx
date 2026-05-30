@@ -6,7 +6,8 @@ import { getLegalPageData } from '@/lib/legal'
 
 export const metadata: Metadata = {
   title: 'Privacy Policy',
-  description: 'Learn about how Manhattan Plumbing collects, uses, and protects your personal information.',
+  description:
+    'Learn about how Manhattan Plumbing collects, uses, and protects your personal information.',
   alternates: {
     canonical: '/privacy-policy',
     types: {
@@ -15,14 +16,15 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title: 'Privacy Policy | Manhattan Plumbing',
-    description: 'Learn about how Manhattan Plumbing collects, uses, and protects your personal information.',
+    description:
+      'Learn about how Manhattan Plumbing collects, uses, and protects your personal information.',
     url: '/privacy-policy',
   },
 }
 
 export default async function PrivacyPolicyPage() {
   const page = await getLegalPageData('privacy-policy')
-  
+
   if (!page) {
     notFound()
   }
@@ -38,10 +40,9 @@ export default async function PrivacyPolicyPage() {
           heading: '',
           headingSize: 'sm',
           shadow: false,
-          variant: 'minimal'
+          variant: 'minimal',
         }}
       />
     </>
   )
 }
-

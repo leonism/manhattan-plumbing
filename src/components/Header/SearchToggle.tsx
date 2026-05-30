@@ -1,4 +1,4 @@
-"use client"
+'use client'
 
 import React, { useState } from 'react'
 import { Search } from 'lucide-react'
@@ -24,7 +24,7 @@ const SearchToggle: React.FC<SearchToggleProps> = ({ theme, scrolled, isHomePage
 
   React.useEffect(() => {
     setMounted(true)
-    
+
     const handleKeyDown = (e: KeyboardEvent) => {
       if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
         e.preventDefault()
@@ -51,14 +51,14 @@ const SearchToggle: React.FC<SearchToggleProps> = ({ theme, scrolled, isHomePage
         type="button"
         onClick={() => setIsSearchOpen(true)}
         className={cn(
-          'group relative inline-flex items-center gap-2 rounded-lg px-3 py-1.5 text-sm font-medium transition-all border border-transparent hover:border-slate-200 dark:hover:border-slate-700',
+          'group relative inline-flex items-center gap-2 rounded-lg border border-transparent px-3 py-1.5 text-sm font-medium transition-all hover:border-slate-200 dark:hover:border-slate-700',
           iconColorClass
         )}
         aria-label="Search (⌘K)"
       >
         <Search size={18} className="transition-transform group-hover:scale-110" />
         <span className="hidden lg:inline-block">Search</span>
-        <kbd className="hidden lg:inline-flex h-5 select-none items-center gap-1 rounded border border-slate-200 bg-slate-50 px-1.5 font-sans text-[10px] font-medium text-slate-500 opacity-100 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-400">
+        <kbd className="hidden h-5 items-center gap-1 rounded border border-slate-200 bg-slate-50 px-1.5 font-sans text-[10px] font-medium text-slate-500 opacity-100 select-none lg:inline-flex dark:border-slate-700 dark:bg-slate-800 dark:text-slate-400">
           <span className="text-xs">⌘</span>K
         </kbd>
       </button>
@@ -68,4 +68,3 @@ const SearchToggle: React.FC<SearchToggleProps> = ({ theme, scrolled, isHomePage
 }
 
 export default SearchToggle
-

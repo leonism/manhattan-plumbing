@@ -6,6 +6,7 @@ import PhoneComponent from '@/components/Contact/Phone'
 import Email from '@/components/Contact/Email'
 import Hours from '@/components/Contact/Hours'
 import EmergencyNotice from '@/components/Contact/EmergencyNotice'
+import { TypographyH3, TypographyP } from '@/components/ui/typography'
 
 const Contact: React.FC = () => {
   return (
@@ -28,17 +29,17 @@ const Contact: React.FC = () => {
         <div className="grid grid-cols-1 items-start gap-8 lg:grid-cols-[1fr_400px] lg:gap-12">
           {/* Left Column: Contact Information */}
           <article aria-labelledby="contact-info">
-            <h3
+            <TypographyH3
               id="contact-info"
               className="mb-6 text-xl font-bold text-slate-800 lg:text-2xl dark:text-white"
             >
               Get In Touch
-            </h3>
+            </TypographyH3>
 
-            <p className="mb-8 text-base text-slate-600 lg:text-lg dark:text-slate-300">
+            <TypographyP className="mb-8 text-base text-slate-600 lg:text-lg dark:text-slate-300">
               Our friendly customer service team is standing by to answer your questions and
               schedule your appointment. Contact us through the form or using the information below.
-            </p>
+            </TypographyP>
 
             {/* Address */}
             <Address />

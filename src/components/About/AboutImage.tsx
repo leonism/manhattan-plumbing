@@ -1,5 +1,6 @@
 import React from 'react'
 import { CheckCircle } from 'lucide-react'
+import { TypographyP } from '@/components/ui/typography'
 
 const AboutImage: React.FC = () => (
   <div className="relative">
@@ -21,12 +22,12 @@ const AboutImage: React.FC = () => (
       <div className="flex items-start gap-3">
         <CheckCircle className="mt-1 shrink-0 text-white" size={24} />
         <div id="wrapperBoxText">
-          <p className="mb-2 flex items-center gap-2 text-xl font-bold">
+          <TypographyP className="mb-2 flex items-center gap-2 text-xl font-bold">
             <span className="text-white">30+ Years</span>
-          </p>
-          <p className="text-sm text-blue-100">
+          </TypographyP>
+          <TypographyP className="text-sm text-blue-100">
             Serving Manhattan with quality plumbing services since 1985.
-          </p>
+          </TypographyP>
         </div>
       </div>
     </div>

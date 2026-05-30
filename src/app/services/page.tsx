@@ -6,6 +6,7 @@ import Button from '@/components/ui/Button'
 import { Phone, CheckCircle2 } from 'lucide-react'
 import { getAllServices, getServicesIndexData } from '@/lib/services'
 import DynamicIcon from '@/components/ui/DynamicIcon'
+import { TypographyH1, TypographyH2, TypographyP } from '@/components/ui/typography'
 
 export async function generateMetadata(): Promise<Metadata> {
   const indexData = getServicesIndexData()
@@ -43,10 +44,10 @@ export default async function ServicesPage() {
         </div>
         <div className="relative z-10 container mx-auto px-4 py-24 md:px-6 md:py-32">
           <div className="mx-auto max-w-3xl text-center">
-            <h1 className="mb-6 text-4xl font-black tracking-tight text-white md:text-6xl">
+            <TypographyH1 className="mb-6 text-4xl font-black tracking-tight text-white md:text-6xl">
               {indexData.hero.title}
-            </h1>
-            <p className="mb-8 text-xl text-slate-200">{indexData.hero.subtitle}</p>
+            </TypographyH1>
+            <TypographyP className="mb-8 text-xl text-slate-200">{indexData.hero.subtitle}</TypographyP>
             <div className="flex flex-wrap justify-center gap-4">
               <Button
                 href={indexData.hero.primaryButton.href}
@@ -129,8 +130,8 @@ export default async function ServicesPage() {
       {/* CTA Section */}
       <section className="bg-blue-600 py-16 text-white dark:bg-blue-700">
         <div className="container mx-auto px-4 text-center md:px-6">
-          <h2 className="mb-6 text-3xl font-bold md:text-4xl">{indexData.cta.title}</h2>
-          <p className="mb-10 text-xl text-blue-50">{indexData.cta.subtitle}</p>
+          <TypographyH2 className="mb-6 text-3xl font-bold md:text-4xl">{indexData.cta.title}</TypographyH2>
+          <TypographyP className="mb-10 text-xl text-blue-50">{indexData.cta.subtitle}</TypographyP>
           <div className="flex flex-wrap justify-center gap-6">
             <Button
               href={indexData.cta.primaryButton.href}

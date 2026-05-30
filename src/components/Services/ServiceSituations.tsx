@@ -5,6 +5,7 @@ import SectionHeading from '@/components/ui/SectionHeading'
 import Button from '@/components/ui/Button'
 import { ImageSource } from '@/types'
 import { cn } from '@/lib/utils'
+import { TypographyH3, TypographyP } from '@/components/ui/typography'
 
 interface Situation {
   image: string | ImageSource
@@ -24,16 +25,13 @@ const ServiceSituations = ({ title, subtitle, items }: ServiceSituationsProps) =
   return (
     <section className="py-16">
       <div className="container mx-auto px-4 md:px-6">
-        <SectionHeading
-          title={title}
-          subtitle={subtitle}
-          centered
-        />
+        <SectionHeading title={title} subtitle={subtitle} centered />
 
         <div className="mt-12 grid grid-cols-1 gap-12 lg:grid-cols-2">
           {items.map((item, index) => {
-            const imageSrc = typeof item.image === 'string' ? `/images/${item.image}` : item.image.src
-            
+            const imageSrc =
+              typeof item.image === 'string' ? `/images/${item.image}` : item.image.src
+
             return (
               <div
                 key={index}
@@ -47,10 +45,14 @@ const ServiceSituations = ({ title, subtitle, items }: ServiceSituationsProps) =
                     className="object-cover brightness-[0.7]"
                   />
                   {item.priority && (
-                    <div className={cn(
-                      "absolute top-4 right-4 z-10 rounded-full px-4 py-1 text-sm font-bold text-white shadow-lg",
-                      item.priority === 'CRITICAL' || item.priority === 'IMMEDIATE' ? "bg-red-600" : "bg-orange-500"
-                    )}>
+                    <div
+                      className={cn(
+                        'absolute top-4 right-4 z-10 rounded-full px-4 py-1 text-sm font-bold text-white shadow-lg',
+                        item.priority === 'CRITICAL' || item.priority === 'IMMEDIATE'
+                          ? 'bg-red-600'
+                          : 'bg-orange-500'
+                      )}
+                    >
                       {item.priority}
                     </div>
                   )}
@@ -59,13 +61,13 @@ const ServiceSituations = ({ title, subtitle, items }: ServiceSituationsProps) =
                 <div className="p-8">
                   <div className="mb-4 flex items-center gap-4">
                     <DynamicIcon name={item.icon} className="text-blue-500" size={32} />
-                    <h3 className="text-2xl font-bold text-slate-800 dark:text-white">
+                    <TypographyH3 className="text-2xl font-bold text-slate-800 dark:text-white">
                       {item.title}
-                    </h3>
+                    </TypographyH3>
                   </div>
-                  <p className="mb-6 text-lg text-slate-600 dark:text-slate-300">
+                  <TypographyP className="mb-6 text-lg text-slate-600 dark:text-slate-300">
                     {item.description}
-                  </p>
+                  </TypographyP>
                   <Button href="tel:+12125551234" variant="default" className="w-full">
                     Contact Us Now
                   </Button>

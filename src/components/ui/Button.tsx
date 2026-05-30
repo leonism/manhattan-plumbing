@@ -51,8 +51,11 @@ interface ButtonProps
 
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
   ({ className, variant, size, asChild = false, href, fullWidth, ...props }, ref) => {
-    const isExternal = href?.startsWith('http') || href?.startsWith('tel:') || href?.startsWith('mailto:')
-    const Comp = (asChild ? Slot : href ? (isExternal ? 'a' : Link) : ButtonPrimitive) as React.ElementType
+    const isExternal =
+      href?.startsWith('http') || href?.startsWith('tel:') || href?.startsWith('mailto:')
+    const Comp = (
+      asChild ? Slot : href ? (isExternal ? 'a' : Link) : ButtonPrimitive
+    ) as React.ElementType
     return (
       <Comp
         ref={ref as React.Ref<never>}

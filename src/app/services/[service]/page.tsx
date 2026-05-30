@@ -9,6 +9,7 @@ import ServiceProtocols from '@/components/Services/ServiceProtocols'
 import ServiceCTA from '@/components/Services/ServiceCTA'
 import NewsPostBody from '@/components/News/NewsPostBody'
 import { cn } from '@/lib/utils'
+import { TypographyH1, TypographyP } from '@/components/ui/typography'
 
 interface Props {
   params: Promise<{ service: string }>
@@ -75,15 +76,15 @@ export default async function ServicePage({ params }: Props) {
                 />
               </div>
             )}
-            <h1
+            <TypographyH1
               className={cn(
                 'mb-6 text-4xl leading-tight font-bold md:text-5xl lg:text-6xl',
                 isEmergency ? 'text-red-50' : 'text-white'
               )}
             >
               {service.heroTitle}
-            </h1>
-            <p className="mb-8 text-xl text-blue-100 md:text-2xl">{service.heroSubtitle}</p>
+            </TypographyH1>
+            <TypographyP className="mb-8 text-xl text-blue-100 md:text-2xl">{service.heroSubtitle}</TypographyP>
             <div className="flex flex-col justify-center gap-4 sm:flex-row">
               <ServiceHeroButton service={service} />
             </div>

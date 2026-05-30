@@ -1,0 +1,29 @@
+{
+  "linkset": [
+    {
+      "anchor": "https://manhattan-plumbing.pages.dev/",
+      "service-doc": [
+        {
+          "href": "https://manhattan-plumbing.pages.dev/llms.txt",
+          "type": "text/plain"
+        }
+      ],
+      "describedby": [
+        {
+          "href": "https://manhattan-plumbing.pages.dev/llms-full.txt",
+          "type": "text/plain"
+        }
+      ],
+      "item": [
+        {
+          "href": "https://manhattan-plumbing.pages.dev/api/news/",
+          "type": "application/json"
+        },
+        {
+          "href": "https://manhattan-plumbing.pages.dev/api/search/",
+          "type": "application/json"
+        }
+      ]
+    }
+  ]
+}

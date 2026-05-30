@@ -80,14 +80,6 @@ const DesktopNav: React.FC<DesktopNavProps> = ({
   scrolled,
   isHomePage,
 }) => {
-  const [mounted, setMounted] = React.useState(false)
-
-  React.useEffect(() => {
-    setMounted(true)
-  }, [])
-
-  if (!mounted) return <nav className="hidden lg:block w-[400px]" />
-
   const linkColorClass =
     isHomePage && !scrolled
       ? 'text-white hover:text-blue-600 dark:hover:text-blue-400'

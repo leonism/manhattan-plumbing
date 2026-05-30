@@ -11,12 +11,12 @@ interface PaginatedPostGridProps {
   usePathPagination?: boolean
 }
 
-export default function PaginatedPostGrid({ 
-  posts, 
-  postsPerPage, 
-  baseUrl, 
+export default function PaginatedPostGrid({
+  posts,
+  postsPerPage,
+  baseUrl,
   currentPage = 1,
-  usePathPagination 
+  usePathPagination,
 }: PaginatedPostGridProps) {
   const totalPages = Math.ceil(posts.length / postsPerPage)
   const startIndex = (currentPage - 1) * postsPerPage
@@ -30,10 +30,10 @@ export default function PaginatedPostGrid({
         ))}
       </section>
 
-      <Pagination 
-        currentPage={currentPage} 
-        totalPages={totalPages} 
-        baseUrl={baseUrl} 
+      <Pagination
+        currentPage={currentPage}
+        totalPages={totalPages}
+        baseUrl={baseUrl}
         usePathPagination={usePathPagination}
       />
     </>

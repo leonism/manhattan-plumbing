@@ -12,11 +12,7 @@ const UIContext = createContext<UIContextType | undefined>(undefined)
 export const UIProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
 
-  return (
-    <UIContext.Provider value={{ isMenuOpen, setIsMenuOpen }}>
-      {children}
-    </UIContext.Provider>
-  )
+  return <UIContext.Provider value={{ isMenuOpen, setIsMenuOpen }}>{children}</UIContext.Provider>
 }
 
 export const useUI = () => {

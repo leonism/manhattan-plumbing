@@ -22,7 +22,10 @@ interface RawImage {
   caption?: string
 }
 
-function formatImage(img: string | RawImage | undefined | null, defaultAlt: string = ''): ImageSource {
+function formatImage(
+  img: string | RawImage | undefined | null,
+  defaultAlt: string = ''
+): ImageSource {
   if (typeof img === 'string') {
     const src = img.startsWith('http') ? img : `/images/${img}`
     return {
@@ -35,7 +38,7 @@ function formatImage(img: string | RawImage | undefined | null, defaultAlt: stri
 
   const rawSrc = img?.src || ''
   const src = rawSrc.startsWith('http') ? rawSrc : `/images/${rawSrc}`
-  
+
   return {
     src,
     webp: img?.webp || (rawSrc.startsWith('http') ? src : `${src}?format=webp`),
@@ -100,7 +103,7 @@ export function getSearchIndex() {
   const services = getAllServices()
   const legalPages = getAllLegalPages()
 
-  const postIndex = posts.map(post => ({
+  const postIndex = posts.map((post) => ({
     slug: post.slug,
     title: post.title,
     excerpt: post.excerpt,
@@ -108,28 +111,31 @@ export function getSearchIndex() {
     tags: post.tags,
     featuredImage: {
       src: post.featuredImage.src,
-      alt: post.featuredImage.alt
+      alt: post.featuredImage.alt,
     },
-    type: 'news'
+    type: 'news',
   }))
 
-  const serviceIndex = services.map(service => {
-    const heroImage = service.heroImage as ImageSource;
+  const serviceIndex = services.map((service) => {
+    const heroImage = service.heroImage as ImageSource
     return {
       slug: `/services/${service.slug}`,
       title: service.title,
       excerpt: service.description,
       category: 'Services',
       tags: [],
-      featuredImage: heroImage && heroImage.src ? {
-        src: heroImage.src,
-        alt: heroImage.alt || service.title
-      } : undefined,
-      type: 'service'
-    };
+      featuredImage:
+        heroImage && heroImage.src
+          ? {
+              src: heroImage.src,
+              alt: heroImage.alt || service.title,
+            }
+          : undefined,
+      type: 'service',
+    }
   })
 
-  const legalIndex = legalPages.map(page => ({
+  const legalIndex = legalPages.map((page) => ({
     slug: `/${page.slug}`,
     title: page.title,
     excerpt: page.description,
@@ -137,9 +143,9 @@ export function getSearchIndex() {
     tags: [],
     featuredImage: {
       src: page.featuredImage?.src || '/images/legal-placeholder.jpg',
-      alt: page.title
+      alt: page.title,
     },
-    type: page.type || 'legal'
+    type: page.type || 'legal',
   }))
 
   return [...postIndex, ...serviceIndex, ...legalIndex]
@@ -192,7 +198,7 @@ export async function getPostData(slug: string): Promise<Post | undefined> {
 export function getAdjacentPosts(currentSlug: string) {
   const allPosts = getAllPosts()
   const currentIndex = allPosts.findIndex((post) => post.slug === currentSlug)
-  
+
   return {
     // Newer post (lower index)
     next: currentIndex > 0 ? allPosts[currentIndex - 1] : null,

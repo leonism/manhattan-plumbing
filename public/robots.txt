@@ -1,3 +1,0 @@
-User-agent: *
-Allow: /
-Sitemap: https://manhattan-plumbing.pages.dev/sitemap.xml

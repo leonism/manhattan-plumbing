@@ -6,7 +6,8 @@ import { getLegalPageData } from '@/lib/legal'
 
 export const metadata: Metadata = {
   title: 'Terms of Service',
-  description: 'Read our terms of service to understand the conditions for using Manhattan Plumbing\'s services.',
+  description:
+    "Read our terms of service to understand the conditions for using Manhattan Plumbing's services.",
   alternates: {
     canonical: '/terms-of-service',
     types: {
@@ -15,14 +16,15 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title: 'Terms of Service | Manhattan Plumbing',
-    description: 'Read our terms of service to understand the conditions for using Manhattan Plumbing\'s services.',
+    description:
+      "Read our terms of service to understand the conditions for using Manhattan Plumbing's services.",
     url: '/terms-of-service',
   },
 }
 
 export default async function TermsOfServicePage() {
   const page = await getLegalPageData('terms-of-service')
-  
+
   if (!page) {
     notFound()
   }
@@ -38,10 +40,9 @@ export default async function TermsOfServicePage() {
           heading: '',
           headingSize: 'sm',
           shadow: false,
-          variant: 'minimal'
+          variant: 'minimal',
         }}
       />
     </>
   )
 }
-

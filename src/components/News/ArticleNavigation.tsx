@@ -11,39 +11,39 @@ export function ArticleNavigation({ prev, next }: ArticleNavigationProps) {
   if (!prev && !next) return null
 
   return (
-    <nav className="mt-12 py-12 border-t border-slate-100 dark:border-slate-800 flex flex-col sm:flex-row gap-6 items-stretch">
+    <nav className="mt-12 flex flex-col items-stretch gap-6 border-t border-slate-100 py-12 sm:flex-row dark:border-slate-800">
       {prev ? (
-        <Link 
+        <Link
           href={`/news/${prev.slug}`}
-          className="flex-1 group flex flex-col gap-2 p-6 rounded-2xl bg-slate-50 dark:bg-slate-800/50 hover:bg-blue-50 dark:hover:bg-blue-900/20 transition-colors border border-slate-200 dark:border-transparent hover:border-blue-100 dark:hover:border-blue-800"
+          className="group flex flex-1 flex-col gap-2 rounded-2xl border border-slate-200 bg-slate-50 p-6 transition-colors hover:border-blue-100 hover:bg-blue-50 dark:border-transparent dark:bg-slate-800/50 dark:hover:border-blue-800 dark:hover:bg-blue-900/20"
         >
           <span className="flex items-center gap-2 text-sm font-medium text-slate-500 group-hover:text-blue-600 dark:text-slate-400 dark:group-hover:text-blue-400">
-            <ArrowLeft className="w-4 h-4" />
+            <ArrowLeft className="h-4 w-4" />
             Previous Article
           </span>
-          <span className="text-lg font-semibold text-slate-900 dark:text-white group-hover:text-blue-900 dark:group-hover:text-blue-200 line-clamp-2">
+          <span className="line-clamp-2 text-lg font-semibold text-slate-900 group-hover:text-blue-900 dark:text-white dark:group-hover:text-blue-200">
             {prev.title}
           </span>
         </Link>
       ) : (
-        <div className="flex-1 hidden sm:block" />
+        <div className="hidden flex-1 sm:block" />
       )}
 
       {next ? (
-        <Link 
+        <Link
           href={`/news/${next.slug}`}
-          className="flex-1 group flex flex-col gap-2 p-6 rounded-2xl bg-slate-50 dark:bg-slate-800/50 hover:bg-blue-50 dark:hover:bg-blue-900/20 transition-colors border border-slate-200 dark:border-transparent hover:border-blue-100 dark:hover:border-blue-800 text-right items-end"
+          className="group flex flex-1 flex-col items-end gap-2 rounded-2xl border border-slate-200 bg-slate-50 p-6 text-right transition-colors hover:border-blue-100 hover:bg-blue-50 dark:border-transparent dark:bg-slate-800/50 dark:hover:border-blue-800 dark:hover:bg-blue-900/20"
         >
           <span className="flex items-center gap-2 text-sm font-medium text-slate-500 group-hover:text-blue-600 dark:text-slate-400 dark:group-hover:text-blue-400">
             Next Article
-            <ArrowRight className="w-4 h-4" />
+            <ArrowRight className="h-4 w-4" />
           </span>
-          <span className="text-lg font-semibold text-slate-900 dark:text-white group-hover:text-blue-900 dark:group-hover:text-blue-200 line-clamp-2">
+          <span className="line-clamp-2 text-lg font-semibold text-slate-900 group-hover:text-blue-900 dark:text-white dark:group-hover:text-blue-200">
             {next.title}
           </span>
         </Link>
       ) : (
-        <div className="flex-1 hidden sm:block" />
+        <div className="hidden flex-1 sm:block" />
       )}
     </nav>
   )

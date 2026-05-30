@@ -6,10 +6,11 @@ import Button from '@/components/ui/Button'
 import DynamicIcon from '@/components/ui/DynamicIcon'
 import Image from 'next/image'
 import { getLegalPageData } from '@/lib/legal'
+import { TypographyH1, TypographyH2, TypographyH3, TypographyP } from '@/components/ui/typography'
 
 export async function generateMetadata(): Promise<Metadata> {
   const page = await getLegalPageData('location')
-  
+
   if (!page) {
     return {
       title: 'Location Not Found',
@@ -91,12 +92,10 @@ const LocationPage = async () => {
             <div className="mb-6 flex justify-center">
               <DynamicIcon name="MapPin" size={56} className="text-blue-400" />
             </div>
-            <h1 className="mb-6 text-4xl leading-tight font-bold md:text-5xl lg:text-6xl">
+            <TypographyH1 className="mb-6 text-4xl leading-tight font-bold md:text-5xl lg:text-6xl">
               {page.hero.title}
-            </h1>
-            <p className="mb-8 text-xl text-blue-100 md:text-2xl">
-              {page.hero.subtitle}
-            </p>
+            </TypographyH1>
+            <TypographyP className="mb-8 text-xl text-blue-100 md:text-2xl">{page.hero.subtitle}</TypographyP>
             <div className="flex flex-col justify-center gap-4 sm:flex-row">
               <Button href="tel:+12125551234" variant="default" className="group">
                 <div className="flex items-center">
@@ -118,11 +117,7 @@ const LocationPage = async () => {
       {/* Why Choose Us Section */}
       <section className="bg-slate-50 py-16 dark:bg-slate-800/50">
         <div className="container mx-auto px-4 md:px-6">
-          <SectionHeading
-            title={page.whyVisit.title}
-            subtitle={page.whyVisit.subtitle}
-            centered
-          />
+          <SectionHeading title={page.whyVisit.title} subtitle={page.whyVisit.subtitle} centered />
           <div className="mt-12 grid grid-cols-1 gap-8 md:grid-cols-3">
             {page.whyVisit.items.map((feature: any, index: number) => (
               <div
@@ -130,14 +125,18 @@ const LocationPage = async () => {
                 className="rounded-xl bg-white p-8 shadow-lg transition-shadow duration-300 hover:shadow-xl dark:bg-slate-700"
               >
                 <div className="mb-6 flex justify-center">
-                  <DynamicIcon name={feature.icon} size={40} className="text-blue-600 dark:text-blue-400" />
+                  <DynamicIcon
+                    name={feature.icon}
+                    size={40}
+                    className="text-blue-600 dark:text-blue-400"
+                  />
                 </div>
-                <h3 className="mb-4 text-center text-2xl font-bold text-slate-800 dark:text-white">
+                <TypographyH3 className="mb-4 text-center text-2xl font-bold text-slate-800 dark:text-white">
                   {feature.title}
-                </h3>
-                <p className="text-center text-lg text-slate-600 dark:text-slate-300">
+                </TypographyH3>
+                <TypographyP className="text-center text-lg text-slate-600 dark:text-slate-300">
                   {feature.description}
-                </p>
+                </TypographyP>
               </div>
             ))}
           </div>
@@ -147,11 +146,7 @@ const LocationPage = async () => {
       {/* Map and Contact Info Section */}
       <section className="py-16">
         <div className="container mx-auto px-4 md:px-6">
-          <SectionHeading
-            title={page.findUs.title}
-            subtitle={page.findUs.subtitle}
-            centered
-          />
+          <SectionHeading title={page.findUs.title} subtitle={page.findUs.subtitle} centered />
 
           <div className="mt-12 grid grid-cols-1 gap-12 lg:grid-cols-2">
             {/* Map Column */}
@@ -168,12 +163,12 @@ const LocationPage = async () => {
                 </div>
               </div>
               <div className="p-8">
-                <h3 className="mb-4 text-2xl font-bold text-slate-800 dark:text-white">
+                <TypographyH3 className="mb-4 text-2xl font-bold text-slate-800 dark:text-white">
                   {page.findUs.office.title}
-                </h3>
-                <p className="mb-6 text-lg text-slate-600 dark:text-slate-300">
+                </TypographyH3>
+                <TypographyP className="mb-6 text-lg text-slate-600 dark:text-slate-300">
                   {page.findUs.office.description}
-                </p>
+                </TypographyP>
                 <div className="aspect-w-16 aspect-h-9 mb-6 overflow-hidden rounded-lg shadow-lg">
                   <iframe
                     src={page.findUs.office.mapEmbedUrl}
@@ -187,10 +182,7 @@ const LocationPage = async () => {
                   ></iframe>
                 </div>
                 <ul className="space-y-3">
-                  {[
-                    page.findUs.office.address,
-                    ...page.findUs.office.hours
-                  ].map((feature, i) => (
+                  {[page.findUs.office.address, ...page.findUs.office.hours].map((feature, i) => (
                     <li key={i} className="flex items-start">
                       <DynamicIcon
                         name="CheckCircle"
@@ -218,28 +210,39 @@ const LocationPage = async () => {
                 </div>
               </div>
               <div className="p-8">
-                <h3 className="mb-4 text-2xl font-bold text-slate-800 dark:text-white">
+                <TypographyH3 className="mb-4 text-2xl font-bold text-slate-800 dark:text-white">
                   {page.getInTouch.title}
-                </h3>
-                <p className="mb-6 text-lg text-slate-600 dark:text-slate-300">
+                </TypographyH3>
+                <TypographyP className="mb-6 text-lg text-slate-600 dark:text-slate-300">
                   {page.getInTouch.description}
-                </p>
+                </TypographyP>
                 <div className="space-y-6 text-lg text-slate-700 dark:text-slate-300">
                   <div className="flex items-center gap-4">
-                    <DynamicIcon name="Phone" size={24} className="shrink-0 text-blue-600 dark:text-blue-400" />
-                    <a href={`tel:${page.getInTouch.phone.replace(/[^0-9+]/g, '')}`} className="hover:underline">
+                    <DynamicIcon
+                      name="Phone"
+                      size={24}
+                      className="shrink-0 text-blue-600 dark:text-blue-400"
+                    />
+                    <a
+                      href={`tel:${page.getInTouch.phone.replace(/[^0-9+]/g, '')}`}
+                      className="hover:underline"
+                    >
                       {page.getInTouch.phone}
                     </a>
                   </div>
                   <div className="flex items-center gap-4">
-                    <DynamicIcon name="Mail" size={24} className="shrink-0 text-blue-600 dark:text-blue-400" />
+                    <DynamicIcon
+                      name="Mail"
+                      size={24}
+                      className="shrink-0 text-blue-600 dark:text-blue-400"
+                    />
                     <a href={`mailto:${page.getInTouch.email}`} className="hover:underline">
                       {page.getInTouch.email}
                     </a>
                   </div>
-                  <h3 className="mt-10 mb-4 text-2xl font-bold text-slate-800 dark:text-white">
+                  <TypographyH3 className="mt-10 mb-4 text-2xl font-bold text-slate-800 dark:text-white">
                     Business Hours
-                  </h3>
+                  </TypographyH3>
                   <ul className="space-y-2 text-lg text-slate-700 dark:text-slate-300">
                     {page.getInTouch.hours.map((hour: string, i: number) => (
                       <li key={i}>{hour}</li>
@@ -268,10 +271,8 @@ const LocationPage = async () => {
       <section className="bg-linear-to-r from-blue-600 to-blue-800 py-16 text-white">
         <div className="container mx-auto px-4 text-center md:px-6">
           <DynamicIcon name="MapPin" size={48} className="mx-auto mb-6" />
-          <h2 className="mb-6 text-3xl font-bold md:text-4xl">{page.cta.title}</h2>
-          <p className="mx-auto mb-8 max-w-3xl text-xl text-blue-100">
-            {page.cta.subtitle}
-          </p>
+          <TypographyH2 className="mb-6 text-3xl font-bold md:text-4xl">{page.cta.title}</TypographyH2>
+          <TypographyP className="mx-auto mb-8 max-w-3xl text-xl text-blue-100">{page.cta.subtitle}</TypographyP>
           <div className="flex flex-col justify-center gap-4 sm:flex-row">
             <Button href="tel:+12125551234" variant="default" className="group">
               <div className="flex items-center">
