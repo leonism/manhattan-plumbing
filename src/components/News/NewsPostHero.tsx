@@ -28,7 +28,7 @@ const NewsPostHero: React.FC<NewsPostHeroProps> = ({ post }) => {
         <div className="container mx-auto px-4">
           <Link
             href="/news"
-            className="group inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-2 text-sm font-medium text-white backdrop-blur-md transition-all hover:bg-white/20 md:px-3 md:py-1.5 md:text-xs"
+            className="group inline-flex items-center gap-2 rounded-full bg-white/10 px-2 py-2 text-sm sm:text-xs text-wrap font-medium text-white backdrop-blur-lg transition-all hover:bg-white/20 md:px-3 md:py-1.5 md:text-xs"
           >
             <ChevronLeft size={16} className="transition-transform group-hover:-translate-x-1" />
             Back to News

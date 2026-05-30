@@ -30,7 +30,7 @@ const NewsletterForm = () => {
           placeholder="Enter your email"
           required
           disabled={status === 'loading' || status === 'success'}
-          className="w-full rounded-xl border-0 bg-white/10 px-4 py-3 text-white transition-all placeholder:text-blue-200 focus:ring-2 focus:ring-white/50 disabled:opacity-50"
+          className="w-full rounded-2xl border border-slate-100 shadow-sm  bg-white/10 px-4 py-3 text-white transition-all placeholder:text-blue-200 focus:ring-2 focus:ring-white/50 disabled:opacity-50"
         />
         {status === 'success' && (
           <span className="absolute top-1/2 right-3 -translate-y-1/2 text-sm font-medium text-green-400">

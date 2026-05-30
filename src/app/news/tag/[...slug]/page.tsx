@@ -78,11 +78,9 @@ export default async function TagPage({ params }: Props) {
   const tag = slug[0]
   const pageNum = slug.length > 1 ? parseInt(slug[1], 10) : 1
   const postsPerPage = 6
-
   const allPosts = getAllPosts()
   const allTags = getAllTags()
   const displayTag = allTags.find((t) => slugify(t) === tag) || tag
-
   const filteredPosts = allPosts.filter((post) =>
     post.tags.some((t) => slugify(t) === tag || t.toLowerCase() === tag.toLowerCase())
   )

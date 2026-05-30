@@ -40,7 +40,7 @@ const TableOfContents: React.FC<TableOfContentsProps> = ({ content, className })
 
   return (
     <div className={`mt-2 mb-6 md:mt-0 md:mb-8 ${className || ''}`}>
-      <div className="rounded-2xl border border-slate-100 bg-white p-6 shadow-sm dark:border-slate-800 dark:bg-slate-900">
+      <div className="rounded-2xl border border-slate-100 bg-white p-8 shadow-sm dark:border-slate-800 dark:bg-slate-900">
         <div className="mb-4 flex items-center gap-2 font-bold text-slate-900 dark:text-white">
           <List size={20} className="text-blue-600" />
           <span>Table of Contents</span>
