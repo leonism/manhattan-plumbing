@@ -6,7 +6,7 @@
   </strong>
   </p>
 
-[![Next.js](https://img.shields.io/badge/Next.js-16.2.6-000000?style=flat&logo=nextdotjs&logoColor=white)](https://nextjs.org)
+[![Next.js](https://img.shields.io/badge/Next.js-16.4.2-000000?style=flat&logo=nextdotjs&logoColor=white)](https://nextjs.org)
 [![React](https://img.shields.io/badge/React-19.2.6-61DAFB?style=flat&logo=react&logoColor=black)](https://react.dev)
 [![TypeScript](https://img.shields.io/badge/TypeScript-6.0.3-3178C6?style=flat&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-4.3-38B2AC?style=flat&logo=tailwind-css&logoColor=white)](https://tailwindcss.com)
@@ -134,5 +134,3 @@ Manhattan Plumbing is fully optimized for autonomous AI agents and discovery eng
 ## 📄 License
 
 This project is private and intended for Manhattan Plumbing official use. Distributed under the [MIT License](LICENSE).
-
-

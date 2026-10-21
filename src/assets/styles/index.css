@@ -1,17 +1,53 @@
+/* ==========================================================================
+   DESIGN SYSTEM — index.css
+   Tailwind CSS v4 + shadcn/ui
+
+   TOKEN ARCHITECTURE (edit top-down; never skip a layer)
+   ---------------------------------------------------------------------------
+   1. PRIMITIVES   @theme            Raw values: palette, fonts, shadows, motion.
+                                     Never referenced directly by components.
+   2. SEMANTIC     :root / .dark     Meaning-based tokens (--primary, --border,
+                                     --link ...). Light/dark switching happens
+                                     ONLY here.
+   3. COMPONENT    :root             Scoped tokens (--prose-*, --carousel-*,
+                                     --layout-*). Built from semantic tokens.
+   4. APPLICATION  @layer base / ... Styles that consume tokens. No raw colors,
+                                     sizes or radii allowed here.
+
+   NAMING CONVENTION
+   ---------------------------------------------------------------------------
+   --{category}-{scope?}-{property}-{variant?}-{state?}
+   e.g. --prose-link-hover, --carousel-arrow-offset-mobile, --color-blue-600
+
+   RULES
+   - Colors: primitives are --color-<hue>-<step>. Everything else is semantic.
+   - To re-theme: change layer 1 or 2. To tweak one component: change layer 3.
+   - Dark mode: override semantic tokens in .dark. Do NOT write `.dark .foo`
+     rules for color — if you need one, a token is missing.
+   - shadcn blocks (marked [shadcn]) are CLI-managed. Keep custom tokens OUT
+     of them so `shadcn add` / theme regeneration never conflicts.
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   0. IMPORTS & PLUGINS
+   -------------------------------------------------------------------------- */
 @import 'tailwindcss';
 @import 'tw-animate-css';
 @import 'shadcn/tailwind.css';
 @import '@fontsource-variable/geist';
-
+@plugin '@tailwindcss/typography';
 @custom-variant dark (&:is(.dark *));
 
+/* --------------------------------------------------------------------------
+   1. PRIMITIVES
+   -------------------------------------------------------------------------- */
 @theme {
-  /* Fonts */
+  /* Typography */
   --font-sans:
-    'system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Helvetica Neue',
-    'Arial', 'sans-serif';
+    'Geist Variable', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+    'Helvetica Neue', Arial, sans-serif;
 
-  /* Colors */
+  /* Palette: brand blue (ordered 50 → 950) */
   --color-blue-50: #eef4ff;
   --color-blue-100: #d9e6ff;
   --color-blue-200: #bcd4ff;
@@ -20,281 +56,158 @@
   --color-blue-500: #2e66ff;
   --color-blue-600: #2563eb;
   --color-blue-700: #1d4ed8;
-  --color-green-900: #14532d;
   --color-blue-800: #172fb7;
   --color-blue-900: #1a2c8f;
   --color-blue-950: #141c54;
 
-  /* Shadows */
-  --shadow-strong: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+  /* Palette: green (override of Tailwind default) */
+  --color-green-900: #14532d;
 
-  /* Transitions */
+  /* Elevation */
+  --shadow-strong: 0 10px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+
+  /* Motion */
   --duration-400: 400ms;
+}
 
-  /* Container defaults */
-  --container-center: true;
-  --container-padding: 1rem;
+/* --------------------------------------------------------------------------
+   2. SEMANTIC TOKENS — custom (non-shadcn)
+   Brand / link / prose roles. Light values here, dark overrides in .dark.
+   -------------------------------------------------------------------------- */
+:root {
+  /* Links */
+  --link: var(--color-blue-600);
+  --link-hover: var(--color-blue-800);
+
+  /* Prose (long-form content) */
+  --prose-body: var(--color-slate-700);
+  --prose-heading: var(--color-slate-900);
+  --prose-bold: var(--color-slate-900);
+  --prose-counter: var(--color-slate-500);
+  --prose-bullet: var(--color-blue-500);
+  --prose-quote: var(--color-slate-600);
+  --prose-quote-border: var(--color-blue-500);
+  --prose-caption: var(--color-slate-500);
+  --prose-code: var(--color-slate-800);
+  --prose-code-bg: var(--color-slate-100);
+  --prose-pre: var(--color-slate-200);
+  --prose-pre-bg: var(--color-slate-800);
+  --prose-table-border: var(--color-slate-200);
+  --prose-thead: var(--color-slate-800);
+  --prose-thead-bg: var(--color-slate-200);
+}
+
+.dark {
+  --link: var(--color-blue-400);
+  --link-hover: var(--color-blue-200);
+
+  --prose-body: var(--color-slate-200);
+  --prose-heading: var(--color-slate-50);
+  --prose-bold: var(--color-slate-50);
+  --prose-counter: var(--color-slate-400);
+  --prose-bullet: var(--color-blue-400);
+  --prose-quote: var(--color-slate-300);
+  --prose-quote-border: var(--color-blue-400);
+  --prose-caption: var(--color-slate-400);
+  --prose-code: var(--color-slate-200);
+  --prose-code-bg: var(--color-slate-800);
+  --prose-pre: var(--color-slate-100);
+  --prose-pre-bg: var(--color-slate-700);
+  --prose-table-border: var(--color-slate-700);
+  --prose-thead: var(--color-slate-100);
+  --prose-thead-bg: var(--color-slate-700);
+}
+
+/* --------------------------------------------------------------------------
+   3. COMPONENT TOKENS — structure (non-color)
+   -------------------------------------------------------------------------- */
+:root {
+  /* Layout: responsive container gutter */
+  --layout-container-padding: 1rem;
+
+  /* Prose rhythm & shape */
+  --prose-heading-margin-top: 1.5em;
+  --prose-heading-margin-bottom: 0.5em;
+  --prose-paragraph-line-height: 1.75;
+  --prose-paragraph-margin-bottom: 1.25em;
+  --prose-block-margin: 1.5em; /* tables */
+  --prose-media-margin: 2em; /* images */
+  --prose-radius-sm: 0.25em; /* inline code */
+  --prose-radius-md: 0.5em; /* pre, table, img */
+  --prose-code-padding: 0.2em 0.4em;
+  --prose-pre-padding: 1em;
+  --prose-cell-padding: 0.75em;
+  --prose-quote-border-width: 4px;
+  --prose-quote-padding: 1em;
+  --prose-img-shadow: var(--shadow-md);
+
+  /* Carousel (react-slick) arrows */
+  --carousel-arrow-size: 48px;
+  --carousel-arrow-offset: -24px;
+  --carousel-arrow-offset-mobile: 0px;
+  --carousel-arrow-z: 10;
 }
 
 @media (width >= 640px) {
-  @theme {
-    --container-padding: 2rem;
+  :root {
+    --layout-container-padding: 2rem;
   }
 }
 
 @media (width >= 1024px) {
-  @theme {
-    --container-padding: 4rem;
+  :root {
+    --layout-container-padding: 4rem;
   }
 }
 
 @media (width >= 1280px) {
-  @theme {
-    --container-padding: 5rem;
+  :root {
+    --layout-container-padding: 5rem;
   }
 }
 
-@plugin '@tailwindcss/typography';
-
-/*
-  The default border color has changed to `currentcolor` in Tailwind CSS v4,
-  so we've added these compatibility styles to make sure everything still
-  looks the same as it did with Tailwind CSS v3.
-*/
-@layer base {
-  *,
-  ::after,
-  ::before,
-  ::backdrop,
-  ::file-selector-button {
-    border-color: var(--color-gray-200, currentcolor);
-  }
-  * {
-    @apply border-border outline-ring/50;
-  }
-  body {
-    @apply bg-background text-foreground;
-  }
-  html {
-    @apply font-sans;
-  }
-}
-
-/* Typography Customization */
-@layer base {
-  .prose {
-    --tw-prose-body: var(--color-slate-700);
-    --tw-prose-headings: var(--color-slate-900);
-    --tw-prose-links: var(--color-blue-600);
-    --tw-prose-bold: var(--color-slate-900);
-    --tw-prose-counters: var(--color-slate-500);
-    --tw-prose-bullets: var(--color-blue-500);
-    --tw-prose-quotes: var(--color-slate-600);
-    --tw-prose-quote-borders: var(--color-blue-500);
-    --tw-prose-captions: var(--color-slate-500);
-    --tw-prose-code: var(--color-slate-800);
-    --tw-prose-pre-code: var(--color-slate-200);
-    --tw-prose-pre-bg: var(--color-slate-800);
-    --tw-prose-th-borders: var(--color-slate-200);
-    --tw-prose-td-borders: var(--color-slate-200);
-  }
-
-  .dark .prose {
-    --tw-prose-body: var(--color-slate-200);
-    --tw-prose-headings: var(--color-slate-50);
-    --tw-prose-links: var(--color-blue-400);
-    --tw-prose-bold: var(--color-slate-50);
-    --tw-prose-counters: var(--color-slate-400);
-    --tw-prose-bullets: var(--color-blue-400);
-    --tw-prose-quotes: var(--color-slate-300);
-    --tw-prose-quote-borders: var(--color-blue-400);
-    --tw-prose-captions: var(--color-slate-400);
-    --tw-prose-code: var(--color-slate-200);
-    --tw-prose-pre-code: var(--color-slate-100);
-    --tw-prose-pre-bg: var(--color-slate-700);
-    --tw-prose-th-borders: var(--color-slate-700);
-    --tw-prose-td-borders: var(--color-slate-700);
-  }
-
-  .prose h1 {
-    display: none; /* Keep the existing override */
-    font-weight: 800;
-    font-size: var(--text-4xl);
-    line-height: 1.2;
-    margin-top: 1.5em;
-    margin-bottom: 0.5em;
-  }
-
-  .prose h2 {
-    font-weight: 700;
-    font-size: var(--text-3xl);
-    line-height: 1.3;
-    margin-top: 1.5em;
-    margin-bottom: 0.5em;
-  }
-
-  .prose h3 {
-    font-weight: 600;
-    font-size: var(--text-2xl);
-    line-height: 1.4;
-    margin-top: 1.5em;
-    margin-bottom: 0.5em;
-  }
-
-  .prose h4 {
-    font-weight: 500;
-    font-size: var(--text-xl);
-    line-height: 1.5;
-    margin-top: 1.5em;
-    margin-bottom: 0.5em;
-  }
-
-  .prose p {
-    line-height: 1.75;
-    margin-bottom: 1.25em;
-  }
-
-  .prose a {
-    text-decoration: none;
-  }
-
-  .prose a:hover {
-    color: var(--color-blue-800);
-    text-decoration: underline;
-  }
-
-  .dark .prose a:hover {
-    color: var(--color-blue-200);
-  }
-
-  .prose blockquote {
-    border-left-width: 4px;
-    padding-left: 1em;
-    font-style: italic;
-  }
-
-  .prose code {
-    background-color: var(--color-slate-100);
-    padding: 0.2em 0.4em;
-    border-radius: 0.25em;
-  }
-
-  .dark .prose code {
-    background-color: var(--color-slate-800);
-  }
-
-  .prose code::before,
-  .prose code::after {
-    content: '';
-  }
-
-  .prose pre {
-    border-radius: 0.5em;
-    padding: 1em;
-    overflow-x: auto;
-  }
-
-  .prose table {
-    width: 100%;
-    table-layout: auto;
-    border-collapse: collapse;
-    border-radius: 0.5em;
-    overflow: hidden;
-    margin-top: 1.5em;
-    margin-bottom: 1.5em;
-  }
-
-  .prose thead {
-    background-color: var(--color-slate-200);
-    color: var(--color-slate-800);
-  }
-
-  .dark .prose thead {
-    background-color: var(--color-slate-700);
-    color: var(--color-slate-100);
-  }
-
-  .prose th,
-  .prose td {
-    padding: 0.75em;
-    text-align: left;
-  }
-
-  .prose img {
-    border-radius: 0.5em;
-    box-shadow: var(--shadow-md);
-    margin-top: 2em;
-    margin-bottom: 2em;
-  }
-}
-
-/* Slick Carousel adjustments */
-.slick-prev:before,
-.slick-next:before {
-  display: none !important;
-}
-
-.slick-prev,
-.slick-next {
-  width: 48px;
-  height: 48px;
-  z-index: 10;
-  display: flex !important;
-  align-items: center;
-  justify-content: center;
-}
-
-.slick-prev {
-  left: -24px;
-}
-
-.slick-next {
-  right: -24px;
-}
-
-@media (max-width: 768px) {
-  .slick-prev {
-    left: 0px;
-  }
-  .slick-next {
-    right: 0px;
-  }
-}
-
+/* --------------------------------------------------------------------------
+   4. SHADCN BRIDGE  [shadcn]
+   Maps semantic CSS variables into Tailwind utilities. Do not add custom
+   tokens here.
+   -------------------------------------------------------------------------- */
 @theme inline {
   --font-heading: var(--font-sans);
-  --font-sans: 'Geist Variable', sans-serif;
-  --color-sidebar-ring: var(--sidebar-ring);
-  --color-sidebar-border: var(--sidebar-border);
-  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
-  --color-sidebar-accent: var(--sidebar-accent);
-  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
-  --color-sidebar-primary: var(--sidebar-primary);
-  --color-sidebar-foreground: var(--sidebar-foreground);
-  --color-sidebar: var(--sidebar);
-  --color-chart-5: var(--chart-5);
-  --color-chart-4: var(--chart-4);
-  --color-chart-3: var(--chart-3);
-  --color-chart-2: var(--chart-2);
-  --color-chart-1: var(--chart-1);
-  --color-ring: var(--ring);
-  --color-input: var(--input);
-  --color-border: var(--border);
-  --color-destructive: var(--destructive);
-  --color-accent-foreground: var(--accent-foreground);
-  --color-accent: var(--accent);
-  --color-muted-foreground: var(--muted-foreground);
-  --color-muted: var(--muted);
-  --color-secondary-foreground: var(--secondary-foreground);
-  --color-secondary: var(--secondary);
-  --color-primary-foreground: var(--primary-foreground);
-  --color-primary: var(--primary);
-  --color-popover-foreground: var(--popover-foreground);
-  --color-popover: var(--popover);
-  --color-card-foreground: var(--card-foreground);
-  --color-card: var(--card);
-  --color-foreground: var(--foreground);
+
   --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+
   --radius-sm: calc(var(--radius) * 0.6);
   --radius-md: var(--radius);
   --radius-lg: 0.5rem;
@@ -304,7 +217,10 @@
   --radius-4xl: calc(var(--radius) * 2.6);
 }
 
+/* [shadcn] Light theme */
 :root {
+  --radius: 0.375rem;
+
   --background: oklch(1 0 0);
   --foreground: oklch(0.145 0 0);
   --card: oklch(1 0 0);
@@ -323,12 +239,13 @@
   --border: oklch(0.922 0 0);
   --input: oklch(0.922 0 0);
   --ring: oklch(0.708 0 0);
+
   --chart-1: oklch(0.87 0 0);
   --chart-2: oklch(0.556 0 0);
   --chart-3: oklch(0.439 0 0);
   --chart-4: oklch(0.371 0 0);
   --chart-5: oklch(0.269 0 0);
-  --radius: 0.375rem;
+
   --sidebar: oklch(0.985 0 0);
   --sidebar-foreground: oklch(0.145 0 0);
   --sidebar-primary: oklch(0.205 0 0);
@@ -339,6 +256,7 @@
   --sidebar-ring: oklch(0.708 0 0);
 }
 
+/* [shadcn] Dark theme */
 .dark {
   --background: oklch(0.145 0 0);
   --foreground: oklch(0.985 0 0);
@@ -358,11 +276,13 @@
   --border: oklch(1 0 0 / 10%);
   --input: oklch(1 0 0 / 15%);
   --ring: oklch(0.556 0 0);
+
   --chart-1: oklch(0.87 0 0);
   --chart-2: oklch(0.556 0 0);
   --chart-3: oklch(0.439 0 0);
   --chart-4: oklch(0.371 0 0);
   --chart-5: oklch(0.269 0 0);
+
   --sidebar: oklch(0.205 0 0);
   --sidebar-foreground: oklch(0.985 0 0);
   --sidebar-primary: oklch(0.488 0.243 264.376);
@@ -371,4 +291,189 @@
   --sidebar-accent-foreground: oklch(0.985 0 0);
   --sidebar-border: oklch(1 0 0 / 10%);
   --sidebar-ring: oklch(0.556 0 0);
+}
+
+/* --------------------------------------------------------------------------
+   5. UTILITIES
+   -------------------------------------------------------------------------- */
+
+/* Container: centered, with responsive gutter from --layout-container-padding */
+@utility container {
+  margin-inline: auto;
+  padding-inline: var(--layout-container-padding);
+}
+
+/* --------------------------------------------------------------------------
+   6. BASE
+   -------------------------------------------------------------------------- */
+@layer base {
+  /* Tailwind v4 defaults borders to currentcolor; restore the themed color. */
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    @apply border-border outline-ring/50;
+  }
+
+  html {
+    @apply font-sans;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   7. PROSE (@tailwindcss/typography)
+   Colors map once from semantic tokens; dark mode needs no extra rules.
+   -------------------------------------------------------------------------- */
+@layer base {
+  .prose {
+    --tw-prose-body: var(--prose-body);
+    --tw-prose-headings: var(--prose-heading);
+    --tw-prose-links: var(--link);
+    --tw-prose-bold: var(--prose-bold);
+    --tw-prose-counters: var(--prose-counter);
+    --tw-prose-bullets: var(--prose-bullet);
+    --tw-prose-quotes: var(--prose-quote);
+    --tw-prose-quote-borders: var(--prose-quote-border);
+    --tw-prose-captions: var(--prose-caption);
+    --tw-prose-code: var(--prose-code);
+    --tw-prose-pre-code: var(--prose-pre);
+    --tw-prose-pre-bg: var(--prose-pre-bg);
+    --tw-prose-th-borders: var(--prose-table-border);
+    --tw-prose-td-borders: var(--prose-table-border);
+  }
+
+  /* Page title is rendered outside the prose body; hide the in-content h1. */
+  .prose h1 {
+    display: none;
+  }
+
+  /* Headings: weight / size / line-height scale */
+  .prose h2,
+  .prose h3,
+  .prose h4 {
+    margin-top: var(--prose-heading-margin-top);
+    margin-bottom: var(--prose-heading-margin-bottom);
+  }
+
+  .prose h2 {
+    font-weight: 700;
+    font-size: var(--text-3xl);
+    line-height: 1.3;
+  }
+
+  .prose h3 {
+    font-weight: 600;
+    font-size: var(--text-2xl);
+    line-height: 1.4;
+  }
+
+  .prose h4 {
+    font-weight: 500;
+    font-size: var(--text-xl);
+    line-height: 1.5;
+  }
+
+  .prose p {
+    line-height: var(--prose-paragraph-line-height);
+    margin-bottom: var(--prose-paragraph-margin-bottom);
+  }
+
+  .prose a {
+    text-decoration: none;
+  }
+
+  .prose a:hover {
+    color: var(--link-hover);
+    text-decoration: underline;
+  }
+
+  .prose blockquote {
+    border-left-width: var(--prose-quote-border-width);
+    padding-left: var(--prose-quote-padding);
+    font-style: italic;
+  }
+
+  .prose code {
+    background-color: var(--prose-code-bg);
+    padding: var(--prose-code-padding);
+    border-radius: var(--prose-radius-sm);
+  }
+
+  .prose code::before,
+  .prose code::after {
+    content: '';
+  }
+
+  .prose pre {
+    border-radius: var(--prose-radius-md);
+    padding: var(--prose-pre-padding);
+    overflow-x: auto;
+  }
+
+  .prose table {
+    width: 100%;
+    table-layout: auto;
+    border-collapse: collapse;
+    border-radius: var(--prose-radius-md);
+    overflow: hidden;
+    margin-block: var(--prose-block-margin);
+  }
+
+  .prose thead {
+    background-color: var(--prose-thead-bg);
+    color: var(--prose-thead);
+  }
+
+  .prose th,
+  .prose td {
+    padding: var(--prose-cell-padding);
+    text-align: left;
+  }
+
+  .prose img {
+    border-radius: var(--prose-radius-md);
+    box-shadow: var(--prose-img-shadow);
+    margin-block: var(--prose-media-margin);
+  }
+}
+
+/* --------------------------------------------------------------------------
+   8. THIRD-PARTY OVERRIDES — react-slick carousel
+   -------------------------------------------------------------------------- */
+.slick-prev:before,
+.slick-next:before {
+  display: none !important;
+}
+
+.slick-prev,
+.slick-next {
+  width: var(--carousel-arrow-size);
+  height: var(--carousel-arrow-size);
+  z-index: var(--carousel-arrow-z);
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+}
+
+.slick-prev {
+  left: var(--carousel-arrow-offset);
+}
+
+.slick-next {
+  right: var(--carousel-arrow-offset);
+}
+
+@media (width <= 48rem) {
+  .slick-prev {
+    left: var(--carousel-arrow-offset-mobile);
+  }
+
+  .slick-next {
+    right: var(--carousel-arrow-offset-mobile);
+  }
 }
