@@ -64,7 +64,6 @@ const MobileNav: React.FC<MobileNavProps> = ({
                         <Link
                           key={subItem.label}
                           href={subItem.href}
-                          title={subItem.title}
                           onClick={() => setIsOpen(false)}
                           className="block py-2 text-lg text-slate-600 transition-colors hover:text-blue-600 dark:text-slate-300 dark:hover:text-blue-400"
                         >
@@ -77,7 +76,6 @@ const MobileNav: React.FC<MobileNavProps> = ({
               ) : (
                 <Link
                   href={item.href!}
-                  title={item.title}
                   onClick={() => setIsOpen(false)}
                   className="block py-3 text-xl font-medium text-slate-800 transition-colors hover:text-blue-600 dark:text-white dark:hover:text-blue-400"
                 >

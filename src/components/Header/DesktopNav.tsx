@@ -58,12 +58,11 @@ const DropdownMenu = ({ children }: { children: React.ReactNode }) => (
   </ul>
 )
 
-const MenuItem = ({ label, href, title }: { label: string; href: string; title?: string }) => {
+const MenuItem = ({ label, href }: { label: string; href: string }) => {
   return (
     <li role="none">
       <a
         href={href}
-        title={title}
         className="block px-4 py-2 text-slate-700 transition-colors hover:bg-slate-100 dark:text-slate-200 dark:hover:bg-slate-700"
         role="menuitem"
       >
@@ -105,12 +104,12 @@ const DesktopNav: React.FC<DesktopNavProps> = ({
                 />
                 <DropdownMenu>
                   {item.children.map((child) => (
-                <MenuItem key={child.label} label={child.label} href={child.href} title={child.title} />
+                    <MenuItem key={child.label} label={child.label} href={child.href} />
                   ))}
                 </DropdownMenu>
               </>
             ) : (
-              <a href={item.href} title={item.title} className={`font-medium transition-colors ${linkColorClass}`}>
+              <a href={item.href} className={`font-medium transition-colors ${linkColorClass}`}>
                 {item.label}
               </a>
             )}
