@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   description:
     'Get in touch with Manhattan Plumbing for all your plumbing needs. We are available 24/7 for emergencies.',
   alternates: {
-    canonical: '/contact',
+    canonical: '/contact/',
     types: {
       'text/markdown': 'https://manhattan-plumbing.pages.dev/contact/index.md',
     },
@@ -19,7 +19,7 @@ export const metadata: Metadata = {
     title: 'Contact Us | Manhattan Plumbing',
     description:
       'Get in touch with Manhattan Plumbing for all your plumbing needs. We are available 24/7 for emergencies.',
-    url: '/contact',
+    url: '/contact/',
   },
 }
 
